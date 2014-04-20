@@ -3,12 +3,12 @@
 /* CSS Document */
 
 html {left:0; right:0; top:0; bottom:0;  font-family:"open_sansregular" ;} 
-body {color:#FFF; background:#FFF; direction:ltr;left:0; background-size:cover; right:0; top:0; bottom:0;margin:0px;  font-family:"open_sansregular" ;} 
+body {color:#FFF; background:#01666e; direction:ltr;left:0; background-size:cover; right:0; top:0; bottom:0;margin:0px;  font-family:"open_sansregular" ;} 
 .fix-height{min-height:100px;max-height:100px }
 .clear-float{ clear:both}
 .menu{width:100%;height:30%;margin:0px}
 .total{width:100% ; margin:0px}
-.servic-menu{float:left  ; padding:1px ; height:100px; cursor:pointer}
+.servic-menu{float:left  ; padding:1px ; height:100px; cursor:pointer; text-align:center}
 .servic-menuhome{float:left ; width:100% ; padding:1px ; height:100px ;cursor:pointer}
 .bghome{ background:#01666e}
 .bgbms{background:#097b84}
@@ -16,14 +16,16 @@ body {color:#FFF; background:#FFF; direction:ltr;left:0; background-size:cover; 
 .bgweb{background:#1da0aa}
 .bggraphic{background:#29b7c2}
 .bgcamera{background:#3ccad5}
-.servic-descriptipn{width:100% ; height:71.5% }
+.servic-descriptipn{width:100% ; height:70.4% }
 .servic-descriptipn .text { width:100% ;height:25%; margin-top:100px ; padding:3px ; font-family:"open_sansregular" ; font-size:40px ; color:#FFF}
 .servic-descriptipn .link{ width:100% ;height:65%; }
-.servic-descriptipn .link .button { width:35% ; margin-left:20px; background:#49d7b0 ; padding:2px}
-.servic-descriptipn .link .button .item {float:right ; width:80% ;padding:2px }
-.servic-descriptipn .link .button .icon { float:right ; width:20% ; background:#000;padding:2px}
-.footer{width:100%;height:14%;padding: 1px;position:absolute;margin-top:501px}
-.footer .phone{height:100%;color:#FFF; background:#49d7b0;width:40%;float:right}
-.footer .address{height:100%;background:#FFF ; color:#49d7b0;width:60%;float:left}
+.servic-descriptipn .link .button { width:35% ; margin-left:20px; background:#49d7b0 ; margin-bottom:5px}
+.servic-descriptipn .link .button:hover {background:#82C6B3}
+.servic-descriptipn .link .button .item {float:right ; width:80% ;padding:8px; font-size:20px }
+.servic-descriptipn .link .button .icon { float:right ; width:20% ; background:#82C6B3;padding:2px}
+.footer{width:100%;height:15%;position:absolute; bottom:0}
+.footer .phone{height:100%;color:#FFF; background:#49d7b0;width:40%;float:right; padding:5px}
+.footer .address{height:100%;background:#FFF ; color:#49d7b0;width:60%;float:left;padding:5px}
+.footer .middle {margin:20px}
 .diplaynone{position:absolute; display:none;}
 

@@ -1,7 +1,6 @@
 = form_for @design_sample do |f|
   - if @design_sample.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@design_sample.errors.count, "error")} prohibited this design_sample from being saved:"
+    #error_explanation      
       %ul
         - @design_sample.errors.full_messages.each do |msg|
           %li= msg
@@ -22,4 +21,4 @@
     = f.label :date
     = f.date_select :date
   .actions
-    = f.submit 'Save'
+    = f.submit 'ثبت', :class => "btn btn-info"
