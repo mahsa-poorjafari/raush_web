@@ -1,0 +1,24 @@
+%h1 تیم کاری
+
+%table
+  %tr
+    %th نام
+    %th نام خانوادگی
+    %th سمت
+    %th
+    %th
+    %th
+
+  - @teams.each do |team|
+    %tr
+      %td= team.name
+      %td= team.last_name
+      %td= team.post
+      %td= link_to 'Show', team
+      %td= link_to 'Edit', edit_team_path(team)
+      %td= link_to 'Destroy', team, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Team', new_team_path
+= link_to 'صفحه اصلی' , root_path

@@ -1,0 +1,22 @@
+= form_for @team do |f|
+  - if @team.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@team.errors.count, "error")} prohibited this team from being saved:"
+      %ul
+        - @team.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label "نام:"
+    = f.text_field :name
+  .field
+    = f.label "نام خانوادگی:"
+    = f.text_field :last_name
+  .field
+    = f.label "سمت:"
+    = f.text_field :post
+  .field
+    = f.label "تصویر:"
+    = f.file_field :image
+  .actions
+    = f.submit 'ثبت'

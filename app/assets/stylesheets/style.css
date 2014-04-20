@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+.clear-float{ clear:both}
+.menu{width:100%; margin:0px; height:30%}
+.total{width:100% ; margin:0px}
+.go-center {margin-right:auto; margin-left:auto}
+.servic-menu{float:left ; width:15.08% ; padding:1px ; min-height:100%;max-height:100%; cursor:pointer}
+.servic-menuhome{float:left ; width:23.65% ; padding:1px ; min-height:100% ; max-height:100%;cursor:pointer; text-align:center}
+
+.fix-height {min-height:100px; max-height:100px}
+.bghome{ background:#01666e}
+.bgbms{background:#097b84}
+.bgnet{background:#118f99}
+.bgweb{background:#1da0aa}
+.bggraphic{background:#29b7c2}
+.bgcamera{background:#3ccad5}
+.servic-descriptipn{width:100% ; height:504px; margin:0px; position:relative }
+.servic-discription-pic{float:left ; width:50% ; height:90%;  }
+.servic-discription-txt {float:right; width:45% ; height:90%; }
+.servic-discription-txt .text { width:100% ;height:45%; }
+.servic-discription-txt .link{ width:100% ;height:45%; }
+.footer{width:99%;height:71px;position:absolute;margin-top:504px}
+.footer .phone{height:100%;color:#FFF; background:#49d7b0;width:40%;float:right}
+.footer .address{height:100%;background:#FFF ; color:#49d7b0;width:60%;float:left}
+.diplaynone{position:absolute; display:none;}
