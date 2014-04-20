@@ -4,8 +4,12 @@
     src: url('/assets/BYekan.eot?#iefix') format('embedded-opentype'),
          url('/assets/BYekan.woff') format('woff'),
          url('/assets/BYekan.ttf') format('truetype'),
-         url('/assets/BYekan.svg#open_sansregular') format('svg'),
-         url('/assets/AftaSansThin-Regular') format('otf');
+         url('/assets/BYekan.svg#open_sansregular') format('svg');
+    src: url('/assets/aftasansthin-regular.eot');
+    src: url('/assets/aftasansthin-regular.eot?#iefix') format('embedded-opentype'),
+         url('/assets/aftasansthin-regular.woff') format('woff'),
+         url('/assets/aftasansthin-regular.ttf') format('truetype'),
+         url('/assets/aftasansthin-regular.svg#open_sansregular') format('svg');
     font-weight: normal;
     font-style: normal;
 

@@ -69,6 +69,6 @@ class DesignSamplesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def design_sample_params
-      params.require(:design_sample).permit(:name, :website, :description, :date)
+      params.require(:design_sample).permit(:name, :website, :description, :date, :type)
     end
 end

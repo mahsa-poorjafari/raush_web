@@ -2,31 +2,28 @@
 
 /* CSS Document */
 
+html {left:0; right:0; top:0; bottom:0;  font-family:"open_sansregular" ;} 
+body {color:#FFF; background:#FFF; direction:ltr;left:0; background-size:cover; right:0; top:0; bottom:0;margin:0px;  font-family:"open_sansregular" ;} 
+.fix-height{min-height:100px;max-height:100px }
 .clear-float{ clear:both}
-.menu{width:100%; margin:0px; height:30%}
+.menu{width:100%;height:30%;margin:0px}
 .total{width:100% ; margin:0px}
-.go-center {margin-right:auto; margin-left:auto}
-.servic-menu{float:left ; width:15.08% ; padding:1px ; min-height:100%;max-height:100%; cursor:pointer}
-.servic-menuhome{float:left ; width:23.65% ; padding:1px ; min-height:100% ; max-height:100%;cursor:pointer; text-align:center}
-
-.fix-height {min-height:100px; max-height:100px}
+.servic-menu{float:left  ; padding:1px ; height:100px; cursor:pointer}
+.servic-menuhome{float:left ; width:100% ; padding:1px ; height:100px ;cursor:pointer}
 .bghome{ background:#01666e}
 .bgbms{background:#097b84}
 .bgnet{background:#118f99}
 .bgweb{background:#1da0aa}
 .bggraphic{background:#29b7c2}
 .bgcamera{background:#3ccad5}
-.servic-descriptipn{width:100% ; height:504px; margin:0px; position:relative }
-.servic-discription-pic{float:left ; width:50% ; height:90%;  }
-.servic-discription-txt {float:right; width:45% ; height:90%; margin:10px}
-.servic-discription-txt .text { width:100% ;height:45%; color:#fff; font-size:15px}
-.servic-discription-txt .link{ width:100% ;height:45%; }
-.footer{width:99%;height:71px;position:absolute;margin-top:504px}
+.servic-descriptipn{width:100% ; height:71.5% }
+.servic-descriptipn .text { width:100% ;height:25%; margin-top:100px ; padding:3px ; font-family:"open_sansregular" ; font-size:40px ; color:#FFF}
+.servic-descriptipn .link{ width:100% ;height:65%; }
+.servic-descriptipn .link .button { width:35% ; margin-left:20px; background:#49d7b0 ; padding:2px}
+.servic-descriptipn .link .button .item {float:right ; width:80% ;padding:2px }
+.servic-descriptipn .link .button .icon { float:right ; width:20% ; background:#000;padding:2px}
+.footer{width:100%;height:14%;padding: 1px;position:absolute;margin-top:501px}
 .footer .phone{height:100%;color:#FFF; background:#49d7b0;width:40%;float:right}
 .footer .address{height:100%;background:#FFF ; color:#49d7b0;width:60%;float:left}
 .diplaynone{position:absolute; display:none;}
-.team-work {margin:10px}
-.show-team {float:left; width:30%; height:200px; margin:9px}
-.show-team .team-pic {  width:100%; }
-.show-team .team-pic img{ border-radius:100px;  }
-.show-team .team-des { width:100%; height:50px; text-align:center; color:#fff}
+
