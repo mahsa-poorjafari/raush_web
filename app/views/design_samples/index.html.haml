@@ -1,0 +1,25 @@
+%h1 Listing design_samples
+
+%table
+  %tr
+    %th Name
+    %th Website
+    %th Description
+    %th Date
+    %th
+    %th
+    %th
+
+  - @design_samples.each do |design_sample|
+    %tr
+      %td= design_sample.name
+      %td= design_sample.website
+      %td= design_sample.description
+      %td= design_sample.date
+      %td= link_to 'Show', design_sample
+      %td= link_to 'Edit', edit_design_sample_path(design_sample)
+      %td= link_to 'Destroy', design_sample, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Design sample', new_design_sample_path

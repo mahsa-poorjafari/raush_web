@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @design_sample.name
+%p
+  %b Website:
+  = @design_sample.website
+%p
+  %b Description:
+  = @design_sample.description
+%p
+  %b Date:
+  = @design_sample.date
+
+= link_to 'Edit', edit_design_sample_path(@design_sample)
+\|
+= link_to 'Back', design_samples_path

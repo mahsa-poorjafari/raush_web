@@ -1,0 +1,23 @@
+%h1 Listing tariff_prices
+
+%table
+  %tr
+    %th Modual
+    %th Unit price
+    %th Number
+    %th
+    %th
+    %th
+
+  - @tariff_prices.each do |tariff_price|
+    %tr
+      %td= tariff_price.modual
+      %td= tariff_price.unit_price
+      %td= tariff_price.number
+      %td= link_to 'Show', tariff_price
+      %td= link_to 'Edit', edit_tariff_price_path(tariff_price)
+      %td= link_to 'Destroy', tariff_price, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Tariff price', new_tariff_price_path

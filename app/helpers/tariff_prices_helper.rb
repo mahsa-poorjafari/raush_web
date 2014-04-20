@@ -1,0 +1,2 @@
+module TariffPricesHelper
+end

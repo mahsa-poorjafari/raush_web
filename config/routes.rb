@@ -1,4 +1,8 @@
 RaushWeb::Application.routes.draw do
+  resources :design_samples
+
+  resources :tariff_prices
+
   resources :teams
 
   #get "raush" => "static#home"

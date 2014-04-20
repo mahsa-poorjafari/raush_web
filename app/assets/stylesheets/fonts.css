@@ -4,7 +4,8 @@
     src: url('/assets/BYekan.eot?#iefix') format('embedded-opentype'),
          url('/assets/BYekan.woff') format('woff'),
          url('/assets/BYekan.ttf') format('truetype'),
-         url('/assets/BYekan.svg#open_sansregular') format('svg');
+         url('/assets/BYekan.svg#open_sansregular') format('svg'),
+         url('/assets/AftaSansThin-Regular') format('otf');
     font-weight: normal;
     font-style: normal;
 

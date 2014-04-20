@@ -21,11 +21,20 @@
     .clear-float
     
   #idhome.servic-descriptipn.bghome.diplaynone{style: "display: block"}
-    .servic-discription-pic pic
+    .servic-discription-pic.team-work
+      - @teams.each do |team|
+        .show-team
+          .team-pic
+            = image_tag team.image(:small)
+          .team-des
+            =  team.name
+            =  team.last_name
+            =  team.post
+      .clear-float
     .servic-discription-txt
       .text 
-        
-      .link des
+        گروه مهندسین راش
+      .link 
       .clear-float
   #idbms.servic-descriptipn.bgbms.diplaynone
     .servic-discription-pic pic
