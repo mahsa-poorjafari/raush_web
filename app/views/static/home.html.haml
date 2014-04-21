@@ -1,157 +1,132 @@
-.container-full
-  .row
-    .col-md-9.col-md-push-3
-      #idbmsicon.col-md-2.servic-menu.bgbms{"div-name" => "idbms"}
-        = image_tag "ICON/Bms4.png", height: "85", width: "108", alt: "BMS"
-      #idneticon.col-md-2.servic-menu.bgnet{"div-name" => "idnet"}
-        = image_tag "ICON/Network.png", height: "91", width: "119", alt: "NETWORK"        
-      #idwebicon.col-md-2.servic-menu.bgweb{"div-name" => "idweb"}
-        = image_tag "ICON/web.png", height: "85", width: "108", alt: "NETWORK"        
-      #idgraphicicon.col-md-2.servic-menu.bggraphic{"div-name" => "idgraphic"}
-        = image_tag "ICON/Design.png", height: "85", width: "108", alt: "DESIGN"        
-      #idcameraicon.col-md-2.servic-menu.bgcamera{"div-name" => "idcamera"}        
-        = image_tag "ICON/cctv2 cam.png", height: "85", width: "108", alt: "CAMERA"
-      .clear-float
-    .col-md-3.col-md-pull-9
-      #idhomeicon.bghome.servic-menu.servic-menuhome{"div-name" => "idhome"}
-        = image_tag "ICON/logo end.png", height: "100", width: "250", alt: "RAUSH LOGO"        
+#idhome.servic-descriptipn.bghome.diplaynone{style: "display: block"}
+  .col-xs-6 pic
+  .col-xs-6
+    .text inja yek chizi midim
+    .link
+      
+      
+    .clear-float
+#idbms.servic-descriptipn.bgbms.diplaynone
+  .col-xs-6 pic
+  .col-xs-6
+    .text Active energy solution
+    .link
+      .button
+        .item tarefe gheimat
+        .icon
+          = image_tag "ICON/bms2.png", width: "40", height: "40"              
+        .clear-float
+      .button
+        .item tarefe gheimat
+        .icon
+          = image_tag "ICON/bms2.png", width: "40", height: "40"              
+        .clear-float
+      .button
+        .item tarefe gheimat
+        .icon
+          = image_tag "ICON/bms2.png", width: "40", height: "40"              
+        .clear-float
+    .clear-float
+#idnet.servic-descriptipn.bgnet.diplaynone
+  .col-xs-6 pic
+  .col-xs-6
+    .text Access everything everywhere
+    .link
+      .button
+        .item tarefe gheimat
+        .icon
+          = image_tag "ICON/bms2.png", width: "40", height: "40"              
+        .clear-float
+      .button
+        .item tarefe gheimat
+        .icon
+          = image_tag "ICON/bms2.png", width: "40", height: "40"              
+        .clear-float
+      .button
+        .item tarefe gheimat
+        .icon
+          = image_tag "ICON/bms2.png", width: "40", height: "40"              
+        .clear-float
+    .clear-float
+#idweb.servic-descriptipn.bgweb.diplaynone
+  .col-xs-6 pic
+  .col-xs-6
+    .text ease of use, performance and innovation
+    .link
+      .button            
+        = link_to tariff_prices_path do
+          .item
+            تعرفه قیمت
+        .icon
+          = image_tag "ICON/bms2.png", width: "40", height: "40"              
+        .clear-float
+      .button
+        = link_to design_samples_path do
+          .item
+            نمونه کارها
+        .icon
+          = image_tag "ICON/bms2.png", width: "40", height: "40"              
+        .clear-float
+      .button
+        = link_to '#' do
+          .item
+            فروش هاست
+        .icon
+          = image_tag "ICON/bms2.png", width: "40", height: "40"              
+        .clear-float
+      .button
+        = link_to '#' do
+          .item
+            سفارش آنلاین
+        .icon
+          = image_tag "ICON/bms2.png", width: "40", height: "40"              
+        .clear-float
+    .clear-float
+#idgraphic.servic-descriptipn.bggraphic.diplaynone
+  .col-xs-6 pic
+  .col-xs-6
+    .text good desing is good business
+    .link
+      .button
+        .item tarefe gheimat
+        .icon
+          = image_tag "ICON/bms2.png", width: "40", height: "40"              
+        .clear-float
+      .button
+        .item tarefe gheimat
+        .icon
+          = image_tag "ICON/bms2.png", width: "40", height: "40"              
+        .clear-float
+      .button
+        .item tarefe gheimat
+        .icon
+          = image_tag "ICON/bms2.png", width: "40", height: "40"              
+        .clear-float
+    .clear-float
+#idcamera.servic-descriptipn.bgcamera.diplaynone
+  .col-xs-6 pic
+  .col-xs-6
+    .text i can see you !!
+    .link
+      .button
+        .item tarefe gheimat
+        .icon
+          = image_tag "ICON/bms2.png", width: "40", height: "40"              
+        .clear-float
+        
+      .button
+        .item tarefe gheimat
+        .icon
+          = image_tag "ICON/bms2.png", width: "40", height: "40"              
+        .clear-float
+      .button
+        .item tarefe gheimat
+        .icon
+          = image_tag "ICON/bms2.png", width: "40", height: "40"              
+        .clear-float
+    .clear-float
 
-  .row
-    #idhome.servic-descriptipn.bghome.diplaynone{style: "display: block"}
-      .col-xs-6 pic
-      .col-xs-6
-        .text inja yek chizi midim
-        .link
-          
-          
-        .clear-float
-    #idbms.servic-descriptipn.bgbms.diplaynone
-      .col-xs-6 pic
-      .col-xs-6
-        .text Active energy solution
-        .link
-          .button
-            .item tarefe gheimat
-            .icon
-              = image_tag "ICON/bms2.png", width: "40", height: "40"              
-            .clear-float
-          .button
-            .item tarefe gheimat
-            .icon
-              = image_tag "ICON/bms2.png", width: "40", height: "40"              
-            .clear-float
-          .button
-            .item tarefe gheimat
-            .icon
-              = image_tag "ICON/bms2.png", width: "40", height: "40"              
-            .clear-float
-        .clear-float
-    #idnet.servic-descriptipn.bgnet.diplaynone
-      .col-xs-6 pic
-      .col-xs-6
-        .text Access everything everywhere
-        .link
-          .button
-            .item tarefe gheimat
-            .icon
-              = image_tag "ICON/bms2.png", width: "40", height: "40"              
-            .clear-float
-          .button
-            .item tarefe gheimat
-            .icon
-              = image_tag "ICON/bms2.png", width: "40", height: "40"              
-            .clear-float
-          .button
-            .item tarefe gheimat
-            .icon
-              = image_tag "ICON/bms2.png", width: "40", height: "40"              
-            .clear-float
-        .clear-float
-    #idweb.servic-descriptipn.bgweb.diplaynone
-      .col-xs-6 pic
-      .col-xs-6
-        .text ease of use, performance and innovation
-        .link
-          .button            
-            = link_to tariff_prices_path do
-              .item
-                تعرفه قیمت
-            .icon
-              = image_tag "ICON/bms2.png", width: "40", height: "40"              
-            .clear-float
-          .button
-            = link_to design_samples_path do
-              .item
-                نمونه کارها
-            .icon
-              = image_tag "ICON/bms2.png", width: "40", height: "40"              
-            .clear-float
-          .button
-            = link_to tariff_prices_path do
-              .item
-                فروش هاست
-            .icon
-              = image_tag "ICON/bms2.png", width: "40", height: "40"              
-            .clear-float
-          .button
-            = link_to tariff_prices_path do
-              .item
-                سفارش آنلاین
-            .icon
-              = image_tag "ICON/bms2.png", width: "40", height: "40"              
-            .clear-float
-        .clear-float
-    #idgraphic.servic-descriptipn.bggraphic.diplaynone
-      .col-xs-6 pic
-      .col-xs-6
-        .text good desing is good business
-        .link
-          .button
-            .item tarefe gheimat
-            .icon
-              = image_tag "ICON/bms2.png", width: "40", height: "40"              
-            .clear-float
-          .button
-            .item tarefe gheimat
-            .icon
-              = image_tag "ICON/bms2.png", width: "40", height: "40"              
-            .clear-float
-          .button
-            .item tarefe gheimat
-            .icon
-              = image_tag "ICON/bms2.png", width: "40", height: "40"              
-            .clear-float
-        .clear-float
-    #idcamera.servic-descriptipn.bgcamera.diplaynone
-      .col-xs-6 pic
-      .col-xs-6
-        .text i can see you !!
-        .link
-          .button
-            .item tarefe gheimat
-            .icon
-              = image_tag "ICON/bms2.png", width: "40", height: "40"              
-            .clear-float
-            
-          .button
-            .item tarefe gheimat
-            .icon
-              = image_tag "ICON/bms2.png", width: "40", height: "40"              
-            .clear-float
-          .button
-            .item tarefe gheimat
-            .icon
-              = image_tag "ICON/bms2.png", width: "40", height: "40"              
-            .clear-float
-        .clear-float
-  .footer.row
-    .phone.col-xs-12.col-sm-6.col-md-8 
-      .middle
-        Tel:+98-511-8783863
-    .address.col-xs-6.col-md-4 
-      .middle
-        Address: No134
-  .clear-float
-    
-   
-     
+
+
+
+ 

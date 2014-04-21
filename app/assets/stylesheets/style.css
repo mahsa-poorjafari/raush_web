@@ -28,4 +28,36 @@ body {color:#FFF; background:#01666e; direction:ltr;left:0; background-size:cove
 .footer .address{height:100%;background:#FFF ; color:#49d7b0;width:60%;float:left;padding:5px}
 .footer .middle {margin:20px}
 .diplaynone{position:absolute; display:none;}
+.show-info {direction:rtl; padding:5px}
+.first-row {text-align:center; font-size:18px; font-weight:bold}
+.admin-menu {
+  width:100px;
+  height:30px;
+  background:#ADD8E6;
+  transition:height 1s;
+  transition-timing-function:ease-in;
+  /* Safari */
+  -webkit-transition:height 1s;
+  -webkit-transition-timing-function:ease-in; }
+.admin-menu .menu-link {border:#1E90FF solid 1px;width:150px; background:#ADD8E6; font-size:16px}
+.admin-menu .menu-link a {color:#292931; }
+.admin-menu .menu-link a:hover {color:#292931; background:#BFBFBF }
+.admin-menu:hover {height:300px}
+.admin-menu  {
+  margin-right:-40px;
+/* Safari */
+-webkit-transform: rotate(-90deg);
+
+/* Firefox */
+-moz-transform: rotate(-90deg);
+
+/* IE */
+-ms-transform: rotate(-90deg);
+
+/* Opera */
+-o-transform: rotate(-90deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
 

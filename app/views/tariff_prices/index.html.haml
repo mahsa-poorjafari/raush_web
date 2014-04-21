@@ -1,24 +1,29 @@
-%h1 Listing tariff_prices
+.servic-descriptipn.show-info
+  %h1 تعرفه قیمت 
 
-%table
-  %tr
-    %th Modual
-    %th Unit price
-    %th Number
-    %th
-    %th
-    %th
+  .row.first-row    
+    .col-xs-6
+      .col-md-4= "قیمت واحد"
+      .col-md-4= "تعداد"
+      .col-md-4= "هزینه "
+    .col-xs-6= "ماژول"
+  .row  
+    - @tariff_prices.each do |tariff_price|
+      .row        
+        .col-xs-6
+          .col-md-4= tariff_price.unit_price
+          .col-md-4= tariff_price.number        
+          .col-md-4
+          .col-md-4
+            = link_to 'Edit', edit_tariff_price_path(tariff_price)
+            = link_to 'Destroy', tariff_price, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        .col-xs-6= tariff_price.modual
 
-  - @tariff_prices.each do |tariff_price|
-    %tr
-      %td= tariff_price.modual
-      %td= tariff_price.unit_price
-      %td= tariff_price.number
-      %td= link_to 'Show', tariff_price
-      %td= link_to 'Edit', edit_tariff_price_path(tariff_price)
-      %td= link_to 'Destroy', tariff_price, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Tariff price', new_tariff_price_path
-= link_to "صفحه اصلی",  root_path
+  %br
+  .admin-menu
+    .btn.btn-default
+      منوی مدیرسایت
+    
+    = link_to 'تعریف تعرفه جدید', new_tariff_price_path
+    %br
+    = link_to "صفحه اصلی",  root_path
