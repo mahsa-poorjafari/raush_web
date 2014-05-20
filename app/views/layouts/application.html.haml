@@ -1,11 +1,17 @@
 !!!
 %html
   %head
-    %title RaushWeb
-    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
-    = javascript_include_tag "application", "data-turbolinks-track" => true
+    %meta{charset: "utf-8"}/
+    %title RAUSH
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true 
+    = javascript_include_tag "application", "data-turbolinks-track" => true 
     = csrf_meta_tags
-  %body
+    %meta{:charset => "utf-8"}
+    %meta{:name => "keywords", :content => 'bms , website, graphic, camera' } 
+    %meta{:name => "description", :content => "شرکت راش"}
+    %meta{content: "no", "http-equiv" => "imagetoolbar"}
+    = favicon_link_tag 'favicon.png', :rel => 'shortcut icon'
+  %body{style: "margin:0px"}
     .container-full
       .row
         = render "shared/nav_bar"
