@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class TariffPricesController < ApplicationController
   before_action :set_tariff_price, only: [:show, :edit, :update, :destroy]
 

@@ -1,0 +1,18 @@
+%p#notice= notice
+= t('hello')
+%p
+  %b Title en:
+  = @service.title_en
+%p
+  %b Title fa:
+  = @service.title_fa
+%p
+  %b Description en:
+  = @service.description_en
+%p
+  %b Description fa:
+  = @service.description_fa
+
+= link_to 'Edit', edit_service_path(@service)
+\|
+= link_to 'Back', services_path

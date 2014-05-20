@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class DesignSamplesController < ApplicationController
   before_action :set_design_sample, only: [:show, :edit, :update, :destroy]
 

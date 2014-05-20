@@ -11,5 +11,7 @@
  *= require_self
  *= require_tree .
  */
-html {left:0; right:0; top:0; bottom:0} 
-body {background:#01666e; left:0; background-size:cover; right:0; top:0; bottom:0; direction:rtl; margin:0px; } 
+.field-holder {width:50%;}
+
+.fa {direction:rtl; font-family: 'open_sansregular'; text-align:right}
+.en {direction:ltr; font-family: 'open_sansregular'; text-align:left}

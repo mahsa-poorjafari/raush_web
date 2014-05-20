@@ -1,10 +1,14 @@
 RaushWeb::Application.routes.draw do
+scope "(:locale)", :locale => /en|fa/ do
+
+  resources :services
+
   resources :design_samples
 
   resources :tariff_prices
 
   resources :teams
-
+end
   #get "raush" => "static#home"
   root :to => 'static#home'
   # The priority is based upon order of creation: first created -> highest priority.

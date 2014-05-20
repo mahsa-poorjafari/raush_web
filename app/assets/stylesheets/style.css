@@ -1,13 +1,8 @@
 @charset "utf-8";
 
 /* CSS Document */
-@font-face
-{
-font-family: myFirstFont;
-src:url(../fonts/ERASLGHT.TTF);
-}
-html {left:0; right:0; top:0; bottom:0;  font-family:"myFirstFont" ;} 
-body {color:#FFF; background:#FFF; direction:ltr;left:0; background-size:cover; right:0; top:0; bottom:0;margin:0px;  font-family:"myFirstFont" ;} 
+html {left:0; right:0; top:0; bottom:0;  } 
+body {color:#FFF; background:#086352;left:0; background-size:cover; right:0; top:0; bottom:0;margin:0px; position:fixed} 
 .fix-height{min-height:100px;max-height:100px }
 .clear-float{ clear:both}
 .set-center { margin-right:auto; margin-left:auto}
@@ -21,16 +16,16 @@ body {color:#FFF; background:#FFF; direction:ltr;left:0; background-size:cover; 
 .bgweb{background:#1da0aa}
 .bggraphic{background:#29b7c2}
 .bgcamera{background:#3ccad5}
-.servic-descriptipn{width:100% ; height:70.5%; overflow:hidden; }
+.servic-descriptipn{width:100% ; height:64.5%; overflow:hidden; }
 .servic-descriptipn1{width:100% ; height:100%; overflow:hidden; }
 .servic-descriptipn .text { width:100% ;height:25%; margin-top:100px ; padding:3px ; font-family:"myFirstFont" ; font-size:40px ; color:#FFF; position:relative;}
 .servic-descriptipn .link{ min-width:100% ;min-height:65%; cursor:pointer}
 .servic-descriptipn .link .button { width:30% ; margin-left:20px; background:#06ccb3 ; margin-bottom:7px;position:relative}
 .servic-descriptipn .link .button .item {float:right ; width:75%  }
 .servic-descriptipn .link .button .icon { float:right ; width:25% ; background:#3edac6}
-.footer{width:100%;height:15.5%;position:absolute;bottom:0}
+.footer{width:100%;height:15.5%;position:fixed;bottom:0}
 .footer .phone{height:100%;color:#FFF; background:#00AD69;width:40%;float:right}
-.footer .address{height:100%;background:#FFF ; color:#00AD69;width:60%;float:left}
+.footer .address{height:100%;background:#FFF ; color:#00AD69;width:60%;float:left; padding-top:10px}
 .diplaynone{position:absolute; display:none;}
 .scrol{
 	overflow:scroll
