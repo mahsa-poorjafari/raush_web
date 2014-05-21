@@ -1,25 +1,18 @@
-%h1 Listing services
+.fa
+  %h1 خدمات
 
-%table
-  %tr
-    %th Title en
-    %th Title fa
-    %th Description en
-    %th Description fa
-    %th
-    %th
-    %th
+  %table  
 
-  - @services.each do |service|
-    %tr
-      %td= service.title_en
-      %td= service.title_fa
-      %td= service.description_en
-      %td= service.description_fa
-      %td= link_to 'Show', service
-      %td= link_to 'Edit', edit_service_path(service)
-      %td= link_to 'Destroy', service, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    - @services.each do |service|
+      %tr
+        %td= service.title
+        
+        %td= service.description
+        
+        %td= link_to 'Show', service
+        %td= link_to 'Edit', edit_service_path(service)
+        %td= link_to 'Destroy', service, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
+  %br
 
-= link_to 'New Service', new_service_path, :class => "btn btn-default"
+  = link_to 'New Service', new_service_path, :class => "btn btn-default"

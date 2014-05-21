@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Title en:
+  = @portfolio.title_en
+%p
+  %b Title fa:
+  = @portfolio.title_fa
+%p
+  %b Description en:
+  = @portfolio.description_en
+%p
+  %b Description fa:
+  = @portfolio.description_fa
+%p
+  %b Date:
+  = @portfolio.date
+%p
+  %b Service:
+  = @portfolio.service_id
+%p
+  %b Website:
+  = @portfolio.website
+
+= link_to 'Edit', edit_portfolio_path(@portfolio)
+\|
+= link_to 'Back', portfolios_path

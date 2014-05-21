@@ -1,4 +1,8 @@
 RaushWeb::Application.routes.draw do
+  resources :pictures
+
+  resources :portfolios
+
 scope "(:locale)", :locale => /en|fa/ do
 
   resources :services
