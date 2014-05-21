@@ -15,3 +15,18 @@
 
 .fa {direction:rtl; font-family: 'open_sansregular'; text-align:right}
 .en {direction:ltr; font-family: 'open_sansregular'; text-align:left}
+
+
+.our-team {}
+.our-team .team-item{width:30%; float:right; 
+  background:#237360; 
+  min-height:230px;
+  max-height:230px;
+  text-align:center;
+}
+.our-team .team-item .team-pic {width:90%; text-align:center}
+.our-team .team-item .team-pic img{width:100%; }
+
+#b-details   #hotel .details-text{-webkit-column-count:2; /* Chrome, Safari, Opera */
+-moz-column-count:2; /* Firefox */
+column-count:2;}

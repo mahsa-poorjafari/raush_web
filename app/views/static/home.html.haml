@@ -2,9 +2,18 @@
   %div
     #home
       .col-xs-6
-        #axis.one
-          
+        #axis.one.picture-sample
           = image_tag "raush-logo.jpg", :id => 'homemoo', :class => 'object bache van'
+        #axis.one.about-us.diplaynone 
+          %div{:style => "margin:30px; padding-top:20px"}  
+            %p
+              kf dsnf lsdnf lsdnf slkdnf lskdjnf o;nf lkndf lsdnf lsndf lsdnf lsdnf lsdnf lsdnf lsdjnf sljn 
+            .link
+              #btn-bk-about.button.set-center.btnw30
+                .item= t('back')
+                .icon
+                  = image_tag "ICON/bms2.png", height: "40" , width: "40"
+                .clear-float
       .col-xs-6
         #hometext.text.vanr.bacher.object{waittime: "200"} inja yek chizi midim
         .link
@@ -24,6 +33,32 @@
               = image_tag "ICON/bms2.png",height: "40", width: "40"
             .clear-float
         .clear-float
+    #order-online.diplaynone.servic-descriptipn1
+      .width80.set-center
+        %h2= t ('Order-Online')
+        = render "order_onlines/form" 
+        .clear-float
+      .link
+        #btn-bk-order.button.set-center.btnw10
+          .item= t('back')
+          .icon
+            = image_tag "ICON/bms2.png", height: "40" , width: "40"
+          .clear-float
+    /end order-online
+    
+    #our-team.diplaynone.servic-descriptipn1
+      .width80.set-center
+        %h2= t('our-team')
+        = render "teams/index"
+        .clear-float
+      .link
+        #btn-bk-team.button.set-center.btnw10
+          .item= t('back')
+          .icon
+            = image_tag "ICON/bms2.png", height: "40" , width: "40"
+          .clear-float
+    /end our team
+    
   / end home!
 / end HOME
 #idbms.servic-descriptipn.bgbms.diplaynone
@@ -59,11 +94,9 @@
         = image_tag "raush-logo.jpg"
       .box-text
         %h2 Hotel Information
-        .details-text
-          %p asdasdasd
-          %p asdasdasd
-          %p asdasdasd
-          %p asdasdasd
+        .details-text          
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.
+          
         .link
           #btnbhotel.button.set-center.btnw10
             .item= t('back')
@@ -192,8 +225,7 @@
       / end box
     / END voip
   / iiii
-#idweb.servic-descriptipn.bgweb.diplaynone 
-  
+#idweb.servic-descriptipn.bgweb.diplaynone  
   #web-info
     .col-xs-6
       #axis.one

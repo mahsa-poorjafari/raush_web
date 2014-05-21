@@ -1,12 +1,12 @@
 RaushWeb::Application.routes.draw do
+  
+
+scope "(:locale)", :locale => /en|fa/ do
   resources :order_onlines
 
   resources :pictures
 
   resources :portfolios
-
-scope "(:locale)", :locale => /en|fa/ do
-
   resources :services
 
   resources :design_samples

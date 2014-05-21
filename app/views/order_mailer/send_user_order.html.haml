@@ -1,0 +1,16 @@
+
+%div
+  %div= @order.email
+  %div= @order.name
+  %div= @order.company_name
+  %div= @order.phone
+  %div= @order.mobile
+  %div= @order.web_site
+  
+%br
+%h4
+  = @order.text_msg
+  %b
+    تاریخ ارسال
+    = @order.created_at
+  

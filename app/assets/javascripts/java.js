@@ -62,6 +62,14 @@ $(document).ready(function(){
 			$('#webbtn1').click(function(){ $('#web-info').hide(1000); $('#web-details').show(1000); $('#web-details .prtofilo').show(1000) });
 			$('#btn-web-prto').click(function(){ $('#web-details').hide(1000); $('#web-details .prtofilo').fadeOut(); $('#web-info').show(1000) });
       
+      $('#homebtn1').click(function(){ $('#idhome #home .col-xs-6 .picture-sample').hide(1000); $('#idhome #home .col-xs-6 .about-us').show(1000); });
+			$('#btn-bk-about').click(function(){ $('#idhome #home .col-xs-6 .about-us').fadeOut(1000); $('#idhome #home .col-xs-6 .picture-sample').fadeIn(1000) });
+      
+      $('#homebtn2').click(function(){ $('#idhome #home').hide(1000); $('#idhome #our-team').show(1000); });
+			$('#btn-bk-team').click(function(){ $('#idhome #our-team').fadeOut(1000); $('#idhome #home').fadeIn(1000) });
+      
+      $('#homebtn3').click(function(){ $('#idhome #home').hide(1000); $('#idhome #order-online').show(1000); });
+			$('#btn-bk-order').click(function(){ $('#idhome #order-online').hide(1000);  $('#idhome #home').show(1000) });
 			
 			$('#camerabtn1').click(function(){ $('#c-info').hide(1000); $('#c-details').show(1000); $('#fam').show(1000) });
 			$('#btnbfam').click(function(){ $('#c-details').hide(1000); $('#fam').hide(); $('#c-info').show(1000) });

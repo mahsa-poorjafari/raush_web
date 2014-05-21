@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140521083049) do
+ActiveRecord::Schema.define(version: 20140521090805) do
 
   create_table "design_samples", force: true do |t|
     t.string   "name"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 20140521083049) do
     t.string   "name"
     t.string   "phone"
     t.string   "email"
-    t.text     "description"
     t.string   "company_name"
     t.string   "web_site"
     t.string   "mobile"
