@@ -55,8 +55,14 @@ $(document).ready(function(){
 			$('#btnblan').click(function(){ $('#n-details').hide(1000); $('#lan').hide(); $('#n-info').show(1000) });
 			$('#netbtn3').click(function(){ $('#n-info').hide(1000); $('#n-details').show(1000); $('#voip').show(1000) });
 			$('#btnbvoip').click(function(){ $('#n-details').hide(1000); $('#voip').hide(); $('#n-info').show(1000) });
-			$('#graphicbtn1').click(function(){ $('#g-info').hide(1000); $('#g-details').show(1000); $('#prtofilo').show(1000) });
-			$('#btnbprtofilo').click(function(){ $('#g-details').hide(1000); $('#prtofilo').hide(); $('#g-info').show(1000) });
+      
+			$('#graphicbtn1').click(function(){ $('#g-info').hide(1000); $('#g-details').show(1000); $('#g-details #prtofilo').show(1000) });
+      $('#btnbprtofilo').click(function(){ $('#g-details').hide(1000); $('#prtofilo').fadeOut(); $('#g-info').show(1000) });
+      
+			$('#webbtn1').click(function(){ $('#web-info').hide(1000); $('#web-details').show(1000); $('#web-details .prtofilo').show(1000) });
+			$('#btn-web-prto').click(function(){ $('#web-details').hide(1000); $('#web-details .prtofilo').fadeOut(); $('#web-info').show(1000) });
+      
+			
 			$('#camerabtn1').click(function(){ $('#c-info').hide(1000); $('#c-details').show(1000); $('#fam').show(1000) });
 			$('#btnbfam').click(function(){ $('#c-details').hide(1000); $('#fam').hide(); $('#c-info').show(1000) });
 			

@@ -21,4 +21,13 @@
 
 fa:
   hello: "سلام"
+  Tariff-Price: 'تعرفه قیمت'
+  Portfolio: 'نمونه کار'
+  
+  back: 'بازگشت'
+  
+  about-us: 'درباره راش'
+  our-team: 'تیم کاری'
+  Order-Online: 'سفارش آنلاین'
+  
 

@@ -1,4 +1,6 @@
 RaushWeb::Application.routes.draw do
+  resources :order_onlines
+
   resources :pictures
 
   resources :portfolios

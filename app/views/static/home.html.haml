@@ -8,18 +8,18 @@
       .col-xs-6
         #hometext.text.vanr.bacher.object{waittime: "200"} inja yek chizi midim
         .link
-          #homebtn1.button.bacher.vanr.object{waittime: "300"}
-            .item tarefe gheimat
+          #homebtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
+            .item= t('about-us')
             .icon
               = image_tag "ICON/bms2.png",height: "40",  width: "40"
             .clear-float
-          #homebtn2.button.bacher.vanr.object{waittime: "350"}
-            .item tarefe gheimat
+          #homebtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
+            .item= t('our-team')
             .icon
               = image_tag "ICON/bms2.png", height: "40", width: "40"
             .clear-float
-          #homebtn3.button.bacher.vanr.object{waittime: "400"}
-            .item tarefe gheimat
+          #homebtn3.button.bacher.vanr.object.btnw30{waittime: "400"}
+            .item= t('Order-Online')
             .icon
               = image_tag "ICON/bms2.png",height: "40", width: "40"
             .clear-float
@@ -35,17 +35,17 @@
       .col-xs-6
         #bmstext.text.bacher.vanr.object{waittime: "200"} inja yek chizi midim
         .link
-          #bmsbtn1.button.vanr.bacher.object{waittime: "300"}
+          #bmsbtn1.button.vanr.bacher.object.btnw30{waittime: "300"}
             .item HOTEL
             .icon
               = image_tag "ICON/bms2.png",height: "40", width: "40"
             .clear-float
-          #bmsbtn2.button.vanr.bacher.object{waittime: "350"}
+          #bmsbtn2.button.vanr.bacher.object.btnw30{waittime: "350"}
             .item HOME
             .icon
               = image_tag "ICON/bms2.png", height: "40" , width: "40"
             .clear-float
-          #bmsbtn3.button.vanr.bacher.object{waittime: "400"}
+          #bmsbtn3.button.vanr.bacher.object.btnw30{waittime: "400"}
             .item{align: "justify"} OFFICE
             .icon
               = image_tag"ICON/bms2.png", height: "40", width: "40"
@@ -65,8 +65,8 @@
           %p asdasdasd
           %p asdasdasd
         .link
-          #btnbhotel.button.set-center
-            .item back
+          #btnbhotel.button.set-center.btnw10
+            .item= t('back')
             .icon
               = image_tag "ICON/bms2.png", height: "40" , width: "40"
             .clear-float
@@ -83,8 +83,8 @@
           %p asdasdasd
           %p asdasdasd
         .link
-          #btnbhome.button.set-center
-            .item back
+          #btnbhome.button.set-center.btnw10
+            .item= t('back')
             .icon
               = image_tag "ICON/bms2.png", height: "40", width: "40"
             .clear-float
@@ -101,8 +101,8 @@
           %p asdasdasd
           %p asdasdasd
         .link
-          #btnboffice.button.set-center
-            .item back
+          #btnboffice.button.set-center.btnw10
+            .item= t('back')
             .icon
               = image_tag "ICON/bms2.png", height: "40", width: "40"
             .clear-float
@@ -118,17 +118,17 @@
       .col-xs-6
         #nettext.text.bacher.vanr.object{waittime: "200"} Access everything everywhere
         .link
-          #netbtn1.button.bacher.vanr.object{waittime: "300"}
+          #netbtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
             .item WAN
             .icon
               = image_tag "ICON/bms2.png", height: "40", width: "40"
             .clear-float
-          #netbtn2.button.bacher.vanr.object{waittime: "350"}
+          #netbtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
             .item LAN
             .icon
               = image_tag "ICON/bms2.png", height: "40", width: "40"
             .clear-float
-          #netbtn3.button.bacher.vanr.object{waittime: "400"}
+          #netbtn3.button.bacher.vanr.object.btnw30{waittime: "400"}
             .item VOIP
             .icon
               = image_tag "ICON/bms2.png", height: "40", width: "40"
@@ -148,8 +148,8 @@
           %p asdasdasd
           %p asdasdasd
         .link
-          #btnbwan.button.set-center
-            .item back
+          #btnbwan.button.set-center.btnw10
+            .item= t('back')
             .icon
               = image_tag "ICON/bms2.png", height: "40", width: "40"
             .clear-float
@@ -166,8 +166,8 @@
           %p asdasdasd
           %p asdasdasd
         .link
-          #btnblan.button.set-center
-            .item back
+          #btnblan.button.set-center.btnw10
+            .item= t('back')
             .icon
               = image_tag "ICON/bms2.png",height: "40" , width: "40"
             .clear-float
@@ -184,8 +184,8 @@
           %p asdasdasd
           %p asdasdasd
         .link
-          #btnbvoip.button.set-center
-            .item back
+          #btnbvoip.button.set-center.btnw10
+            .item= t('back')
             .icon
               = image_tag "ICON/bms2.png", height: "40", width: "40"
             .clear-float
@@ -193,24 +193,48 @@
     / END voip
   / iiii
 #idweb.servic-descriptipn.bgweb.diplaynone 
-  .col-xs-6
-    #axis.one
-      = image_tag  @web.image(:large), :id => "webmoo" , :class => 'object bache van'
-  .col-xs-6
-    #webtext.text.bacher.vanr.object{waittime: "200"}= @web.description
-    .link
-      #webbtn1.button.bacher.vanr.object{waittime: "300"}
-        .item tarefe gheimat
-        .icon
-          = image_tag "ICON/bms2.png",height: "40" , width: "40"
-        .clear-float
-      #webbtn2.button.bacher.vanr.object{waittime: "350"}
-        .item tarefe gheimat
-        .icon
-          = image_tag "ICON/bms2.png", height: "40", width: "40"
-        .clear-float
-     
-    .clear-float
+  
+  #web-info
+    .col-xs-6
+      #axis.one
+        = image_tag  @web.image(:large), :id => "webmoo" , :class => 'object bache van'
+    .col-xs-6
+      #webtext.text.bacher.vanr.object{waittime: "200"}= @web.description
+      .link
+        #webbtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
+          .item= t('Portfolio')
+          .icon
+            = image_tag "ICON/bms2.png",height: "40" , width: "40"
+          .clear-float
+        #webbtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
+          .item= t('Tariff-Price')
+          .icon
+            = image_tag "ICON/bms2.png", height: "40", width: "40"
+          .clear-float
+       
+      .clear-float
+  #web-details
+    .prtofilo.diplaynone.servic-descriptipn1
+      #axis.show-demo.set-center
+        .sample-pic1
+          .sample-pic2.set-center
+            = image_tag "raush-logo.jpg"
+            = image_tag "raush-logo.jpg"
+            = image_tag "raush-logo.jpg"
+            = image_tag "raush-logo.jpg"
+            = image_tag "raush-logo.jpg"
+        .control            
+          .prev
+            = image_tag 'go-up.png'
+          .next
+            = image_tag 'go-down.png'         
+      .link
+        #btn-web-prto.button.set-center.btnw10
+          .item= t('back')
+          .icon
+            = image_tag "ICON/bms2.png",height: "40", width: "40"
+          .clear-float
+    
 / end WEB
 #idgraphic.servic-descriptipn.bggraphic.diplaynone
   %div
@@ -221,21 +245,17 @@
       .col-xs-6
         #graphictext.text.bacher.vanr.object{waittime: "200"} good desing is good business
         .link
-          #graphicbtn1.button.bacher.vanr.object{waittime: "300"}
-            .item tarefe gheimat
+          #graphicbtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
+            .item= t('Portfolio')
             .icon
               = image_tag "ICON/bms2.png",height: "40" , width: "40"
             .clear-float
-          #graphicbtn2.button.bacher.vanr.object{waittime: "350"}
-            .item tarefe gheimat
+          #graphicbtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
+            .item= t('Tariff-Price')
             .icon
               = image_tag "ICON/bms2.png",height: "40" , width: "40"
             .clear-float
-          #graphicbtn3.button.bacher.vanr.object{waittime: "400"}
-            .item tarefe gheimat
-            .icon
-              = image_tag "ICON/bms2.png", height: "40", width: "40"
-            .clear-float
+          
         .clear-float
   / end GRAPHIC
   #g-details
@@ -243,16 +263,20 @@
     #prtofilo.diplaynone.servic-descriptipn1
       #axis.show-demo.set-center
         .sample-pic1
-          .sample-pic2
+          .sample-pic2.set-center
             = image_tag "raush-logo.jpg"
             = image_tag "raush-logo.jpg"
             = image_tag "raush-logo.jpg"
             = image_tag "raush-logo.jpg"
             = image_tag "raush-logo.jpg"
-            
+        .control            
+          .prev
+            = image_tag 'go-up.png'
+          .next
+            = image_tag 'go-down.png'         
       .link
-        #btnbprtofilo.button.set-center
-          .item back
+        #btnbprtofilo.button.set-center.btnw10
+          .item= t('back')
           .icon
             = image_tag "ICON/bms2.png",height: "40", width: "40"
           .clear-float
@@ -268,8 +292,8 @@
           %p asdasdasd
           %p asdasdasd
         .link
-          #btnblan.button.set-center
-            .item back
+          #btnblan.button.set-center.btnw10
+            .item= t('back')
             .icon
               = image_tag "ICON/bms2.png",height: "40", width: "40"
             .clear-float
@@ -285,17 +309,17 @@
       .col-xs-6
         #cameratext.text.bacher.vanr.object{waittime: "200"} i can see you !!
         .link
-          #camerabtn1.button.bacher.vanr.object{waittime: "300"}
+          #camerabtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
             .item tarefe gheimat
             .icon
               = image_tag "ICON/bms2.png",height: "40",width: "40"
             .clear-float
-          #camerabtn2.button.bacher.vanr.object{waittime: "350"}
+          #camerabtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
             .item tarefe gheimat
             .icon
               = image_tag "ICON/bms2.png",height: "40", width: "40"
             .clear-float
-          #camerabtn3.button.bacher.vanr.object{waittime: "400"}
+          #camerabtn3.button.bacher.vanr.object.btnw30{waittime: "400"}
             .item tarefe gheimat
             .icon
               = image_tag "ICON/bms2.png",height: "40", width: "40"
@@ -315,11 +339,28 @@
           = image_tag "raush-logo.jpg"
           
     .link
-      #btnbfam.button.set-center
-        .item back
+      #btnbfam.btn-back.set-center
+        .item= t('back')
         .icon
           = image_tag "ICON/bms2.png", height: "40",width: "40"
         .clear-float
   / END HOTEL
 / end DESCRAPTION
 
+:javascript
+
+  $('#g-details #prtofilo .control .next').click(function(){
+    $('#g-details .sample-pic1 .sample-pic2').animate({marginTop:"+=200px"});
+  });
+  
+  $('#g-details #prtofilo .control .prev').click(function(){
+    $('#g-details .sample-pic1 .sample-pic2').animate({marginTop:"-=200px"});
+  });
+
+  $('#web-details .prtofilo .control .next').click(function(){
+    $('#web-details .sample-pic1 .sample-pic2').animate({marginTop:"+=200px"});
+  });
+  
+  $('#web-details .prtofilo .control .prev').click(function(){
+    $('#web-details .sample-pic1 .sample-pic2').animate({marginTop:"-=200px"});
+  });
