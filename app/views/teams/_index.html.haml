@@ -1,15 +1,21 @@
 .our-team
+  
   - @teams.each do |team|
     .team-item  
-      .team-pic.set-center
+      .set-center.teams.post= team.post
+      .team-pic.set-center      
         = image_tag team.image(:medium)
-      %div= team.name + " " +  team.last_name
-      %div= team.post
-      
-      = link_to 'Edit', edit_team_path(team)
-      = link_to 'Destroy', team, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      .set-center.team-info
+        %div= team.name + " " +  team.last_name
+        
+        
+        = link_to (image_tag 'edit.png', :alt => "edit"), edit_team_path(team)      
+        = link_to (image_tag 'del.png', :alt => "delete"), team, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-
-
-  = link_to 'New Team', new_team_path
-  = link_to 'صفحه اصلی' , root_path
+  .clear-float
+  
+  %br
+  - if is_admin?
+    = link_to 'New Team', new_team_path, :class=> "btn"
+  %br
+  

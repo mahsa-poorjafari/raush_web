@@ -18,14 +18,18 @@
 
 
 .our-team {}
-.our-team .team-item{width:30%; float:right; 
-  background:#237360; 
-  min-height:230px;
-  max-height:230px;
+.our-team .team-item{width:25%; float:right;    
+  min-height:50%;
+  max-height:50%;
   text-align:center;
 }
 .our-team .team-item .team-pic {width:90%; text-align:center}
 .our-team .team-item .team-pic img{width:100%; }
+.our-team .team-item .teams.post{background:#12828B; width:50%; height:25px; padding-top:5px }
+.our-team .team-item .team-info{width:90%; height:1px; overflow:hidden;
+ -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
+  transition: all 1s; }
+.our-team .team-item:hover .team-info{min-height:50px; background:#12828B; }
 
 #b-details   #hotel .details-text{-webkit-column-count:2; /* Chrome, Safari, Opera */
 -moz-column-count:2; /* Firefox */
