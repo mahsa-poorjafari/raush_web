@@ -1,11 +1,14 @@
 %div     
-  %h2.title= 'Admin Menu'
-  %ul
+  %h5.title= 'Admin Menu'
+  %ul.items
+    %li
+      = link_to 'Home page', root_path
     %li
       = link_to 'Admin Profile', edit_user_path(current_user)
     %li
       = link_to 'Manage Services', Service
     %li
       = link_to 'Manage Portfolio', Portfolio
+    
 
    

@@ -14,12 +14,12 @@
   %body{style: "margin:0px"}
     .container-full
       .row
-        = render "shared/nav_bar"
-      .row
-        = yield
         - if is_admin?
           .admin-menu            
             = render "shared/admin_menu"
+        = render "shared/nav_bar"
+      .row
+        = yield     
         
       .footer.row
         = render "shared/footer"

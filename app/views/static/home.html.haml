@@ -236,9 +236,12 @@
   #web-info
     .col-xs-6
       #axis.one
-        = image_tag  @web.image(:large), :id => "webmoo" , :class => 'object bache van'
+        - if @web.present?
+          = image_tag  @web.image(:large), :id => "webmoo" , :class => 'object bache van'
     .col-xs-6
-      #webtext.text.bacher.vanr.object{waittime: "200"}= @web.description
+      #webtext.text.bacher.vanr.object{waittime: "200"}
+        - if @web.present?
+          @web.description
       .link
         #webbtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
           .item= t('Portfolio')
@@ -257,11 +260,11 @@
       #axis.show-demo.set-center
         .sample-pic1
           .sample-pic2.set-center
-            = image_tag "raush-logo.jpg"
-            = image_tag "raush-logo.jpg"
-            = image_tag "raush-logo.jpg"
-            = image_tag "raush-logo.jpg"
-            = image_tag "raush-logo.jpg"
+            - if @web_demos.present?
+              - @web_demos.each do |portfolio|
+                .col-xs-4
+                  %h4= portfolio.title                
+                  = link_to (image_tag portfolio.image(:small)), url_with_protocol(portfolio.website), :target => "blank"
         .control            
           .prev
             = image_tag 'go-up.png'
@@ -303,11 +306,12 @@
       #axis.show-demo.set-center
         .sample-pic1
           .sample-pic2.set-center
-            = image_tag "raush-logo.jpg"
-            = image_tag "raush-logo.jpg"
-            = image_tag "raush-logo.jpg"
-            = image_tag "raush-logo.jpg"
-            = image_tag "raush-logo.jpg"
+            - if @graphic_demos.present?
+              - @graphic_demos.each do |portfolio|
+                .col-xs-4
+                  %h4= portfolio.title                
+                  = link_to (image_tag portfolio.image(:small)), url_with_protocol(portfolio.website), :target => "blank"
+        .control            
         .control            
           .prev
             = image_tag 'go-up.png'

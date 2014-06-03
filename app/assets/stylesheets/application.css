@@ -44,16 +44,17 @@ column-count:2;}
   position:fixed;
   text-align:left;
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
-  transition: all 1s;}
+  transition: all 1s;
+  z-index:100;}
 .admin-menu:hover {margin-left:0px; cursor:pointer; }
+.admin-menu ul.items {margin-top: -25px}
+.admin-menu ul.items li {height:20px; cursor:pointer; margin:1px}
 
-.admin-menu ul li {height:20px; cursor:pointer; margin:1px}
-
-.admin-menu ul li:hover a {color:#1E90FF;}
-.admin-menu h2.title {font-weight:bold;
+.admin-menu ul.items li:hover a {color:#1E90FF;}
+.admin-menu h5.title {font-weight:bold;
   width:80%;
   margin-left: 88px;
-  margin-top: 20px;
+  margin-top: 10px;
   text-align:left;
   -webkit-transform: rotate(-90deg);
   -ff-transform: rotate(-90deg);
@@ -61,5 +62,5 @@ column-count:2;}
 
 }
 
-
+.btn {color:#000}
 

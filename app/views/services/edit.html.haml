@@ -1,8 +1,10 @@
 .fa{:style => "padding:20px;"}
-  %h1 Editing service
+  .col-xs-6
+    %h1 Editing service
+    = link_to 'Show', @service
+    \|
+    = link_to 'Back', services_path
+  .col-xs-6
+    = render 'form'
 
-  = render 'form'
-
-  = link_to 'Show', @service
-  \|
-  = link_to 'Back', services_path
+  

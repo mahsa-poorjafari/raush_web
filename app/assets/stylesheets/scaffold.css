@@ -4,11 +4,8 @@ pre {
   padding: 10px;
   font-size: 11px;
 }
-
-a { color: #fff; }
-a:visited { color: #fff; }
-a:hover { color: #fff; text-decoration:none}
-
+ul {list-style:none}
+a:visited {color:#fff; }
 div.field, div.actions {
   margin-bottom: 10px;
 }

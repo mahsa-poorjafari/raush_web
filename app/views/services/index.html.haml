@@ -1,12 +1,11 @@
-.fa
+.fa.width80
   %h1 خدمات
 
   %table  
 
     - @services.each do |service|
       %tr
-        %td= service.title
-        
+        %td= service.title        
         %td= service.description
         
         %td= link_to 'Show', service
@@ -15,4 +14,4 @@
 
   %br
 
-  = link_to 'New Service', new_service_path, :class => "btn btn-default"
+  = link_to 'New Service', new_service_path

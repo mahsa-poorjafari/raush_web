@@ -1,26 +1,27 @@
-%h1 Listing portfolios
+.width80{:class => I18n.locale}
+  %h1 Listing portfolios
 
-%table
-  %tr
-    %th عنوان    
-    %th توضیحات    
-    %th تاریخ
-    %th سرویس مربوط
-    %th وب سایت    
-    %th
-
-  - @portfolios.each do |portfolio|
+  %table.table
     %tr
-      %td=link_to portfolio.title, portfolio      
-      %td= portfolio.description
-      %td= portfolio.date
-      %td= portfolio.service.name
-      %td= portfolio.website      
-      %td
-        = link_to (image_tag 'edit.png', :alt => "edit"), edit_portfolio_path(portfolio)
-        = link_to (image_tag 'del.png', :alt => "delete"), portfolio, :method => :delete, :data => { :confirm => 'Are you sure?' }
-        
+      %th عنوان    
+      %th توضیحات    
+      %th تاریخ
+      %th سرویس مربوط
+      %th وب سایت    
+      %th
 
-%br
+    - @portfolios.each do |portfolio|
+      %tr
+        %td=link_to portfolio.title, portfolio      
+        %td= portfolio.description
+        %td= portfolio.date
+        %td= portfolio.service.title
+        %td= link_to portfolio.website, url_with_protocol(portfolio.website), :target => "blank"
+        %td
+          = link_to (image_tag 'edit.png', :alt => "edit"), edit_portfolio_path(portfolio)
+          = link_to (image_tag 'del.png', :alt => "delete"), portfolio, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          
 
-= link_to 'New Portfolio', new_portfolio_path
+  %br
+
+  = link_to 'New Portfolio', new_portfolio_path

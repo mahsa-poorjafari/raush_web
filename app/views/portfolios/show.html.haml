@@ -1,5 +1,5 @@
 %p#notice= notice
-
+= image_tag @portfolio.image(:medium)
 %p
   %b Title en:
   = @portfolio.title_en
@@ -22,6 +22,5 @@
   %b Website:
   = @portfolio.website
 
-= link_to 'Edit', edit_portfolio_path(@portfolio)
-\|
-= link_to 'Back', portfolios_path
+= link_to (image_tag 'edit.png', :alt => "edit"), edit_portfolio_path(@portfolio)
+= link_to (image_tag 'del.png', :alt => "delete"), @portfolio, :method => :delete, :data => { :confirm => 'Are you sure?' }
