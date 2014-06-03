@@ -4,21 +4,21 @@
       %ul
         - @design_sample.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label "نوع نمونه کار"
-    = f.select (:type, [['website',1], ['graphic',2]])
-  .field
-    = f.label :website
-    = f.text_area :website
-  .field
-    = f.label :description
-    = f.text_area :description
-  .field
-    = f.label :date
-    = f.date_select :date
-  .actions
-    = f.submit 'ثبت', :class => "btn btn-info"
+  .col-xs-6.margin5
+    .form-group
+      = f.label :name
+      = f.text_field :name
+    .form-group
+      = f.label :service, :class => "control-label"
+      = f.select(:service_id, Service.find(:all).collect {|u| [u.title, u.id]}, :prompt => 'Select Service')      
+    .form-group
+      = f.label :website
+      = f.text_area :website
+    .form-group
+      = f.label :description
+      = f.text_area :description
+    .form-group
+      = f.label :date
+      = f.date_select :date
+    .form-group
+      = f.submit 'ثبت', :class => "btn btn-info"

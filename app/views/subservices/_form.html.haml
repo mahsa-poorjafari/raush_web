@@ -1,22 +1,29 @@
 = form_for @subservice do |f|
   - if @subservice.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@subservice.errors.count, "error")} prohibited this subservice from being saved:"
+    #error_explanation      
       %ul
         - @subservice.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
-    = f.label :text_fa
-    = f.text_area :text_fa
-  .field
-    = f.label :text_en
-    = f.text_area :text_en
-  .field
-    = f.label :title_en
-    = f.text_field :title_en
-  .field
-    = f.label :title_fa
-    = f.text_field :title_fa
-  .actions
-    = f.submit 'Save'
+  .col-xs-5.margin5
+    .form-group
+      = f.label :text_fa, :class => "control-label"
+      = f.text_area :text_fa, :class => "form-control"
+    .form-group
+      = f.label :text_en, :class => "control-label"
+      = f.text_area :text_en, :class => "form-control"
+    .form-group
+      = f.label :title_en, :class => "control-label"
+      = f.text_field :title_en, :class => "form-control"
+    .form-group
+      = f.label :title_fa, :class => "control-label"
+      = f.text_field :title_fa, :class => "form-control"
+  .col-xs-5.margin5
+    .form-group
+      = f.label :service, :class => "control-label"
+      = f.select(:service_id, Service.find(:all).collect {|u| [u.title, u.id]}, :prompt => 'Select Service')      
+    .form-group
+      = f.label :image, :class => "control-label"
+      = f.file_field :image
+      
+    .form-group
+      = f.submit  'save', :class => "btn btn-default"

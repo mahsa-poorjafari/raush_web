@@ -7,6 +7,8 @@ class Service < ActiveRecord::Base
   validates :title_en, :title_fa, :uniqueness => {:message => 'عنوان تکراری است'}
   validates :title_en, :title_fa, :presence => {:message => 'عنوان را وارد کنید.'}
   has_many :pictures
+  has_many :portfolios
+  has_many :subservices
   def title
     I18n.locale == :fa ? self.read_attribute("title_fa") : self.read_attribute("title_en")
   end

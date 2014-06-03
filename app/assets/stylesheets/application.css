@@ -38,7 +38,7 @@
 #b-details   #hotel .details-text{-webkit-column-count:2; /* Chrome, Safari, Opera */
 -moz-column-count:2; /* Firefox */
 column-count:2;}
-.admin-menu {padding:2px; margin:2px; width:170px; height:100px; background:#12828B; overflow:hidden;
+.admin-menu {padding:2px; margin:2px; width:170px; height:120px; background:#12828B; overflow:hidden;
   margin-left:-145px;
   float:right;
   position:fixed;
@@ -47,7 +47,7 @@ column-count:2;}
   transition: all 1s;
   z-index:100;}
 .admin-menu:hover {margin-left:0px; cursor:pointer; }
-.admin-menu ul.items {margin-top: -25px}
+.admin-menu ul.items {margin-top: -25px; text-align:left; margin-right:5px}
 .admin-menu ul.items li {height:20px; cursor:pointer; margin:1px}
 
 .admin-menu ul.items li:hover a {color:#1E90FF;}
