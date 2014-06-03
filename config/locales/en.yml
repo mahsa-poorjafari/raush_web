@@ -32,4 +32,15 @@ en:
   
   send: 'Send'
   
- 
+  order:
+    name: 'Name'    
+    phone: 'Phone'    
+    email: 'Email'
+    company_name: 'Company Name'
+    web_site: 'Web Site'
+    mobile: 'Mobile'
+    text_msg: 'Text'
+  bms:
+    hotel: 'Smart Hotel'
+    home: 'Smart House'
+    office: 'Smart Office'

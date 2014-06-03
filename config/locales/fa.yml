@@ -33,3 +33,17 @@ fa:
   send: 'ارسال'
   
   
+  order:
+    name: 'نام'    
+    phone: 'تلفن ثابت'    
+    email: 'ایمیل'
+    company_name: 'نام شرکت'
+    web_site: 'وب سایت'
+    mobile: 'تلفن همراه'
+    text_msg: 'متن'
+    
+  bms:    
+    home: 'خانه هوشمند'
+    office: 'اداره هوشمند'  
+    hotel: 'هتل هوشمند'
+  

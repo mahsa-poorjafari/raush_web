@@ -1,5 +1,4 @@
-.our-team
-  
+.our-team  
   - @teams.each do |team|
     .team-item  
       .set-center.teams.post= team.post
@@ -14,8 +13,6 @@
 
   .clear-float
   
-  %br
-  - if is_admin?
-    = link_to 'New Team', new_team_path, :class=> "btn"
-  %br
+  
+  
   

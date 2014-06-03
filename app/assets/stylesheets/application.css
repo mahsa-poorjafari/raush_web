@@ -17,7 +17,11 @@
 .en {direction:ltr; font-family: 'open_sansregular'; text-align:left}
 
 
-.our-team {}
+.our-team { 
+  height:325px;
+
+  overflow:hidden
+}
 .our-team .team-item{width:25%; float:right;    
   min-height:50%;
   max-height:50%;
