@@ -31,6 +31,7 @@ class OrderOnlinesController < ApplicationController
       OrderMailer.send_user_order.deliver      
       @deliver = 'کاربر گرامی پیام شما ارسال گردید.'
     end
+    redirect_to :root_path
   end
 
   # PATCH/PUT /order_onlines/1

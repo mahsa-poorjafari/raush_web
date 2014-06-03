@@ -1,7 +1,4 @@
 # encoding: UTF-8
-class OrderOnline < ActiveRecord::Base
+class User < ActiveRecord::Base
   validates :email,  :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :message => 'ایمیل نامعتبر است.' } 
-  
-  validates :name, :email, :mobile, :presence => {:message => 'فیلدهای ضروری را پر کنید.'}
 end
-

@@ -1,6 +1,8 @@
 RaushWeb::Application.routes.draw do
   
 
+  resources :users
+
 scope "(:locale)", :locale => /en|fa/ do
   resources :order_onlines
 
@@ -17,6 +19,9 @@ scope "(:locale)", :locale => /en|fa/ do
 end
   #get "raush" => "static#home"
   root :to => 'static#home'
+  get "login" => "users#login"  
+  post "create_session" => "users#create_session", :as => :create_session
+  get "delete_session" => "users#delete_session", :as => :delete_session
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

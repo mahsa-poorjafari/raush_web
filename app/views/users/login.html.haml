@@ -1,0 +1,15 @@
+.fa{:style => "padding:7%"}
+  .btnw30
+    %p#notice= notice
+    = form_tag create_session_path do 
+      .form-group 
+        %span.lable=" نام کاربری:"
+        %span= text_field_tag :name, "",:class => "form-control", :placeholder => "نام کاربری را وارد کنید"
+      .form-group 
+        %span.lable=" رمز عبور:"
+        %span= password_field_tag :password, "", :class => "form-control", :placeholder => "رمز عبور را وارد کنید" 
+        
+      .form-group.pull-left
+        = submit_tag "ورود", :class => "btn btn-default"
+
+

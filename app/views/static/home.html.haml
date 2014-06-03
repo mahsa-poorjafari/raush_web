@@ -12,7 +12,7 @@
               #btn-bk-about.button.set-center.btnw30
                 .item= t('back')
                 .icon
-                  = image_tag "ICON/bms2.png", height: "40" , width: "40"
+                  = image_tag "back.png", height: "40" , width: "40"
                 .clear-float
       .col-xs-6
         #hometext.text.vanr.bacher.object{waittime: "200"} inja yek chizi midim
@@ -36,26 +36,29 @@
     #order-online.diplaynone.servic-descriptipn1
       .width80.set-center
         %h2= t ('Order-Online')
-        = render "order_onlines/form" 
+        %div{:class => I18n.locale}
+          = render "order_onlines/form" 
         .clear-float
       .link
         #btn-bk-order.button.set-center.btnw10
           .item= t('back')
           .icon
-            = image_tag "ICON/bms2.png", height: "40" , width: "40"
+            = image_tag "back.png", height: "40" , width: "40"
           .clear-float
     /end order-online
     
     #our-team.diplaynone.servic-descriptipn1
-      .width80.set-center
-        %h2= t('our-team')
+      .width80.set-center        
         = render "teams/index"
         .clear-float
       .link
+        - if is_admin?
+          .btnw30= link_to 'فرد جدید', new_team_path          
+        %br        
         #btn-bk-team.button.set-center.btnw10
           .item= t('back')
           .icon
-            = image_tag "ICON/bms2.png", height: "40" , width: "40"
+            = image_tag "back.png", height: "40" , width: "40"
           .clear-float
     /end our team
     
@@ -91,53 +94,56 @@
     / iiii
     #hotel.diplaynone.servic-descriptipn1
       #axis.sample-pic
-        = image_tag "raush-logo.jpg"
-      .box-text
-        %h2 Hotel Information
-        .details-text          
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.
+        = image_tag "smart-hotel.jpg"
+      .box-text{:class => I18n.locale}
+        %h2= t('bms.hotel')
+        .details-text{:class => I18n.locale}
+          - if I18n.locale == :fa
+            = render "shared/hotel_text_fa"
+          - else
+            = render "shared/hotel_text_en"         
           
         .link
           #btnbhotel.button.set-center.btnw10
             .item= t('back')
             .icon
-              = image_tag "ICON/bms2.png", height: "40" , width: "40"
+              = image_tag "back.png", height: "40" , width: "40"
             .clear-float
       / end box text
     / END HOTEL
     #house.diplaynone.servic-descriptipn1
       #axis.sample-pic
-        = image_tag 'raush-logo.jpg'
-      .box-text
-        %h2 HOME Information
-        .details-text
-          %p asdasdasd
-          %p asdasdasd
-          %p asdasdasd
-          %p asdasdasd
+        = image_tag 'smart-house.jpg'
+      .box-text{:class => I18n.locale}
+        %h2= t('bms.home')
+        .details-text{:class => I18n.locale}
+          - if I18n.locale == :fa
+            = render "shared/home_text_fa"
+          - else
+            = render "shared/home_text_en"
         .link
           #btnbhome.button.set-center.btnw10
             .item= t('back')
             .icon
-              = image_tag "ICON/bms2.png", height: "40", width: "40"
+              = image_tag "back.png", height: "40", width: "40"
             .clear-float
       / end box
     / END houes
     #office.diplaynone.servic-descriptipn1
       #axis.sample-pic
-        = image_tag 'raush-logo.jpg'
-      .box-text
-        %h2 office Information
-        .details-text
-          %p asdasdasd
-          %p asdasdasd
-          %p asdasdasd
-          %p asdasdasd
+        = image_tag 'smart-office.jpg'
+      .box-text{:class => I18n.locale}
+        %h2= t('bms.office')
+        .details-text{:class => I18n.locale}
+          - if I18n.locale == :fa
+            = render "shared/office_text_fa"
+          - else
+            = render "shared/office_text_en"
         .link
           #btnboffice.button.set-center.btnw10
             .item= t('back')
             .icon
-              = image_tag "ICON/bms2.png", height: "40", width: "40"
+              = image_tag "back.png", height: "40", width: "40"
             .clear-float
       / end box
     / END Office
@@ -184,7 +190,7 @@
           #btnbwan.button.set-center.btnw10
             .item= t('back')
             .icon
-              = image_tag "ICON/bms2.png", height: "40", width: "40"
+              = image_tag "back.png", height: "40", width: "40"
             .clear-float
       / end box text
     / END HOTEL
@@ -202,7 +208,7 @@
           #btnblan.button.set-center.btnw10
             .item= t('back')
             .icon
-              = image_tag "ICON/bms2.png",height: "40" , width: "40"
+              = image_tag "back.png",height: "40" , width: "40"
             .clear-float
       / end box
     / END houes
@@ -220,7 +226,7 @@
           #btnbvoip.button.set-center.btnw10
             .item= t('back')
             .icon
-              = image_tag "ICON/bms2.png", height: "40", width: "40"
+              = image_tag "back.png", height: "40", width: "40"
             .clear-float
       / end box
     / END voip
@@ -264,7 +270,7 @@
         #btn-web-prto.button.set-center.btnw10
           .item= t('back')
           .icon
-            = image_tag "ICON/bms2.png",height: "40", width: "40"
+            = image_tag "back.png",height: "40", width: "40"
           .clear-float
     
 / end WEB
@@ -310,7 +316,7 @@
         #btnbprtofilo.button.set-center.btnw10
           .item= t('back')
           .icon
-            = image_tag "ICON/bms2.png",height: "40", width: "40"
+            = image_tag "back.png",height: "40", width: "40"
           .clear-float
     / END HOTEL
     #price.diplaynone.servic-descriptipn1
@@ -327,7 +333,7 @@
           #btnblan.button.set-center.btnw10
             .item= t('back')
             .icon
-              = image_tag "ICON/bms2.png",height: "40", width: "40"
+              = image_tag "back.png",height: "40", width: "40"
             .clear-float
       / end box
     / END houes
@@ -374,7 +380,7 @@
       #btnbfam.btn-back.set-center
         .item= t('back')
         .icon
-          = image_tag "ICON/bms2.png", height: "40",width: "40"
+          = image_tag "back.png", height: "40",width: "40"
         .clear-float
   / END HOTEL
 / end DESCRAPTION
@@ -396,3 +402,6 @@
   $('#web-details .prtofilo .control .prev').click(function(){
     $('#web-details .sample-pic1 .sample-pic2').animate({marginTop:"-=200px"});
   });
+
+
+  

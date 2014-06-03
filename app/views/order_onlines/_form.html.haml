@@ -6,28 +6,28 @@
           %li= msg
   .btnw30.pull-left.margin5
     .form-group  
-      = f.label :name, :class => "control-label"
+      = f.label t('order.name'), :class => "control-label"
       = f.text_field :name, :class => "form-control"
     .form-group 
-      = f.label :company_name, :class => "control-label"
+      = f.label t('order.company_name'), :class => "control-label"
       = f.text_field :company_name, :class => "form-control"
     .form-group 
-      = f.label :phone, :class => "control-label"
+      = f.label t('order.phone'), :class => "control-label"
       = f.text_field :phone, :class => "form-control"
     .form-group 
-      = f.label :mobile, :class => "control-label"
+      = f.label t('order.mobile'), :class => "control-label"
       = f.text_field :mobile, :class => "form-control"
   .btnw30.pull-left.margin5
     .form-group 
-      = f.label :email, :class => "control-label"
+      = f.label t('order.email'), :class => "control-label"
       = f.text_field :email, :class => "form-control" 
   
     .form-group 
-      = f.label :web_site, :class => "control-label"
+      = f.label t('order.web_site'), :class => "control-label"
       = f.text_field :web_site, :class => "form-control"
     
     .form-group 
-      = f.label :text_msg, :class => "control-label"
+      = f.label t('order.text_msg'), :class => "control-label"
       = f.text_area :text_msg, :class => "form-control"
     .form-group 
       = f.submit  t('send'), :class => "btn btn-default"
