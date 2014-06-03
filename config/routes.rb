@@ -1,6 +1,8 @@
 RaushWeb::Application.routes.draw do
   
 
+  resources :subservices
+
   resources :users
 
 scope "(:locale)", :locale => /en|fa/ do

@@ -1,0 +1,25 @@
+%h1 Listing subservices
+
+%table
+  %tr
+    %th Text fa
+    %th Text en
+    %th Title en
+    %th Title fa
+    %th
+    %th
+    %th
+
+  - @subservices.each do |subservice|
+    %tr
+      %td= subservice.text_fa
+      %td= subservice.text_en
+      %td= subservice.title_en
+      %td= subservice.title_fa
+      %td= link_to 'Show', subservice
+      %td= link_to 'Edit', edit_subservice_path(subservice)
+      %td= link_to 'Destroy', subservice, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Subservice', new_subservice_path

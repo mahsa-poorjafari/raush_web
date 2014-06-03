@@ -1,0 +1,22 @@
+= form_for @subservice do |f|
+  - if @subservice.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@subservice.errors.count, "error")} prohibited this subservice from being saved:"
+      %ul
+        - @subservice.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :text_fa
+    = f.text_area :text_fa
+  .field
+    = f.label :text_en
+    = f.text_area :text_en
+  .field
+    = f.label :title_en
+    = f.text_field :title_en
+  .field
+    = f.label :title_fa
+    = f.text_field :title_fa
+  .actions
+    = f.submit 'Save'
