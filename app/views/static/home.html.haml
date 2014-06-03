@@ -95,6 +95,11 @@
     #hotel.diplaynone.servic-descriptipn1
       #axis.sample-pic
         = image_tag "smart-hotel.jpg"
+        .link
+          #btnbhotel.button.set-center.btnw10
+            .item= t('back')
+            .icon
+              = image_tag "back.png", height: "40" , width: "40"
       .box-text{:class => I18n.locale}
         %h2= t('bms.hotel')
         .details-text{:class => I18n.locale}
@@ -103,12 +108,8 @@
           - else
             = render "shared/hotel_text_en"         
           
-        .link
-          #btnbhotel.button.set-center.btnw10
-            .item= t('back')
-            .icon
-              = image_tag "back.png", height: "40" , width: "40"
-            .clear-float
+      
+          .clear-float
       / end box text
     / END HOTEL
     #house.diplaynone.servic-descriptipn1
@@ -348,17 +349,17 @@
         #cameratext.text.bacher.vanr.object{waittime: "200"} i can see you !!
         .link
           #camerabtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
-            .item tarefe gheimat
+            .item Fam
             .icon
               = image_tag "ICON/bms2.png",height: "40",width: "40"
             .clear-float
           #camerabtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
-            .item tarefe gheimat
+            .item Hikvision
             .icon
               = image_tag "ICON/bms2.png",height: "40", width: "40"
             .clear-float
           #camerabtn3.button.bacher.vanr.object.btnw30{waittime: "400"}
-            .item tarefe gheimat
+            .item Sesco
             .icon
               = image_tag "ICON/bms2.png",height: "40", width: "40"
             .clear-float

@@ -38,3 +38,28 @@
 #b-details   #hotel .details-text{-webkit-column-count:2; /* Chrome, Safari, Opera */
 -moz-column-count:2; /* Firefox */
 column-count:2;}
+.admin-menu {padding:2px; margin:2px; width:170px; height:100px; background:#12828B; overflow:hidden;
+  margin-left:-145px;
+  float:right;
+  position:fixed;
+  text-align:left;
+  -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
+  transition: all 1s;}
+.admin-menu:hover {margin-left:0px; cursor:pointer; }
+
+.admin-menu ul li {height:20px; cursor:pointer; margin:1px}
+
+.admin-menu ul li:hover a {color:#1E90FF;}
+.admin-menu h2.title {font-weight:bold;
+  width:80%;
+  margin-left: 88px;
+  margin-top: 20px;
+  text-align:left;
+  -webkit-transform: rotate(-90deg);
+  -ff-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+
+}
+
+
+

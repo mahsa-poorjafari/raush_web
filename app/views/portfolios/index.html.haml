@@ -2,29 +2,24 @@
 
 %table
   %tr
-    %th Title en
-    %th Title fa
-    %th Description en
-    %th Description fa
-    %th Date
-    %th Service
-    %th Website
-    %th
-    %th
+    %th عنوان    
+    %th توضیحات    
+    %th تاریخ
+    %th سرویس مربوط
+    %th وب سایت    
     %th
 
   - @portfolios.each do |portfolio|
     %tr
-      %td= portfolio.title_en
-      %td= portfolio.title_fa
-      %td= portfolio.description_en
-      %td= portfolio.description_fa
+      %td=link_to portfolio.title, portfolio      
+      %td= portfolio.description
       %td= portfolio.date
-      %td= portfolio.service_id
-      %td= portfolio.website
-      %td= link_to 'Show', portfolio
-      %td= link_to 'Edit', edit_portfolio_path(portfolio)
-      %td= link_to 'Destroy', portfolio, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= portfolio.service.name
+      %td= portfolio.website      
+      %td
+        = link_to (image_tag 'edit.png', :alt => "edit"), edit_portfolio_path(portfolio)
+        = link_to (image_tag 'del.png', :alt => "delete"), portfolio, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        
 
 %br
 

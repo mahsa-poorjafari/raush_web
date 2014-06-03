@@ -17,5 +17,9 @@
         = render "shared/nav_bar"
       .row
         = yield
+        - if is_admin?
+          .admin-menu            
+            = render "shared/admin_menu"
+        
       .footer.row
         = render "shared/footer"
