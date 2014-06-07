@@ -6,6 +6,7 @@ body {color:#FFF; background:#086352;left:0; background-size:cover; right:0; top
 .fix-height{min-height:100px;max-height:100px }
 .clear-float{ clear:both}
 .set-center { margin-right:auto; margin-left:auto}
+.main-div {height:475px; position:relative}
 .menu{width:100%;height:30%;margin:0px}
 .total{width:100% ; margin:0px}
 .servic-menu{float:left  ; padding:1px ; height:100px; cursor:pointer ; text-align:center}
@@ -16,7 +17,7 @@ body {color:#FFF; background:#086352;left:0; background-size:cover; right:0; top
 .bgweb{background:#1da0aa}
 .bggraphic{background:#29b7c2}
 .bgcamera{background:#3ccad5}
-.servic-descriptipn{width:100% ; height:64.5%; overflow:hidden; }
+.servic-descriptipn{width:100% ; height:100%; overflow:hidden; }
 .servic-descriptipn1{width:100% ; height:100%; overflow:hidden; }
 .servic-descriptipn .text { width:100% ;height:25%; margin-top:100px ; padding:3px ; font-family:"myFirstFont" ; font-size:40px ; color:#FFF; position:relative;}
 .link{ min-width:100% ;min-height:65%; cursor:pointer; margin-top:30px}

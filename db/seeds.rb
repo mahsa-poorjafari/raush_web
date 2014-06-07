@@ -6,3 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Rake::Task['db:create_default_users'].invoke
+Rake::Task['db:create_default_services'].invoke
+Rake::Task['db:create_default_subservices'].invoke
+
