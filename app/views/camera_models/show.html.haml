@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Subservice:
+  = @camera_model.subservice_id
+%p
+  %b Title en:
+  = @camera_model.title_en
+%p
+  %b Title fa:
+  = @camera_model.title_fa
+
+= link_to 'Edit', edit_camera_model_path(@camera_model)
+\|
+= link_to 'Back', camera_models_path

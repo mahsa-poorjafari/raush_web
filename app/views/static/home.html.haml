@@ -52,15 +52,16 @@
       .width80.set-center        
         = render "teams/index"
         .clear-float
-      .link
-        - if is_admin?
-          .btnw30= link_to 'فرد جدید', new_team_path          
-        %br        
-        #btn-bk-team.button.set-center.btnw10
-          .item= t('back')
-          .icon
-            = image_tag "back.png", height: "40" , width: "40"
-          .clear-float
+      .col-xs-6
+        .link
+          - if is_admin?
+            .btnw30= link_to 'فرد جدید', new_team_path          
+          %br        
+          #btn-bk-team.button.set-center.btnw10
+            .item= t('back')
+            .icon
+              = image_tag "back.png", height: "40" , width: "40"
+            .clear-float
     /end our team
     
   / end home!
@@ -70,7 +71,7 @@
     #b-info
       .col-xs-6
         #axis.one
-          = image_tag "PICTURE/BMS.png", waittime: "500", :id => 'moo', :class => 'object bache van'
+          = image_tag  @bms.image(:large), waittime: "500", :id => 'moo', :class => 'object bache van'
       .col-xs-6
         #bmstext.text.bacher.vanr.object{waittime: "200"}
           = @bms.description
@@ -149,7 +150,7 @@
     #n-info
       .col-xs-6
         #axis.one
-          = image_tag "PICTURE/NET.png", :id => "netmoo", :class => 'object bache van'
+          = image_tag @network.image(:large), :id => "netmoo", :class => 'object bache van'
       .col-xs-6
         #nettext.text.bacher.vanr.object{waittime: "200"}
           = @network.description
@@ -274,7 +275,7 @@
     #g-info
       .col-xs-6
         #axis.one
-          = image_tag "PICTURE/GRAPHIC.png", :id => "graphicmoo" , :class => 'object bache van'
+          = image_tag @graphic.image(:large), :id => "graphicmoo" , :class => 'object bache van'
       .col-xs-6
         #graphictext.text.bacher.vanr.object{waittime: "200"}
           = @graphic.description
@@ -303,7 +304,7 @@
                 .col-xs-4
                   %h4= portfolio.title                
                   = link_to (image_tag portfolio.image(:small)), url_with_protocol(portfolio.website), :target => "blank"
-        .control            
+                    
         .control            
           .prev
             = image_tag 'go-up.png'
@@ -341,7 +342,7 @@
     #c-info
       .col-xs-6
         #axis.one
-          = image_tag "PICTURE/CCTV.png", :id => "cameramoo" , :class => 'object bache van'
+          = image_tag @camera.image(:large), :id => "cameramoo" , :class => 'object bache van'
       .col-xs-6
         #cameratext.text.bacher.vanr.object{waittime: "200"}
           = @camera.description
@@ -362,27 +363,78 @@
               = image_tag "ICON/bms2.png",height: "40", width: "40"
             .clear-float
         .clear-float
-/ end CAMERA
-#c-details
-  / iiii
-  #fam.servic-descriptipn1
-    #axis.show-demo.set-center
-      .sample-pic1
-        .sample-pic2
-          = image_tag "raush-logo.jpg"
-          = image_tag "raush-logo.jpg"
-          = image_tag "raush-logo.jpg"
-          = image_tag "raush-logo.jpg"
-          = image_tag "raush-logo.jpg"
-          
-    .link
-      #btnbfam.btn-back.set-center
-        .item= t('back')
-        .icon
-          = image_tag "back.png", height: "40",width: "40"
-        .clear-float
-  / END HOTEL
-/ end DESCRAPTION
+
+  #c-details 
+    #fam.servic-descriptipn1.diplaynone
+      #axis.show-demo.set-center
+        .sample-pic1
+          .sample-pic2
+            - @camera_fam.camera_models.each do |model|
+              .col-xs-4
+                .col-xs-12
+                  = image_tag model.image(:medium)
+                .set-center= model.title
+        .control            
+          .prev
+            = image_tag 'go-up.png'
+          .next
+            = image_tag 'go-down.png'        
+          .clear-float
+      .col-xs-6      
+        .link
+          #btnbfam.button.set-center.btnw10
+            .item= t('back')
+            .icon
+              = image_tag "back.png",height: "40", width: "40"
+            .clear-float
+            
+    #hikvision.servic-descriptipn1.diplaynone
+      #axis.show-demo.set-center
+        .sample-pic1
+          .sample-pic2
+            - @camera_hik.camera_models.each do |model|
+              .col-xs-4
+                .col-xs-12
+                  = image_tag model.image(:medium)
+                .set-center= model.title
+        .control            
+          .prev
+            = image_tag 'go-up.png'
+          .next
+            = image_tag 'go-down.png'        
+          .clear-float
+      .col-xs-6      
+        .link
+          #btnbhik.button.set-center.btnw10
+            .item= t('back')
+            .icon
+              = image_tag "back.png",height: "40", width: "40"
+            .clear-float
+            
+    #sesco.servic-descriptipn1.diplaynone
+      #axis.show-demo.set-center
+        .sample-pic1
+          .sample-pic2
+            - @camera_sesco.camera_models.each do |model|
+              .col-xs-4
+                .col-xs-12
+                  = image_tag model.image(:medium)
+                .set-center= model.title
+        .control            
+          .prev
+            = image_tag 'go-up.png'
+          .next
+            = image_tag 'go-down.png'        
+          .clear-float
+      .col-xs-6      
+        .link
+          #btnbsesco.button.set-center.btnw10
+            .item= t('back')
+            .icon
+              = image_tag "back.png",height: "40", width: "40"
+            .clear-float
+    / END HOTEL
+  / end DESCRAPTION
 
 :javascript
 
@@ -401,6 +453,13 @@
   $('#web-details .prtofilo .control .prev').click(function(){
     $('#web-details .sample-pic1 .sample-pic2').animate({marginTop:"-=200px"});
   });
-
-
   
+  $('.language.fa a').click(function(){
+    location.reload();
+  });
+  $('.language.en a').click(function(){
+    location.reload();
+  });
+  
+  
+

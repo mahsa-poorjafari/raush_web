@@ -4,4 +4,5 @@ class Picture < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"],
                                             :message =>  "فرمت عکس صحیح نیست"
   belongs_to :service
+  
 end

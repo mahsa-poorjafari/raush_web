@@ -156,7 +156,8 @@ overflow:hidden;
 .box-text { width:50%; float:right; height:100%; padding:1%} 
 .link { width:100%; } 
 .link  .button { width:30% }
-.facebook {margin-left:10%; margin-top:5% }
+.facebook {margin-left:10%; margin-top:5%; height:30% }
+.language {margin:5%}
 .addfooter{margin-left:5%}
 .control  {margin-top:-10%; position:fixed}
 .control .next:hover, .control .prev:hover  {cursor:pointer}

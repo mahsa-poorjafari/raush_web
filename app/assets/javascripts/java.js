@@ -73,6 +73,13 @@ $(document).ready(function(){
 			
 			$('#camerabtn1').click(function(){ $('#c-info').hide(1000); $('#c-details').show(1000); $('#fam').show(1000) });
 			$('#btnbfam').click(function(){ $('#c-details').hide(1000); $('#fam').hide(); $('#c-info').show(1000) });
+      
+      $('#camerabtn2').click(function(){ $('#c-info').hide(1000); $('#c-details').show(1000); $('#hikvision').show(1000) });
+			$('#btnbhik').click(function(){ $('#c-details').hide(1000); $('#hikvision').hide(); $('#c-info').show(1000) });
+      
+      $('#camerabtn3').click(function(){ $('#c-info').hide(1000); $('#c-details').show(1000); $('#sesco').show(1000) });
+			$('#btnbsesco').click(function(){ $('#c-details').hide(1000); $('#sesco').hide(); $('#c-info').show(1000) });
+      
 			
 		$("#idhomeicon").mouseover();	
 			//button

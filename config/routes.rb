@@ -1,6 +1,8 @@
 RaushWeb::Application.routes.draw do
   
 
+  resources :camera_models
+
   resources :subservices
 
   resources :users

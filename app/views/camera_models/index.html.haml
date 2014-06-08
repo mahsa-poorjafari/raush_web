@@ -1,0 +1,24 @@
+.fa.width80
+  %h1 Listing camera_models
+
+  %table
+    %tr
+      %th Subservice
+      %th Title
+      
+      %th
+      %th
+      %th
+
+    - @camera_models.each do |camera_model|
+      %tr
+        %td= camera_model.subservice.title
+        %td= camera_model.title
+        
+        %td= link_to 'Show', camera_model
+        %td= link_to 'Edit', edit_camera_model_path(camera_model)
+        %td= link_to 'Destroy', camera_model, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+  %br
+
+  = link_to 'New Camera model', new_camera_model_path
