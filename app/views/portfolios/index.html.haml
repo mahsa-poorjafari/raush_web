@@ -15,7 +15,7 @@
         %td=link_to portfolio.title, portfolio      
         %td= portfolio.description
         %td= portfolio.date
-        %td= portfolio.service.title
+        %td= portfolio.service_id
         %td= link_to portfolio.website, url_with_protocol(portfolio.website), :target => "blank"
         %td
           = link_to (image_tag 'edit.png', :alt => "edit"), edit_portfolio_path(portfolio)

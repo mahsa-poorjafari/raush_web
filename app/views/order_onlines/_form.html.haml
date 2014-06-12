@@ -7,7 +7,7 @@
   .btnw30.pull-left.margin5
     .form-group  
       = f.label t('order.name'), :class => "control-label"
-      = f.text_field :name, :class => "form-control"
+      = f.text_field :name, :class => "form-control "
     .form-group 
       = f.label t('order.company_name'), :class => "control-label"
       = f.text_field :company_name, :class => "form-control"
@@ -31,3 +31,17 @@
       = f.text_area :text_msg, :class => "form-control"
     .form-group 
       = f.submit  t('send'), :class => "btn btn-default"
+      
+:javascript 
+  $(function() { 
+    $(':submit').click(function(e) {
+      $(':text, textarea').each(function() {
+        if ($(this).val().length == 0) {
+          $(this).css('border', '2px solid red');
+          e.preventDefault();
+        }
+      });
+    });
+  });
+
+      
