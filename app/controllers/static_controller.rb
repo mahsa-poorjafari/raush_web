@@ -24,11 +24,11 @@ class StaticController < ApplicationController
       @lan = @network.subservices.find_by(title_en: "LAN")
       @voip = @network.subservices.find_by(title_en: "VOIP")
     end
-    
-    @camera_fam = Subservice.find_by( title_en: "fam")
-    @camera_hik = Subservice.find_by( title_en: "Hikvision")
-    @camera_sesco = Subservice.find_by( title_en: "Sesco")
-    
+    if Subservice.present?
+      @camera_fam = Subservice.find_by( title_en: "fam")
+      @camera_hik = Subservice.find_by( title_en: "Hikvision")
+      @camera_sesco = Subservice.find_by( title_en: "Sesco")
+    end
     
   end
 end

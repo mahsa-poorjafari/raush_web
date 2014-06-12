@@ -38,7 +38,7 @@
 #b-details   #hotel .details-text{-webkit-column-count:2; /* Chrome, Safari, Opera */
 -moz-column-count:2; /* Firefox */
 column-count:2;}
-.admin-menu {padding:2px; margin:2px; width:170px; height:140px; background:#12828B; overflow:hidden;
+.admin-menu {padding:2px; margin:2px; width:170px; height:160px; background:#12828B; overflow:hidden;
   margin-left:-145px;
   direction:rtl;
   float:right;
@@ -65,3 +65,8 @@ column-count:2;}
 
 .btn {color:#000}
 
+.prtofilo {
+background:1a1a1a;
+  opacity: 0.8;
+}
+.fa.width80 table tr th {text-align:right}

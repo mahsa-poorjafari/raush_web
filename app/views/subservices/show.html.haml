@@ -1,18 +1,19 @@
-%p#notice= notice
+.fa.width80  
+  %p#notice= notice
 
-%p
-  %b Text fa:
-  = @subservice.text_fa
-%p
-  %b Text en:
-  = @subservice.text_en
-%p
-  %b Title en:
-  = @subservice.title_en
-%p
-  %b Title fa:
-  = @subservice.title_fa
+  %p
+    %b Text fa:
+    = @subservice.text_fa
+  %p
+    %b Text en:
+    = @subservice.text_en
+  %p
+    %b Title en:
+    = @subservice.title_en
+  %p
+    %b Title fa:
+    = @subservice.title_fa
 
-= link_to 'Edit', edit_subservice_path(@subservice)
-\|
-= link_to 'Back', subservices_path
+  = link_to 'Edit', edit_subservice_path(@subservice)
+  \|
+  = link_to 'Back', subservices_path

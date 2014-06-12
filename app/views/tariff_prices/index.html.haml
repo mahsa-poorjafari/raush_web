@@ -1,4 +1,4 @@
-.servic-descriptipn.show-info
+.fa.width80
   %h1 تعرفه قیمت 
 
   .row.first-row    
@@ -19,11 +19,7 @@
             = link_to 'Destroy', tariff_price, :method => :delete, :data => { :confirm => 'Are you sure?' }
         .col-xs-6= tariff_price.modual
 
-  %br
-  .admin-menu
-    .btn.btn-default
-      منوی مدیرسایت
+  
     
-    = link_to 'تعریف تعرفه جدید', new_tariff_price_path
-    %br
-    = link_to "صفحه اصلی",  root_path
+  = link_to 'تعریف تعرفه جدید', new_tariff_price_path
+  

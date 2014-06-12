@@ -27,6 +27,9 @@
     .form-group
       = f.label :image, :class => "control-label"
       = f.file_field :image
+    .form-group  
+      = f.label :in_production, :class => "control-label"
+      = f.check_box :in_production, :class => "form-control"
     .form-group
       = f.submit  'save', :class => "btn btn-default"
 

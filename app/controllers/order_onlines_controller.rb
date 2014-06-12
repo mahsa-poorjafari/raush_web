@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class OrderOnlinesController < ApplicationController
   before_action :set_order_online, only: [:show, :edit, :update, :destroy]
-
+  before_filter :check_autentication
   # GET /order_onlines
   # GET /order_onlines.json
   def index

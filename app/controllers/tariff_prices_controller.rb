@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class TariffPricesController < ApplicationController
   before_action :set_tariff_price, only: [:show, :edit, :update, :destroy]
-
+  before_filter :check_autentication
   # GET /tariff_prices
   # GET /tariff_prices.json
   def index
@@ -70,6 +70,6 @@ class TariffPricesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tariff_price_params
-      params.require(:tariff_price).permit(:modual, :unit_price, :number)
+      params.require(:tariff_price).permit(:modual, :unit_price, :number, :service_id)
     end
 end

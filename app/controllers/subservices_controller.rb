@@ -1,6 +1,6 @@
 class SubservicesController < ApplicationController
   before_action :set_subservice, only: [:show, :edit, :update, :destroy]
-
+  before_filter :check_autentication
   # GET /subservices
   # GET /subservices.json
   def index

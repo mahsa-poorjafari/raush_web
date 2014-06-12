@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
-
+  before_filter :check_autentication
   # GET /services
   # GET /services.json
   def index

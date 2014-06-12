@@ -20,17 +20,17 @@
           #homebtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
             .item= t('about-us')
             .icon
-              = image_tag "ICON/about.png",height: "40",  width: "40"
+              = image_tag "ICON/aboutus.png",height: "40",  width: "40"
             .clear-float
           #homebtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
             .item= t('our-team')
             .icon
-              = image_tag "ICON/bms2.png", height: "40", width: "40"
+              = image_tag "ICON/ourteam.png", height: "40", width: "40"
             .clear-float
           #homebtn3.button.bacher.vanr.object.btnw30{waittime: "400"}
             .item= t('Order-Online')
             .icon
-              = image_tag "ICON/bms2.png",height: "40", width: "40"
+              = image_tag "ICON/onlin.png",height: "40", width: "40"
             .clear-float
         .clear-float
     #order-online.diplaynone.servic-descriptipn1
@@ -70,11 +70,13 @@
   %div
     #b-info
       .col-xs-6
-        #axis.one
-          = image_tag  @bms.image(:large), waittime: "500", :id => 'moo', :class => 'object bache van'
+        #axis.one          
+          - if @bms.present?
+            = image_tag  @bms.image(:large), waittime: "500", :id => 'moo', :class => 'object bache van'
       .col-xs-6
         #bmstext.text.bacher.vanr.object{waittime: "200"}
-          = @bms.description
+          - if @bms.present?
+            = @bms.description
         .link
           #bmsbtn1.button.vanr.bacher.object.btnw30{waittime: "300"}
             .item HOTEL
@@ -158,17 +160,17 @@
           #netbtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
             .item WAN
             .icon
-              = image_tag "ICON/bms2.png", height: "40", width: "40"
+              = image_tag "ICON/wan.png", height: "40", width: "40"
             .clear-float
           #netbtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
             .item LAN
             .icon
-              = image_tag "ICON/bms2.png", height: "40", width: "40"
+              = image_tag "ICON/lan.png", height: "40", width: "40"
             .clear-float
           #netbtn3.button.bacher.vanr.object.btnw30{waittime: "400"}
             .item VOIP
             .icon
-              = image_tag "ICON/bms2.png", height: "40", width: "40"
+              = image_tag "ICON/voip.png", height: "40", width: "40"
             .clear-float
         .clear-float
   / end NETORK
@@ -255,8 +257,12 @@
               - @web_demos.each do |portfolio|
                 .col-xs-4
                   %h4= portfolio.title                
-                  = link_to (image_tag portfolio.image(:small)), url_with_protocol(portfolio.website), :target => "blank"
-        .control            
+                  - if portfolio.in_production                    
+                    .in-production
+                      = link_to (image_tag portfolio.image(:small)), url_with_protocol(portfolio.website), :target => "blank"
+                  - else
+                    = link_to (image_tag portfolio.image(:small)), url_with_protocol(portfolio.website), :target => "blank"          
+        .control  
           .prev
             = image_tag 'go-up.png'
           .next
@@ -342,6 +348,7 @@
     #c-info
       .col-xs-6
         #axis.one
+          
           = image_tag @camera.image(:large), :id => "cameramoo" , :class => 'object bache van'
       .col-xs-6
         #cameratext.text.bacher.vanr.object{waittime: "200"}
@@ -350,17 +357,17 @@
           #camerabtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
             .item Fam
             .icon
-              = image_tag "ICON/camera_icon.png",height: "40",width: "40"
+              = image_tag "ICON/cam.png",height: "40",width: "40"
             .clear-float
           #camerabtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
             .item Hikvision
             .icon
-              = image_tag "ICON/bms2.png",height: "40", width: "40"
+              = image_tag "ICON/cam.png",height: "40", width: "40"
             .clear-float
           #camerabtn3.button.bacher.vanr.object.btnw30{waittime: "400"}
             .item Sesco
             .icon
-              = image_tag "ICON/bms2.png",height: "40", width: "40"
+              = image_tag "ICON/cam.png",height: "40", width: "40"
             .clear-float
         .clear-float
 
@@ -369,11 +376,12 @@
       #axis.show-demo.set-center
         .sample-pic1
           .sample-pic2
-            - @camera_fam.camera_models.each do |model|
-              .col-xs-4
-                .col-xs-12
-                  = image_tag model.image(:medium)
-                .set-center= model.title
+            - if @camera_fam.present?
+              - @camera_fam.camera_models.each do |model|
+                .col-xs-4
+                  .col-xs-12
+                    = image_tag model.image(:medium)
+                  .set-center= model.title
         .control            
           .prev
             = image_tag 'go-up.png'
@@ -392,11 +400,12 @@
       #axis.show-demo.set-center
         .sample-pic1
           .sample-pic2
-            - @camera_hik.camera_models.each do |model|
-              .col-xs-4
-                .col-xs-12
-                  = image_tag model.image(:medium)
-                .set-center= model.title
+            - if @camera_hik.present?
+              - @camera_hik.camera_models.each do |model|
+                .col-xs-4
+                  .col-xs-12
+                    = image_tag model.image(:medium)
+                  .set-center= model.title
         .control            
           .prev
             = image_tag 'go-up.png'
@@ -415,11 +424,12 @@
       #axis.show-demo.set-center
         .sample-pic1
           .sample-pic2
-            - @camera_sesco.camera_models.each do |model|
-              .col-xs-4
-                .col-xs-12
-                  = image_tag model.image(:medium)
-                .set-center= model.title
+            - if @camera_sesco.present?
+              - @camera_sesco.camera_models.each do |model|
+                .col-xs-4
+                  .col-xs-12
+                    = image_tag model.image(:medium)
+                  .set-center= model.title
         .control            
           .prev
             = image_tag 'go-up.png'
@@ -439,19 +449,19 @@
 :javascript
 
   $('#g-details #prtofilo .control .next').click(function(){
-    $('#g-details .sample-pic1 .sample-pic2').animate({marginTop:"+=200px"});
+    $('#g-details .sample-pic1 .sample-pic2').animate({marginTop:"+=300px"});
   });
   
   $('#g-details #prtofilo .control .prev').click(function(){
-    $('#g-details .sample-pic1 .sample-pic2').animate({marginTop:"-=200px"});
+    $('#g-details .sample-pic1 .sample-pic2').animate({marginTop:"-=300px"});
   });
 
   $('#web-details .prtofilo .control .next').click(function(){
-    $('#web-details .sample-pic1 .sample-pic2').animate({marginTop:"+=200px"});
+    $('#web-details .sample-pic1 .sample-pic2').animate({marginTop:"+=300px"});
   });
   
   $('#web-details .prtofilo .control .prev').click(function(){
-    $('#web-details .sample-pic1 .sample-pic2').animate({marginTop:"-=200px"});
+    $('#web-details .sample-pic1 .sample-pic2').animate({marginTop:"-=300px"});
   });
   
   $('.language.fa a').click(function(){

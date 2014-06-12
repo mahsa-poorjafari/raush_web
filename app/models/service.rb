@@ -9,6 +9,7 @@ class Service < ActiveRecord::Base
   has_many :pictures
   has_many :portfolios
   has_many :subservices
+  has_many :tariff_prices
   
   def title
     I18n.locale == :fa ? self.read_attribute("title_fa") : self.read_attribute("title_en")

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140608111728) do
+ActiveRecord::Schema.define(version: 20140612120506) do
 
   create_table "camera_models", force: true do |t|
     t.integer  "subservice_id"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20140608111728) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.boolean  "in_production"
   end
 
   create_table "services", force: true do |t|
@@ -109,6 +110,7 @@ ActiveRecord::Schema.define(version: 20140608111728) do
     t.integer  "number"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "service_id"
   end
 
   create_table "teams", force: true do |t|
