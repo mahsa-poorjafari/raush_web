@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140612120506) do
+ActiveRecord::Schema.define(version: 20140615123634) do
+
+  create_table "account_documents", force: true do |t|
+    t.date     "payment_date"
+    t.integer  "value"
+    t.integer  "paid_to"
+    t.integer  "paid_by"
+    t.integer  "payment_group_id"
+    t.string   "physical_factor_number"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
 
   create_table "camera_models", force: true do |t|
     t.integer  "subservice_id"
@@ -39,6 +55,12 @@ ActiveRecord::Schema.define(version: 20140612120506) do
     t.integer  "type"
   end
 
+  create_table "group_factors", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "order_onlines", force: true do |t|
     t.string   "name"
     t.string   "phone"
@@ -47,6 +69,12 @@ ActiveRecord::Schema.define(version: 20140612120506) do
     t.string   "web_site"
     t.string   "mobile"
     t.text     "text_msg"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "payment_groups", force: true do |t|
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -75,6 +103,13 @@ ActiveRecord::Schema.define(version: 20140612120506) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.boolean  "in_production"
+  end
+
+  create_table "related_people", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "services", force: true do |t|

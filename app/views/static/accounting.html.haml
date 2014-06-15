@@ -1,0 +1,19 @@
+.accounting.fa
+  %h1= 'بخش حسابداری'
+  .partition.set-center
+    = link_to RelatedPerson do
+      .boxes
+        %h3.title= 'افراد مرتبط'
+        = image_tag 'acc.png'
+        
+    = link_to PaymentGroup do        
+      .boxes
+        %h3.title= 'عناوین فاکتور'
+        = image_tag 'acc.png'
+        
+    = link_to AccountDocument do
+      .boxes
+        %h3.title= 'ثبت فاکتور جدید'
+        = image_tag 'acc.png'  
+  
+  

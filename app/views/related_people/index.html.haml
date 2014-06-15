@@ -1,0 +1,52 @@
+.width80.fa.set-center
+  %h1 لیست افراد مرتبط
+  = link_to 'چاپ جدول', '#', :id => "print-table"
+  %table.table{id:"member_table"}
+    %thead
+      %tr
+        %th row
+        %th Title
+        %th Description
+        %th
+    %tbody{:id => "member_container"}  
+      - @related_people.each_with_index do |related_person, i|
+        %tr
+          %td= (i+1)
+          %td= related_person.title
+          %td= related_person.description
+          %td
+            = link_to 'Show', related_person
+            = link_to 'Edit', edit_related_person_path(related_person)
+            = link_to 'Destroy', related_person, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+
+
+  = link_to 'New Related person', new_related_person_path, :class => "btn btn-default"
+
+:coffeescript
+  window.reloadDataTable = ->
+    if !!window.oTable
+      window.oTable.fnDestroy(); 
+    window.oTable = $("#member_table").dataTable aoColumnDefs: [
+      bSearchable: false
+      aTargets: [0,2]
+    ,  
+      bSortable: false
+      aTargets: [0,2]
+    ],  oLanguage:
+      sSearch: "جستجو:"
+      sLengthMenu: "نمایش _MENU_ ردیف"
+      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+      sZeroRecords: "هیچ داده ای وجود ندارد"
+      sInfoEmpty: "هیچ موردی یافت نشد"
+      sInfoFiltered: " - از بین _MAX_ داده موجود"
+      oPaginate:
+        sPrevious: "صفحه قبلی"
+        sNext: "صفحه بعدی"
+
+  window.reloadDataTable()
+  
+:javascript
+  $('#print-table').click(function(){
+    window.print();
+  });

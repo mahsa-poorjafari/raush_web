@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @related_person.title
+%p
+  %b Description:
+  = @related_person.description
+
+= link_to 'Edit', edit_related_person_path(@related_person)
+\|
+= link_to 'Back', related_people_path

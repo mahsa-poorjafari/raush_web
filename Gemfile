@@ -6,7 +6,7 @@ gem 'rails', '4.0.4'
 gem "mysql2"
 gem 'haml-rails'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
-
+gem 'jquery-datatables-rails', '~> 1.12.2', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

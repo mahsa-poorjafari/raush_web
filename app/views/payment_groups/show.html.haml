@@ -1,0 +1,10 @@
+.width80.fa.set-center 
+  %p#notice= notice
+
+  %p
+    %b Title:
+    = @payment_group.title
+
+  = link_to 'Edit', edit_payment_group_path(@payment_group)
+  \|
+  = link_to 'Back', payment_groups_path

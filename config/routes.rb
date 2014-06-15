@@ -1,6 +1,12 @@
 RaushWeb::Application.routes.draw do
   
 
+  resources :payment_groups
+
+  resources :account_documents
+
+  resources :related_people
+
   resources :camera_models
 
   resources :subservices
@@ -23,6 +29,7 @@ scope "(:locale)", :locale => /en|fa/ do
 end
   #get "raush" => "static#home"
   root :to => 'static#home'
+  get 'accounting'  => 'static#accounting'
   get "login" => "users#login"  
   post "create_session" => "users#create_session", :as => :create_session
   get "delete_session" => "users#delete_session", :as => :delete_session

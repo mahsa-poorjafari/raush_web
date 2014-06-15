@@ -1,0 +1,34 @@
+.width80.fa.set-center 
+  %h1 لیست فاکتورها
+
+  %table
+    %tr      
+      %th row
+      %th Payment date
+      %th Value
+      %th Paid to
+      %th Paid by
+      %th Payment group
+      %th Physical factor number
+      %th Description
+      %th
+      %th
+      %th
+
+    - @account_documents.each_with_index do |account_document, i|
+      %tr
+        %td= (i+1)
+        %td= account_document.payment_date
+        %td= account_document.value
+        %td= account_document.paid_to
+        %td= account_document.paid_by
+        %td= account_document.payment_group_id
+        %td= account_document.physical_factor_number
+        %td= account_document.description
+        %td= link_to 'Show', account_document
+        %td= link_to 'Edit', edit_account_document_path(account_document)
+        %td= link_to 'Destroy', account_document, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+  %br
+
+  = link_to 'New Account document', new_account_document_path

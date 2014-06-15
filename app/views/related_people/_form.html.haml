@@ -1,0 +1,16 @@
+= form_for @related_person do |f|
+  - if @related_person.errors.any?
+    #error_explanation
+      
+      %ul
+        - @related_person.errors.full_messages.each do |msg|
+          %li= msg
+  .width80.margin5
+    .form-group
+      = f.label :title, :class => "control-label"
+      = f.text_field :title, :class => "form-control"
+    .form-group
+      = f.label :description, :class => "control-label"
+      = f.text_area :description, :class => "form-control"
+    .form-group
+      = f.submit 'ثبت', :class => "btn btn-default"

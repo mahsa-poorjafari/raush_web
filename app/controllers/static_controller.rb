@@ -30,5 +30,10 @@ class StaticController < ApplicationController
       @camera_sesco = Subservice.find_by( title_en: "Sesco")
     end
     
+    
   end
+  
+  def accounting
+  end
+  
 end

@@ -1,0 +1,22 @@
+.width80.fa.set-center  
+  %h1 لیست عناوین فاکتور
+
+  %table.table
+    %tr
+      %th row
+      %th Title
+      %th     
+      
+
+    - @payment_groups.each_with_index do |payment_group, i|
+      %tr
+        %td= (i+1)
+        %td= payment_group.title
+        %td
+          = link_to 'Show', payment_group
+          = link_to 'Edit', edit_payment_group_path(payment_group)
+          = link_to 'Destroy', payment_group, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+  %br
+
+  = link_to 'New Payment group', new_payment_group_path, :class => "btn btn-default"
