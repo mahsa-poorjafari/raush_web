@@ -2,17 +2,13 @@
   %p#notice= notice
 
   %p
-    %b Text fa:
-    = @subservice.text_fa
+    %b Text:
+    =raw @subservice.text
+  
   %p
-    %b Text en:
-    = @subservice.text_en
-  %p
-    %b Title en:
-    = @subservice.title_en
-  %p
-    %b Title fa:
-    = @subservice.title_fa
+    %b Title:
+    = @subservice.title
+  
 
   = link_to 'Edit', edit_subservice_path(@subservice)
   \|

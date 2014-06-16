@@ -99,7 +99,7 @@
     / iiii
     #hotel.diplaynone.servic-descriptipn1
       #axis.sample-pic
-        = image_tag @hotel.image(:large)
+        = image_tag @hotel.image(:large), :class => "sub-service-img"
         .link
           #btnbhotel.button.set-center.btnw10
             .item= t('back')
@@ -109,14 +109,14 @@
       .box-text{:class => I18n.locale}
         %h2= @hotel.title
         .details-text{:class => I18n.locale}
-          = @hotel.text          
+          =raw @hotel.text          
       
           .clear-float
       / end box text
     / END HOTEL
     #house.diplaynone.servic-descriptipn1
       #axis.sample-pic
-        = image_tag @house.image(:large)
+        = image_tag @house.image(:large), :class => "sub-service-img"
         .link
           #btnbhome.button.set-center.btnw10
             .item= t('back')
@@ -126,13 +126,13 @@
       .box-text{:class => I18n.locale}
         %h2= @house.title
         .details-text{:class => I18n.locale}
-          = @house.text
+          =raw @house.text
         
       / end box
     / END houes
     #office.diplaynone.servic-descriptipn1
       #axis.sample-pic
-        = image_tag @office.image(:large)
+        = image_tag @office.image(:large), :class => "sub-service-img"
         .link
           #btnboffice.button.set-center.btnw10
             .item= t('back')
@@ -142,7 +142,7 @@
       .box-text{:class => I18n.locale}
         %h2= @office.title
         .details-text{:class => I18n.locale}
-          = @office.text
+          =raw @office.text
         
       / end box
     / END Office
@@ -178,7 +178,7 @@
     / iiii
     #wan.diplaynone.servic-descriptipn1
       #axis.sample-pic
-        = image_tag @wan.image(:large)
+        = image_tag @wan.image(:large), :class => "sub-service-img"
         .link
           #btnbwan.button.set-center.btnw10
             .item= t('back')
@@ -188,13 +188,13 @@
       .box-text{:class => I18n.locale}
         %h2= @wan.title
         .details-text{:class => I18n.locale}
-          = @wan.text
+          =raw @wan.text
         
       / end box text
     / END HOTEL
     #lan.diplaynone.servic-descriptipn1
       #axis.sample-pic
-        = image_tag @lan.image(:large)
+        = image_tag @lan.image(:large), :class => "sub-service-img"
         .link
           #btnblan.button.set-center.btnw10
             .item= t('back')
@@ -204,13 +204,13 @@
       .box-text{:class => I18n.locale}
         %h2= @lan.title
         .details-text{:class => I18n.locale}
-          = @lan.text
+          =raw @lan.text
         
       / end box
     / END houes
     #voip.diplaynone.servic-descriptipn1
       #axis.sample-pic
-        = image_tag @voip.image(:large)
+        = image_tag @voip.image(:large), :class => "sub-service-img"
         .link
           #btnbvoip.button.set-center.btnw10
             .item= t('back')
@@ -220,7 +220,7 @@
       .box-text{:class => I18n.locale}
         %h2= @voip.title
         .details-text{:class => I18n.locale}
-          = @voip.text
+          =raw @voip.text
         
       / end box
     / END voip
@@ -234,7 +234,7 @@
     .col-xs-6
       #webtext.text.bacher.vanr.object{waittime: "200"}
         - if @web.present?
-          = @web.description
+          =raw @web.description
       .link
         #webbtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
           .item= t('Portfolio')
