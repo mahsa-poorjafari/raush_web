@@ -1,24 +1,23 @@
 .fa.width80.set-center
   %h1 لیست زیرگروه ها
+  .col-xs-7
+    %table.table
+      %tr
+        %th  Title
+        %th  service
+        %th
+        
 
-  %table.table
-    %tr
-      %th  Title
-      %th  service
-      %th
-      
+      - @subservices.each do |subservice|
+        %tr        
+          %td= subservice.title
+          %td= subservice.service.title
+          %td
+            = link_to 'Show', subservice
+            \|
+            = link_to 'Edit', edit_subservice_path(subservice)
+            \|
+            = link_to 'Destroy', subservice, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-    - @subservices.each do |subservice|
-      %tr        
-        %td= subservice.title
-        %td= subservice.service.title
-        %td
-          = link_to 'Show', subservice
-          \|
-          = link_to 'Edit', edit_subservice_path(subservice)
-          \|
-          = link_to 'Destroy', subservice, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-  %br
-
-  = link_to 'New Subservice', new_subservice_path, :class => "btn btn-default"
+  .col-xs-4
+    = link_to 'New Subservice', new_subservice_path, :class => "btn btn-default"
