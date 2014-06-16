@@ -1,16 +1,17 @@
-%p#notice= notice
+.fa.width80.set-center
+  %p#notice= notice
 
-%p
-  %b Name:
-  = @team.name
-%p
-  %b Last name:
-  = @team.last_name
-%p
-  %b Post:
-  = @team.post
-%p
-  = image_tag @team.image(:small)
-= link_to 'Edit', edit_team_path(@team)
-\|
-= link_to 'Back', teams_path
+  %p
+    %b Name:
+    = @team.name
+  %p
+    %b Last name:
+    = @team.last_name
+  %p
+    %b Post:
+    = @team.post
+  %p
+    = image_tag @team.image(:small)
+  = link_to 'Edit', edit_team_path(@team)
+  \|
+  = link_to 'Back', teams_path

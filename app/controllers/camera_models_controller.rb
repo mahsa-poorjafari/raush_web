@@ -22,6 +22,8 @@ class CameraModelsController < ApplicationController
 
   # GET /camera_models/1/edit
   def edit
+    @camera_service = Service.find_by( title_en: "camera")
+    @camera = Subservice.where( service_id: @camera_service.id )
   end
 
   # POST /camera_models

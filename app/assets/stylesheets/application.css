@@ -43,8 +43,8 @@ column-count:2;}
 .admin-menu {
 padding-left:5px; 
 padding-top:5px; 
-margin:2px; width:170px; 
-height:200px; background:#12828B; overflow:hidden;
+margin:2px; width:15%; 
+height:auto; background:#12828B; overflow:hidden;
   margin-left:-145px;
   direction:rtl;
   float:right;
@@ -54,7 +54,7 @@ height:200px; background:#12828B; overflow:hidden;
   transition: all 1s;
   z-index:100;}
 .admin-menu:hover {margin-left:0px; cursor:pointer; }
-.admin-menu ul.items {margin-top: -25px; text-align:left; margin-right:5px}
+.admin-menu ul.items {margin-top: -25px; text-align:left; margin-right:5px; list-style:none}
 .admin-menu ul.items li {height:20px; cursor:pointer; margin:1px}
 
 .admin-menu ul.items li:hover a {color:#1E90FF;}
@@ -84,5 +84,7 @@ background:1a1a1a;
 .accounting .partition  .boxes h3.title {text-shadow: 1px 1px 1px #74B3F1;}
 .accounting .partition  .boxes:hover {color:#74B0EB; cursor:pointer;}
 
-
+.show-factor {border:2px solid #fff}
+.show-factor  .header p{margin:10px}
+.show-factor  .body-factor p{margin:10px}
 

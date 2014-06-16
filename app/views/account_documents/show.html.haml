@@ -1,27 +1,43 @@
-%p#notice= notice
+.width80.fa.set-center 
+  %p#notice= notice
+  = link_to 'چاپ جدول', '#', :id => "print-table"
+  .show-factor
+    .header
+      %p.pull-right
+        %b تاریخ پرداخت:
+        = @account_document.payment_date
+      %p.pull-right
+        %b تاریخ ثبت فاکتور:
+        = @account_document.created_at
+      %p.pull-right
+        %b شماره فیزیکی فاکتور:
+        = @account_document.physical_factor_number
+    .clear-float
+    .body-factor
+        
+      %p.pull-right
+        %b مبلغ:
+        = @account_document.value
+      %p.pull-right
+        %b بابت:
+        = @account_document.payment_group.title
+      %p.pull-right
+        %b پرداخت به:
+        = @account_document.paid_to
+      %p.pull-right
+        %b پرداخت توسط:
+        = @account_document.paid_by
+      .clear-float      
+    %div      
+      %p
+        %b توضیحات:
+        = @account_document.description
 
-%p
-  %b Payment date:
-  = @account_document.payment_date
-%p
-  %b Value:
-  = @account_document.value
-%p
-  %b Paid to:
-  = @account_document.paid_to
-%p
-  %b Paid by:
-  = @account_document.paid_by
-%p
-  %b Payment group:
-  = @account_document.payment_group_id
-%p
-  %b Physical factor number:
-  = @account_document.physical_factor_number
-%p
-  %b Description:
-  = @account_document.description
-
-= link_to 'Edit', edit_account_document_path(@account_document)
-\|
-= link_to 'Back', account_documents_path
+  = link_to 'Edit', edit_account_document_path(@account_document)
+  \|
+  = link_to 'Back', account_documents_path
+  
+:javascript
+  $('#print-table').click(function(){
+    window.print();
+  });

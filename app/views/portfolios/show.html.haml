@@ -1,26 +1,27 @@
-%p#notice= notice
-= image_tag @portfolio.image(:medium)
-%p
-  %b Title en:
-  = @portfolio.title_en
-%p
-  %b Title fa:
-  = @portfolio.title_fa
-%p
-  %b Description en:
-  = @portfolio.description_en
-%p
-  %b Description fa:
-  = @portfolio.description_fa
-%p
-  %b Date:
-  = @portfolio.date
-%p
-  %b Service:
-  = @portfolio.service_id
-%p
-  %b Website:
-  = @portfolio.website
+.fa.width80.set-center
+  %p#notice= notice
+  = image_tag @portfolio.image(:medium)
+  %p
+    %b Title en:
+    = @portfolio.title_en
+  %p
+    %b Title fa:
+    = @portfolio.title_fa
+  %p
+    %b Description en:
+    = @portfolio.description_en
+  %p
+    %b Description fa:
+    = @portfolio.description_fa
+  %p
+    %b Date:
+    = @portfolio.date
+  %p
+    %b Service:
+    = @portfolio.service_id
+  %p
+    %b Website:
+    = @portfolio.website
 
-= link_to (image_tag 'edit.png', :alt => "edit"), edit_portfolio_path(@portfolio)
-= link_to (image_tag 'del.png', :alt => "delete"), @portfolio, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  = link_to (image_tag 'edit.png', :alt => "edit"), edit_portfolio_path(@portfolio)
+  = link_to (image_tag 'del.png', :alt => "delete"), @portfolio, :method => :delete, :data => { :confirm => 'Are you sure?' }

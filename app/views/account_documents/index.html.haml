@@ -1,19 +1,19 @@
 .width80.fa.set-center 
   %h1 لیست فاکتورها
 
-  %table
+  %table.table{id:"account_table"}
+  
     %tr      
-      %th row
-      %th Payment date
-      %th Value
-      %th Paid to
-      %th Paid by
-      %th Payment group
-      %th Physical factor number
-      %th Description
+      %th ردیف
+      %th تاریخ پرداخت
+      %th مبلغ
+      %th پرداخت به آقای/خانم/شرکت
+      %th پرداخت توسط آقای/خانم/شرکت
+      %th بابت
+      %th شماره فیزیکی فاکتور
+      %th توضیحات
       %th
-      %th
-      %th
+     
 
     - @account_documents.each_with_index do |account_document, i|
       %tr
@@ -22,13 +22,40 @@
         %td= account_document.value
         %td= account_document.paid_to
         %td= account_document.paid_by
-        %td= account_document.payment_group_id
+        %td= account_document.payment_group.title
         %td= account_document.physical_factor_number
-        %td= account_document.description
-        %td= link_to 'Show', account_document
-        %td= link_to 'Edit', edit_account_document_path(account_document)
-        %td= link_to 'Destroy', account_document, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= account_document.description        
+        %td
+          = link_to 'Show', account_document
+          = link_to 'Edit', edit_account_document_path(account_document)
+          = link_to 'Destroy', account_document, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
   %br
 
-  = link_to 'New Account document', new_account_document_path
+  = link_to 'New Account document', new_account_document_path, :class => "btn btn-default"
+
+
+:coffeescript
+  window.reloadDataTable = ->
+    if !!window.oTable
+      window.oTable.fnDestroy(); 
+    window.oTable = $("#account_table").dataTable aoColumnDefs: [
+      bSearchable: false
+      aTargets: [0,8]
+    ,  
+      bSortable: false
+      aTargets: [0,8]
+    ],  oLanguage:
+      sSearch: "جستجو:"
+      sLengthMenu: "نمایش _MENU_ ردیف"
+      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+      sZeroRecords: "هیچ داده ای وجود ندارد"
+      sInfoEmpty: "هیچ موردی یافت نشد"
+      sInfoFiltered: " - از بین _MAX_ داده موجود"
+      oPaginate:
+        sPrevious: "صفحه قبلی"
+        sNext: "صفحه بعدی"
+
+  window.reloadDataTable()
+
+

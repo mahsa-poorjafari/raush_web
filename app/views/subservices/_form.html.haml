@@ -4,20 +4,22 @@
       %ul
         - @subservice.errors.full_messages.each do |msg|
           %li= msg
-  .col-xs-5.margin5
+  .col-xs-7
     .form-group
-      = f.label :text_fa, :class => "control-label"
-      = f.text_area :text_fa, :class => "form-control"
+      .editor
+        = f.label :text_fa, :class => "control-label"
+        = f.text_area :text_fa, :class => "form-control ckeditor"
     .form-group
-      = f.label :text_en, :class => "control-label"
-      = f.text_area :text_en, :class => "form-control"
+      .editor
+        = f.label :text_en, :class => "control-label"
+        = f.text_area :text_en, :class => "form-control ckeditor"
+  .col-xs-4.margin5
     .form-group
       = f.label :title_en, :class => "control-label"
       = f.text_field :title_en, :class => "form-control"
     .form-group
       = f.label :title_fa, :class => "control-label"
       = f.text_field :title_fa, :class => "form-control"
-  .col-xs-5.margin5
     .form-group
       = f.label :service, :class => "control-label"
       = f.select(:service_id, Service.find(:all).collect {|u| [u.title, u.id]}, :prompt => 'Select Service')      
@@ -27,3 +29,7 @@
       
     .form-group
       = f.submit  'save', :class => "btn btn-default"
+:javascript
+  $(document).ready(function(){
+      $('.ckeditor').ckeditor();
+  })

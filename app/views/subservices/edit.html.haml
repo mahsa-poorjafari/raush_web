@@ -1,7 +1,8 @@
-%h1 Editing subservice
+.fa
+  %h1 ویرایش زیرگروه
+  %div{:style => "height:390px; overflow-y:scroll"}
+    = render 'form'
 
-= render 'form'
-
-= link_to 'Show', @subservice
-\|
-= link_to 'Back', subservices_path
+  = link_to 'Show', @subservice
+  \|
+  = link_to 'Back', subservices_path

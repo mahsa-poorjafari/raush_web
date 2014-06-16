@@ -1,12 +1,13 @@
-%p#notice= notice
+.width80.fa.set-center 
+  %p#notice= notice
 
-%p
-  %b Title:
-  = @related_person.title
-%p
-  %b Description:
-  = @related_person.description
+  %p
+    %b Title:
+    = @related_person.title
+  %p
+    %b Description:
+    = @related_person.description
 
-= link_to 'Edit', edit_related_person_path(@related_person)
-\|
-= link_to 'Back', related_people_path
+  = link_to 'Edit', edit_related_person_path(@related_person)
+  \|
+  = link_to 'Back', related_people_path
