@@ -154,7 +154,7 @@ overflow:hidden;
 	max-height:100%;
 	}
 .sample-pic1 img { float:left; width:300px; height:100%; margin:5px}
-.details-text { height:70%;  padding:10px; width:100%}
+.details-text { height:70%;  padding:10px; width:100%; overflow-y:scroll}
 .box-text { width:50%; float:right; height:100%; padding:1%; color:#fff;} 
 .link { width:100%; } 
 .link  .button { width:30% }

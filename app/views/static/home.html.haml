@@ -6,8 +6,13 @@
           = image_tag "logoend.png", :id => 'homemoo', :class => 'object bache van'
         #axis.one.about-us.diplaynone{:style => "width:100%; height:100%"}   
           %div{:style => "margin:30px; padding-top:20px"}  
-            %p
-              Loading...
+            - if I18n.locale == :fa
+              %p{:style => "direction:rtl; text-align:justify"}
+                = render 'shared/about_fa'
+            - else
+              %p{:style => "direction:ltr; text-align:justify"}
+                = render 'shared/about_en'
+              
             .link
               #btn-bk-about.button.set-center.btnw10
                 .item= t('back')
@@ -168,7 +173,7 @@
               = image_tag "ICON/lan.png", height: "40", width: "40"
             .clear-float
           #netbtn3.button.bacher.vanr.object.btnw30{waittime: "400"}
-            .item VOIP
+            .item DAHUA
             .icon
               = image_tag "ICON/voip.png", height: "40", width: "40"
             .clear-float
