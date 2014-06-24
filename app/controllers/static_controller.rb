@@ -27,7 +27,7 @@ class StaticController < ApplicationController
     if Subservice.present?
       @camera_fam = Subservice.find_by( title_en: "Geovision")
       @camera_hik = Subservice.find_by( title_en: "Hikvision")
-      @camera_sesco = Subservice.find_by( title_en: "Voip")
+      @camera_sesco = Subservice.find_by( title_en: "Dahua")
     end
     
     
