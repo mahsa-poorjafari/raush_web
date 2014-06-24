@@ -1,24 +1,25 @@
-.fa.width80
+.fa.width80.set-center
   %h1 لیست مدل های دوربین
-  %table.table
-    %tr
-      %th زیرگروه
-      %th عنوان مدل
-      %th
-      
-
-    - @camera_models.each do |camera_model|
+  .col-xs-8{:style => "height:380px; overflow-y:scroll"}
+    %table.table
       %tr
-        %td= camera_model.subservice.title
-        %td= camera_model.title
+        %th زیرگروه
+        %th عنوان مدل
+        %th
         
-        %td
-          = link_to 'Show', camera_model
-          \|
-          = link_to 'Edit', edit_camera_model_path(camera_model)
-          \|
-          = link_to 'Destroy', camera_model, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-  %br
+      - @camera_models.each do |camera_model|
+        %tr
+          %td= camera_model.subservice.title
+          %td= camera_model.title
+          
+          %td
+            = link_to 'Show', camera_model
+            \|
+            = link_to 'Edit', edit_camera_model_path(camera_model)
+            \|
+            = link_to 'Destroy', camera_model, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-  = link_to 'New Camera model', new_camera_model_path, :class => "btn btn-default"
+  .col-xs-4
+
+    = link_to 'New Camera model', new_camera_model_path, :class => "btn btn-default"
