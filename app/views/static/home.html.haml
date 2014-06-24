@@ -380,13 +380,13 @@
     #fam.servic-descriptipn1.diplaynone
       #axis.show-demo.set-center
         .sample-pic1
-          .sample-pic2
+          .sample-pic2.set-center
             - if @camera_fam.present?
               - @camera_fam.camera_models.each do |model|
                 .col-xs-4
                   .col-xs-12
                     = image_tag model.image(:medium)
-                  .set-center= model.title
+                  .set-center{:style => "text-align:center"}= model.title
         .control            
           .prev
             = image_tag 'go-up.png'
