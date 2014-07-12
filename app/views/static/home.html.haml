@@ -6,8 +6,13 @@
           = image_tag "logoend.png", :id => 'homemoo', :class => 'object bache van'
         #axis.one.about-us.diplaynone{:style => "width:100%; height:100%"}   
           %div{:style => "margin:30px; padding-top:20px"}  
-            %p
-              Loading...
+            - if I18n.locale == :fa
+              %p{:style => "direction:rtl; text-align:justify"}
+                = render 'shared/about_fa'
+            - else
+              %p{:style => "direction:ltr; text-align:justify"}
+                = render 'shared/about_en'
+              
             .link
               #btn-bk-about.button.set-center.btnw10
                 .item= t('back')
@@ -99,7 +104,7 @@
     / iiii
     #hotel.diplaynone.servic-descriptipn1
       #axis.sample-pic
-        = image_tag @hotel.image(:large)
+        = image_tag @hotel.image(:large), :class => "sub-service-img"
         .link
           #btnbhotel.button.set-center.btnw10
             .item= t('back')
@@ -109,14 +114,14 @@
       .box-text{:class => I18n.locale}
         %h2= @hotel.title
         .details-text{:class => I18n.locale}
-          = @hotel.text          
+          =raw @hotel.text          
       
           .clear-float
       / end box text
     / END HOTEL
     #house.diplaynone.servic-descriptipn1
       #axis.sample-pic
-        = image_tag @house.image(:large)
+        = image_tag @house.image(:large), :class => "sub-service-img"
         .link
           #btnbhome.button.set-center.btnw10
             .item= t('back')
@@ -126,13 +131,13 @@
       .box-text{:class => I18n.locale}
         %h2= @house.title
         .details-text{:class => I18n.locale}
-          = @house.text
+          =raw @house.text
         
       / end box
     / END houes
     #office.diplaynone.servic-descriptipn1
       #axis.sample-pic
-        = image_tag @office.image(:large)
+        = image_tag @office.image(:large), :class => "sub-service-img"
         .link
           #btnboffice.button.set-center.btnw10
             .item= t('back')
@@ -142,7 +147,7 @@
       .box-text{:class => I18n.locale}
         %h2= @office.title
         .details-text{:class => I18n.locale}
-          = @office.text
+          =raw @office.text
         
       / end box
     / END Office
@@ -168,7 +173,7 @@
               = image_tag "ICON/lan.png", height: "40", width: "40"
             .clear-float
           #netbtn3.button.bacher.vanr.object.btnw30{waittime: "400"}
-            .item VOIP
+            .item voip
             .icon
               = image_tag "ICON/voip.png", height: "40", width: "40"
             .clear-float
@@ -178,7 +183,7 @@
     / iiii
     #wan.diplaynone.servic-descriptipn1
       #axis.sample-pic
-        = image_tag @wan.image(:large)
+        = image_tag @wan.image(:large), :class => "sub-service-img"
         .link
           #btnbwan.button.set-center.btnw10
             .item= t('back')
@@ -188,13 +193,13 @@
       .box-text{:class => I18n.locale}
         %h2= @wan.title
         .details-text{:class => I18n.locale}
-          = @wan.text
+          =raw @wan.text
         
       / end box text
     / END HOTEL
     #lan.diplaynone.servic-descriptipn1
       #axis.sample-pic
-        = image_tag @lan.image(:large)
+        = image_tag @lan.image(:large), :class => "sub-service-img"
         .link
           #btnblan.button.set-center.btnw10
             .item= t('back')
@@ -204,13 +209,13 @@
       .box-text{:class => I18n.locale}
         %h2= @lan.title
         .details-text{:class => I18n.locale}
-          = @lan.text
+          =raw @lan.text
         
       / end box
     / END houes
     #voip.diplaynone.servic-descriptipn1
       #axis.sample-pic
-        = image_tag @voip.image(:large)
+        = image_tag @voip.image(:large), :class => "sub-service-img"
         .link
           #btnbvoip.button.set-center.btnw10
             .item= t('back')
@@ -220,7 +225,7 @@
       .box-text{:class => I18n.locale}
         %h2= @voip.title
         .details-text{:class => I18n.locale}
-          = @voip.text
+          =raw @voip.text
         
       / end box
     / END voip
@@ -234,7 +239,7 @@
     .col-xs-6
       #webtext.text.bacher.vanr.object{waittime: "200"}
         - if @web.present?
-          = @web.description
+          =raw @web.description
       .link
         #webbtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
           .item= t('Portfolio')
@@ -355,7 +360,7 @@
           = @camera.description
         .link
           #camerabtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
-            .item Fam
+            .item Geovision
             .icon
               = image_tag "ICON/cam.png",height: "40",width: "40"
             .clear-float
@@ -365,7 +370,7 @@
               = image_tag "ICON/cam.png",height: "40", width: "40"
             .clear-float
           #camerabtn3.button.bacher.vanr.object.btnw30{waittime: "400"}
-            .item Sesco
+            .item Dahua
             .icon
               = image_tag "ICON/cam.png",height: "40", width: "40"
             .clear-float
@@ -375,13 +380,13 @@
     #fam.servic-descriptipn1.diplaynone
       #axis.show-demo.set-center
         .sample-pic1
-          .sample-pic2
+          .sample-pic2.set-center
             - if @camera_fam.present?
               - @camera_fam.camera_models.each do |model|
                 .col-xs-4
                   .col-xs-12
                     = image_tag model.image(:medium)
-                  .set-center= model.title
+                  .set-center.txt-center= model.title
         .control            
           .prev
             = image_tag 'go-up.png'

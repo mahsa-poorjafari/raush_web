@@ -13,6 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require ckeditor-jquery
-//= require turbolinks
+
 //= require dataTables/jquery.dataTables
 //= require_tree .
