@@ -260,7 +260,7 @@
           .sample-pic2.set-center
             - if @web_demos.present?
               - @web_demos.each do |portfolio|
-                .col-xs-4
+                .col-xs-4.show-3box
                   %h4= portfolio.title                
                   - if portfolio.in_production                    
                     .in-production
@@ -308,7 +308,7 @@
           .sample-pic2.set-center
             - if @graphic_demos.present?
               - @graphic_demos.each do |portfolio|
-                .col-xs-4
+                .col-xs-4.show-3box
                   %h4= portfolio.title                
                   = link_to (image_tag portfolio.image(:small)), url_with_protocol(portfolio.website), :target => "blank"
                     
@@ -375,7 +375,7 @@
           .sample-pic2.set-center
             - if @camera_fam.present?
               - @camera_fam.camera_models.each do |model|
-                .col-xs-4
+                .col-xs-4.show-3box
                   .col-xs-12
                     = image_tag model.image(:medium)
                   .set-center.txt-center= model.title
@@ -395,7 +395,7 @@
           .sample-pic2
             - if @camera_hik.present?
               - @camera_hik.camera_models.each do |model|
-                .col-xs-4
+                .col-xs-4.show-3box
                   .col-xs-12
                     = image_tag model.image(:medium)
                   .set-center= model.title
@@ -415,7 +415,7 @@
           .sample-pic2
             - if @camera_sesco.present?
               - @camera_sesco.camera_models.each do |model|
-                .col-xs-4
+                .col-xs-4.show-3box
                   .col-xs-12
                     = image_tag model.image(:medium)
                   .set-center= model.title
