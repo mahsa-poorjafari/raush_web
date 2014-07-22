@@ -1,15 +1,15 @@
 @font-face {
     font-family: 'open_sansregular';
-    src: url('/assets/BYekan.eot');
-    src: url('/assets/BYekan.eot?#iefix') format('embedded-opentype'),
-         url('/assets/BYekan.woff') format('woff'),
-         url('/assets/BYekan.ttf') format('truetype'),
-         url('/assets/BYekan.svg#open_sansregular') format('svg');
-    src: url('/assets/ERASLGHT.eot');
-    src: url('/assets/ERASLGHT.eot?#iefix') format('embedded-opentype'),
-         url('/assets/ERASLGHT.woff') format('woff'),
-         url('/assets/ERASLGHT.ttf') format('truetype'),
-         url('/assets/ERASLGHT.svg#open_sansregular') format('svg');
+    src: font-url('/assets/BYekan.eot');
+    src: font-url('/assets/BYekan.eot?#iefix') format('embedded-opentype'),
+         font-url('/assets/BYekan.woff') format('woff'),
+         font-url('/assets/BYekan.ttf') format('truetype'),
+         font-url('/assets/BYekan.svg#open_sansregular') format('svg');
+    src: font-url('/assets/ERASLGHT.eot');
+    src: font-url('/assets/ERASLGHT.eot?#iefix') format('embedded-opentype'),
+         font-url('/assets/ERASLGHT.woff') format('woff'),
+         font-url('/assets/ERASLGHT.ttf') format('truetype'),
+         font-url('/assets/ERASLGHT.svg#open_sansregular') format('svg');
     font-weight: normal;
     font-style: normal;
 

@@ -23,20 +23,16 @@ $(document).ready(function(){
 			childs.each(function(){ 
 				//x = $(this).attr("waitTime");
 				thisid = $(this).attr("id");
-				console.log (thisid);
 				time = parseInt( $(this).attr("waitTime"));
-				console.log(time);
-				setTimeout("console.log(thisid);$('#"+thisid+"').addClass('show');",time)
+				setTimeout("$('#"+thisid+"').addClass('show');",time)
 			 });
 
 			rchilds = $("#"+divname).find(".bacher");
 				rchilds.each(function(){ 
 				//x = $(this).attr("waitTime");
 				rthisid = $(this).attr("id");
-				console.log(rthisid);
 				time = parseInt( $(this).attr("waitTime"));
-				console.log(time);
-				setTimeout("console.log(rthisid);$('#"+rthisid+"').addClass('showr');",time)
+				setTimeout("$('#"+rthisid+"').addClass('showr');",time)
 			 });
 
 			
