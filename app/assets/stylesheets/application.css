@@ -37,9 +37,7 @@
   transition: all 1s; }
 .our-team .team-item:hover .team-info{min-height:50px; background:#12828B; }
 
-#b-details   #hotel .details-text{-webkit-column-count:2; /* Chrome, Safari, Opera */
--moz-column-count:2; /* Firefox */
-column-count:2;}
+#b-details   #hotel .details-text{}
 .admin-menu {
 padding-left:5px; 
 padding-top:5px; 

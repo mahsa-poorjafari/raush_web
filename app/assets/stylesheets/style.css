@@ -19,7 +19,7 @@ body {color:#FFF; background:#086352;left:0; background-size:cover; right:0; top
 .bgcamera{background:#3ccad5}
 .servic-descriptipn{width:100% ; height:100%; overflow:hidden; }
 .servic-descriptipn1{width:100% ; height:100%; overflow:hidden; }
-.servic-descriptipn .text { width:100% ;height:25%; margin-top:100px ; padding:3px ; font-family:"myFirstFont" ; font-size:40px ; color:#FFF; position:relative;
+.servic-descriptipn .text { width:100% ;height:25%; margin-top:100px ; padding:3px ;  font-size:40px ; color:#FFF; position:relative;
 line-height:1em;
 }
 .link{ min-width:100% ;min-height:65%; cursor:pointer; margin-top:30px}
