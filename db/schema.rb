@@ -55,12 +55,6 @@ ActiveRecord::Schema.define(version: 20140615123634) do
     t.integer  "type"
   end
 
-  create_table "group_factors", force: true do |t|
-    t.string   "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "order_onlines", force: true do |t|
     t.string   "name"
     t.string   "phone"

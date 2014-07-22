@@ -267,11 +267,7 @@
                       = link_to (image_tag portfolio.image(:small)), url_with_protocol(portfolio.website), :target => "blank"
                   - else
                     = link_to (image_tag portfolio.image(:small)), url_with_protocol(portfolio.website), :target => "blank"          
-        .control  
-          .prev
-            = image_tag 'go-up.png'
-          .next
-            = image_tag 'go-down.png'         
+              
       .col-xs-6
         .link
           #btn-web-prto.button.set-center.btnw10
@@ -316,11 +312,7 @@
                   %h4= portfolio.title                
                   = link_to (image_tag portfolio.image(:small)), url_with_protocol(portfolio.website), :target => "blank"
                     
-        .control            
-          .prev
-            = image_tag 'go-up.png'
-          .next
-            = image_tag 'go-down.png'         
+           
       .col-xs-6
         .link
           #btnbprtofilo.button.set-center.btnw10
@@ -387,11 +379,7 @@
                   .col-xs-12
                     = image_tag model.image(:medium)
                   .set-center.txt-center= model.title
-        .control            
-          .prev
-            = image_tag 'go-up.png'
-          .next
-            = image_tag 'go-down.png'        
+            
           .clear-float
       .col-xs-6      
         .link
@@ -411,11 +399,7 @@
                   .col-xs-12
                     = image_tag model.image(:medium)
                   .set-center= model.title
-        .control            
-          .prev
-            = image_tag 'go-up.png'
-          .next
-            = image_tag 'go-down.png'        
+            
           .clear-float
       .col-xs-6      
         .link
@@ -435,11 +419,7 @@
                   .col-xs-12
                     = image_tag model.image(:medium)
                   .set-center= model.title
-        .control            
-          .prev
-            = image_tag 'go-up.png'
-          .next
-            = image_tag 'go-down.png'        
+        
           .clear-float
       .col-xs-6      
         .link
@@ -451,30 +431,6 @@
     / END HOTEL
   / end DESCRAPTION
 
-:javascript
 
-  $('#g-details #prtofilo .control .next').click(function(){
-    $('#g-details .sample-pic1 .sample-pic2').animate({marginTop:"+=300px"});
-  });
-  
-  $('#g-details #prtofilo .control .prev').click(function(){
-    $('#g-details .sample-pic1 .sample-pic2').animate({marginTop:"-=300px"});
-  });
-
-  $('#web-details .prtofilo .control .next').click(function(){
-    $('#web-details .sample-pic1 .sample-pic2').animate({marginTop:"+=300px"});
-  });
-  
-  $('#web-details .prtofilo .control .prev').click(function(){
-    $('#web-details .sample-pic1 .sample-pic2').animate({marginTop:"-=300px"});
-  });
-  
-  $('.language.fa a').click(function(){
-    location.reload();
-  });
-  $('.language.en a').click(function(){
-    location.reload();
-  });
-  
   
 
