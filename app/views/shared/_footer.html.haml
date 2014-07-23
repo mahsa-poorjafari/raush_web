@@ -10,14 +10,24 @@
     = link_to 'FA', locale: :fa 
     
 .address.col-md-4
-  .addfooter
-    %h4
-      %strong No. 134 7th Ave KHazayi Rezashar Mashhad Iran
-    %p
-      %h5
-        %strong TEL: 8783863             FAX: 8784128
-    %p
-      %h5
-        %strong EMAIL: info@raush.ir
+  .addfooter{:class => I18n.locale}
+    - if I18n.locale == :fa
+      %h4
+        %strong رضاشهر - بلوار دعبل خزائی - دعبل خزائی ۷ - پلاک ۱۳۴
+      %p
+        %h5
+          %strong تلفن: ۸۷۸۳۸۶۳             فکس: ۸۷۸۴۱۲۸
+      %p
+        %h5
+          %strong ایمیل: info@raush.ir
+    - else
+      %h4
+        %strong No. 134 7th Ave KHazayi Rezashar Mashhad Iran
+      %p
+        %h5
+          %strong TEL: 8783863             FAX: 8784128
+      %p
+        %h5
+          %strong EMAIL: info@raush.ir
 .clear-float
 / end FOOTER

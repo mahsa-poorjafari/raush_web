@@ -17,7 +17,8 @@
 
 .fa {direction:rtl; font-family: BYekan; text-align:right}
 .en {direction:ltr; font-family: ERASLGHT; text-align:left}
-
+#fa {font-family: BYekan;}
+#en {font-family: ERASLGHT;}
 
 .mainmenu {position: fixed;
 z-index: 100;

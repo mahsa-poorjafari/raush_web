@@ -12,7 +12,7 @@
     %meta{content: "no", "http-equiv" => "imagetoolbar"}
     = favicon_link_tag 'favicon.png', :rel => 'shortcut icon'
   %body{style: "margin:0px"}
-    .container-full
+    .container-full{:id => I18n.locale}
       .row.mainmenu     
         = render "shared/nav_bar"
         - if is_admin?
