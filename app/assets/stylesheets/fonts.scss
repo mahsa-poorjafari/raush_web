@@ -4,7 +4,7 @@
     src: font-url('/assets/BYekan.eot?#iefix') format('embedded-opentype'),
          font-url('/assets/BYekan.woff') format('woff'),
          font-url('/assets/BYekan.ttf') format('truetype'),
-         font-url('/assets/BYekan.svg#open_sansregular') format('svg');
+         font-url('/assets/BYekan.svg#BYekan') format('svg');
     
     font-weight: normal;
     font-style: normal;
@@ -18,9 +18,8 @@
     src: font-url('/assets/ERASLGHT.eot?#iefix') format('embedded-opentype'),
          font-url('/assets/ERASLGHT.woff') format('woff'),
          font-url('/assets/ERASLGHT.ttf') format('truetype'),
-         font-url('/assets/ERASLGHT.svg#open_sansregular') format('svg');
-    src: url('./gothic.eot');
-    src: local('gothic'), url('./gothic.woff') format('woff'), url('./gothic.ttf') format('truetype');
+         font-url('/assets/ERASLGHT.svg#ERASLGHT') format('svg');
+    
     font-weight: normal;
     font-style: normal;
 
