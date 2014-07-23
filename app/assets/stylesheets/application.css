@@ -15,8 +15,8 @@
  */
 .field-holder {width:50%;}
 
-.fa {direction:rtl; font-family: 'open_sansregular'; text-align:right}
-.en {direction:ltr; font-family: 'open_sansregular'; text-align:left}
+.fa {direction:rtl; font-family: BYekan; text-align:right}
+.en {direction:ltr; font-family: ERASLGHT; text-align:left}
 
 
 .mainmenu {position: fixed;
@@ -67,7 +67,7 @@ height:auto; background:#12828B; overflow:hidden;
   text-align:left;
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
   transition: all 1s;
-  z-index:100;}
+  }
 .admin-menu:hover {margin-left:0px; cursor:pointer; }
 .admin-menu ul.items {margin-top: -25px; text-align:left; margin-right:5px; list-style:none}
 .admin-menu ul.items li {height:20px; cursor:pointer; margin:1px}

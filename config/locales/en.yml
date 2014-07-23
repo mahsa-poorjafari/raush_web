@@ -44,3 +44,7 @@ en:
     hotel: 'Smart Hotel'
     home: 'Smart House'
     office: 'Smart Office'
+  net:
+    lan: 'LAN'
+    wan: 'WAN'
+    voip: 'VOIP'
