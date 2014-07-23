@@ -19,6 +19,22 @@
 .en {direction:ltr; font-family: 'open_sansregular'; text-align:left}
 
 
+.mainmenu {position: fixed;
+z-index: 100;
+width: 100%;}
+
+.icons {position: fixed;
+left:25%;
+float: left;
+width: 82%;}
+
+.logo {position: fixed;
+float: left;
+width:25%;
+}
+
+
+
 .our-team { 
   height:325px;
 

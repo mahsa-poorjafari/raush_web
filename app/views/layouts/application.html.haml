@@ -13,7 +13,7 @@
     = favicon_link_tag 'favicon.png', :rel => 'shortcut icon'
   %body{style: "margin:0px"}
     .container-full
-      .row
+      .row.mainmenu
         - if is_admin?
           .admin-menu            
             = render "shared/admin_menu"
