@@ -41,7 +41,11 @@ line-height:1em;
 .link .button .icon { float:right ; width:25% ; background:#3edac6}
 .footer{width:100%;height:15.5%;position:fixed;bottom:0}
 .footer .phone{height:100%;color:#FFF; background:#00AD69;width:40%;float:right}
-.footer .address{background:#FFF ; color:#00AD69;width:60%;float:left; padding-top:10px}
+.footer .address{
+background:#FFF ;
+ color:#00AD69;width:60%;float:left; padding-top:10px;
+height:100%;
+}
 .diplaynone{position:absolute; display:none;}
 .scrol{
 	overflow:scroll
@@ -180,7 +184,7 @@ width: 70%;
 float: right;
 }
 .addfooter{margin-left:5%;
-  height: 80%;
+  height: 85%;
 overflow: hidden;
 }
 .control  {margin-top:-10%; position:fixed}
