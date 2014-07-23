@@ -4,24 +4,32 @@
     src: font-url('/assets/BYekan.eot?#iefix') format('embedded-opentype'),
          font-url('/assets/BYekan.woff') format('woff'),
          font-url('/assets/BYekan.ttf') format('truetype'),
-         font-url('/assets/BYekan.svg#BYekan') format('svg');
-    
+         font-url('/assets/BYekan.svg#BYekan') format('svg');    
     font-weight: normal;
     font-style: normal;
 
 }
 
 @font-face {
-    font-family: 'ERASLGHT';
+    font-family: 'eras_light_itc';
     
-    src: font-url('/assets/ERASLGHT.eot');
-    src: font-url('/assets/ERASLGHT.eot?#iefix') format('embedded-opentype'),
-         font-url('/assets/ERASLGHT.woff') format('woff'),
-         font-url('/assets/ERASLGHT.ttf') format('truetype'),
-         font-url('/assets/ERASLGHT.svg#ERASLGHT') format('svg');
-    
+    src: font-url('/assets/eras_light_itc.eot');
+    src: font-url('/assets/eras_light_itc.eot?#iefix') format('embedded-opentype'),
+         font-url('/assets/eras_light_itc.woff') format('woff'),
+         font-url('/assets/eras_light_itc.ttf') format('truetype'),
+         font-url('/assets/eras_light_itc.svg#eras_light_itc') format('svg');    
     font-weight: normal;
     font-style: normal;
 
 }
 
+@font-face {
+    font-family: 'gothic';    
+    src: font-url('/assets/gothic.eot');
+    src: font-url('/assets/gothic.eot?#iefix') format('embedded-opentype'),
+         font-url('/assets/gothic.woff') format('woff'),
+         font-url('/assets/gothic.ttf') format('truetype'),
+         font-url('/assets/gothic.svg#gothic') format('svg');    
+    font-weight: normal;
+    font-style: normal;
+}

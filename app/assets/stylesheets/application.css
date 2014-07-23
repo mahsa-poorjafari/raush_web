@@ -16,9 +16,9 @@
 .field-holder {width:50%;}
 
 .fa {direction:rtl; font-family: BYekan; text-align:right}
-.en {direction:ltr; font-family: ERASLGHT; text-align:left}
+.en {direction:ltr; font-family: 'eras_light_itc'; text-align:left}
 #fa {font-family: BYekan;}
-#en {font-family: ERASLGHT;}
+#en {font-family: 'eras_light_itc';}
 
 .mainmenu {position: fixed;
 z-index: 100;
@@ -57,6 +57,7 @@ width:25%;
 
 #b-details   #hotel .details-text{}
 .admin-menu {
+font-family: 'gothic';
 padding-left:5px; 
 padding-top:5px; 
 margin:2px; width:15%; 
