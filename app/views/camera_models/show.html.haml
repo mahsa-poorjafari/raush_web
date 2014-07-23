@@ -1,15 +1,17 @@
-%p#notice= notice
+.fa.width80.set-center
+  %p#notice= notice
 
-%p
-  %b Subservice:
-  = @camera_model.subservice_id
-%p
-  %b Title en:
-  = @camera_model.title_en
-%p
-  %b Title fa:
-  = @camera_model.title_fa
-
-= link_to 'Edit', edit_camera_model_path(@camera_model)
-\|
-= link_to 'Back', camera_models_path
+  %p
+    %b نوع دوربین:
+    = @camera_model.subservice.title
+  %p
+    %b عنوان:
+    = @camera_model.title
+  %p
+    %b توضیحات
+    = @camera_model.description
+    
+  - if is_admin?
+    = link_to 'Edit', edit_camera_model_path(@camera_model)
+    \|
+    = link_to 'Back', camera_models_path

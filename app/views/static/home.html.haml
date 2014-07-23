@@ -378,7 +378,10 @@
                 .col-xs-4.show-3box
                   .col-xs-12
                     = image_tag model.image(:medium)
-                  .set-center.txt-center= model.title
+                  .set-center.txt-center
+                    %b= model.title
+                    %p= model.description
+                  
             
           .clear-float
       .col-xs-6      

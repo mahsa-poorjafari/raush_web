@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140615123634) do
+ActiveRecord::Schema.define(version: 20140723111948) do
 
   create_table "account_documents", force: true do |t|
     t.date     "payment_date"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20140615123634) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "description_en"
+    t.string   "description_fa"
   end
 
   create_table "design_samples", force: true do |t|

@@ -4,19 +4,25 @@
       %ul
         - @camera_model.errors.full_messages.each do |msg|
           %li= msg
-  .col-xs-5.margin5    
-    .form-group    
-      = f.label 'مدل دوربین را انتخاب کنید:', :class => "control-label"
-      = f.select(:subservice_id, @camera.collect {|u| [u.title_en, u.id]}, :prompt => 'Select camera model')      
+  .col-xs-5.margin5 
     .form-group    
       = f.label 'عنوان مدل به انگلیسی:', :class => "control-label"
       = f.text_field :title_en, :class => "form-control"
     .form-group    
       = f.label 'عنوان مدل به فارسی', :class => "control-label"
       = f.text_field :title_fa, :class => "form-control"
-  .col-xs-5.margin5
+    .form-group    
+      = f.label 'توضیحات فارسی:', :class => "control-label"
+      = f.text_area :description_en, :class => "form-control"
+    .form-group    
+      = f.label 'توضیحات انگلیسی:', :class => "control-label"
+      = f.text_area :description_fa, :class => "form-control"
+  .col-xs-5.margin5{:style => "margin-top:10%"}
+    .form-group    
+      = f.label 'مدل دوربین را انتخاب کنید:', :class => "control-label"
+      = f.select(:subservice_id, @camera.collect {|u| [u.title_en, u.id]}, :prompt => 'Select camera model')      
     .form-group  
-      - if @camera_model.present?
+      - if @camera_model.image.present?
         = image_tag @camera_model.image(:small)
       = f.label 'تصویر مدل', :class => "control-label"
       = f.file_field :image

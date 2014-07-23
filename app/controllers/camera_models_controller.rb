@@ -1,4 +1,4 @@
-
+# encoding: UTF-8
 class CameraModelsController < ApplicationController
   before_action :set_camera_model, only: [:show, :edit, :update, :destroy]
   before_filter :check_autentication
@@ -75,6 +75,6 @@ class CameraModelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def camera_model_params
-      params.require(:camera_model).permit(:subservice_id, :title_en, :title_fa, :image)
+      params.require(:camera_model).permit(:subservice_id, :title_en, :title_fa, :image, :description_en, :description_fa)
     end
 end

@@ -9,4 +9,7 @@ class CameraModel < ActiveRecord::Base
   def title
     I18n.locale == :fa ? self.read_attribute("title_fa") : self.read_attribute("title_en")
   end
+  def description
+    I18n.locale == :fa ? self.read_attribute("description_fa") : self.read_attribute("description_en")
+  end
 end
