@@ -1,3 +1,4 @@
+
 class CameraModelsController < ApplicationController
   before_action :set_camera_model, only: [:show, :edit, :update, :destroy]
   before_filter :check_autentication
