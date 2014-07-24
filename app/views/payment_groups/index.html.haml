@@ -1,6 +1,6 @@
 .width80.fa.set-center  
   %h1 لیست عناوین فاکتور
-
+  = link_to 'افزودن عنوان فاکتور', new_payment_group_path, :class => "btn btn-default"
   %table.table
     %tr
       %th row
@@ -19,4 +19,12 @@
 
   %br
 
-  = link_to 'New Payment group', new_payment_group_path, :class => "btn btn-default"
+  
+  
+  = link_to accounting_path , :class =>'link' do
+    #btn-bk-about.button.set-center.btnw10.back
+      .item= t('back')
+      .icon
+        = image_tag "back.png", height: "40" , width: "40"    
+      
+      .clear-float

@@ -96,8 +96,10 @@ background:1a1a1a;
 /* accounting */
 
 .accounting {padding:10px}
-.accounting .partition { width:70%}
-.accounting .partition  .boxes {float:right; width:25%; border:#fff 2px solid; text-align:center; margin:10px}
+.accounting .partition { width:100%}
+.accounting .partition  .boxes {float:right; width:23%; border:#fff 2px solid; text-align:center; margin:10px; 
+  height:200px;
+}
 .accounting .partition  .boxes h3.title {text-shadow: 1px 1px 1px #74B3F1;}
 .accounting .partition  .boxes:hover {color:#74B0EB; cursor:pointer;}
 
@@ -113,3 +115,5 @@ background:1a1a1a;
 .nano .nano-content { padding: 10px; }
 .nano .nano-pane   { background: #888; }
 .nano .nano-slider { opacity:.8; background:#BFBFBF}
+table.table.table-striped tr td{color:#000;}
+table.table.table-striped tr td a{color:#000;}

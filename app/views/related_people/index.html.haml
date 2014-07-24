@@ -1,12 +1,13 @@
 .width80.fa.set-center
   %h1 لیست افراد مرتبط
-  = link_to 'چاپ جدول', '#', :id => "print-table"
-  %table.table{id:"member_table"}
+  
+  
+  %table.table.table-striped{id:"member_table"}
     %thead
       %tr
-        %th row
-        %th Title
-        %th Description
+        %th ردیف‍
+        %th عنوان
+        %th توضیحات
         %th
     %tbody{:id => "member_container"}  
       - @related_people.each_with_index do |related_person, i|
@@ -16,12 +17,21 @@
           %td= related_person.description
           %td
             = link_to 'Show', related_person
+            \|           
             = link_to 'Edit', edit_related_person_path(related_person)
+            \|
             = link_to 'Destroy', related_person, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-
-
-  = link_to 'New Related person', new_related_person_path, :class => "btn btn-default"
+  = link_to accounting_path , :class =>'link' do
+    #btn-bk-about.button.set-center.btnw10.back
+      .item= t('back')
+      .icon
+        = image_tag "back.png", height: "40" , width: "40"    
+      
+      .clear-float
+  
+  = link_to 'تعریف شخص/شرکت جدید', new_related_person_path, :class => "btn btn-default"
+  = link_to 'چاپ جدول', '#', :id => "print-table", :class => "btn btn-default"
 
 :coffeescript
   window.reloadDataTable = ->
