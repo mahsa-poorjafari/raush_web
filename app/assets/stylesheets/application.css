@@ -107,3 +107,8 @@ background:1a1a1a;
 
 .txt-center {text-align:center}
 .show-3box {height:330px; text-align:center; margin-top:2%}
+
+.nano { width: 500px; height: 500px; }
+.nano .nano-content { padding: 10px; }
+.nano .nano-pane   { background: #888; }
+.nano .nano-slider { opacity:.8; background:#BFBFBF}

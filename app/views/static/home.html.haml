@@ -113,8 +113,8 @@
             .clear-float
       .box-text{:class => I18n.locale}
         %h2= @hotel.title
-        .details-text{:class => I18n.locale}
-          =raw @hotel.text          
+        .details-text#about.nano{:class => I18n.locale}
+          .nano-content=raw @hotel.text          
       
           .clear-float
       / end box text
@@ -130,8 +130,8 @@
             .clear-float
       .box-text{:class => I18n.locale}
         %h2= @house.title
-        .details-text{:class => I18n.locale}
-          =raw @house.text
+        .details-text#about.nano{:class => I18n.locale}
+          .nano-content=raw @house.text
         
       / end box
     / END houes
@@ -146,8 +146,8 @@
             .clear-float
       .box-text{:class => I18n.locale}
         %h2= @office.title
-        .details-text{:class => I18n.locale}
-          =raw @office.text
+        .details-text#about.nano{:class => I18n.locale}
+          .nano-content=raw @office.text
         
       / end box
     / END Office
@@ -192,8 +192,8 @@
             .clear-float
       .box-text{:class => I18n.locale}
         %h2= @wan.title
-        .details-text{:class => I18n.locale}
-          =raw @wan.text
+        .details-text#about.nano{:class => I18n.locale}
+          .nano-content=raw @wan.text
         
       / end box text
     / END HOTEL
@@ -208,8 +208,8 @@
             .clear-float
       .box-text{:class => I18n.locale}
         %h2= @lan.title
-        .details-text{:class => I18n.locale}
-          =raw @lan.text
+        .details-text#about.nano{:class => I18n.locale}
+          .nano-content=raw @lan.text
         
       / end box
     / END houes
@@ -224,8 +224,8 @@
             .clear-float
       .box-text{:class => I18n.locale}
         %h2= @voip.title
-        .details-text{:class => I18n.locale}
-          =raw @voip.text
+        .details-text#about.nano{:class => I18n.locale}
+          .nano-content=raw @voip.text
         
       / end box
     / END voip
@@ -437,3 +437,8 @@
 
   
 
+:javascript
+
+  $(document).ready(function(){
+    $(".nano").nanoScroller();
+  });
