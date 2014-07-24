@@ -1,0 +1,31 @@
+.width80.fa.set-center   
+  %h1 دفترچه تلفن
+  
+  .col-xs-5.margin5 
+    #search_result.search_result
+  .col-xs-5.margin5 
+    .contact-search-form
+      = form_tag search_contact_path(1), :method => "get", id: "search-form", :remote => true do 
+        = text_field_tag :search, params[:search], :id => 'search_field' 
+        = submit_tag "جستجو", :name => nil, :id => "search-submit" 
+        #clear.col-md-4= link_to  "تصحیح", '#phone'            
+    = link_to 'افزودن به دفترچه', new_contact_path, :class => "btn btn-default"
+    
+  
+:javascript
+  $('#clear').click(function()
+  {
+    $('#search_field').val('');
+    $('#search_result').empty();
+  });
+  
+
+  
+  $(':submit#search-submit').click(function(e) {
+    $(':text#search_field').each(function() {
+      if ($(this).val().length == 0) {
+        $(this).css('border', '2px solid red');
+        e.preventDefault();
+      }
+    });
+  });

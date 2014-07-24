@@ -1,0 +1,7 @@
+-if @contact.present?
+  $('#search_result').empty();
+  $("#search_result").prepend("#{escape_javascript(render(:partial => 'contact_search', :locals => {:result => @contact }))}");        
+  $('form#search-form [type="text"]').val('');
+  
+-else
+  $('#search_result').html("<h4>موردی یافت نشد...</h4>");

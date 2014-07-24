@@ -1,6 +1,12 @@
 RaushWeb::Application.routes.draw do
   
 
+  resources :contacts do
+    member do
+      get :search  
+    end
+  end
+
   resources :payment_groups
 
   resources :account_documents
@@ -31,6 +37,7 @@ end
   root :to => 'static#home'
   get 'accounting'  => 'static#accounting'
   get "login" => "users#login"  
+  get 'search_phone' => 'contacts#search'
   post "create_session" => "users#create_session", :as => :create_session
   get "delete_session" => "users#delete_session", :as => :delete_session
   # The priority is based upon order of creation: first created -> highest priority.

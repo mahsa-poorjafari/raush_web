@@ -117,3 +117,6 @@ background:1a1a1a;
 .nano .nano-slider { opacity:.8; background:#BFBFBF}
 table.table.table-striped tr td{color:#000;}
 table.table.table-striped tr td a{color:#000;}
+.contact-search-form {width:50%; margin-top:5%}
+
+#search_result.search_result {overflow-y:scroll; height:300px}

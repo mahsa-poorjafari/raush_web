@@ -1,0 +1,22 @@
+.width80.fa.set-center   
+  %p#notice= notice
+
+  %p
+    %b نام شخص:
+    = @contact.preson_name
+  %p
+    %b نام شرکت:
+    = @contact.company_name
+  %p
+    %b تلفن:
+    = @contact.phone
+  %p
+    %b فکس:
+    = @contact.fax
+  %p
+    %b آدرس:
+    = @contact.address
+
+  = link_to 'Edit', edit_contact_path(@contact)
+  \|
+  = link_to 'Back', contacts_path
