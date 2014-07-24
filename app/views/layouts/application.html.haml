@@ -2,13 +2,16 @@
 %html
   %head
     %meta{charset: "utf-8"}/
-    %title RAUSH Co, BMS, Web Site, Graphic, Camera
+    %title 
+      = t('raushtitle')
+      = ',' + Service.all.collect(&:title).join(",") #{@head.fetch(:title, '') if @head}
+    
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true 
     = javascript_include_tag "application", "data-turbolinks-track" => true 
     = csrf_meta_tags
     %meta{:charset => "utf-8"}
-    %meta{:name => "keywords", :content => 'bms , website, graphic, camera' } 
-    %meta{:name => "description", :content => "شرکت راش"}
+    %meta{:name => "keywords", :content => 'bms , website, graphic, camera, راش, Raush, هوشمند سازی, طراحی وب, گرافیک, دوربین مداربسته' } 
+    %meta{:name => "description", :content => "شرکت راش, هوشمند سازی, طراحی وب, گرافیک, دوربین مدار بسته"}
     %meta{content: "no", "http-equiv" => "imagetoolbar"}
     = favicon_link_tag 'favicon.png', :rel => 'shortcut icon'
   %body{style: "margin:0px"}
@@ -23,3 +26,4 @@
         
       .footer.row
         = render "shared/footer"
+    

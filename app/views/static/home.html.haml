@@ -256,8 +256,8 @@
   #web-details
     .prtofilo.diplaynone.servic-descriptipn1
       #axis.show-demo.set-center
-        .sample-pic1
-          .sample-pic2.set-center
+        .sample-pic1.nano
+          .sample-pic2.set-center.nano-content
             - if @web_demos.present?
               - @web_demos.each do |portfolio|
                 .col-xs-4.show-3box
@@ -266,15 +266,15 @@
                     .in-production
                       = link_to (image_tag portfolio.image(:small)), url_with_protocol(portfolio.website), :target => "blank"
                   - else
-                    = link_to (image_tag portfolio.image(:small)), url_with_protocol(portfolio.website), :target => "blank"          
+                    = link_to (image_tag portfolio.image(:small)), url_with_protocol(portfolio.website), :target => "blank"
               
-      .col-xs-6
-        .link
-          #btn-web-prto.button.set-center.btnw10.back
-            .item= t('back')
-            .icon
-              = image_tag "back.png",height: "40", width: "40"
-            .clear-float
+      
+      .link
+        #btn-web-prto.button.set-center.btnw10.back
+          .item= t('back')
+          .icon
+            = image_tag "back.png",height: "40", width: "40"
+          .clear-float
     
 / end WEB
 #idgraphic.servic-descriptipn.bggraphic.diplaynone
@@ -304,8 +304,8 @@
     / iiii
     #prtofilo.diplaynone.servic-descriptipn1
       #axis.show-demo.set-center
-        .sample-pic1
-          .sample-pic2.set-center
+        .sample-pic1.nano
+          .sample-pic2.set-center.nano-content
             - if @graphic_demos.present?
               - @graphic_demos.each do |portfolio|
                 .col-xs-4.show-3box
@@ -313,13 +313,13 @@
                   = link_to (image_tag portfolio.image(:small)), url_with_protocol(portfolio.website), :target => "blank"
                     
            
-      .col-xs-6
-        .link
-          #btnbprtofilo.button.set-center.btnw10.back
-            .item= t('back')
-            .icon
-              = image_tag "back.png",height: "40", width: "40"
-            .clear-float
+      
+      .link
+        #btnbprtofilo.button.set-center.btnw10.back
+          .item= t('back')
+          .icon
+            = image_tag "back.png",height: "40", width: "40"
+          .clear-float
     / END HOTEL
     #price.diplaynone.servic-descriptipn1
       #axis.sample-pic1
@@ -371,8 +371,8 @@
   #c-details 
     #fam.servic-descriptipn1.diplaynone
       #axis.show-demo.set-center
-        .sample-pic1
-          .sample-pic2.set-center
+        .sample-pic1.nano
+          .sample-pic2.set-center.nano-content
             - if @camera_fam.present?
               - @camera_fam.camera_models.each do |model|
                 .col-xs-4.show-3box
@@ -384,18 +384,18 @@
                   
             
           .clear-float
-      .col-xs-6      
-        .link
-          #btnbfam.button.set-center.btnw10.back
-            .item= t('back')
-            .icon
-              = image_tag "back.png",height: "40", width: "40"
-            .clear-float
+          
+      .link
+        #btnbfam.button.set-center.btnw10.back
+          .item= t('back')
+          .icon
+            = image_tag "back.png",height: "40", width: "40"
+          .clear-float
             
     #hikvision.servic-descriptipn1.diplaynone
       #axis.show-demo.set-center
-        .sample-pic1
-          .sample-pic2
+        .sample-pic1.nano
+          .sample-pic2.nano-content
             - if @camera_hik.present?
               - @camera_hik.camera_models.each do |model|
                 .col-xs-4.show-3box
@@ -404,18 +404,18 @@
                   .set-center= model.title
             
           .clear-float
-      .col-xs-6      
-        .link
-          #btnbhik.button.set-center.btnw10.back
-            .item= t('back')
-            .icon
-              = image_tag "back.png",height: "40", width: "40"
-            .clear-float
+            
+      .link
+        #btnbhik.button.set-center.btnw10.back
+          .item= t('back')
+          .icon
+            = image_tag "back.png",height: "40", width: "40"
+          .clear-float
             
     #sesco.servic-descriptipn1.diplaynone
       #axis.show-demo.set-center
-        .sample-pic1
-          .sample-pic2
+        .sample-pic1.nano
+          .sample-pic2.nano-content
             - if @camera_sesco.present?
               - @camera_sesco.camera_models.each do |model|
                 .col-xs-4.show-3box
@@ -424,21 +424,21 @@
                   .set-center= model.title
         
           .clear-float
-      .col-xs-6      
-        .link
-          #btnbsesco.button.set-center.btnw10.back
-            .item= t('back')
-            .icon
-              = image_tag "back.png",height: "40", width: "40"
-            .clear-float
+           
+      .link
+        #btnbsesco.button.set-center.btnw10.back
+          .item= t('back')
+          .icon
+            = image_tag "back.png",height: "40", width: "40"
+          .clear-float
     / END HOTEL
   / end DESCRAPTION
 
 
   
 
-:javascript
+:coffeescript
+  $(document).ready ->
+    $(".nano").nanoScroller()
+    return
 
-  $(document).ready(function(){
-    $(".nano").nanoScroller();
-  });

@@ -106,7 +106,8 @@ background:1a1a1a;
 .show-factor  .body-factor p{margin:10px}
 
 .txt-center {text-align:center}
-.show-3box {height:330px; text-align:center; margin-top:2%}
+.show-3box {height:330px; text-align:center; margin-top:2%;}
+.show-3box h4{font-family: 'gothic';}
 
 .nano { width: 500px; height: 500px; }
 .nano .nano-content { padding: 10px; }
