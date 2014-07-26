@@ -12,30 +12,30 @@
             - else
               %p{:style => "direction:ltr; text-align:justify"}
                 = render 'shared/about_en'
-              
-            .link
-              #btn-bk-about.button.set-center.btnw10.back
-                .item= t('back')
-                .icon
-                  = image_tag "back.png", height: "40" , width: "40"
-                .clear-float
+            .col-xs-5  
+              .link
+                #btn-bk-about.button.set-center.btnw10.back
+                  .item= t('back')
+                  .icon
+                    = image_tag "back.png", height: "40" , width: "40", :alt => "back", :title => "back"
+                  .clear-float
       .col-xs-3
         #hometext.text.vanr.bacher.object{waittime: "200"}
         .link
           #homebtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
             .item= t('about-us')
             .icon
-              = image_tag "ICON/aboutus.png",height: "40",  width: "40"
+              = image_tag "ICON/aboutus.png",height: "40",  width: "40", :alt => "about us icon", :title => "about us icon"
             .clear-float
           #homebtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
             .item= t('our-team')
             .icon
-              = image_tag "ICON/ourteam.png", height: "40", width: "40"
+              = image_tag "ICON/ourteam.png", height: "40", width: "40", :alt => "our team icon", :title => "our team icon"
             .clear-float
           #homebtn3.button.bacher.vanr.object.btnw30{waittime: "400"}
             .item= t('Order-Online')
             .icon
-              = image_tag "ICON/onlin.png",height: "40", width: "40"
+              = image_tag "ICON/onlin.png",height: "40", width: "40", :alt => "online order icon", :title => "online order icon"
             .clear-float
         .clear-float
     #order-online.diplaynone.servic-descriptipn1
@@ -44,29 +44,27 @@
         %div{:class => I18n.locale}
           = render "order_onlines/form" 
         .clear-float
-      .col-xs-6
-        .link
-          #btn-bk-order.button.set-center.btnw10.back
-            .item= t('back')
-            .icon
-              = image_tag "back.png", height: "40" , width: "40"
-            .clear-float
+      
+      .link
+        #btn-bk-order.button.set-center.btnw10.back
+          .item= t('back')
+          .icon
+            = image_tag "back.png", height: "40" , width: "40", :alt => "back", :title => "back"
+          .clear-float
     /end order-online
     
     #our-team.diplaynone.servic-descriptipn1
       .width80.set-center        
         = render "teams/index"
         .clear-float
-      .col-xs-6
-        .link
-          - if is_admin?
-            .btnw30= link_to 'فرد جدید', new_team_path          
-          %br        
-          #btn-bk-team.button.set-center.btnw10.back
-            .item= t('back')
-            .icon
-              = image_tag "back.png", height: "40" , width: "40"
-            .clear-float
+      
+      .link
+        
+        #btn-bk-team.button.set-center.btnw10.back
+          .item= t('back')
+          .icon
+            = image_tag "back.png", height: "40" , width: "40", :alt => "back", :title => "back"
+          .clear-float
     /end our team
     
   / end home!
@@ -77,7 +75,7 @@
       .col-xs-6
         #axis.one          
           - if @bms.present?
-            = image_tag  @bms.image(:large), waittime: "500", :id => 'moo', :class => 'object bache van'
+            = image_tag  @bms.image(:large), waittime: "500", :id => 'moo', :class => 'object bache van', :alt => "BMS", :title => "BMS"
       .col-xs-6
         #bmstext.text.bacher.vanr.object{waittime: "200"}
           - if @bms.present?
@@ -86,17 +84,17 @@
           #bmsbtn1.button.vanr.bacher.object.btnw30{waittime: "300"}
             .item= t('bms.hotel')
             .icon
-              = image_tag "ICON/Hotel.png",height: "40", width: "40"
+              = image_tag "ICON/Hotel.png",height: "40", width: "40", :alt => "smart Hole icon", :title => "smart hotel icon"
             .clear-float
           #bmsbtn2.button.vanr.bacher.object.btnw30{waittime: "350"}
             .item= t('bms.home')
             .icon
-              = image_tag "ICON/home.png", height: "40" , width: "40"
+              = image_tag "ICON/home.png", height: "40" , width: "40", :alt => "smart home", :title => "smart home"
             .clear-float
           #bmsbtn3.button.vanr.bacher.object.btnw30{waittime: "400"}
             .item{align: "justify"}= t('bms.office')
             .icon
-              = image_tag"ICON/office.png", height: "40", width: "40"
+              = image_tag"ICON/office.png", height: "40", width: "40", :alt => "smart office", :title => "smart office"
             .clear-float
         .clear-float
   / end BMS
@@ -109,7 +107,7 @@
           #btnbhotel.button.set-center.btnw10.back
             .item= t('back')
             .icon
-              = image_tag "back.png", height: "40" , width: "40"
+              = image_tag "back.png", height: "40" , width: "40", :alt => "back", :title => "back"
             .clear-float
       .box-text{:class => I18n.locale}
         %h2= @hotel.title
@@ -121,12 +119,12 @@
     / END HOTEL
     #house.diplaynone.servic-descriptipn1
       #axis.sample-pic
-        = image_tag @house.image(:large), :class => "sub-service-img"
+        = image_tag @house.image(:large), :class => "sub-service-img", :alt => "Smart House", :title => "Smart House"
         .link
           #btnbhome.button.set-center.btnw10.back
             .item= t('back')
             .icon
-              = image_tag "back.png", height: "40", width: "40"
+              = image_tag "back.png", height: "40", width: "40", :alt => "back", :title => "back"
             .clear-float
       .box-text{:class => I18n.locale}
         %h2= @house.title
@@ -137,12 +135,12 @@
     / END houes
     #office.diplaynone.servic-descriptipn1
       #axis.sample-pic
-        = image_tag @office.image(:large), :class => "sub-service-img"
+        = image_tag @office.image(:large), :class => "sub-service-img", :alt => "Smart Office", :title => "Smart Office"
         .link
           #btnboffice.button.set-center.btnw10.back
             .item= t('back')
             .icon
-              = image_tag "back.png", height: "40", width: "40"
+              = image_tag "back.png", height: "40", width: "40", :alt => "back", :title => "back"
             .clear-float
       .box-text{:class => I18n.locale}
         %h2= @office.title
@@ -157,7 +155,7 @@
     #n-info
       .col-xs-6
         #axis.one
-          = image_tag @network.image(:large), :id => "netmoo", :class => 'object bache van'
+          = image_tag @network.image(:large), :id => "netmoo", :class => 'object bache van', :alt => "Network", :title => "Network"
       .col-xs-6
         #nettext.text.bacher.vanr.object{waittime: "200"}
           = @network.description
@@ -165,17 +163,17 @@
           #netbtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
             .item= t('net.wan')
             .icon
-              = image_tag "ICON/wan.png", height: "40", width: "40"
+              = image_tag "ICON/wan.png", height: "40", width: "40", :alt => "Wan Network icon", :title => "Wan network icon"
             .clear-float
           #netbtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
             .item= t('net.lan')
             .icon
-              = image_tag "ICON/lan.png", height: "40", width: "40"
+              = image_tag "ICON/lan.png", height: "40", width: "40", :alt => "Lan Network icon", :title => "Lan Network icon"
             .clear-float
           #netbtn3.button.bacher.vanr.object.btnw30{waittime: "400"}
             .item= t('net.voip')
             .icon
-              = image_tag "ICON/voip.png", height: "40", width: "40"
+              = image_tag "ICON/voip.png", height: "40", width: "40", :alt => "Voip Network icon", :title => "Voip Network icon"
             .clear-float
         .clear-float
   / end NETORK
@@ -183,12 +181,12 @@
     / iiii
     #wan.diplaynone.servic-descriptipn1
       #axis.sample-pic
-        = image_tag @wan.image(:large), :class => "sub-service-img"
+        = image_tag @wan.image(:large), :class => "sub-service-img", :alt => "Wan Network", :title => "Wan Network"
         .link
           #btnbwan.button.set-center.btnw10.back
             .item= t('back')
             .icon
-              = image_tag "back.png", height: "40", width: "40"
+              = image_tag "back.png", height: "40", width: "40", :alt => "back", :title => "back", :alt => "back", :title => "back"
             .clear-float
       .box-text{:class => I18n.locale}
         %h2= @wan.title
@@ -199,12 +197,12 @@
     / END HOTEL
     #lan.diplaynone.servic-descriptipn1
       #axis.sample-pic
-        = image_tag @lan.image(:large), :class => "sub-service-img"
+        = image_tag @lan.image(:large), :class => "sub-service-img", :alt => "Lan Network", :title => "Lan Network"
         .link
           #btnblan.button.set-center.btnw10.back
             .item= t('back')
             .icon
-              = image_tag "back.png",height: "40" , width: "40"
+              = image_tag "back.png",height: "40" , width: "40", :alt => "back", :title => "back"
             .clear-float
       .box-text{:class => I18n.locale}
         %h2= @lan.title
@@ -215,12 +213,12 @@
     / END houes
     #voip.diplaynone.servic-descriptipn1
       #axis.sample-pic
-        = image_tag @voip.image(:large), :class => "sub-service-img"
+        = image_tag @voip.image(:large), :class => "sub-service-img", :alt => "Voip Network", :title => "Voip Network"
         .link
           #btnbvoip.button.set-center.btnw10.back
             .item= t('back')
             .icon
-              = image_tag "back.png", height: "40", width: "40"
+              = image_tag "back.png", height: "40", width: "40", :alt => "back", :title => "back"
             .clear-float
       .box-text{:class => I18n.locale}
         %h2= @voip.title
@@ -235,7 +233,7 @@
     .col-xs-6
       #axis.one
         - if @web.present?
-          = image_tag  @web.image(:large), :id => "webmoo" , :class => 'object bache van'
+          = image_tag  @web.image(:large), :id => "webmoo" , :class => 'object bache van', :alt => "Web Site Development", :title => "Web Site Development"
     .col-xs-6
       #webtext.text.bacher.vanr.object{waittime: "200"}
         - if @web.present?
@@ -244,12 +242,12 @@
         #webbtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
           .item= t('Portfolio')
           .icon
-            = image_tag "ICON/Portfolio.png",height: "40" , width: "40"
+            = image_tag "ICON/Portfolio.png",height: "40" , width: "40", :alt => "Web Site Portfolio", :title => "Web Site Portfolio"
           .clear-float
         #webbtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
           .item= t('Tariff-Price')
           .icon
-            = image_tag "ICON/Price.png", height: "40", width: "40"
+            = image_tag "ICON/Price.png", height: "40", width: "40", :alt => "Web Site Price", :title => "Web Site Price"
           .clear-float
        
       .clear-float
@@ -264,16 +262,16 @@
                   %h4= portfolio.title                
                   - if portfolio.in_production                    
                     .in-production
-                      = link_to (image_tag portfolio.image(:small)), url_with_protocol(portfolio.website), :target => "blank"
+                      = link_to (image_tag portfolio.image(:small)), url_with_protocol(portfolio.website), :target => "blank", :alt => "Web Site", :title => "Web Site"
                   - else
-                    = link_to (image_tag portfolio.image(:small)), url_with_protocol(portfolio.website), :target => "blank"
+                    = link_to (image_tag portfolio.image(:small)), url_with_protocol(portfolio.website), :target => "blank", :alt => "Web Site", :title => "Web Site"
               
       
       .link
         #btn-web-prto.button.set-center.btnw10.back
           .item= t('back')
           .icon
-            = image_tag "back.png",height: "40", width: "40"
+            = image_tag "back.png",height: "40", width: "40", :alt => "back", :title => "back"
           .clear-float
     
 / end WEB
@@ -282,7 +280,7 @@
     #g-info
       .col-xs-6
         #axis.one
-          = image_tag @graphic.image(:large), :id => "graphicmoo" , :class => 'object bache van'
+          = image_tag @graphic.image(:large), :id => "graphicmoo" , :class => 'object bache van', :alt => "Graphic", :title => "Graphic"
       .col-xs-6
         #graphictext.text.bacher.vanr.object{waittime: "200"}
           = @graphic.description
@@ -290,12 +288,12 @@
           #graphicbtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
             .item= t('Portfolio')
             .icon
-              = image_tag "ICON/Portfolio.png",height: "40" , width: "40"
+              = image_tag "ICON/Portfolio.png",height: "40" , width: "40", :alt => "Graphic Portfolio", :title => "Graphic Portfolio"
             .clear-float
           #graphicbtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
             .item= t('Tariff-Price')
             .icon
-              = image_tag "ICON/Price.png",height: "40" , width: "40"
+              = image_tag "ICON/Price.png",height: "40" , width: "40", :alt => "Graphic Price", :title => "Graphic Price"
             .clear-float
           
         .clear-float
@@ -310,7 +308,7 @@
               - @graphic_demos.each do |portfolio|
                 .col-xs-4.show-3box
                   %h4= portfolio.title                
-                  = link_to (image_tag portfolio.image(:small)), url_with_protocol(portfolio.website), :target => "blank"
+                  = link_to (image_tag portfolio.image(:small)), url_with_protocol(portfolio.website), :target => "blank", :alt => "Graphic", :title => "Graphic"
                     
            
       
@@ -318,7 +316,7 @@
         #btnbprtofilo.button.set-center.btnw10.back
           .item= t('back')
           .icon
-            = image_tag "back.png",height: "40", width: "40"
+            = image_tag "back.png",height: "40", width: "40", :alt => "back", :title => "back"
           .clear-float
     / END HOTEL
     #price.diplaynone.servic-descriptipn1
@@ -335,7 +333,7 @@
           #btnblan.button.set-center.btnw10.back
             .item= t('back')
             .icon
-              = image_tag "back.png",height: "40", width: "40"
+              = image_tag "back.png",height: "40", width: "40", :alt => "back", :title => "back"
             .clear-float
       / end box
     / END houes
@@ -346,7 +344,7 @@
       .col-xs-6
         #axis.one
           
-          = image_tag @camera.image(:large), :id => "cameramoo" , :class => 'object bache van'
+          = image_tag @camera.image(:large), :id => "cameramoo" , :class => 'object bache van', :alt => "Camera", :title => "Camera"
       .col-xs-6
         #cameratext.text.bacher.vanr.object{waittime: "200"}
           = @camera.description
@@ -354,17 +352,17 @@
           #camerabtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
             .item Geovision
             .icon
-              = image_tag "ICON/cam.png",height: "40",width: "40"
+              = image_tag "ICON/cam.png",height: "40",width: "40", :alt => "Geovision Camera", :title => "Geovision Camera"
             .clear-float
           #camerabtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
             .item Hikvision
             .icon
-              = image_tag "ICON/cam.png",height: "40", width: "40"
+              = image_tag "ICON/cam.png",height: "40", width: "40", :alt => "Hikvision Camera", :title => "Hikvision Camera"
             .clear-float
           #camerabtn3.button.bacher.vanr.object.btnw30{waittime: "400"}
             .item Dahua
             .icon
-              = image_tag "ICON/cam.png",height: "40", width: "40"
+              = image_tag "ICON/cam.png",height: "40", width: "40", :alt => "Dahua Camera", :title => "Dahua Camera"
             .clear-float
         .clear-float
 
@@ -389,7 +387,7 @@
         #btnbfam.button.set-center.btnw10.back
           .item= t('back')
           .icon
-            = image_tag "back.png",height: "40", width: "40"
+            = image_tag "back.png",height: "40", width: "40", :alt => "back", :title => "back"
           .clear-float
             
     #hikvision.servic-descriptipn1.diplaynone
@@ -400,7 +398,7 @@
               - @camera_hik.camera_models.each do |model|
                 .col-xs-4.show-3box
                   .col-xs-12
-                    = image_tag model.image(:medium)
+                    = image_tag model.image(:medium), :alt => "Camera Model", :title => "Camera Model"
                   .set-center= model.title
             
           .clear-float
@@ -409,7 +407,7 @@
         #btnbhik.button.set-center.btnw10.back
           .item= t('back')
           .icon
-            = image_tag "back.png",height: "40", width: "40"
+            = image_tag "back.png",height: "40", width: "40", :alt => "back", :title => "back"
           .clear-float
             
     #sesco.servic-descriptipn1.diplaynone
@@ -420,7 +418,7 @@
               - @camera_sesco.camera_models.each do |model|
                 .col-xs-4.show-3box
                   .col-xs-12
-                    = image_tag model.image(:medium)
+                    = image_tag model.image(:medium), :alt => "Camera model", :title => "Camera Model"
                   .set-center= model.title
         
           .clear-float
@@ -429,7 +427,7 @@
         #btnbsesco.button.set-center.btnw10.back
           .item= t('back')
           .icon
-            = image_tag "back.png",height: "40", width: "40"
+            = image_tag "back.png",height: "40", width: "40", :alt => "back", :title => "back"
           .clear-float
     / END HOTEL
   / end DESCRAPTION

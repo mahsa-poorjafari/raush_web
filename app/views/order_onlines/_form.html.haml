@@ -5,6 +5,21 @@
         - @order_online.errors.full_messages.each do |msg|
           %li= msg
   .btnw30.pull-left.margin5
+    .form-group 
+      = f.label t('order.email'), :class => "control-label"
+      = f.text_field :email, :class => "form-control" 
+  
+    .form-group 
+      = f.label t('order.web_site'), :class => "control-label"
+      = f.text_field :web_site, :class => "form-control"
+    
+    .form-group 
+      = f.label t('order.text_msg'), :class => "control-label"
+      = f.text_area :text_msg, :class => "form-control", :style => "resize:none"
+    .form-group 
+      = f.submit  t('send'), :class => "btn btn-default"
+      
+  .btnw30.pull-left.margin5
     .form-group  
       = f.label t('order.name'), :class => "control-label"
       = f.text_field :name, :class => "form-control "
@@ -17,21 +32,7 @@
     .form-group 
       = f.label t('order.mobile'), :class => "control-label"
       = f.text_field :mobile, :class => "form-control"
-  .btnw30.pull-left.margin5
-    .form-group 
-      = f.label t('order.email'), :class => "control-label"
-      = f.text_field :email, :class => "form-control" 
   
-    .form-group 
-      = f.label t('order.web_site'), :class => "control-label"
-      = f.text_field :web_site, :class => "form-control"
-    
-    .form-group 
-      = f.label t('order.text_msg'), :class => "control-label"
-      = f.text_area :text_msg, :class => "form-control"
-    .form-group 
-      = f.submit  t('send'), :class => "btn btn-default"
-      
 :javascript 
   $(function() { 
     $(':submit').click(function(e) {
