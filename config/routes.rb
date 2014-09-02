@@ -38,6 +38,7 @@ end
   get 'accounting'  => 'static#accounting'
   get "login" => "users#login"  
   get 'search_phone' => 'contacts#search'
+  get "sitemap.xml" => "static#sitemap", :format => "xml", :as => :sitemap
   post "create_session" => "users#create_session", :as => :create_session
   get "delete_session" => "users#delete_session", :as => :delete_session
   # The priority is based upon order of creation: first created -> highest priority.

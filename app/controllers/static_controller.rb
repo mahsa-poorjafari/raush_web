@@ -35,5 +35,10 @@ class StaticController < ApplicationController
   
   def accounting
   end
+  def sitemap
+    respond_to do |format|
+      format.xml
+    end
+  end
   
 end
