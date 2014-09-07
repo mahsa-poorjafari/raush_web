@@ -7,29 +7,29 @@
           %li= msg
   .btnw30.pull-right.margin5
     .form-group
-      = f.label :payment_date, :class => "control-label"
+      = f.label 'تاریخ پرداخت:', :class => "control-label"
       = f.date_select :payment_date, :class => "form-control"
     .form-group
-      = f.label :payment_group_id, :class => "control-label"
+      = f.label 'فاکتور بابت:', :class => "control-label"
       = f.select(:payment_group_id, PaymentGroup.all.collect {|u| [u.title, u.id]}, :prompt => ' این فاکتور بابت...') 
     
     .form-group
-      = f.label :paid_to, :class => "control-label"
+      = f.label 'پرداخت به', :class => "control-label"
       = f.select(:paid_to, RelatedPerson.all.collect {|u| [u.title, u.id]}, :prompt => ' پرداخت به') 
       
     .form-group
-      = f.label :paid_by, :class => "control-label"      
+      = f.label 'پرداخت توسط', :class => "control-label"      
       = f.select(:paid_by, RelatedPerson.all.collect {|u| [u.title, u.id]}, :prompt => ' پرداخت توسط') 
     .form-group
-      = f.label :value, :class => "control-label"
+      = f.label 'مبلغ به تومان', :class => "control-label"
       = f.text_field :value, :class => "form-control"
       
   .btnw30.pull-right.margin5
     .form-group  
-      = f.label :physical_factor_number, :class => "control-label"
+      = f.label 'شماره فیزیکی فاکتور', :class => "control-label"
       = f.text_field :physical_factor_number, :class => "form-control"
     .form-group
-      = f.label :description, :class => "control-label"
+      = f.label 'توضیحات:', :class => "control-label"
       = f.text_area :description, :class => "form-control"
     .form-group
       = f.submit 'ثبت', :class => "btn btn-default"

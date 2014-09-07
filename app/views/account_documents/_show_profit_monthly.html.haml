@@ -1,0 +1,5 @@
+%tr#show-resut
+  %td
+  %td= received.sum(:value)
+  %td= payment.sum(:value)
+  %td= received.sum(:value).to_i - payment.sum(:value).to_i

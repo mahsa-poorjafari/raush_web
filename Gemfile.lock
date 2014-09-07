@@ -60,6 +60,7 @@ GEM
     coffee-script-source (1.7.0)
     erubis (2.7.0)
     execjs (2.0.2)
+    farsifu (0.5.0)
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -69,6 +70,7 @@ GEM
       railties (>= 4.0.1)
     hike (1.2.3)
     i18n (0.6.9)
+    jalalidate (0.3.3)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
@@ -137,7 +139,9 @@ PLATFORMS
 DEPENDENCIES
   ckeditor_rails
   coffee-rails (~> 4.0.0)
+  farsifu
   haml-rails
+  jalalidate
   jbuilder (~> 1.2)
   jquery-datatables-rails (~> 1.12.2)!
   jquery-rails

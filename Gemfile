@@ -5,6 +5,8 @@ gem 'rails', '4.0.4'
 
 gem "mysql2"
 gem 'haml-rails'
+gem 'jalalidate'
+gem "farsifu"
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'jquery-datatables-rails', '~> 1.12.2', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 gem 'ckeditor_rails'

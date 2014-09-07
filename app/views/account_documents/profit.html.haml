@@ -1,0 +1,31 @@
+.width80.fa.set-center   
+  %h1 محاسبه سود
+  
+  .pull-right.field-holder= link_to 'چاپ جدول', '#', :class => "btn btn-default", :id => "print"
+  .pull-right.field-holder{:style => "height:50px"}
+    = form_tag profit_month_account_documents_path, :method => "get", :remote => true do
+      = select_month(Date.today, :name => "select_month", prompt: 'Choose month')
+      = submit_tag "نمایش بر حسب ماه"
+  %h2= 'مبالغ همه به تومان می باشد'
+  %table.table#profit-table
+    %thead
+      %tr      
+        %th ردیف
+        %th دریافتی های ماهانه
+        %th پرداختی های ماهانه
+        %th سود ماهانه
+    %tbody      
+      %tr#show-resut
+        %td
+        %td= @received_sum
+        %td= @payment_sum
+        %td= @received_sum.to_i - @payment_sum.to_i
+        
+  
+  = link_to :back , :class =>'link' do
+    #btn-bk-about.button.set-center.btnw10.back
+      .item= t('back')
+      .icon
+        = image_tag "back.png", height: "40" , width: "40"    
+      
+      .clear-float

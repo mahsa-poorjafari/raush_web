@@ -9,7 +9,12 @@ RaushWeb::Application.routes.draw do
 
   resources :payment_groups
 
-  resources :account_documents
+  resources :account_documents do
+    collection do
+      get :profit
+      get :profit_month
+    end
+  end
 
   resources :related_people
 

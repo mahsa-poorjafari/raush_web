@@ -1,5 +1,8 @@
 .width80.fa.set-center 
-  %h1 لیست فاکتورها
+  .title{:style => "height:100px"}
+    %h1 لیست فاکتورها
+    = link_to 'ثبت فاکتور جدید', new_account_document_path, :class => "btn btn-default"
+    = link_to 'محاسبه سود', profit_account_documents_path, :class => "btn btn-default"
   
 
   %table.table.table-striped{id:"account_table"}
@@ -7,7 +10,7 @@
       %tr      
         %th ردیف
         %th تاریخ پرداخت
-        %th مبلغ
+        %th مبلغ به تومان
         %th پرداخت به آقای/خانم/شرکت
         %th پرداخت توسط آقای/خانم/شرکت
         %th بابت
@@ -19,15 +22,17 @@
       - @account_documents.each_with_index do |account_document, i|
         %tr
           %td= (i+1)
-          %td= account_document.payment_date
+          %td= JalaliDate.new(account_document.payment_date)
           %td= account_document.value
-          %td= account_document.paid_to
-          %td= account_document.paid_by
+          - @paid_to = RelatedPerson.find(account_document.paid_to)
+          %td= @paid_to.title
+          - @paid_by = RelatedPerson.find(account_document.paid_by)
+          %td= @paid_by.title
           %td= account_document.payment_group.title
           %td= account_document.physical_factor_number
           %td= account_document.description        
           %td
-            = link_to 'Show', account_document
+            = link_to 'Show', account_document            
             = link_to 'Edit', edit_account_document_path(account_document)
             = link_to 'Destroy', account_document, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
@@ -39,7 +44,7 @@
         = image_tag "back.png", height: "40" , width: "40"    
       
       .clear-float
-  = link_to 'ثبت فاکتور جدید', new_account_document_path, :class => "btn btn-default"
+  
 
 
 :coffeescript

@@ -1,0 +1,4 @@
+
+- if @date_month.present?
+  alert('آمار ماه #{@date_month}');
+  $("#show-resut").replaceWith("#{escape_javascript(render(:partial => 'show_profit_monthly', :locals => {:received => @received, :payment => @payment }))}");        

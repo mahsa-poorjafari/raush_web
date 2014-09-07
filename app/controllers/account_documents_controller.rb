@@ -1,10 +1,11 @@
+# encoding: UTF-8
 class AccountDocumentsController < ApplicationController
   before_action :set_account_document, only: [:show, :edit, :update, :destroy]
 
   # GET /account_documents
   # GET /account_documents.json
   def index
-    @account_documents = AccountDocument.all
+    @account_documents = AccountDocument.order('created_at desc')
   end
 
   # GET /account_documents/1
@@ -15,6 +16,35 @@ class AccountDocumentsController < ApplicationController
   # GET /account_documents/new
   def new
     @account_document = AccountDocument.new
+  
+  end
+  
+  def profit_month
+    p '333333'    
+    p @month = params[:date][:month]
+    p '555555555'
+    p @month
+    if @month.present?
+      @date_month = @month
+    else
+      @date_month = Date.today.month            
+    end 
+    @raushco = RelatedPerson.find_by_title('شرکت راش')
+    @received = AccountDocument.where("MONTH(payment_date) = ? and paid_to = ?", @date_month, @raushco)        
+    @received_sum = @received.sum(:value)    
+    @payment = AccountDocument.where("MONTH(payment_date) = ? and paid_by = ?", @date_month, @raushco)            
+    @payment_sum = @payment.sum(:value)
+  end
+  
+  
+  def profit
+    @current_date_month = Date.today.month
+    @raushco = RelatedPerson.find_by_title('شرکت راش')
+    @received = AccountDocument.where("MONTH(payment_date) = ? and paid_to = ?", @current_date_month, @raushco)        
+    @received_sum = @received.sum(:value)    
+    @payment = AccountDocument.where("MONTH(payment_date) = ? and paid_by = ?", @current_date_month, @raushco)            
+    @payment_sum = @payment.sum(:value)
+    
   end
 
   # GET /account_documents/1/edit
