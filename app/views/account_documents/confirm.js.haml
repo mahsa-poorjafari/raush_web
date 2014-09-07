@@ -1,0 +1,4 @@
+- if @save
+  alert('فاکتور تایید نهایی شد');
+  $(".factor-status.#{@account_document.id}").replaceWith("#{escape_javascript(render(:partial => 'set_factor_status', :locals => {:account_document => @account_document }))}");        
+  $('.confirm-link##{@account_document.id}').html('<b>تایید شده</b>');

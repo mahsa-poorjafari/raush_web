@@ -6,6 +6,7 @@
         - @account_document.errors.full_messages.each do |msg|
           %li= msg
   .btnw30.pull-right.margin5
+    = f.hidden_field :factor_type, :value => @factor_type
     .form-group
       = f.label 'تاریخ پرداخت:', :class => "control-label"
       = f.date_select :payment_date, :class => "form-control"
@@ -21,7 +22,9 @@
       = f.label 'پرداخت توسط', :class => "control-label"      
       = f.select(:paid_by, RelatedPerson.all.collect {|u| [u.title, u.id]}, :prompt => ' پرداخت توسط') 
     .form-group
-      = f.label 'مبلغ به تومان', :class => "control-label"
+      = f.label 'مبلغ به ریال', :class => "control-label"
+      %br
+      %i= 'قبل از وارد کردن مبلغ زبان سیستم را انگلیسی کنید.'
       = f.text_field :value, :class => "form-control"
       
   .btnw30.pull-right.margin5

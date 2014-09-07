@@ -14,6 +14,9 @@ RaushWeb::Application.routes.draw do
       get :profit
       get :profit_month
     end
+    member do
+      get :confirm
+    end
   end
 
   resources :related_people

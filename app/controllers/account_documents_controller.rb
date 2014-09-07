@@ -1,6 +1,6 @@
 # encoding: UTF-8
 class AccountDocumentsController < ApplicationController
-  before_action :set_account_document, only: [:show, :edit, :update, :destroy]
+  before_action :set_account_document, only: [:show, :edit, :update, :destroy, :confirm]
 
   # GET /account_documents
   # GET /account_documents.json
@@ -11,28 +11,34 @@ class AccountDocumentsController < ApplicationController
   # GET /account_documents/1
   # GET /account_documents/1.json
   def show
+    @paid_to = RelatedPerson.find(@account_document.paid_to)
+    @paid_by = RelatedPerson.find(@account_document.paid_by)
   end
 
   # GET /account_documents/new
   def new
     @account_document = AccountDocument.new
-  
+    if params[:factor_type].present?      
+      @factor_type = params[:factor_type]      
+    else
+      flash[:FactorTypeEmpty] = 'نوع فاکتور را انتخاب کنید.'      
+      redirect_to :back
+    end
+    
+    
   end
   
-  def profit_month
-    p '333333'    
-    p @month = params[:date][:month]
-    p '555555555'
-    p @month
+  def profit_month    
+    @month = params[:date][:month]   
     if @month.present?
       @date_month = @month
     else
       @date_month = Date.today.month            
     end 
     @raushco = RelatedPerson.find_by_title('شرکت راش')
-    @received = AccountDocument.where("MONTH(payment_date) = ? and paid_to = ?", @date_month, @raushco)        
+    @received = AccountDocument.where("MONTH(payment_date) = ? and paid_to = ? and status = ?", @date_month, @raushco, true)        
     @received_sum = @received.sum(:value)    
-    @payment = AccountDocument.where("MONTH(payment_date) = ? and paid_by = ?", @date_month, @raushco)            
+    @payment = AccountDocument.where("MONTH(payment_date) = ? and paid_by = ? and status = ?", @date_month, @raushco, true)            
     @payment_sum = @payment.sum(:value)
   end
   
@@ -40,15 +46,19 @@ class AccountDocumentsController < ApplicationController
   def profit
     @current_date_month = Date.today.month
     @raushco = RelatedPerson.find_by_title('شرکت راش')
-    @received = AccountDocument.where("MONTH(payment_date) = ? and paid_to = ?", @current_date_month, @raushco)        
+    @received = AccountDocument.where("MONTH(payment_date) = ? and paid_to = ? and status = ? ", @current_date_month, @raushco, true)        
     @received_sum = @received.sum(:value)    
-    @payment = AccountDocument.where("MONTH(payment_date) = ? and paid_by = ?", @current_date_month, @raushco)            
+    @payment = AccountDocument.where("MONTH(payment_date) = ? and paid_by = ? and status = ?", @current_date_month, @raushco, true)            
     @payment_sum = @payment.sum(:value)
     
   end
 
   # GET /account_documents/1/edit
   def edit
+  end
+  def confirm
+    @account_document.update_attribute(:status, true)
+    @save = @account_document.save
   end
 
   # POST /account_documents
@@ -99,6 +109,6 @@ class AccountDocumentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def account_document_params
-      params.require(:account_document).permit(:payment_date, :value, :paid_to, :paid_by, :payment_group_id, :physical_factor_number, :description)
+      params.require(:account_document).permit(:payment_date, :value, :paid_to, :paid_by, :payment_group_id, :physical_factor_number, :description, :factor_type, :status)
     end
 end

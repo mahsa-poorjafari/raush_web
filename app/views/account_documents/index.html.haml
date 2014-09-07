@@ -1,8 +1,12 @@
-.width80.fa.set-center 
+.fa.set-center 
   .title{:style => "height:100px"}
-    %h1 لیست فاکتورها
-    = link_to 'ثبت فاکتور جدید', new_account_document_path, :class => "btn btn-default"
-    = link_to 'محاسبه سود', profit_account_documents_path, :class => "btn btn-default"
+    %h1.pull-right لیست فاکتورها
+    -if flash[:FactorTypeEmpty].present?
+      = flash[:FactorTypeEmpty]
+    .pull-right{:style => "margin-top:2%; margin-right:5%"}
+      = link_to 'ثبت فاکتور وارده', new_account_document_path(:factor_type => "received"), :class => "btn btn-default"
+      = link_to 'ثبت فاکتور صادره', new_account_document_path(:factor_type => "sent"), :class => "btn btn-default"
+      = link_to 'محاسبه سود', profit_account_documents_path, :class => "btn btn-default"
   
 
   %table.table.table-striped{id:"account_table"}
@@ -10,10 +14,12 @@
       %tr      
         %th ردیف
         %th تاریخ پرداخت
-        %th مبلغ به تومان
+        %th مبلغ به ریال
         %th پرداخت به آقای/خانم/شرکت
         %th پرداخت توسط آقای/خانم/شرکت
         %th بابت
+        %th نوع فاکتور
+        %th وضعیت
         %th شماره فیزیکی فاکتور
         %th توضیحات
         %th
@@ -29,9 +35,20 @@
           - @paid_by = RelatedPerson.find(account_document.paid_by)
           %td= @paid_by.title
           %td= account_document.payment_group.title
+          %td= account_document.factor_type
+          %td.factor-status{:class => account_document.id}
+            - if account_document.status
+              فاکتور نهایی
+            - else
+              پیش فاکتور
           %td= account_document.physical_factor_number
           %td= account_document.description        
+          
           %td
+            - if account_document.status
+              %b= 'تایید شده'
+            - else
+              .confirm-link{:id => account_document.id}= link_to 'confirm', confirm_account_document_path(account_document), :remote => true
             = link_to 'Show', account_document            
             = link_to 'Edit', edit_account_document_path(account_document)
             = link_to 'Destroy', account_document, :method => :delete, :data => { :confirm => 'Are you sure?' }

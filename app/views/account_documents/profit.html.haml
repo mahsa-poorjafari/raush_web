@@ -6,7 +6,7 @@
     = form_tag profit_month_account_documents_path, :method => "get", :remote => true do
       = select_month(Date.today, :name => "select_month", prompt: 'Choose month')
       = submit_tag "نمایش بر حسب ماه"
-  %h2= 'مبالغ همه به تومان می باشد'
+  %h2= 'مبالغ همه به ریال می باشد'
   %table.table#profit-table
     %thead
       %tr      
