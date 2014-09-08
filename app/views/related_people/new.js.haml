@@ -1,0 +1,2 @@
+alert('افزودن افراد مرتبط');
+$(".insert_row").replaceWith("#{escape_javascript(render(:partial => 'add_related_people', :locals => {:related_person => @related_person }))}");          

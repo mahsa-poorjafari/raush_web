@@ -103,9 +103,15 @@ background:1a1a1a;
 .accounting .partition  .boxes h3.title {text-shadow: 1px 1px 1px #74B3F1;}
 .accounting .partition  .boxes:hover {color:#74B0EB; cursor:pointer;}
 
-.show-factor {border:2px solid #fff}
+.show-factor {background:#fff; height:100% }
 .show-factor  .header p{margin:10px}
+.show-factor  .header .header-date{z-index:20; color:#000; position:absolute; margin-right:5% }
+.show-factor  .header .header-date p{z-index:20; color:#000}
+.show-factor  .header .header-img{position:absolute; z-index:0; top:0}
+.factor_footer .footer-img{position:absolute; z-index:0; bottom:0; }
+.show-factor  .body-factor {margin-top:15%; position:relative;  color:#000; height:315px}
 .show-factor  .body-factor p{margin:10px}
+
 
 .txt-center {text-align:center}
 .show-3box {height:330px; text-align:center; margin-top:2%;}
@@ -121,4 +127,5 @@ table.table.table-striped tr td a:hover{color:#A52A2A;}
 .contact-search-form {width:50%; margin-top:5%}
 
 #search_result.search_result {overflow-y:scroll; height:300px}
+
 

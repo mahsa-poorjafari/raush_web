@@ -5,7 +5,7 @@
       %ul
         - @account_document.errors.full_messages.each do |msg|
           %li= msg
-  .btnw30.pull-right.margin5
+  .pull-right.margin5
     = f.hidden_field :factor_type, :value => @factor_type
     .form-group
       = f.label 'تاریخ پرداخت:', :class => "control-label"
@@ -13,14 +13,17 @@
     .form-group
       = f.label 'فاکتور بابت:', :class => "control-label"
       = f.select(:payment_group_id, PaymentGroup.all.collect {|u| [u.title, u.id]}, :prompt => ' این فاکتور بابت...') 
+    .form-group
+      = link_to 'افزودن فرد مرتبط', new_related_person_path, :remote => true, :class => "btn btn-default"
+      = link_to 'افزودن عنوان فاکتور', new_payment_group_path, :remote => true, :class => "btn btn-default"
     
     .form-group
       = f.label 'پرداخت به', :class => "control-label"
-      = f.select(:paid_to, RelatedPerson.all.collect {|u| [u.title, u.id]}, :prompt => ' پرداخت به') 
+      = f.select(:paid_to, RelatedPerson.all.collect {|u| [u.title, u.id]}, :prompt => ' پرداخت به', :id => "paid_to") 
       
     .form-group
       = f.label 'پرداخت توسط', :class => "control-label"      
-      = f.select(:paid_by, RelatedPerson.all.collect {|u| [u.title, u.id]}, :prompt => ' پرداخت توسط') 
+      = f.select(:paid_by, RelatedPerson.all.collect {|u| [u.title, u.id]}, :prompt => ' پرداخت توسط', :id => "paid_by") 
     .form-group
       = f.label 'مبلغ به ریال', :class => "control-label"
       %br

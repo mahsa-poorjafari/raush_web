@@ -1,0 +1,6 @@
+$('.insert_row').html('<b>رکورد جدید به عناوین فاکتورها اضافه شد.</b>');
+var last_child = $("#account_document_payment_group_id :last").val();
+last_child = parseInt(last_child);
+last_child += 1
+$("#account_document_payment_group_id").append("<option value="+last_child+">#{@payment_group.title}</option>");          
+

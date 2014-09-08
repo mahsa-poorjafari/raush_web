@@ -1,22 +1,27 @@
-.width80.fa.set-center 
-  %p#notice= notice
-  = link_to  '#', :id => "print-table", :class => "field-holder" do
-    = image_tag 'print.png'
+.fa.set-center 
+  .btnw10.avoid-this.pull-right 
+    %p#notice= notice
+    = link_to_function((image_tag 'print.png'), "javascript:print()")    
     .pull-right= 'چاپ فاکتور'
-  .show-factor.fa
+    - if is_admin?
+      = link_to 'Edit', edit_account_document_path(@account_document)
+      \|
+      = link_to 'Back', account_documents_path
+  .show-factor.fa.pull-left.width80    
     .header
-      %p.pull-right.fa
-        %b تاریخ پرداخت:
-        = JalaliDate.new(@account_document.payment_date)
-      %p.pull-right.fa
-        %b تاریخ ثبت فاکتور:
-        = JalaliDate.new(@account_document.created_at)
-      %p.pull-right.fa
-        %b شماره فیزیکی فاکتور:
-        = @account_document.physical_factor_number
-    .clear-float
-    .body-factor
-        
+      .header-img= image_tag 'header-small.jpg'
+      .header-date
+        %p.fa
+          %b تاریخ پرداخت:
+          = JalaliDate.new(@account_document.payment_date)
+        %p.fa
+          %b تاریخ ثبت فاکتور:
+          = JalaliDate.new(@account_document.created_at)
+        %p.fa
+          %b شماره فیزیکی فاکتور:
+          = @account_document.physical_factor_number
+        .clear-float
+    .body-factor        
       %p.pull-right.fa
         %b مبلغ:
         = @account_document.value
@@ -30,16 +35,10 @@
         %b پرداخت توسط:
         = @paid_by.title
       .clear-float      
-    .fa      
+          
       %p.fa
         %b توضیحات:
         = @account_document.description
-  - if is_admin?
-    = link_to 'Edit', edit_account_document_path(@account_document)
-    \|
-    = link_to 'Back', account_documents_path
+    .factor_footer
+      .footer-img= image_tag 'footer-small.jpg'
   
-:javascript
-  $('#print-table').click(function(){
-    window.print();
-  });
