@@ -16,7 +16,7 @@
 .field-holder {width:50%;}
 
 .fa {direction:rtl; font-family: BYekan; text-align:right}
-.en {direction:ltr; font-family: 'eras_light_itc'; text-align:left}
+.en {direction:ltr; font-family: 'eras_light_itc'; text-align:left; font-weight:bold}
 #fa {font-family: BYekan;}
 #en {font-family: 'eras_light_itc';}
 
