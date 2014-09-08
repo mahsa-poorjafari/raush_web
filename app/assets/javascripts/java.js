@@ -58,8 +58,8 @@ $(document).ready(function(){
 			$('#webbtn1').click(function(){ $('#web-info').hide(1000); $('#web-details').show(1000); $('#web-details .prtofilo').show(1000) });
 			$('#btn-web-prto').click(function(){ $('#web-details').hide(1000); $('#web-details .prtofilo').fadeOut(); $('#web-info').show(1000) });
       
-      $('#homebtn1').click(function(){ $('#idhome #home  .picture-sample').hide(1000); $('#idhome #home  .about-us').show(1000); });
-			$('#btn-bk-about').click(function(){ $('#idhome #home  .about-us').fadeOut(1000); $('#idhome #home .picture-sample').fadeIn(1000) });
+      $('#homebtn1').click(function(){ $('#idhome #home ').hide(1000); $('#idhome #show-about').show(1000); });
+			$('#btn-bk-about').click(function(){ $('#idhome #show-about').fadeOut(1000); $('#idhome #home ').fadeIn(1000) });
       
       $('#homebtn2').click(function(){ $('#idhome #home').hide(1000); $('#idhome #our-team').show(1000); });
 			$('#btn-bk-team').click(function(){ $('#idhome #our-team').fadeOut(1000); $('#idhome #home').fadeIn(1000) });

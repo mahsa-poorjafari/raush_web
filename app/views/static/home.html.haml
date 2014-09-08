@@ -4,40 +4,43 @@
       .col-xs-9
         #axis.one.picture-sample
           = image_tag "logoend.png", :id => 'homemoo', :class => 'object bache van', :title => "گروه مهندسی راش", :alt => "گروه مهندسی راش"
-        #axis.one.about-us.diplaynone{:style => "width:100%; height:100%"}   
-          %div{:style => "margin:30px; padding-top:20px"}  
-            - if I18n.locale == :fa
-              %p{:style => "direction:rtl; text-align:justify"}
-                = render 'shared/about_fa'
-            - else
-              %p{:style => "direction:ltr; text-align:justify"}
-                = render 'shared/about_en'
-            .col-xs-5  
-              .link
-                #btn-bk-about.button.set-center.btnw10.back
-                  .item= t('back')
-                  .icon
-                    = image_tag "back.png", height: "40" , width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
-                  .clear-float
+       
       .col-xs-3
         #hometext.text.vanr.bacher.object{waittime: "200"}
         .link
           #homebtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
-            .item= t('about-us')
+            .item{:class => I18n.locale}= t('about-us')
             .icon
               = image_tag "ICON/درباره راش.png",height: "40",  width: "40", :alt => "درباره راش", :title => "درباره شرکت راش"
             .clear-float
           #homebtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
-            .item= t('our-team')
+            .item{:class => I18n.locale}= t('our-team')
             .icon
               = image_tag "ICON/تیم کاری راش.png", height: "40", width: "40", :alt => "تیم کاری راش", :title => "تیم کاری راش"
             .clear-float
           #homebtn3.button.bacher.vanr.object.btnw30{waittime: "400"}
-            .item= t('Order-Online')
+            .item{:class => I18n.locale}= t('Order-Online')
             .icon
               = image_tag "ICON/سفارش آنلاین راش.png",height: "40", width: "40", :alt => "سفارش آنلاین راش", :title => "سفارش آنلاین راش"
             .clear-float
         .clear-float
+    #show-about.diplaynone.servic-descriptipn1
+      #axis.one.about-us.col-xs-6{:class => I18n.locale}
+        %div{:style => "margin:30px; padding-top:20px"}  
+          - if I18n.locale == :fa
+            %p{:style => "direction:rtl; text-align:justify; font-size:15px; line-height:25px;", :class => I18n.locale}
+              = render 'shared/about_fa'
+          - else
+            %p{:style => "direction:ltr; text-align:justify", :class => I18n.locale}
+              = render 'shared/about_en'
+      .col-xs-6{:style => "margin-top:5%"}
+        %iframe{:height => "350px", :src => "https://mapsengine.google.com/map/embed?mid=zbDi3iZxywyM.kok52aJMJoYc", :width => "640"}
+      .link
+        #btn-bk-about.button.set-center.btnw10.back
+          .item{:class => I18n.locale}= t('back')
+          .icon
+            = image_tag "back.png", height: "40" , width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
+          .clear-float
     #order-online.diplaynone.servic-descriptipn1
       .width80.set-center
         %h2= t ('Order-Online')
@@ -47,7 +50,7 @@
       
       .link
         #btn-bk-order.button.set-center.btnw10.back
-          .item= t('back')
+          .item{:class => I18n.locale}= t('back')
           .icon
             = image_tag "back.png", height: "40" , width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
           .clear-float
@@ -61,7 +64,7 @@
       .link
         
         #btn-bk-team.button.set-center.btnw10.back
-          .item= t('back')
+          .item{:class => I18n.locale}= t('back')
           .icon
             = image_tag "back.png", height: "40" , width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
           .clear-float
@@ -82,17 +85,17 @@
             = @bms.description
         .link
           #bmsbtn1.button.vanr.bacher.object.btnw30{waittime: "300"}
-            .item= t('bms.hotel')
+            .item{:class => I18n.locale}= t('bms.hotel')
             .icon
               = image_tag "ICON/هتل هوشمند.png",height: "40", width: "40", :alt => "هتل هوشمند", :title => "هتل هوشمند"
             .clear-float
           #bmsbtn2.button.vanr.bacher.object.btnw30{waittime: "350"}
-            .item= t('bms.home')
+            .item{:class => I18n.locale}= t('bms.home')
             .icon
               = image_tag "ICON/خانه هوشمند.png", height: "40" , width: "40", :alt => "خانه هوشمند", :title => "خانه هوشمند"
             .clear-float
           #bmsbtn3.button.vanr.bacher.object.btnw30{waittime: "400"}
-            .item{align: "justify"}= t('bms.office')
+            .item{:style => "text-align:justify", :class => I18n.locale}= t('bms.office')
             .icon
               = image_tag"ICON/اداره هوشمند.png", height: "40", width: "40", :alt => "اداره هوشمند", :title => "اداره  هوشمند"
             .clear-float
@@ -105,7 +108,7 @@
         = image_tag @hotel.image(:large), :class => "sub-service-img", :title => "هتل هوشمند", :alt => "هتل هوشمند"
         .link
           #btnbhotel.button.set-center.btnw10.back
-            .item= t('back')
+            .item{:class => I18n.locale}= t('back')
             .icon
               = image_tag "back.png", height: "40" , width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
             .clear-float
@@ -122,7 +125,7 @@
         = image_tag @house.image(:large), :class => "sub-service-img", :alt => "خانه هوشمند", :title => "خانه هوشمند"
         .link
           #btnbhome.button.set-center.btnw10.back
-            .item= t('back')
+            .item{:class => I18n.locale}= t('back')
             .icon
               = image_tag "back.png", height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
             .clear-float
@@ -138,7 +141,7 @@
         = image_tag @office.image(:large), :class => "sub-service-img", :alt => "دفترکار هوشمند", :title => "دفترکار هوشمند"
         .link
           #btnboffice.button.set-center.btnw10.back
-            .item= t('back')
+            .item{:class => I18n.locale}= t('back')
             .icon
               = image_tag "back.png", height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
             .clear-float
@@ -161,17 +164,17 @@
           = @network.description
         .link
           #netbtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
-            .item= t('net.wan')
+            .item{:class => I18n.locale}= t('net.wan')
             .icon
               = image_tag "ICON/شبکه شهری.png", height: "40", width: "40", :alt => "شبکه شهری", :title => "شبکه شهری"
             .clear-float
           #netbtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
-            .item= t('net.lan')
+            .item{:class => I18n.locale}= t('net.lan')
             .icon
               = image_tag "ICON/شبکه محلی.png", height: "40", width: "40", :alt => "شبکه محلی", :title => "شبکه محلی"
             .clear-float
           #netbtn3.button.bacher.vanr.object.btnw30{waittime: "400"}
-            .item= t('net.voip')
+            .item{:class => I18n.locale}= t('net.voip')
             .icon
               = image_tag "ICON/شبکه وویپ.png", height: "40", width: "40", :alt => "شبکه ویپ", :title => "شبکه وویپ"
             .clear-float
@@ -184,7 +187,7 @@
         = image_tag @wan.image(:large), :class => "sub-service-img", :alt => "شبکه شهری", :title => "شبکه شهری"
         .link
           #btnbwan.button.set-center.btnw10.back
-            .item= t('back')
+            .item{:class => I18n.locale}= t('back')
             .icon
               = image_tag "back.png", height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
             .clear-float
@@ -200,7 +203,7 @@
         = image_tag @lan.image(:large), :class => "sub-service-img", :alt => "شبکه محلی", :title => "شبکه محلی"
         .link
           #btnblan.button.set-center.btnw10.back
-            .item= t('back')
+            .item{:class => I18n.locale}= t('back')
             .icon
               = image_tag "back.png",height: "40" , width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
             .clear-float
@@ -216,7 +219,7 @@
         = image_tag @voip.image(:large), :class => "sub-service-img", :alt => "شبکه وویپ", :title => "شبکه وویپ"
         .link
           #btnbvoip.button.set-center.btnw10.back
-            .item= t('back')
+            .item{:class => I18n.locale}= t('back')
             .icon
               = image_tag "back.png", height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
             .clear-float
@@ -240,12 +243,12 @@
           =raw @web.description
       .link
         #webbtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
-          .item= t('Portfolio')
+          .item{:class => I18n.locale}= t('Portfolio')
           .icon
             = image_tag "ICON/نمونه کاری.png",height: "40" , width: "40", :alt => "نمونه کار وب سایت", :title => "نمونه کار وب سایت"
           .clear-float
         #webbtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
-          .item= t('Tariff-Price')
+          .item{:class => I18n.locale}= t('Tariff-Price')
           .icon
             = image_tag "ICON/تعرفه قیمت.png", height: "40", width: "40", :alt => "تعرفه طراحی سایت", :title => "تعرفه طراحی سایت"
           .clear-float
@@ -269,7 +272,7 @@
       
       .link
         #btn-web-prto.button.set-center.btnw10.back
-          .item= t('back')
+          .item{:class => I18n.locale}= t('back')
           .icon
             = image_tag "back.png",height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
           .clear-float
@@ -286,12 +289,12 @@
           = @graphic.description
         .link
           #graphicbtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
-            .item= t('Portfolio')
+            .item{:class => I18n.locale}= t('Portfolio')
             .icon
               = image_tag "ICON/نمونه کاری.png",height: "40" , width: "40", :alt => "نمونه کار طراحی گرافیک", :title => "نمونه کار طراحی گرافیک"
             .clear-float
           #graphicbtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
-            .item= t('Tariff-Price')
+            .item{:class => I18n.locale}= t('Tariff-Price')
             .icon
               = image_tag "ICON/تعرفه قیمت.png",height: "40" , width: "40", :alt => "تعرفه قیمت طراحی گرافیک", :title => "تعرفه قیمت طراحی گرافیک"
             .clear-float
@@ -314,7 +317,7 @@
       
       .link
         #btnbprtofilo.button.set-center.btnw10.back
-          .item= t('back')
+          .item{:class => I18n.locale}= t('back')
           .icon
             = image_tag "back.png",height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
           .clear-float
@@ -331,7 +334,7 @@
           %p asdasdasd
         .link
           #btnblan.button.set-center.btnw10.back
-            .item= t('back')
+            .item{:class => I18n.locale}= t('back')
             .icon
               = image_tag "back.png",height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
             .clear-float
@@ -350,17 +353,17 @@
           = @camera.description
         .link
           #camerabtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
-            .item Geovision
+            .item{:class => I18n.locale} Geovision
             .icon
               = image_tag "ICON/دوربین مداربسته.png",height: "40",width: "40", :alt => "دوربین ژئوویژن", :title => "دوربین ژئوویژن"
             .clear-float
           #camerabtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
-            .item Hikvision
+            .item{:class => I18n.locale} Hikvision
             .icon
               = image_tag "ICON/دوربین مداربسته.png",height: "40", width: "40", :alt => "دوربین هایک ویژن", :title => "دوربین هایک ویژن"
             .clear-float
           #camerabtn3.button.bacher.vanr.object.btnw30{waittime: "400"}
-            .item Dahua
+            .item{:class => I18n.locale} Dahua
             .icon
               = image_tag "ICON/دوربین مداربسته.png",height: "40", width: "40", :alt => "دوربین داهووا", :title => "دوربین داهووا"
             .clear-float
@@ -385,7 +388,7 @@
           
       .link
         #btnbfam.button.set-center.btnw10.back
-          .item= t('back')
+          .item{:class => I18n.locale}= t('back')
           .icon
             = image_tag "back.png",height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
           .clear-float
@@ -405,7 +408,7 @@
             
       .link
         #btnbhik.button.set-center.btnw10.back
-          .item= t('back')
+          .item{:class => I18n.locale}= t('back')
           .icon
             = image_tag "back.png",height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
           .clear-float
@@ -425,7 +428,7 @@
            
       .link
         #btnbsesco.button.set-center.btnw10.back
-          .item= t('back')
+          .item{:class => I18n.locale}= t('back')
           .icon
             = image_tag "back.png",height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
           .clear-float
