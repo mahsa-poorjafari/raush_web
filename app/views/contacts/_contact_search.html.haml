@@ -15,3 +15,8 @@
       %br
       %b= 'آدرس:'
       = result.address
+    - if is_admin?
+      .contact-link
+        = link_to 'ویرایش', edit_contact_path(result)
+        \|
+        = link_to 'حذف', result, :method => :delete, :data => { :confirm => 'Are you sure?' }

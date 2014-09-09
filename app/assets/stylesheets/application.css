@@ -129,3 +129,5 @@ table.table.table-striped tr td a:hover{color:#A52A2A;}
 #search_result.search_result {overflow-y:scroll; height:300px}
 
 
+.contact-link a {color:#000;}
+.contact-link a:hover {color:#A52A2A;}
