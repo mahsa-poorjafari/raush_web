@@ -1,22 +1,23 @@
 .width80.fa.set-center   
   %p#notice= notice
 
-  %p
+  %p.fa
     %b نام شخص:
     = @contact.preson_name
-  %p
+  %p.fa
     %b نام شرکت:
     = @contact.company_name
-  %p
+  %p.fa
     %b تلفن:
     = @contact.phone
-  %p
+  %p.fa
     %b فکس:
     = @contact.fax
-  %p
+  %p.fa
     %b آدرس:
     = @contact.address
-
-  = link_to 'Edit', edit_contact_path(@contact)
-  \|
-  = link_to 'Back', contacts_path
+  - if is_admin?
+    .fa
+      = link_to 'Edit', edit_contact_path(@contact)
+      \|
+      = link_to 'Back', contacts_path
