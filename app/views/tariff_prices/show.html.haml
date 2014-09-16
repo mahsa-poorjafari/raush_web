@@ -1,15 +1,16 @@
-%p#notice= notice
+.width80.fa  
+  %p#notice= notice
 
-%p
-  %b Modual:
-  = @tariff_price.modual
-%p
-  %b Unit price:
-  = @tariff_price.unit_price
-%p
-  %b Number:
-  = @tariff_price.number
+  %p
+    %b ماژول
+    = @tariff_price.modual
+  %p
+    %b قیمت واحد
+    = @tariff_price.price_unit
+  %p
+    %b تعداد
+    = @tariff_price.number
 
-= link_to 'Edit', edit_tariff_price_path(@tariff_price)
-\|
-= link_to 'Back', tariff_prices_path
+  = link_to 'ویرایش', edit_tariff_price_path(@tariff_price)
+  \|
+  = link_to 'بازگشت', tariff_prices_path

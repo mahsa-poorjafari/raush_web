@@ -1,18 +1,24 @@
 RaushWeb::Application.routes.draw do
   
 
+  resources :tariff_orders
+
   resources :contacts do
     member do
       get :search  
+    end
+    collection do      
+      get :company_names      
     end
   end
 
   resources :payment_groups
 
-  resources :account_documents do
+  resources :account_documents do    
     collection do
       get :profit
-      get :profit_month
+      get :profit_month   
+      get :autocomplete_contact_company_name
     end
     member do
       get :confirm

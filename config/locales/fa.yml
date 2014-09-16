@@ -31,8 +31,14 @@ fa:
   Order-Online: 'سفارش آنلاین'
    
   send: 'ارسال'
-  
-  
+  row: 'ردیف'
+  tariff_prices: 'تعرفه قیمت'
+  unit_price: 'قیمت واحد به ریال'
+  number_of: 'تعداد'
+  cost: 'هزینه'
+  total_price: 'قیمت کل به ریال'
+  choose: 'انتخاب'
+  module: 'ماژول'
   order:
     name: 'نام'    
     phone: 'تلفن ثابت'    

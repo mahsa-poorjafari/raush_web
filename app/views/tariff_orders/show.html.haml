@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b User order:
+  = @tariff_order.user_order_id
+%p
+  %b Tariff price:
+  = @tariff_order.tariff_price_id
+%p
+  %b Modual number:
+  = @tariff_order.modual_number
+
+= link_to 'Edit', edit_tariff_order_path(@tariff_order)
+\|
+= link_to 'Back', tariff_orders_path

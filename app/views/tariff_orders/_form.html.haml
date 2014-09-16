@@ -1,0 +1,19 @@
+= form_for @tariff_order do |f|
+  - if @tariff_order.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@tariff_order.errors.count, "error")} prohibited this tariff_order from being saved:"
+      %ul
+        - @tariff_order.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :user_order_id
+    = f.number_field :order_online_id
+  .field
+    = f.label :tariff_price_id
+    = f.number_field :tariff_price_id
+  .field
+    = f.label :modual_number
+    = f.number_field :modual_number
+  .actions
+    = f.submit 'Save'

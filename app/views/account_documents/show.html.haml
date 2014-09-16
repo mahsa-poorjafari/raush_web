@@ -1,7 +1,7 @@
-.fa.set-center 
+.fa.set-center
   .btnw10.avoid-this.pull-right 
     %p#notice= notice
-    = link_to_function((image_tag 'print.png'), "javascript:print()")    
+    = link_to (image_tag 'print.png'), '#', :id => "print"
     .pull-right= 'چاپ فاکتور'
     - if is_admin?
       = link_to 'Edit', edit_account_document_path(@account_document)
@@ -9,17 +9,20 @@
       = link_to 'Back', account_documents_path
   .show-factor.fa.pull-left.width80    
     .header
-      .header-img= image_tag 'header-small.jpg'
+      .header-img.avoid-this= image_tag 'header-small.jpg'
       .header-date
         %p.fa
-          %b تاریخ پرداخت:
-          = JalaliDate.new(@account_document.payment_date)
+          %b.header-date-title.avoid-thisتاریخ پرداخت:
+          .avoid-this= JalaliDate.new(@account_document.payment_date)
         %p.fa
-          %b تاریخ ثبت فاکتور:
-          = JalaliDate.new(@account_document.created_at)
+          %b.header-date-title.avoid-this شماره فاکتور
+          1234567
         %p.fa
-          %b شماره فیزیکی فاکتور:
-          = @account_document.physical_factor_number
+          %b.header-date-title.avoid-this تاریخ ثبت فاکتور:
+          .show-date= JalaliDate.new(@account_document.created_at)
+        %p.fa
+          %b.header-date-title.avoid-thisشماره فیزیکی فاکتور:
+          .avoid-this= @account_document.physical_factor_number
         .clear-float
     .body-factor        
       %p.pull-right.fa
@@ -42,3 +45,8 @@
     .factor_footer
       .footer-img= image_tag 'footer-small.jpg'
   
+:javascript
+  $('a#print').click(function(){
+    $('body').css('position', 'absolute');
+    window.print();
+  });

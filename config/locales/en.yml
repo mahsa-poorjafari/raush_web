@@ -31,7 +31,14 @@ en:
   Order-Online: 'Order Online'
   
   send: 'Send'
-  
+  row: 'Row'
+  tariff_prices: 'Tariff Prices'
+  unit_price: 'Unit Price By Rial'
+  number_of: 'Number Of'
+  cost: 'Cost'
+  total_price: 'Total Price By Rial'
+  choose: 'Choose'
+  module: 'Module'
   order:
     name: 'Name'    
     phone: 'Phone'    

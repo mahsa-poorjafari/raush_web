@@ -1,0 +1,6 @@
+@media print { 
+  .mainmenu, .footer, .avoid-this {display:none}
+  .show-factor {width:100%}
+  .body-factor {top:8cm; bottom:5cm}
+  .show-date {width:4cm;right:2cm; position:absolute; border:1px solid red}
+}

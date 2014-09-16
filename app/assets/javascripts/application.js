@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
+//= require autocomplete-rails
 //= require ckeditor-jquery
 //= require dataTables/jquery.dataTables
 //= require_tree .

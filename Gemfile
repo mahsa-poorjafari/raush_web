@@ -12,6 +12,7 @@ gem 'jquery-datatables-rails', '~> 1.12.2', git: 'git://github.com/rweng/jquery-
 gem 'ckeditor_rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+gem 'rails4-autocomplete'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
@@ -20,8 +21,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
-
+gem "jquery-rails"
+gem "jquery-ui-rails"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 

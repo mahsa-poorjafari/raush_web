@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class AccountDocumentsController < ApplicationController
   before_action :set_account_document, only: [:show, :edit, :update, :destroy, :confirm]
-
+  autocomplete :contact, :company_name, :display_value => :funky_method
   # GET /account_documents
   # GET /account_documents.json
   def index
@@ -14,6 +14,7 @@ class AccountDocumentsController < ApplicationController
     @paid_to = RelatedPerson.find(@account_document.paid_to)
     @paid_by = RelatedPerson.find(@account_document.paid_by)
   end
+  
 
   # GET /account_documents/new
   def new
@@ -24,6 +25,7 @@ class AccountDocumentsController < ApplicationController
       flash[:FactorTypeEmpty] = 'نوع فاکتور را انتخاب کنید.'      
       redirect_to :back
     end
+    @raushco = RelatedPerson.find_by_title('شرکت راش')
     
     
   end

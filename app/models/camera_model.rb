@@ -12,4 +12,8 @@ class CameraModel < ActiveRecord::Base
   def description
     I18n.locale == :fa ? self.read_attribute("description_fa") : self.read_attribute("description_en")
   end
+  
+  def funky_method
+    "#{self.company_name}.camelize"
+  end
 end

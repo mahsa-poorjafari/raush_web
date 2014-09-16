@@ -11,6 +11,7 @@
  
  *= require_self 
  *= require dataTables/jquery.dataTables
+ *= require jquery.ui.all
  *= require_tree .
  */
 .field-holder {width:50%;}
@@ -105,7 +106,8 @@ background:1a1a1a;
 
 .show-factor {background:#fff; height:100% }
 .show-factor  .header p{margin:10px}
-.show-factor  .header .header-date{z-index:20; color:#000; position:absolute; margin-right:5% }
+.show-factor  .header .header-date{z-index:20; color:#000; position:absolute; margin-right:5%; width:30%; }
+.show-factor  .header .header-date-title {width:120px; margin-right:1px; text-align:right; float:right}
 .show-factor  .header .header-date p{z-index:20; color:#000}
 .show-factor  .header .header-img{position:absolute; z-index:0; top:0}
 .factor_footer .footer-img{position:absolute; z-index:0; bottom:0; }
@@ -131,3 +133,8 @@ table.table.table-striped tr td a:hover{color:#A52A2A;}
 .contact-link {background:#4D4D4D; text-align:center}
 .contact-link a {color:#000;}
 .contact-link a:hover {color:#A52A2A;}
+
+
+
+p.calculate_the_price { position:fixed; width:20%; height:10%;top:20%; right:30%; left:30%;  border:1px solid #fff;}
+table#tariff_prices_table thead tr th {text-align:center}

@@ -16,6 +16,7 @@ class TariffPricesController < ApplicationController
   # GET /tariff_prices/new
   def new
     @tariff_price = TariffPrice.new
+    
   end
 
   # GET /tariff_prices/1/edit
@@ -70,6 +71,6 @@ class TariffPricesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tariff_price_params
-      params.require(:tariff_price).permit(:modual, :unit_price, :number, :service_id)
+      params.require(:tariff_price).permit(:modual, :price_unit, :number, :service_id, :set_number)
     end
 end

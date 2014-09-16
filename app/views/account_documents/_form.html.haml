@@ -16,14 +16,29 @@
     .form-group
       = link_to 'افزودن فرد مرتبط', new_related_person_path, :remote => true, :class => "btn btn-default"
       = link_to 'افزودن عنوان فاکتور', new_payment_group_path, :remote => true, :class => "btn btn-default"
-    
     .form-group
-      = f.label 'پرداخت به', :class => "control-label"
-      = f.select(:paid_to, RelatedPerson.all.collect {|u| [u.title, u.id]}, :prompt => ' پرداخت به', :id => "paid_to") 
+      - if @factor_type == "received"
+        = f.label 'پرداخت به:', :class => "control-label"
+        %b{:style => "font-size:20px"}= 'شرکت راش'
+        = f.hidden_field :paid_to, :value => @raushco.id
+      - else
+        = f.label 'پرداخت به', :class => "control-label"
+        = f.select(:paid_to, RelatedPerson.all.collect {|u| [u.title, u.id]}, :prompt => ' پرداخت به', :id => "paid_to") 
+        = f.autocomplete_field :paid_to, as: :autocomplete, url: autocomplete_contact_company_name_account_documents_path
+        = f.association :paid_to, 
+          :collection => Contact.all, 
+          :required => true,
+          :value_method => :id, 
+          :label_method => :display_name
       
     .form-group
-      = f.label 'پرداخت توسط', :class => "control-label"      
-      = f.select(:paid_by, RelatedPerson.all.collect {|u| [u.title, u.id]}, :prompt => ' پرداخت توسط', :id => "paid_by") 
+      - if @factor_type == "cost"
+        = f.hidden_field :paid_by, :value => @raushco.id
+        = f.label 'پرداخت توسط:', :class => "control-label"
+        %b{:style => "font-size:20px"}= 'شرکت راش'
+      - else
+        = f.label 'پرداخت توسط', :class => "control-label"      
+        = f.select(:paid_by, RelatedPerson.all.collect {|u| [u.title, u.id]}, :prompt => ' پرداخت توسط', :id => "paid_by") 
     .form-group
       = f.label 'مبلغ به ریال', :class => "control-label"
       %br
@@ -39,3 +54,4 @@
       = f.text_area :description, :class => "form-control"
     .form-group
       = f.submit 'ثبت', :class => "btn btn-default"
+
