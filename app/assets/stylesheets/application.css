@@ -137,4 +137,13 @@ table.table.table-striped tr td a:hover{color:#A52A2A;}
 
 
 p.calculate_the_price { position:fixed; width:20%; height:10%;top:20%; right:30%; left:30%;  border:1px solid #fff;}
+p.calculate_the_price b.s p{font-size:20px; text-align:center}
+
 table#tariff_prices_table thead tr th {text-align:center}
+.table-scroll {height:70%; position:absolute; overflow-y:scroll; width:95%; right:2%; left:2%}
+#search-submit {
+top: 18%;
+position: absolute;
+right: 30%;
+left: 70%;
+width: 7%;}

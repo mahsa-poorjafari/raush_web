@@ -3,75 +3,62 @@
   - if is_admin?
     .fa.btnw30.pull-right
       = link_to 'تعریف تعرفه جدید', new_tariff_price_path, :class => "btn btn-default"
-  %p.calculate_the_price{:class => I18n.locale}
-    %b{:class => I18n.locale}= t('total_price')
-    %p#total_price{:class => I18n.locale}
+  %p.calculate_the_price{:class => I18n.locale}     
+    %b{:class => I18n.locale}= t('total_price')    
+    %b.s{:class => I18n.locale, :style => "font-size:20px"}
     
-  = form_tag new_tariff_order_path, :method => "get", id: "search-form" do 
-    %table.table.table-striped{:class => I18n.locale, :id => "tariff_prices_table"}
-      %thead
-        %tr              
-          %th= t('row')
-          %th= t('module')
-          %th= t('unit_price')        
-          %th= t('cost')        
-          %th= t('choose')        
-          - if is_admin?
-            %th عملیات
-    
-      %tbody
-        - @tariff_prices.each_with_index do |tariff_price, i|      
-          %tr
-            %td= (i+1)  
-            %td{:class => I18n.locale}=tariff_price.modual
-            %td=  tariff_price.price_unit
-            %td{:id => 'cost' + tariff_price.id.to_s}          
-            %td
-              - if tariff_price.set_number
-                -#
-                  = check_box_tag 'tariff_price['+tariff_price.id.to_s+']', tariff_price.id ,false, :class => "number_check_box"
-                = check_box('tariff_price', tariff_price.id,{:class => "number_check_box"}, tariff_price.id)
-                = text_field_tag :modual_number ,params[:modual_number] , :style => "width:30px", :id => "number_field"
-                
-              - else
-                = check_box('tariff_price', tariff_price.id,{}, tariff_price.id)
-                
+  .clear-float  
+  = form_tag '#', :method => "get", id: "search-form" do 
+    .table-scroll{:class => I18n.locale}
+      %table.table{:class => I18n.locale, :id => "tariff_prices_table"}
+        %thead
+          %tr              
+            %th= t('row')
+            %th= t('module')
+            %th= t('unit_price')        
+            %th= t('cost')        
+            %th= t('choose')        
             - if is_admin?
-              %td            
-                = link_to 'ویرایش', edit_tariff_price_path(tariff_price)
-                \|
-                = link_to 'حذف', tariff_price, :method => :delete, :data => { :confirm => 'Are you sure?' }
-    = submit_tag "ثبت سفارش", :name => nil, :id => "search-submit" , :class => "btn btn-default"
+              %th عملیات
       
-  
-:coffeescript
-  window.reloadDataTable = ->
-    if !!window.oTable
-      window.oTable.fnDestroy(); 
-    window.oTable = $("#tariff_prices_table").dataTable aoColumnDefs: [
-      bSearchable: false
-      aTargets: [0,5]
-    ,  
-      bSortable: false
-      aTargets: [0,5]
-    ],  oLanguage:
-      sSearch: "جستجو:"
-      sLengthMenu: "نمایش _MENU_ ردیف"
-      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
-      sZeroRecords: "هیچ داده ای وجود ندارد"
-      sInfoEmpty: "هیچ موردی یافت نشد"
-      sInfoFiltered: " - از بین _MAX_ داده موجود"
-      oPaginate:
-        sPrevious: "صفحه قبلی"
-        sNext: "صفحه بعدی"
+        %tbody
+          - @tariff_prices.each_with_index do |tariff_price, i|      
+            %tr
+              %td= (i+1)  
+              %td{:class => I18n.locale}=tariff_price.modual
+              %td{:id => 'div_price_' + tariff_price.id.to_s }=  tariff_price.price_unit
+              %td{:id => 'div_cost_' + tariff_price.id.to_s , :class => "div_cost"}          
+              %td
+                - if tariff_price.set_number
+                  -#
+                    = check_box_tag 'tariff_price['+tariff_price.id.to_s+']', tariff_price.id ,false, :class => "number_check_box"
+                  = check_box('tariff_price', tariff_price.id,{:modual_id => tariff_price.id,:id => "number_check_box_"+tariff_price.id.to_s, :class => "check_box_checked"}, tariff_price.id)
+                  = text_field_tag :modual_number ,params[:modual_number] , :style => "width:30px", :class => "sel_check_box", :modual_id => tariff_price.id, :id => "number_field_"+tariff_price.id.to_s
+                  
+                - else
+                  = check_box('tariff_price', tariff_price.id,{:modual_id => tariff_price.id, :class => "check_box_checked"}, tariff_price.id)
+                  
+              - if is_admin?
+                %td            
+                  = link_to 'ویرایش', edit_tariff_price_path(tariff_price)
+                  \|
+                  = link_to 'حذف', tariff_price, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    = submit_tag "ثبت سفارش", :name => nil, :id => "search-submit" , :class => "btn btn-default","data-toggle" => "modal", "data-target" => ".bs-example-modal-sm"
 
-  window.reloadDataTable()
+  .modal.fade.bs-example-modal-sm{"aria-hidden" => "true", "aria-labelledby" => "mySmallModalLabel", role: "dialog", tabindex: "-1"}
+    .modal-dialog.modal-sm
+      .modal-content
+        .modal-header
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+          %h4#myModalLabel.modal-title 
+            = t ('send-mail')          
+        .modal-body
+          = render "order_onlines/form" 
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+          
+  
 
     
-:javascript
-  $('#number_field').focusout(function(){ 
-    if ($(this).val()) {
-      $('.number_check_box').attr('checked', 'checked');
-    } 
-  });
+
   
