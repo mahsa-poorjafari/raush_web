@@ -16,6 +16,7 @@ class OrderOnlinesController < ApplicationController
   # GET /order_onlines/new
   def new
     @order_online = OrderOnline.new
+   
   end
 
   # GET /order_onlines/1/edit
@@ -26,12 +27,16 @@ class OrderOnlinesController < ApplicationController
   # POST /order_onlines.json
   def create
     @order_online = OrderOnline.new(order_online_params)
-
+    p '-------------set_modual_numbers-------------'
+    p @set_modual_numbers = params[:set_modual_numbers]
+    p dup  = @set_modual_numbers.split(%r{,\s*})
+    
+    
    if @order_online.save
       OrderMailer.send_user_order.deliver      
       @deliver = 'کاربر گرامی پیام شما ارسال گردید.'
     end
-    redirect_to :root_path
+    redirect_to :root
   end
 
   # PATCH/PUT /order_onlines/1

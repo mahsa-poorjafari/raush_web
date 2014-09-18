@@ -8,57 +8,105 @@
     %b.s{:class => I18n.locale, :style => "font-size:20px"}
     
   .clear-float  
-  = form_tag '#', :method => "get", id: "search-form" do 
-    .table-scroll{:class => I18n.locale}
-      %table.table{:class => I18n.locale, :id => "tariff_prices_table"}
-        %thead
-          %tr              
-            %th= t('row')
-            %th= t('module')
-            %th= t('unit_price')        
-            %th= t('cost')        
-            %th= t('choose')        
+  
+  .table-scroll{:class => I18n.locale}
+    %table.table{:class => I18n.locale, :id => "tariff_prices_table"}
+      %thead
+        %tr              
+          %th= t('row')
+          %th= t('module')
+          %th= t('unit_price')        
+          %th= t('cost')        
+          %th= t('choose')        
+          - if is_admin?
+            %th عملیات
+    
+      %tbody
+        - @tariff_prices.each_with_index do |tariff_price, i|      
+          %tr
+            %td= (i+1)  
+            %td{:class => I18n.locale}=tariff_price.modual
+            %td{:id => 'div_price_' + tariff_price.id.to_s }=  tariff_price.price_unit
+            %td{:id => 'div_cost_' + tariff_price.id.to_s , :class => "div_cost"}          
+            %td
+              - if tariff_price.set_number
+                              
+                = check_box('tariff_price', tariff_price.id,{:modual_id => tariff_price.id,:id => "number_check_box_"+tariff_price.id.to_s, :class => "check_box_checked"}, tariff_price.id)
+                = text_field_tag :modual_number ,params[:modual_number] , :style => "width:30px", :class => "sel_check_box", :modual_id => tariff_price.id, :id => "number_field_"+tariff_price.id.to_s
+                
+              - else
+                = check_box('tariff_price', tariff_price.id,{:modual_id => tariff_price.id, :class => "check_box_checked"}, tariff_price.id)
+                = hidden_field_tag :modual_number ,params[:modual_number], :value => 1 , :style => "width:30px", :class => "sel_check_box", :modual_id => tariff_price.id, :id => "number_field_"+tariff_price.id.to_s
             - if is_admin?
-              %th عملیات
-      
-        %tbody
-          - @tariff_prices.each_with_index do |tariff_price, i|      
-            %tr
-              %td= (i+1)  
-              %td{:class => I18n.locale}=tariff_price.modual
-              %td{:id => 'div_price_' + tariff_price.id.to_s }=  tariff_price.price_unit
-              %td{:id => 'div_cost_' + tariff_price.id.to_s , :class => "div_cost"}          
-              %td
-                - if tariff_price.set_number
-                  -#
-                    = check_box_tag 'tariff_price['+tariff_price.id.to_s+']', tariff_price.id ,false, :class => "number_check_box"
-                  = check_box('tariff_price', tariff_price.id,{:modual_id => tariff_price.id,:id => "number_check_box_"+tariff_price.id.to_s, :class => "check_box_checked"}, tariff_price.id)
-                  = text_field_tag :modual_number ,params[:modual_number] , :style => "width:30px", :class => "sel_check_box", :modual_id => tariff_price.id, :id => "number_field_"+tariff_price.id.to_s
-                  
-                - else
-                  = check_box('tariff_price', tariff_price.id,{:modual_id => tariff_price.id, :class => "check_box_checked"}, tariff_price.id)
-                  
-              - if is_admin?
-                %td            
-                  = link_to 'ویرایش', edit_tariff_price_path(tariff_price)
-                  \|
-                  = link_to 'حذف', tariff_price, :method => :delete, :data => { :confirm => 'Are you sure?' }
-    = submit_tag "ثبت سفارش", :name => nil, :id => "search-submit" , :class => "btn btn-default","data-toggle" => "modal", "data-target" => ".bs-example-modal-sm"
+              %td            
+                = link_to 'ویرایش', edit_tariff_price_path(tariff_price)
+                \|
+                = link_to 'حذف', tariff_price, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    = link_to "ثبت سفارش", '#', :class => "btn btn-default","data-toggle" => "modal", "data-target" => ".bs-example-modal-lg"
 
-  .modal.fade.bs-example-modal-sm{"aria-hidden" => "true", "aria-labelledby" => "mySmallModalLabel", role: "dialog", tabindex: "-1"}
-    .modal-dialog.modal-sm
+  .modal.fade.bs-example-modal-lg{"aria-hidden" => "true", "aria-labelledby" => "myLargeModalLabel", role: "dialog", tabindex: "-1"}
+    .modal-dialog.modal-lg
       .modal-content
         .modal-header
           %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
           %h4#myModalLabel.modal-title 
-            = t ('send-mail')          
+            = t('Order-Online')
         .modal-body
-          = render "order_onlines/form" 
+          = form_for @order_online ||= OrderOnline.new ,{:controller => "order_onlines", :action => "new", :remote => true} do |f|
+            - if @order_online.errors.any?
+              #error_explanation      
+                %ul
+                  - @order_online.errors.full_messages.each do |msg|
+                    %li= msg
+            .btnw30.pull-left.margin5
+              = text_field_tag :set_modual_numbers ,params[:set_modual_numbers], :class => "set_modual_numbers"
+              -#
+                = text_field_tag :modual_ids ,params[:modual_ids] , :class => "set_modual_ids"
+              .form-group 
+                = f.label t('order.email'), :class => "control-label"
+                = f.text_field :email, :class => "form-control fill" 
+            
+              .form-group 
+                = f.label t('order.web_site'), :class => "control-label"
+                = f.text_field :web_site, :class => "form-control "
+              
+              .form-group 
+                = f.label t('order.text_msg'), :class => "control-label"
+                = f.text_area :text_msg, :class => "form-control ", :style => "resize:none"
+              .form-group 
+                = f.submit  t('send'), :class => "btn btn-default", :id => "submit_btn"
+                
+            .btnw30.pull-left.margin5
+              .form-group  
+                = f.label t('order.name'), :class => "control-label"
+                = f.text_field :name, :class => "form-control fill"
+              .form-group 
+                = f.label t('order.company_name'), :class => "control-label"
+                = f.text_field :company_name, :class => "form-control"
+              .form-group 
+                = f.label t('order.phone'), :class => "control-label"
+                = f.text_field :phone, :class => "form-control"
+              .form-group 
+                = f.label t('order.mobile'), :class => "control-label"
+                = f.text_field :mobile, :class => "form-control fill"
+            
+            
+            
         .modal-footer
           %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
           
   
+:javascript 
+  $(function() { 
+    $(':submit#submit_btn').click(function(e) {
+      $(':text.fill, textarea.fill').each(function() {
+        if ($(this).val().length == 0) {
+          $(this).css('border', '2px solid red');
+          e.preventDefault();
+        }
+      });
+    });
+  });
 
-    
 
   

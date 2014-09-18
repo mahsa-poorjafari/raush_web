@@ -3,6 +3,9 @@ $(document).ready(function(){
     if ($(this).val()) {
       a = $(this).attr('modual_id');      
       $('#number_check_box_'+a).attr('checked', 'checked');
+      $('.set_modual_numbers').val(function( index, value ) {
+        return value + "["+ a +","+$('#number_field_'+a).val()+ "]" ;
+      });
       price = parseInt($('#div_price_'+a).text());
       sum = price * parseInt($(this).val());
       $('#div_cost_'+a).html('<b>'+sum+'</b>');      
@@ -17,6 +20,9 @@ $(document).ready(function(){
   $('.check_box_checked').change(function(){
     w = $(this).attr('modual_id');    
     if ($(this).is(':checked')) {    
+      $('.set_modual_numbers').val(function( index, value ) {
+        return value + "["+ w +","+$('#number_field_'+w).val()+ "]" ;
+      });  
       price = parseInt($('#div_price_'+w).text());
       $('#div_cost_'+w).html('<b>'+price+'</b>'); 
       var calculate = 0;

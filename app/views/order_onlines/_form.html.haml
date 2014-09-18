@@ -7,22 +7,22 @@
   .btnw30.pull-left.margin5
     .form-group 
       = f.label t('order.email'), :class => "control-label"
-      = f.text_field :email, :class => "form-control" 
+      = f.text_field :email, :class => "form-control fill" 
   
     .form-group 
       = f.label t('order.web_site'), :class => "control-label"
-      = f.text_field :web_site, :class => "form-control"
+      = f.text_field :web_site, :class => "form-control "
     
     .form-group 
       = f.label t('order.text_msg'), :class => "control-label"
-      = f.text_area :text_msg, :class => "form-control", :style => "resize:none"
+      = f.text_area :text_msg, :class => "form-control ", :style => "resize:none"
     .form-group 
-      = f.submit  t('send'), :class => "btn btn-default"
+      = f.submit  t('send'), :class => "btn btn-default", :id => "submit_btn"
       
   .btnw30.pull-left.margin5
     .form-group  
       = f.label t('order.name'), :class => "control-label"
-      = f.text_field :name, :class => "form-control "
+      = f.text_field :name, :class => "form-control fill"
     .form-group 
       = f.label t('order.company_name'), :class => "control-label"
       = f.text_field :company_name, :class => "form-control"
@@ -31,12 +31,12 @@
       = f.text_field :phone, :class => "form-control"
     .form-group 
       = f.label t('order.mobile'), :class => "control-label"
-      = f.text_field :mobile, :class => "form-control"
+      = f.text_field :mobile, :class => "form-control fill"
   
 :javascript 
   $(function() { 
-    $(':submit').click(function(e) {
-      $(':text, textarea').each(function() {
+    $(':submit#submit_btn').click(function(e) {
+      $(':text.fill, textarea.fill').each(function() {
         if ($(this).val().length == 0) {
           $(this).css('border', '2px solid red');
           e.preventDefault();

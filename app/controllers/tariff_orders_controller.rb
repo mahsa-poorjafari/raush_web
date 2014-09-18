@@ -78,6 +78,6 @@ class TariffOrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tariff_order_params
-      params.require(:tariff_order).permit(:order_online_id, :tariff_price_id, :modual_number)
+      params.require(:tariff_order).permit(:order_online_id, :tariff_price_ids => [], :tariff_price_numbers => [])
     end
 end
