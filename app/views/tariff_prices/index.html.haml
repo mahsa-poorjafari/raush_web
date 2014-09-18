@@ -52,7 +52,7 @@
           %h4#myModalLabel.modal-title 
             = t('Order-Online')
         .modal-body
-          = form_for @order_online ||= OrderOnline.new ,{:controller => "order_onlines", :action => "new", :remote => true} do |f|
+          = form_for @order_online ||= OrderOnline.new ,{:controller => "order_onlines", :action => "new"} do |f|
             - if @order_online.errors.any?
               #error_explanation      
                 %ul
@@ -60,8 +60,8 @@
                     %li= msg
             .btnw30.pull-left.margin5
               = text_field_tag :set_modual_numbers ,params[:set_modual_numbers], :class => "set_modual_numbers"
-              -#
-                = text_field_tag :modual_ids ,params[:modual_ids] , :class => "set_modual_ids"
+              
+              = text_field_tag :modual_ids ,params[:modual_ids] , :class => "set_modual_ids"
               .form-group 
                 = f.label t('order.email'), :class => "control-label"
                 = f.text_field :email, :class => "form-control fill" 

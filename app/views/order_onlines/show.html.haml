@@ -1,27 +1,31 @@
-%p#notice= notice
+.width80.set-center{:class => I18n.locale}
+  %p#notice= notice
 
-%p
-  %b Name:
-  = @order_online.name
-%p
-  %b Phone:
-  = @order_online.phone
-%p
-  %b Email:
-  = @order_online.email
-%p
-  %b Company name:
-  = @order_online.company_name
-%p
-  %b Web site:
-  = @order_online.web_site
-%p
-  %b Mobile:
-  = @order_online.mobile
-%p
-  %b Text msg:
-  = @order_online.text_msg
-
-= link_to 'Edit', edit_order_online_path(@order_online)
-\|
-= link_to 'Back', order_onlines_path
+  %p
+    %b Name:
+    = @order_online.name
+  %p
+    %b Phone:
+    = @order_online.phone
+  %p
+    %b Email:
+    = @order_online.email
+  %p
+    %b Company name:
+    = @order_online.company_name
+  %p
+    %b Web site:
+    = @order_online.web_site
+  %p
+    %b Mobile:
+    = @order_online.mobile
+  %p
+    %b Text msg:
+    = @order_online.text_msg
+  - @order_online.tariff_orders.each do |tariff_order|
+    %div
+      = tariff_order.modual_number
+      = tariff_order.tariff_price.modual
+  = link_to 'Edit', edit_order_online_path(@order_online)
+  \|
+  = link_to 'Back', order_onlines_path

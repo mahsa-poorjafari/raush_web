@@ -4,7 +4,10 @@ $(document).ready(function(){
       a = $(this).attr('modual_id');      
       $('#number_check_box_'+a).attr('checked', 'checked');
       $('.set_modual_numbers').val(function( index, value ) {
-        return value + "["+ a +","+$('#number_field_'+a).val()+ "]" ;
+        return value +$('#number_field_'+a).val()+",";
+      });
+      $('.set_modual_ids').val(function( index, value ) {
+        return value + a+",";
       });
       price = parseInt($('#div_price_'+a).text());
       sum = price * parseInt($(this).val());
@@ -21,8 +24,11 @@ $(document).ready(function(){
     w = $(this).attr('modual_id');    
     if ($(this).is(':checked')) {    
       $('.set_modual_numbers').val(function( index, value ) {
-        return value + "["+ w +","+$('#number_field_'+w).val()+ "]" ;
+        return value +$('#number_field_'+w).val()+ ",";
       });  
+      $('.set_modual_ids').val(function( index, value ) {
+        return value + w+",";
+      });
       price = parseInt($('#div_price_'+w).text());
       $('#div_cost_'+w).html('<b>'+price+'</b>'); 
       var calculate = 0;

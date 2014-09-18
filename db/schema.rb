@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140917090541) do
+ActiveRecord::Schema.define(version: 20140918075252) do
 
   create_table "account_documents", force: true do |t|
     t.date     "payment_date"
@@ -152,8 +152,7 @@ ActiveRecord::Schema.define(version: 20140917090541) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "order_online_id"
-    t.integer  "tariff_price_ids",     default: 0, null: false
-    t.integer  "tariff_price_numbers", default: 0, null: false
+    t.integer  "tariff_price_id"
   end
 
   create_table "tariff_prices", force: true do |t|

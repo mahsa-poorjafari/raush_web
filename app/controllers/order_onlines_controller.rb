@@ -27,16 +27,22 @@ class OrderOnlinesController < ApplicationController
   # POST /order_onlines.json
   def create
     @order_online = OrderOnline.new(order_online_params)
-    p '-------------set_modual_numbers-------------'
-    p @set_modual_numbers = params[:set_modual_numbers]
-    p dup  = @set_modual_numbers.split(%r{,\s*})
-    
     
    if @order_online.save
-      OrderMailer.send_user_order.deliver      
-      @deliver = 'کاربر گرامی پیام شما ارسال گردید.'
+    if params[:set_modual_numbers].present? and params[:modual_ids].present?
+      p '-------------set_modual_numbers-------------'
+      p @set_modual_numbers = params[:set_modual_numbers].split(',').map(&:to_i)
+      p '-------------modual_ids-------------'
+      p @modual_ids = params[:modual_ids].split(',').map(&:to_i)
+      @modual_ids.each_with_index do |id, i|
+        p '-----each row-----------'        
+        p @tariff_order = TariffOrder.create!(:order_online_id => @order_online.id, :tariff_price_id => id, :modual_number => @set_modual_numbers[i])
+      end      
     end
-    redirect_to :root
+    OrderMailer.send_user_order.deliver      
+    @deliver = 'کاربر گرامی پیام شما ارسال گردید.'
+    end
+    render action: 'show'
   end
 
   # PATCH/PUT /order_onlines/1

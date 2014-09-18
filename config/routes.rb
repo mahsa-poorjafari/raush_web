@@ -1,7 +1,6 @@
 RaushWeb::Application.routes.draw do
   
 
-  resources :tariff_orders
 
   resources :contacts do
     member do
@@ -45,6 +44,7 @@ scope "(:locale)", :locale => /en|fa/ do
 
   resources :tariff_prices
 
+  resources :tariff_orders
   resources :teams
 end
   #get "raush" => "static#home"
