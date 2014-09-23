@@ -1,31 +1,54 @@
 .width80.set-center{:class => I18n.locale}
   %p#notice= notice
-
-  %p
-    %b Name:
-    = @order_online.name
-  %p
-    %b Phone:
-    = @order_online.phone
-  %p
-    %b Email:
-    = @order_online.email
-  %p
-    %b Company name:
-    = @order_online.company_name
-  %p
-    %b Web site:
-    = @order_online.web_site
-  %p
-    %b Mobile:
-    = @order_online.mobile
-  %p
-    %b Text msg:
-    = @order_online.text_msg
-  - @order_online.tariff_orders.each do |tariff_order|
-    %div
-      = tariff_order.modual_number
-      = tariff_order.tariff_price.modual
-  = link_to 'Edit', edit_order_online_path(@order_online)
-  \|
-  = link_to 'Back', order_onlines_path
+  .col-xs-6
+    %h3
+      = t('total_price')
+      %h4#total_price
+  .col-xs-6
+    %p{:class => I18n.locale}
+      %b= t('order.name')
+      = @order_online.name
+    %p{:class => I18n.locale}
+      %b= t('order.phone')
+      = @order_online.phone
+    %p{:class => I18n.locale}
+      %b= t('order.email')
+      = @order_online.email
+    %p{:class => I18n.locale}
+      %b= t('order.company_name')
+      = @order_online.company_name
+    %p{:class => I18n.locale}
+      %b= t('order.web_site')
+      = @order_online.web_site
+    %p{:class => I18n.locale}
+      %b= t('order.mobile')
+      = @order_online.mobile
+    %p{:class => I18n.locale}
+      %b= t('order.text_msg')
+      = @order_online.text_msg
+  
+  .col-xs-12{:style => "overflow-y:scroll; height:250px"}
+    %h2= t('tariff_order_online')
+    %table.table{:class => I18n.locale}
+      %thead
+        %tr
+          %td{:class => I18n.locale}= t('module')
+          %td{:class => I18n.locale}= t('number_of')
+          %td{:class => I18n.locale}= t('cost') 
+        %tbody
+          - @order_online.tariff_orders.each do |tariff_order|
+            %tr.moduals
+              %td{:class => I18n.locale}= tariff_order.tariff_price.modual
+              %td{:class => I18n.locale}= tariff_order.modual_number
+              %td.modual_price{:class => I18n.locale}= tariff_order.modual_number * tariff_order.tariff_price.price_unit
+          
+    
+    
+:javascript
+  var sum_price = 0;
+  $('tr.moduals td.modual_price').each(function() {     
+    sum_price += parseInt($(this).text());                     
+  });
+  $('#total_price').text(sum_price);
+      
+ 

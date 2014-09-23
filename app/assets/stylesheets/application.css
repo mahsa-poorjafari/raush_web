@@ -148,3 +148,7 @@ right: 30%;
 left: 70%;
 width: 7%;}
 .modal {color:#000;}
+#errmsg
+{
+color: red;
+}

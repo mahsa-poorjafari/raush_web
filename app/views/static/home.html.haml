@@ -248,7 +248,8 @@
             = image_tag "ICON/نمونه کاری.png",height: "40" , width: "40", :alt => "نمونه کار وب سایت", :title => "نمونه کار وب سایت"
           .clear-float
         #webbtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
-          .item{:class => I18n.locale}= t('Tariff-Price')
+          .item{:class => I18n.locale}
+            = link_to  t('Tariff-Price'), tariff_prices_path
           .icon
             = image_tag "ICON/تعرفه قیمت.png", height: "40", width: "40", :alt => "تعرفه طراحی سایت", :title => "تعرفه طراحی سایت"
           .clear-float

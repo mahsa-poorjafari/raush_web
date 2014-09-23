@@ -38,7 +38,10 @@ en:
   cost: 'Cost'
   total_price: 'Total Price By Rial'
   choose: 'Choose'
+  set_order: 'Set Order'
   module: 'Module'
+  tariff_order_online: 'Order Detais'
+  
   order:
     name: 'Name'    
     phone: 'Phone'    

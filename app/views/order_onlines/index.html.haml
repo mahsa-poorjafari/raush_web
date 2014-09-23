@@ -1,31 +1,33 @@
-%h1 Listing order_onlines
+.fa
+  %h1 لیست سفارشات آنلاین
+  %div{:style => "height:350px; overflow-y:scroll"}
+    %table.table
+      %tr
+        %th ردیف
+        %th نام کاربر
+        %th تلفن تماس
+        %th موبایل
+        %th ایمیل
+        %th نام شرکت
+        %th وب سایت                
+        %th
+        
 
-%table
-  %tr
-    %th Name
-    %th Phone
-    %th Email    
-    %th Company name
-    %th Web site
-    %th Mobile
-    %th Text msg
-    %th
-    %th
-    %th
+      - @order_onlines.each_with_index do |order_online, i|
+        %tr
+          %td= (i+1)
+          %td= order_online.name
+          %td= order_online.phone
+          %td= order_online.mobile
+          %td= order_online.email      
+          %td= order_online.company_name
+          %td= order_online.web_site
+          
+          
+          - if is_admin?
+            %td
+              = link_to 'مشاهده', order_online
+              \|
+              = link_to 'حذف', order_online, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-  - @order_onlines.each do |order_online|
-    %tr
-      %td= order_online.name
-      %td= order_online.phone
-      %td= order_online.email      
-      %td= order_online.company_name
-      %td= order_online.web_site
-      %td= order_online.mobile
-      %td= order_online.text_msg
-      %td= link_to 'Show', order_online
-      %td= link_to 'Edit', edit_order_online_path(order_online)
-      %td= link_to 'Destroy', order_online, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Order online', new_order_online_path
+   

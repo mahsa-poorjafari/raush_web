@@ -5,7 +5,7 @@ class OrderOnlinesController < ApplicationController
   # GET /order_onlines
   # GET /order_onlines.json
   def index
-    @order_onlines = OrderOnline.all
+    @order_onlines = OrderOnline.order(" created_at desc")
   end
 
   # GET /order_onlines/1

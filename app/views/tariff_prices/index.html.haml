@@ -1,5 +1,5 @@
 .width80.set-center{:class => I18n.locale}
-  %h1.btnw30= t('tariff_prices')
+  %h1.btnw40= t('tariff_prices')
   - if is_admin?
     .fa.btnw30.pull-right
       = link_to 'تعریف تعرفه جدید', new_tariff_price_path, :class => "btn btn-default"
@@ -32,7 +32,8 @@
               - if tariff_price.set_number
                               
                 = check_box('tariff_price', tariff_price.id,{:modual_id => tariff_price.id,:id => "number_check_box_"+tariff_price.id.to_s, :class => "check_box_checked"}, tariff_price.id)
-                = text_field_tag :modual_number ,params[:modual_number] , :style => "width:30px", :class => "sel_check_box", :modual_id => tariff_price.id, :id => "number_field_"+tariff_price.id.to_s
+                = text_field_tag :modual_number ,params[:modual_number] , :style => "width:30px", :class => "sel_check_box", :modual_id => tariff_price.id, :id => "number_field_"+tariff_price.id.to_s, :value => 1
+                %span#errmsg
                 
               - else
                 = check_box('tariff_price', tariff_price.id,{:modual_id => tariff_price.id, :class => "check_box_checked"}, tariff_price.id)
@@ -42,7 +43,7 @@
                 = link_to 'ویرایش', edit_tariff_price_path(tariff_price)
                 \|
                 = link_to 'حذف', tariff_price, :method => :delete, :data => { :confirm => 'Are you sure?' }
-    = link_to "ثبت سفارش", '#', :class => "btn btn-default","data-toggle" => "modal", "data-target" => ".bs-example-modal-lg"
+    = link_to t('set_order'), '#', :class => "btn btn-default","data-toggle" => "modal", "data-target" => ".bs-example-modal-lg", :id => "set_order"
 
   .modal.fade.bs-example-modal-lg{"aria-hidden" => "true", "aria-labelledby" => "myLargeModalLabel", role: "dialog", tabindex: "-1"}
     .modal-dialog.modal-lg

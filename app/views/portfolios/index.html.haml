@@ -14,7 +14,7 @@
       %tr
         %td=link_to portfolio.title, portfolio      
         %td= portfolio.description
-        %td= portfolio.date
+        %td= JalaliDate.new(portfolio.created_at)
         %td= portfolio.service_id
         %td= link_to portfolio.website, url_with_protocol(portfolio.website), :target => "blank"
         %td

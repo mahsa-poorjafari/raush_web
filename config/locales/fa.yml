@@ -32,13 +32,14 @@ fa:
    
   send: 'ارسال'
   row: 'ردیف'
-  tariff_prices: 'تعرفه قیمت'
+  tariff_prices: 'تعرفه قیمت طراحی سایت'
   unit_price: 'قیمت واحد به ریال'
   number_of: 'تعداد'
   cost: 'هزینه'
   total_price: 'قیمت کل به ریال'
   choose: 'انتخاب'
   module: 'ماژول'
+  
   order:
     name: 'نام'    
     phone: 'تلفن ثابت'    
@@ -47,7 +48,8 @@ fa:
     web_site: 'وب سایت'
     mobile: 'تلفن همراه'
     text_msg: 'متن'
-    
+  tariff_order_online: 'جزئیات سفارش سایت'  
+  set_order: 'ثبت سفارش'
   bms:    
     home: 'خانه هوشمند'
     office: 'اداره هوشمند'  
