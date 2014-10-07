@@ -1,6 +1,7 @@
 # encoding: UTF-8
 class OrderOnline < ActiveRecord::Base
-
+  extend FriendlyId  
+  friendly_id :name
   has_many :tariff_orders
   has_many :tariff_prices, :through => :tariff_orders
   

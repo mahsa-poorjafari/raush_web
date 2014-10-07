@@ -2,6 +2,8 @@ RaushWeb::Application.routes.draw do
   
 
 
+  resources :factor_details
+
   resources :contacts do
     member do
       get :search  

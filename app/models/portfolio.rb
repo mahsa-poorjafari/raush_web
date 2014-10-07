@@ -6,7 +6,7 @@ class Portfolio < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"],
                                             :message =>  "فرمت عکس صحیح نیست"
 
-   def title
+  def title
     I18n.locale == :fa ? self.read_attribute("title_fa") : self.read_attribute("title_en")
   end
   

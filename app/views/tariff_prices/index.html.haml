@@ -1,5 +1,5 @@
 .width80.set-center{:class => I18n.locale}
-  %h1.btnw40= t('tariff_prices')
+  %h3.btnw40= t('tariff_prices')
   - if is_admin?
     .fa.btnw30.pull-right
       = link_to 'تعریف تعرفه جدید', new_tariff_price_path, :class => "btn btn-default"
@@ -12,7 +12,7 @@
   .table-scroll{:class => I18n.locale}
     %table.table{:class => I18n.locale, :id => "tariff_prices_table"}
       %thead
-        %tr              
+        %tr{:class => I18n.locale}             
           %th= t('row')
           %th= t('module')
           %th= t('unit_price')        
@@ -23,10 +23,10 @@
     
       %tbody
         - @tariff_prices.each_with_index do |tariff_price, i|      
-          %tr
-            %td= (i+1)  
+          %tr{:class => I18n.locale}
+            %td{:class => I18n.locale}= (i+1)  
             %td{:class => I18n.locale}=tariff_price.modual
-            %td{:id => 'div_price_' + tariff_price.id.to_s }=  tariff_price.price_unit
+            %td{:id => 'div_price_' + tariff_price.id.to_s, :class => I18n.locale }=  tariff_price.price_unit
             %td{:id => 'div_cost_' + tariff_price.id.to_s , :class => "div_cost"}          
             %td
               - if tariff_price.set_number
@@ -59,10 +59,11 @@
                 %ul
                   - @order_online.errors.full_messages.each do |msg|
                     %li= msg
-            .btnw30.pull-left.margin5
-              = text_field_tag :set_modual_numbers ,params[:set_modual_numbers], :class => "set_modual_numbers"
+            .btnw40.pull-left.margin5
+              = hidden_field_tag :set_modual_numbers ,params[:set_modual_numbers], :class => "set_modual_numbers"
               
-              = text_field_tag :modual_ids ,params[:modual_ids] , :class => "set_modual_ids"
+              = hidden_field_tag :modual_ids ,params[:modual_ids] , :class => "set_modual_ids"
+              .clear-float
               .form-group 
                 = f.label t('order.email'), :class => "control-label"
                 = f.text_field :email, :class => "form-control fill" 
@@ -76,8 +77,8 @@
                 = f.text_area :text_msg, :class => "form-control ", :style => "resize:none"
               .form-group 
                 = f.submit  t('send'), :class => "btn btn-default", :id => "submit_btn"
-                
-            .btnw30.pull-left.margin5
+            
+            .btnw40.pull-left.margin5
               .form-group  
                 = f.label t('order.name'), :class => "control-label"
                 = f.text_field :name, :class => "form-control fill"
@@ -92,7 +93,7 @@
                 = f.text_field :mobile, :class => "form-control fill"
             
             
-            
+          .clear-float  
         .modal-footer
           %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
           

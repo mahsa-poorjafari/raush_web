@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class TariffPricesController < ApplicationController
   before_action :set_tariff_price, only: [:show, :edit, :update, :destroy]
-  before_filter :check_autentication
+  before_filter :check_autentication, only: [:edit, :update, :destroy]
   # GET /tariff_prices
   # GET /tariff_prices.json
   def index
@@ -28,15 +28,15 @@ class TariffPricesController < ApplicationController
   def create
     @tariff_price = TariffPrice.new(tariff_price_params)
 
-    respond_to do |format|
-      if @tariff_price.save
-        format.html { redirect_to @tariff_price, notice: 'Tariff price was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @tariff_price }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @tariff_price.errors, status: :unprocessable_entity }
-      end
+    
+    if @tariff_price.save     
+      
+      render action: 'show'
+    else
+      render action: 'new'
+      
     end
+    
   end
 
   # PATCH/PUT /tariff_prices/1
@@ -71,6 +71,6 @@ class TariffPricesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tariff_price_params
-      params.require(:tariff_price).permit(:modual, :price_unit, :number, :service_id, :set_number)
+      params.require(:tariff_price).permit(:modual,:modual_en, :price_unit, :number, :service_id, :set_number)
     end
 end

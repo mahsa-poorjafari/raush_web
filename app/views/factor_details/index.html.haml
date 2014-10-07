@@ -1,0 +1,27 @@
+%h1 Listing factor_details
+
+%table
+  %tr
+    %th Object name
+    %th Number of
+    %th Objecct price
+    %th Object amount
+    %th Account document
+    %th
+    %th
+    %th
+
+  - @factor_details.each do |factor_detail|
+    %tr
+      %td= factor_detail.object_name
+      %td= factor_detail.number_of
+      %td= factor_detail.objecct_price
+      %td= factor_detail.object_amount
+      %td= factor_detail.account_document_id
+      %td= link_to 'Show', factor_detail
+      %td= link_to 'Edit', edit_factor_detail_path(factor_detail)
+      %td= link_to 'Destroy', factor_detail, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Factor detail', new_factor_detail_path

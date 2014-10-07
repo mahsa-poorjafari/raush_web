@@ -1,34 +1,39 @@
-.width80.set-center{:class => I18n.locale}
-  %p#notice= notice
-  .col-xs-6
+.width90.set-center{:class => I18n.locale}
+  - if flash[:OrderDone].present?
+    p.bg-success= flash[:OrderDone]
+  .col-xs-3
     %h3
       = t('total_price')
       %h4#total_price
-  .col-xs-6
-    %p{:class => I18n.locale}
-      %b= t('order.name')
-      = @order_online.name
-    %p{:class => I18n.locale}
-      %b= t('order.phone')
-      = @order_online.phone
-    %p{:class => I18n.locale}
-      %b= t('order.email')
-      = @order_online.email
-    %p{:class => I18n.locale}
-      %b= t('order.company_name')
-      = @order_online.company_name
-    %p{:class => I18n.locale}
-      %b= t('order.web_site')
-      = @order_online.web_site
-    %p{:class => I18n.locale}
-      %b= t('order.mobile')
-      = @order_online.mobile
-    %p{:class => I18n.locale}
-      %b= t('order.text_msg')
-      = @order_online.text_msg
-  
-  .col-xs-12{:style => "overflow-y:scroll; height:250px"}
-    %h2= t('tariff_order_online')
+  .col-xs-9
+    .col-xs-6
+      
+      %p{:class => I18n.locale}
+        %b= t('order.phone')
+        = @order_online.phone
+      %p{:class => I18n.locale}
+        %b= t('order.mobile')
+        = @order_online.mobile
+      %p.order_text_msg{:class => I18n.locale}
+        %b= t('order.text_msg')
+        = @order_online.text_msg
+    .col-xs-6
+      %p{:class => I18n.locale}
+        %b= t('order.name')
+        = @order_online.name
+      %p{:class => I18n.locale}
+        %b= t('order.company_name')
+        = @order_online.company_name
+      %p{:class => I18n.locale}
+        %b= t('order.web_site')
+        = @order_online.web_site
+      
+      %p{:class => I18n.locale}
+        %b= t('order.email')
+        = @order_online.email
+    
+      %h2= t('tariff_order_online')
+  .col-xs-12{:style => "overflow-y:scroll; height:250px"}    
     %table.table{:class => I18n.locale}
       %thead
         %tr

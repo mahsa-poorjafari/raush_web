@@ -11,11 +11,10 @@ $(document).ready(function(){
      });
   });
   
-  $('.sel_check_box').focusout(function(){ 
+  $('.sel_check_box').blur(function(){ 
     if ($(this).val()) {
       $(this).css('border', '');  
       a = $(this).attr('modual_id');            
-      $('#number_check_box_'+a).attr('checked', 'checked');
       
       price = parseInt($('#div_price_'+a).text());
       sum = price * parseInt($(this).val());
@@ -25,16 +24,22 @@ $(document).ready(function(){
         calculate += parseInt($(this).text());                     
         });
       $('p.calculate_the_price b.s').html('<p>'+calculate+'</p>');
+      $('#number_check_box_'+a).attr('checked', 'checked');      
     } 
     else
       {
         a = $(this).attr('modual_id');            
         $('#number_check_box_'+a).attr('checked', false);
-        $('#div_cost_'+a).html(''); 
+        $('#div_cost_'+a).html('');
+        var calculate = 0;
+        $('td.div_cost b').each(function() {     
+          calculate += parseInt($(this).text());                     
+          });
+        $('p.calculate_the_price b.s').html('<p>'+calculate+'</p>');
         
       }
   });
-    
+  
   $('.check_box_checked').change(function(){
     w = $(this).attr('modual_id');    
     if ($(this).is(':checked')) {   
@@ -47,15 +52,10 @@ $(document).ready(function(){
       });
       $('p.calculate_the_price b.s').html('<p>'+calculate+'</p>');
     }
-    
-  });
-    
-  $('.check_box_checked').change(function(){
-    w = $(this).attr('modual_id');   
-    if (!$(this).is(':checked')) {    
+    else
+    {
       $('#div_cost_'+w).html('');
-      $('#number_field_'+w).val('');
-    
+      $('#number_field_'+w).val('');    
       var calculate = 0;
       $('td.div_cost b').each(function() {     
         calculate += parseInt($(this).text());                     
@@ -63,13 +63,15 @@ $(document).ready(function(){
       $('p.calculate_the_price b.s').html('<p>'+calculate+'</p>');
     }
   });
+    
+  
   
   $('#set_order').click(function(){
     $('.set_modual_ids').val('');
     $('.set_modual_numbers').val('');
     $('.check_box_checked').each(function(index){
-      if ($(this).is(':checked')) { 
-        w = $(this).attr('modual_id'); 
+      w = $(this).attr('modual_id'); 
+      if ($(this).is(':checked')) {         
         $('.set_modual_ids').val(function( index, value ) {
           return value + w+",";
         });
@@ -80,5 +82,6 @@ $(document).ready(function(){
     });
     
   });
+  
 });
 

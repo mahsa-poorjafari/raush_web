@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140918075252) do
+ActiveRecord::Schema.define(version: 20141007074023) do
 
   create_table "account_documents", force: true do |t|
     t.date     "payment_date"
@@ -67,6 +67,16 @@ ActiveRecord::Schema.define(version: 20140918075252) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "type"
+  end
+
+  create_table "factor_details", force: true do |t|
+    t.string   "object_name"
+    t.string   "number_of"
+    t.integer  "objecct_price"
+    t.integer  "object_amount"
+    t.integer  "account_document_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "order_onlines", force: true do |t|
@@ -163,6 +173,7 @@ ActiveRecord::Schema.define(version: 20140918075252) do
     t.integer  "service_id"
     t.boolean  "set_number", default: false
     t.integer  "price_unit"
+    t.string   "modual_en"
   end
 
   create_table "teams", force: true do |t|

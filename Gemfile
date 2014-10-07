@@ -7,13 +7,14 @@ gem "mysql2"
 gem 'haml-rails'
 gem 'jalalidate'
 gem "farsifu"
+gem "friendly_id", "~> 5.0.1"
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'jquery-datatables-rails', '~> 1.12.2', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 gem 'ckeditor_rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 gem 'rails4-autocomplete'
-
+gem "nested_form"
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 

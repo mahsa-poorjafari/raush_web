@@ -36,7 +36,7 @@ en:
   unit_price: 'Unit Price By Rial'
   number_of: 'Number Of'
   cost: 'Cost'
-  total_price: 'Total Price By Rial'
+  total_price: 'Total Price In Rial'
   choose: 'Choose'
   set_order: 'Set Order'
   module: 'Module'

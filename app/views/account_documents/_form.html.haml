@@ -1,11 +1,11 @@
-= form_for @account_document do |f|
+= nested_form_for @account_document, :html => { :multipart => true  }  do |f|
   - if @account_document.errors.any?
     #error_explanation
       
       %ul
         - @account_document.errors.full_messages.each do |msg|
           %li= msg
-  .pull-right.margin5
+  .pull-right.margin5.col-sm-3 
     = f.hidden_field :factor_type, :value => @factor_type
     .form-group
       = f.label 'تاریخ پرداخت:', :class => "control-label"
@@ -24,12 +24,7 @@
       - else
         = f.label 'پرداخت به', :class => "control-label"
         = f.select(:paid_to, RelatedPerson.all.collect {|u| [u.title, u.id]}, :prompt => ' پرداخت به', :id => "paid_to") 
-        = f.autocomplete_field :paid_to, as: :autocomplete, url: autocomplete_contact_company_name_account_documents_path
-        = f.association :paid_to, 
-          :collection => Contact.all, 
-          :required => true,
-          :value_method => :id, 
-          :label_method => :display_name
+        
       
     .form-group
       - if @factor_type == "cost"
@@ -43,15 +38,37 @@
       = f.label 'مبلغ به ریال', :class => "control-label"
       %br
       %i= 'قبل از وارد کردن مبلغ زبان سیستم را انگلیسی کنید.'
-      = f.text_field :value, :class => "form-control"
+      = f.text_field :value, :class => "form-control", :id => "factor_cost"
       
-  .btnw30.pull-right.margin5
+  .col-sm-3.pull-right.margin5
     .form-group  
       = f.label 'شماره فیزیکی فاکتور', :class => "control-label"
       = f.text_field :physical_factor_number, :class => "form-control"
     .form-group
       = f.label 'توضیحات:', :class => "control-label"
       = f.text_area :description, :class => "form-control"
+  .col-sm-5{:style => "overflow:scroll-y"} 
+    .form-group
+      = f.label 'جزئیات فاکتور:', :class => "control-label"
+      = f.fields_for :factor_details do |detail|  
+        .col-sm-5
+          = render "factor_details/set_detail", :detail => detail
+    .form-group
+      = f.link_to_add content_tag(:span, "افزودن "), :factor_details, :id => "add_new_picture", :class => "save-btn"
     .form-group
       = f.submit 'ثبت', :class => "btn btn-default"
+:javascript
+  $(document).ready(function () {
+    //called when key is pressed in textbox
+    $("#factor_cost").keypress(function (e) {
+       //if the letter is not digit then display error and don't type anything
+       if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+          //display error message
+          $(this).css('border', '2px solid red');
+            return false;
+      }
+     });
+  
 
+
+  });

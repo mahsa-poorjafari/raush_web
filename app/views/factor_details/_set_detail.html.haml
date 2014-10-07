@@ -1,0 +1,13 @@
+
+.form-group
+  = detail.label "شرح کالا و خدمات", :class => "control-label" 
+  = detail.text_field :object_name, :rows => 2, :style => "resize:none"  
+.form-group
+  = detail.label "تعداد", :class => "control-label" 
+  = detail.text_field :number_of, :rows => 2, :style => "resize:none"  
+.form-group
+  = detail.label "برای حذف این کادر روی آیکن سطل آشغال مقابل کلیک کنید.", :class => "control-label" 
+  = detail.link_to_remove (image_tag ("Delete_Icon.png"), :class => "recyclebin-icon"), :class => "remove-task col-sm-3"
+.clear-float
+%hr
+

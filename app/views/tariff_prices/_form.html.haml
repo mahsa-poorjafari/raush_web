@@ -6,11 +6,15 @@
           %li= msg
   .col-xs-5.margin5.pull-right
     .form-group
-      = f.label 'ماژول', :class => "control-label"
+      = f.label 'ماژول با فارسی', :class => "control-label"
       = f.text_area :modual, :class => "form-control"
+    .form-group
+      = f.label 'ماژول به انگلیسی', :class => "control-label"
+      = f.text_area :modual_en, :class => "form-control"
     .form-group
       = f.label 'قیمت واحد', :class => "control-label"
       = f.text_field :price_unit, :class => "form-control"
+  .col-xs-5
     .form-group
       = f.label 'تعداد', :class => "control-label"
       = f.text_field :number, :class => "form-control"

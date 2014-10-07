@@ -1,7 +1,6 @@
-%h1 Editing tariff_price
+.width80.fa
+  %h1= 'ویرایش تعرفه'
+  .fa
+    = render 'form'
 
-= render 'form'
-
-= link_to 'Show', @tariff_price
-\|
-= link_to 'Back', tariff_prices_path
+  = link_to 'بازگشت', tariff_prices_path

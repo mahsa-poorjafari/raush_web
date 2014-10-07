@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Object name:
+  = @factor_detail.object_name
+%p
+  %b Number of:
+  = @factor_detail.number_of
+%p
+  %b Objecct price:
+  = @factor_detail.objecct_price
+%p
+  %b Object amount:
+  = @factor_detail.object_amount
+%p
+  %b Account document:
+  = @factor_detail.account_document_id
+
+= link_to 'Edit', edit_factor_detail_path(@factor_detail)
+\|
+= link_to 'Back', factor_details_path

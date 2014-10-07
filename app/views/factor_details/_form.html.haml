@@ -1,0 +1,24 @@
+= form_for @factor_detail do |f|
+  - if @factor_detail.errors.any?
+    #error_explanation      
+      %ul
+        - @factor_detail.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :object_name
+    = f.text_field :object_name
+  .field
+    = f.label :number_of
+    = f.text_field :number_of
+  .field
+    = f.label :objecct_price
+    = f.number_field :objecct_price
+  .field
+    = f.label :object_amount
+    = f.number_field :object_amount
+  .field
+    = f.label :account_document_id
+    = f.number_field :account_document_id
+  .actions
+    = f.submit 'Save'

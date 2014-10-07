@@ -1,10 +1,11 @@
 .fa.set-center   
   %h1= 'ایجاد فاکتور' + @factor_type
   
-  .width60.pull-right
+  .col-sm-12.pull-right
     = render 'form'
-  .btnw30.pull-right
-    .insert_row
+  -#
+    .btnw30.pull-right
+      .insert_row
   = link_to accounting_path , :class =>'link' do
     #btn-bk-about.button.set-center.btnw10.back
       .item= t('back')

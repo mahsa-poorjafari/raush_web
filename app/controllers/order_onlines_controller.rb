@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class OrderOnlinesController < ApplicationController
   before_action :set_order_online, only: [:show, :edit, :update, :destroy]
-  before_filter :check_autentication
+  before_filter :check_autentication, only: [:edit, :update, :destroy, :index]
   # GET /order_onlines
   # GET /order_onlines.json
   def index
@@ -42,6 +42,7 @@ class OrderOnlinesController < ApplicationController
     OrderMailer.send_user_order.deliver      
     @deliver = 'کاربر گرامی پیام شما ارسال گردید.'
     end
+    flash[:OrderDone] = 'کاربر گرامی درخواست شما ثبت گردید. منتطر تماس کارشناس مربوطه باشید.'
     render action: 'show'
   end
 
@@ -72,7 +73,7 @@ class OrderOnlinesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order_online
-      @order_online = OrderOnline.find(params[:id])
+      @order_online = OrderOnline.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
