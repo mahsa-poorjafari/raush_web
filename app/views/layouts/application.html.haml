@@ -7,8 +7,8 @@
       = ',' + Service.all.collect(&:title).join(",") #{@head.fetch(:title, '') if @head}    
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true 
     = stylesheet_link_tag    "print", media: "print"      
-    = javascript_include_tag "application", "data-turbolinks-track" => true
-    = javascript_include_tag "autocomplete-rails.js" 
+    = javascript_include_tag "application", "data-turbolinks-track" => true    
+    = javascript_include_tag "autocomplete-rails" 
     = csrf_meta_tags
     %meta{:charset => "utf-8"}
     %meta{:name => "google-site-verification", :content => "S5JQSWa3HDMpXSLq99069pTnv9xEXj1SyOHhjeAVXWQ" }
@@ -38,4 +38,8 @@
 
     ga('create', 'UA-54387949-1', 'auto');
     ga('send', 'pageview');
+    $(document).ready(function(){
+      $(".nano").nanoScroller();
+    });
 
+  = javascript_include_tag "jquery.nanoscroller" 

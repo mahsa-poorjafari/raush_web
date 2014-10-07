@@ -117,7 +117,7 @@ background:1a1a1a;
 
 .txt-center {text-align:center}
 .show-3box {height:330px; text-align:center; margin-top:2%;}
-.show-3box h4{font-family: 'gothic';}
+
 
 .nano { width: 500px; height: 500px; }
 .nano .nano-content { padding: 10px; }
@@ -158,3 +158,4 @@ color: red;
 }
 p.order_text_msg {overflow:hidden; height:100px; width:90%}
 p.order_text_msg:hover {overflow-y:scroll}
+.portfolio_img img {box-shadow: 1px 1px 1px #1A1A1A;}

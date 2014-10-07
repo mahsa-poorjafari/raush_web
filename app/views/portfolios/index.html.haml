@@ -12,11 +12,11 @@
 
     - @portfolios.each do |portfolio|
       %tr
-        %td=link_to portfolio.title, portfolio      
+        %td{:class => I18n.locale}=link_to portfolio.title, portfolio      
         %td= portfolio.description
         %td= JalaliDate.new(portfolio.created_at)
         %td= portfolio.service_id
-        %td= link_to portfolio.website, url_with_protocol(portfolio.website), :target => "blank"
+        %td.portfolio_img= link_to portfolio.website, url_with_protocol(portfolio.website), :target => "blank"
         %td
           = link_to (image_tag 'edit.png', :alt => "edit"), edit_portfolio_path(portfolio)
           = link_to (image_tag 'del.png', :alt => "delete"), portfolio, :method => :delete, :data => { :confirm => 'Are you sure?' }

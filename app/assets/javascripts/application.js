@@ -17,3 +17,5 @@
 //= require ckeditor-jquery
 //= require dataTables/jquery.dataTables
 //= require_tree .
+
+

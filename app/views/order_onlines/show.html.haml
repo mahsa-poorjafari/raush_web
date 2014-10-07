@@ -1,6 +1,6 @@
 .width90.set-center{:class => I18n.locale}
   - if flash[:OrderDone].present?
-    p.bg-success= flash[:OrderDone]
+    .alert.alert-success{"role" => "alert"}= flash[:OrderDone]
   .col-xs-3
     %h3
       = t('total_price')
@@ -14,9 +14,10 @@
       %p{:class => I18n.locale}
         %b= t('order.mobile')
         = @order_online.mobile
-      %p.order_text_msg{:class => I18n.locale}
-        %b= t('order.text_msg')
-        = @order_online.text_msg
+      .nano  
+        %p.order_text_msg.nano-content{:class => I18n.locale}
+          %b= t('order.text_msg')
+          = @order_online.text_msg
     .col-xs-6
       %p{:class => I18n.locale}
         %b= t('order.name')
@@ -33,20 +34,21 @@
         = @order_online.email
     
       %h2= t('tariff_order_online')
-  .col-xs-12{:style => "overflow-y:scroll; height:250px"}    
-    %table.table{:class => I18n.locale}
-      %thead
-        %tr
-          %td{:class => I18n.locale}= t('module')
-          %td{:class => I18n.locale}= t('number_of')
-          %td{:class => I18n.locale}= t('cost') 
-        %tbody
-          - @order_online.tariff_orders.each do |tariff_order|
-            %tr.moduals
-              %td{:class => I18n.locale}= tariff_order.tariff_price.modual
-              %td{:class => I18n.locale}= tariff_order.modual_number
-              %td.modual_price{:class => I18n.locale}= tariff_order.modual_number * tariff_order.tariff_price.price_unit
-          
+  .nano
+    .col-xs-12.nano-content{:style => "overflow-y:scroll; height:250px"}    
+      %table.table{:class => I18n.locale}
+        %thead
+          %tr
+            %td{:class => I18n.locale}= t('module')
+            %td{:class => I18n.locale}= t('number_of')
+            %td{:class => I18n.locale}= t('cost') 
+          %tbody
+            - @order_online.tariff_orders.each do |tariff_order|
+              %tr.moduals
+                %td{:class => I18n.locale}= tariff_order.tariff_price.modual
+                %td{:class => I18n.locale}= tariff_order.modual_number
+                %td.modual_price{:class => I18n.locale}= tariff_order.modual_number * tariff_order.tariff_price.price_unit
+            
     
     
 :javascript
