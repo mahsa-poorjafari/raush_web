@@ -11,13 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141007074023) do
+ActiveRecord::Schema.define(version: 20141008083249) do
 
   create_table "account_documents", force: true do |t|
     t.date     "payment_date"
     t.integer  "value"
-    t.integer  "paid_to"
-    t.integer  "paid_by"
     t.integer  "payment_group_id"
     t.string   "physical_factor_number"
     t.text     "description"
@@ -29,6 +27,8 @@ ActiveRecord::Schema.define(version: 20141007074023) do
     t.datetime "image_updated_at"
     t.string   "factor_type"
     t.boolean  "status",                 default: false
+    t.string   "paid_to"
+    t.string   "paid_by"
   end
 
   create_table "camera_models", force: true do |t|
@@ -71,12 +71,12 @@ ActiveRecord::Schema.define(version: 20141007074023) do
 
   create_table "factor_details", force: true do |t|
     t.string   "object_name"
-    t.string   "number_of"
     t.integer  "objecct_price"
     t.integer  "object_amount"
     t.integer  "account_document_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "number_of"
   end
 
   create_table "order_onlines", force: true do |t|

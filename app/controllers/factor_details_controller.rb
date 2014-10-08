@@ -25,7 +25,8 @@ class FactorDetailsController < ApplicationController
   # POST /factor_details.json
   def create
     @factor_detail = FactorDetail.new(factor_detail_params)
-
+    p '---------'
+    p @factor_detail.object_amount = @factor_detail.number_of * @factor_detail.objecct_price
     respond_to do |format|
       if @factor_detail.save
         format.html { redirect_to @factor_detail, notice: 'Factor detail was successfully created.' }
@@ -40,6 +41,7 @@ class FactorDetailsController < ApplicationController
   # PATCH/PUT /factor_details/1
   # PATCH/PUT /factor_details/1.json
   def update
+    @factor_detail.object_amount = @factor_detail.number_of * @factor_detail.objecct_price
     respond_to do |format|
       if @factor_detail.update(factor_detail_params)
         format.html { redirect_to @factor_detail, notice: 'Factor detail was successfully updated.' }
@@ -56,7 +58,7 @@ class FactorDetailsController < ApplicationController
   def destroy
     @factor_detail.destroy
     respond_to do |format|
-      format.html { redirect_to factor_details_url }
+      format.html { redirect_to :back}
       format.json { head :no_content }
     end
   end

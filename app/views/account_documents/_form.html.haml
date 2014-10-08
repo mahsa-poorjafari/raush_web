@@ -9,66 +9,86 @@
     = f.hidden_field :factor_type, :value => @factor_type
     .form-group
       = f.label 'تاریخ پرداخت:', :class => "control-label"
-      = f.date_select :payment_date, :class => "form-control"
+      = f.text_field :payment_date_fa, :class => "fa_date form-control"
     .form-group
       = f.label 'فاکتور بابت:', :class => "control-label"
       = f.select(:payment_group_id, PaymentGroup.all.collect {|u| [u.title, u.id]}, :prompt => ' این فاکتور بابت...') 
+    
+      = link_to 'افزودن عنوان فاکتور', new_payment_group_path,  :class => "btn btn-default"
     .form-group
-      = link_to 'افزودن فرد مرتبط', new_related_person_path, :remote => true, :class => "btn btn-default"
-      = link_to 'افزودن عنوان فاکتور', new_payment_group_path, :remote => true, :class => "btn btn-default"
-    .form-group
-      - if @factor_type == "received"
+      - if @factor_type == "received" || @factor_type == "customer"
         = f.label 'پرداخت به:', :class => "control-label"
         %b{:style => "font-size:20px"}= 'شرکت راش'
-        = f.hidden_field :paid_to, :value => @raushco.id
+        = f.hidden_field :paid_to, :value => 'شرکت راش'
       - else
-        = f.label 'پرداخت به', :class => "control-label"
-        = f.select(:paid_to, RelatedPerson.all.collect {|u| [u.title, u.id]}, :prompt => ' پرداخت به', :id => "paid_to") 
+        = f.label 'پرداخت به:', :class => "control-label"
+        = f.text_field :paid_to, :class => "form-control"
         
       
     .form-group
       - if @factor_type == "cost"
-        = f.hidden_field :paid_by, :value => @raushco.id
+        = f.hidden_field :paid_by, :value => 'شرکت راش'
         = f.label 'پرداخت توسط:', :class => "control-label"
         %b{:style => "font-size:20px"}= 'شرکت راش'
+      - elsif @factor_type == "customer"
+        = f.label 'خریدار:', :class => "control-label"      
+        = f.text_field :paid_by, :class => "form-control"
       - else
         = f.label 'پرداخت توسط', :class => "control-label"      
-        = f.select(:paid_by, RelatedPerson.all.collect {|u| [u.title, u.id]}, :prompt => ' پرداخت توسط', :id => "paid_by") 
+        = f.text_field :paid_by, :class => "form-control"
+    
+    
+  .col-sm-3.pull-right.margin5
     .form-group
       = f.label 'مبلغ به ریال', :class => "control-label"
       %br
       %i= 'قبل از وارد کردن مبلغ زبان سیستم را انگلیسی کنید.'
       = f.text_field :value, :class => "form-control", :id => "factor_cost"
       
-  .col-sm-3.pull-right.margin5
     .form-group  
       = f.label 'شماره فیزیکی فاکتور', :class => "control-label"
       = f.text_field :physical_factor_number, :class => "form-control"
     .form-group
-      = f.label 'توضیحات:', :class => "control-label"
+      = f.label 'شرح:', :class => "control-label"
       = f.text_area :description, :class => "form-control"
-  .col-sm-5{:style => "overflow:scroll-y"} 
-    .form-group
-      = f.label 'جزئیات فاکتور:', :class => "control-label"
-      = f.fields_for :factor_details do |detail|  
-        .col-sm-5
-          = render "factor_details/set_detail", :detail => detail
-    .form-group
-      = f.link_to_add content_tag(:span, "افزودن "), :factor_details, :id => "add_new_picture", :class => "save-btn"
     .form-group
       = f.submit 'ثبت', :class => "btn btn-default"
+  .col-sm-5{:style => "overflow-y:scroll; height:300px"} 
+    .form-group
+      = f.label 'جزئیات فاکتور:', :class => "control-label"     
+      
+      = f.fields_for :factor_details do |detail|          
+        .col-sm-12
+          = render "factor_details/set_detail", :detail => detail
+    .form-group
+      = f.link_to_add content_tag(:span, "افزودن "), :factor_details, :id => "add_new_picture", :class => "save-btn add_details_factor"
+      
 :javascript
   $(document).ready(function () {
     //called when key is pressed in textbox
     $("#factor_cost").keypress(function (e) {
        //if the letter is not digit then display error and don't type anything
-       if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+      if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
           //display error message
           $(this).css('border', '2px solid red');
             return false;
-      }
-     });
+        }
+    });
+  });
+  
   
 
+  function enable_file_select(){
+    $(".enable_file_select").unbind('click').click(function(){
+      $(this).parent().find("input:file").click();
+    });
+   }
+  
+  enable_file_select();
 
+  $("#add_new_picture").click(function(){
+    $(".enable_file_select").unbind('click');
+    window.setTimeout('enable_file_select()', 1000);
   });
+  $('.fa_date').datepicker()
+

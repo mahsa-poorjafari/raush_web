@@ -15,6 +15,7 @@ gem 'ckeditor_rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'rails4-autocomplete'
 gem "nested_form"
+gem "nav_link_to", "~> 0.0.4"
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 

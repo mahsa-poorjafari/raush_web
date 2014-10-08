@@ -44,7 +44,12 @@
                   \|
                   = link_to 'حذف', tariff_price, :method => :delete, :data => { :confirm => 'Are you sure?' }
       = link_to t('set_order'), '#', :class => "btn btn-default","data-toggle" => "modal", "data-target" => ".bs-example-modal-lg", :id => "set_order"
-
+  = link_to root_path, :class=> "link" do
+    #btn-bk-about.button.set-center.btnw10.back
+      .item{:class => I18n.locale}= t('back_home')
+      .icon
+        = image_tag "back.png", height: "40" , width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
+      .clear-float
   .modal.fade.bs-example-modal-lg{"aria-hidden" => "true", "aria-labelledby" => "myLargeModalLabel", role: "dialog", tabindex: "-1"}
     .modal-dialog.modal-lg
       .modal-content

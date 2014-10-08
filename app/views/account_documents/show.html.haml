@@ -4,46 +4,60 @@
     = link_to (image_tag 'print.png'), '#', :id => "print"
     .pull-right= 'چاپ فاکتور'
     - if is_admin?
-      = link_to 'Edit', edit_account_document_path(@account_document)
+      = link_to 'ویرایش', edit_account_document_path(@account_document)
       \|
-      = link_to 'Back', account_documents_path
-  .show-factor.fa.pull-left.width80    
+      = link_to 'بازگشت', account_documents_path
+  .show-factor.fa.pull-left.width90    
     .header
-      .header-img.avoid-this= image_tag 'header-small.jpg'
+      -#
+        .header-img.avoid-this= image_tag 'header-small.jpg', :style => "width:1170px"
       .header-date
         %p.fa
-          %b.header-date-title.avoid-thisتاریخ پرداخت:
-          .avoid-this= JalaliDate.new(@account_document.payment_date)
+          - if @account_document.payment_date.present?
+            %b.header-date-title.avoid-this= 'تاریخ پرداخت'                   
+            .avoid-this= JalaliDate.new(@account_document.payment_date)
         %p.fa
           %b.header-date-title.avoid-this شماره فاکتور
           1234567
         %p.fa
-          %b.header-date-title.avoid-this تاریخ ثبت فاکتور:
+          %b.header-date-title.avoid-this تاریخ :
           .show-date= JalaliDate.new(@account_document.created_at)
         %p.fa
           %b.header-date-title.avoid-thisشماره فیزیکی فاکتور:
           .avoid-this= @account_document.physical_factor_number
         .clear-float
-    .body-factor        
-      %p.pull-right.fa
-        %b مبلغ:
-        = @account_document.value
-      %p.pull-right.fa
-        %b بابت:
-        = @account_document.payment_group.title
-      %p.pull-right.fa
-        %b پرداخت به:
-        = @paid_to.title
-      %p.pull-right.fa
-        %b پرداخت توسط:
-        = @paid_by.title
-      .clear-float      
-          
+    .body-factor
       %p.fa
-        %b توضیحات:
+        %b خریدار
+        = @account_document.paid_by
+      %p.fa
+        %b شرح:
         = @account_document.description
+      
+      .clear-float      
+      %div
+        %table.table.table-striped{id:"account_table"}
+          %thead
+            %tr{:class => I18n.locale}      
+              %th{:class => I18n.locale}       حذف
+              %th{:class => I18n.locale}       ردیف
+              %th{:class => I18n.locale}       شرح کالا و خدمات
+              %th{:class => I18n.locale}       تعداد
+              %th{:class => I18n.locale}       فی
+              %th{:class => I18n.locale}       مبلغ
+          %tbody
+            - @account_document.factor_details.each_with_index do |fd, i| 
+              %tr
+                %td= link_to 'حذف', fd, :method => :delete, :data => { :confirm => 'Are you sure?' }
+                %td= (i+1)
+                %td= fd.object_name
+                %td= fd.number_of
+                %td= fd.objecct_price
+                %td= fd.object_amount
+      
     .factor_footer
-      .footer-img= image_tag 'footer-small.jpg'
+      -#
+        .footer-img= image_tag 'footer-small.jpg', :style => "width:1170px"
   
 :javascript
   $('a#print').click(function(){

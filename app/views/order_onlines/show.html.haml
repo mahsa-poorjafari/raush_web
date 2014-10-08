@@ -49,7 +49,12 @@
                 %td{:class => I18n.locale}= tariff_order.modual_number
                 %td.modual_price{:class => I18n.locale}= tariff_order.modual_number * tariff_order.tariff_price.price_unit
             
-    
+  = link_to root_path, :class=> "link" do
+    #btn-bk-about.button.set-center.btnw10.back
+      .item{:class => I18n.locale}= t('back_home')
+      .icon
+        = image_tag "back.png", height: "40" , width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
+      .clear-float  
     
 :javascript
   var sum_price = 0;

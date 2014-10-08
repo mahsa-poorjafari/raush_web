@@ -11,8 +11,7 @@ class AccountDocumentsController < ApplicationController
   # GET /account_documents/1
   # GET /account_documents/1.json
   def show
-    @paid_to = RelatedPerson.find(@account_document.paid_to)
-    @paid_by = RelatedPerson.find(@account_document.paid_by)
+  
   end
   
 
@@ -20,12 +19,13 @@ class AccountDocumentsController < ApplicationController
   def new
     @account_document = AccountDocument.new
     if params[:factor_type].present?      
-      @factor_type = params[:factor_type]      
+      p '--------------'
+      p @factor_type = params[:factor_type]      
     else
       flash[:FactorTypeEmpty] = 'نوع فاکتور را انتخاب کنید.'      
       redirect_to :back
     end
-    @raushco = RelatedPerson.find_by_title('شرکت راش')
+    
     
     
   end
@@ -67,9 +67,14 @@ class AccountDocumentsController < ApplicationController
   # POST /account_documents.json
   def create
     @account_document = AccountDocument.new(account_document_params)
-
+    
     respond_to do |format|
       if @account_document.save
+        p '--factor_details-----'
+        p @account_document.factor_details.each do |fd|
+          p '-------fd---------'
+          p fd.objecct_price
+        end
         format.html { redirect_to @account_document, notice: 'Account document was successfully created.' }
         format.json { render action: 'show', status: :created, location: @account_document }
       else
@@ -111,8 +116,8 @@ class AccountDocumentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def account_document_params
-      params.require(:account_document).permit(:payment_date, :value, :paid_to, :paid_by, :payment_group_id, :physical_factor_number, :description, :factor_type, :status,
-        factor_details_attributes: [:_destroy, :_update, :object_name, :number_of, :objecct_price, :object_amount, :account_document_id ]        
+      params.require(:account_document).permit(:payment_date_fa,:paid_by,:paid_to, :value, :payment_group_id, :physical_factor_number, :description, :factor_type, :status,
+        factor_details_attributes: [:id, :_destroy, :_update, :object_name, :number_of, :objecct_price, :object_amount, :account_document_id ]        
       )
     end
 end

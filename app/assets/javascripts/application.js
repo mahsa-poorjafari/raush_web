@@ -16,6 +16,7 @@
 //= require autocomplete-rails
 //= require ckeditor-jquery
 //= require dataTables/jquery.dataTables
+//= require jquery_nested_form
 //= require_tree .
 
 

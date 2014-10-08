@@ -6,61 +6,60 @@
     .pull-right{:style => "margin-top:2%; margin-right:5%"}
       = link_to 'ثبت فاکتور دریافتی', new_account_document_path(:factor_type => "received"), :class => "btn btn-default"
       = link_to 'ثبت فاکتور هزینه ها', new_account_document_path(:factor_type => "cost"), :class => "btn btn-default"
+      = link_to 'فاکتور مشتری', new_account_document_path(:factor_type => "customer"), :class => "btn btn-default"
       = link_to 'محاسبه سود', profit_account_documents_path, :class => "btn btn-default"
+      = link_to 'بازگشت',accounting_path 
+        
   
-
-  %table.table.table-striped{id:"account_table"}
-    %thead
-      %tr      
-        %th ردیف
-        %th تاریخ پرداخت
-        %th مبلغ به ریال
-        %th پرداخت به آقای/خانم/شرکت
-        %th پرداخت توسط آقای/خانم/شرکت
-        %th بابت
-        %th نوع فاکتور
-        %th وضعیت
-        %th شماره فیزیکی فاکتور
-        %th توضیحات
-        %th
-     
-    %tbody
-      - @account_documents.each_with_index do |account_document, i|
-        %tr
-          %td= (i+1)
-          %td= JalaliDate.new(account_document.payment_date)
-          %td= account_document.value
-          - @paid_to = RelatedPerson.find(account_document.paid_to)
-          %td= @paid_to.title
-          - @paid_by = RelatedPerson.find(account_document.paid_by)
-          %td= @paid_by.title
-          %td= account_document.payment_group.title
-          %td= account_document.factor_type
-          %td.factor-status{:class => account_document.id}
-            - if account_document.status
-              فاکتور نهایی
-            - else
-              پیش فاکتور
-          %td= account_document.physical_factor_number
-          %td= account_document.description        
-          
-          %td
-            - if account_document.status
-              %b= 'تایید شده'
-            - else
-              .confirm-link{:id => account_document.id}= link_to 'confirm', confirm_account_document_path(account_document), :remote => true
-            = link_to 'Show', account_document            
-            = link_to 'Edit', edit_account_document_path(account_document)
-            = link_to 'Destroy', account_document, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  .factor_table
+    %table.table.table-striped{id:"account_table"}
+      %thead
+        %tr      
+          %th ردیف
+          %th تاریخ ثبت
+          %th مبلغ به ریال
+          %th پرداخت به آقای/خانم/شرکت
+          %th پرداخت توسط آقای/خانم/شرکت
+          %th بابت
+          %th نوع فاکتور
+          %th وضعیت
+          %th شماره فیزیکی فاکتور
+          %th توضیحات
+          %th
+       
+      %tbody
+        - @account_documents.each_with_index do |account_document, i|
+          %tr
+            %td= (i+1)
+            %td              
+              = JalaliDate.new(account_document.created_at)
+            %td= account_document.value
+            
+            %td= account_document.paid_to
+            
+            %td= account_document.paid_by
+            %td
+              - if account_document.payment_group.present?
+                = account_document.payment_group.title
+            %td= account_document.factor_type
+            %td.factor-status{:class => account_document.id}
+              - if account_document.status
+                فاکتور نهایی
+              - else
+                پیش فاکتور
+            %td= account_document.physical_factor_number
+            %td= account_document.description        
+            
+            %td
+              - if account_document.status
+                %b= 'تایید شده'
+              - else
+                .confirm-link{:id => account_document.id}= link_to 'confirm', confirm_account_document_path(account_document), :remote => true
+              = link_to 'Show', account_document            
+              = link_to 'Edit', edit_account_document_path(account_document)
+              = link_to 'Destroy', account_document, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
   
-  = link_to accounting_path , :class =>'link' do
-    #btn-bk-about.button.set-center.btnw10.back
-      .item= t('back')
-      .icon
-        = image_tag "back.png", height: "40" , width: "40"    
-      
-      .clear-float
   
 
 
