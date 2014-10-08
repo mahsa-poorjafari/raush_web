@@ -66,22 +66,20 @@ class AccountDocumentsController < ApplicationController
   # POST /account_documents
   # POST /account_documents.json
   def create
-    @account_document = AccountDocument.new(account_document_params)
+    @account_document = AccountDocument.new(account_document_params)   
     
-    respond_to do |format|
-      if @account_document.save
-        p '--factor_details-----'
-        p @account_document.factor_details.each do |fd|
-          p '-------fd---------'
-          p fd.objecct_price
-        end
-        format.html { redirect_to @account_document, notice: 'Account document was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @account_document }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @account_document.errors, status: :unprocessable_entity }
-      end
+    if @account_document.save
+      p '--factor_details-----'
+      p @account_document.factor_details.each do |fd|
+        p '-------fd---------'
+        p fd.objecct_price
+      end      
+      render action: 'show'
+    else
+      render action: 'new'
+      
     end
+  
   end
 
   # PATCH/PUT /account_documents/1
