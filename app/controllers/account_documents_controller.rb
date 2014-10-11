@@ -65,19 +65,34 @@ class AccountDocumentsController < ApplicationController
 
   # POST /account_documents
   # POST /account_documents.json
+  
   def create
     @account_document = AccountDocument.new(account_document_params)   
     
     if @account_document.save
       p '--factor_details-----'
-      p @account_document.factor_details.each do |fd|
-        p '-------fd---------'
-        p fd.objecct_price
-      end      
+      p @account_document.factor_details.each {|fd| fd.object_amount = fd.objecct_price * fd.number_of }
+      p '-----------fd.object_amount-------------'
+      p @sum = @account_document.factor_details.inject(0){|sum,fd| sum + fd.object_amount }
+      @account_document.update_attributes(:value => @sum)
+      if @account_document.takhfif_precent.present?
+        p '========set takhfif==========='
+        a = account_document.value * account_document.takhfif_precent
+        takhfif_amount = a / 100
+        @account_document.update_attributes(:takhfif_amount => takhfif_amount)        
+        p @total =  @account_document.value - takhfif_amount
+        @account_document.update_attributes(:value => @total)
+      end
+      if @account_document.installation_cost_precent.present?
+        b = @account_document.value * @account_document.installation_cost_precent
+        installation_cost = b / 100
+        @account_document.update_attributes(:installation_cost => installation_cost)
+        @total = @account_document.value + @account_document.installation_cost
+        @account_document.update_attributes(:value => @total)             
+      end          
       render action: 'show'
     else
-      render action: 'new'
-      
+      render action: 'new'      
     end
   
   end
@@ -85,15 +100,35 @@ class AccountDocumentsController < ApplicationController
   # PATCH/PUT /account_documents/1
   # PATCH/PUT /account_documents/1.json
   def update
-    respond_to do |format|
-      if @account_document.update(account_document_params)
-        format.html { redirect_to @account_document, notice: 'Account document was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @account_document.errors, status: :unprocessable_entity }
+    p '________sum______'
+    p @sum = @account_document.factor_details.inject(0){|sum,fd| sum + fd.object_amount }
+    if @account_document.update(account_document_params)            
+      @account_document.update_attributes(:value => @sum)
+      if @account_document.takhfif_precent.present?
+        p '========set takhfif==========='
+        a = account_document.value * account_document.takhfif_precent
+        takhfif_amount = a / 100
+        @account_document.update_attributes(:takhfif_amount => takhfif_amount)        
+        p @total =  @account_document.value - takhfif_amount
+        @account_document.update_attributes(:value => @total)
       end
+      if @account_document.installation_cost_precent.present?
+        b = @account_document.value * @account_document.installation_cost_precent
+        installation_cost = b / 100
+        @account_document.update_attributes(:installation_cost => installation_cost)
+        @total = @account_document.value + @account_document.installation_cost
+        @account_document.update_attributes(:value => @total)             
+      end          
+      @account_document.factor_details.each {|fd| fd.object_amount = fd.objecct_price * fd.number_of }
+      @account_document.save
+      
+      redirect_to @account_document
+      
+    else
+      render action: 'edit'
+      
     end
+  
   end
 
   # DELETE /account_documents/1
@@ -114,7 +149,8 @@ class AccountDocumentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def account_document_params
-      params.require(:account_document).permit(:payment_date_fa,:paid_by,:paid_to, :value, :payment_group_id, :physical_factor_number, :description, :factor_type, :status,
+      params.require(:account_document).permit(:payment_date_fa,:paid_by,:paid_to, :value, :payment_group_id, :physical_factor_number, :description, :factor_type, :status, :takhfif_title, :takhfif_precent, :takhfif_amount,
+        :installation_cost_title, :installation_cost_precent, :installation_cost,
         factor_details_attributes: [:id, :_destroy, :_update, :object_name, :number_of, :objecct_price, :object_amount, :account_document_id ]        
       )
     end

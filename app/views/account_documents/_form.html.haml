@@ -40,10 +40,9 @@
     
   .col-sm-3.pull-right.margin5
     .form-group
-      = f.label 'مبلغ به ریال', :class => "control-label"
-      %br
-      %i= 'قبل از وارد کردن مبلغ زبان سیستم را انگلیسی کنید.'
-      = f.text_field :value, :class => "form-control", :id => "factor_cost"
+      = link_to 'اعمال تخفیف', '#', :class => "btn btn-default","data-toggle" => "modal", "data-target" => "#takhfif", :id => "set_order"
+      = link_to 'هزینه نصب و راه اندازی', '#', :class => "btn btn-default","data-toggle" => "modal", "data-target" => "#installation", :id => "set_order"      
+      
       
     .form-group  
       = f.label 'شماره فیزیکی فاکتور', :class => "control-label"
@@ -63,6 +62,47 @@
     .form-group
       = f.link_to_add content_tag(:span, "افزودن "), :factor_details, :id => "add_new_picture", :class => "save-btn add_details_factor"
       
+  .modal.fade.bs-example-modal-sm#takhfif{"aria-hidden" => "true", "aria-labelledby" => "mySmallModalLabel", role: "dialog", tabindex: "-1"}
+    .modal-dialog.modal-sm
+      .modal-content
+        .modal-header
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+          %h4#myModalLabel.modal-title 
+            تخفیف
+        .modal-body          
+        
+          .form-group 
+            = f.label 'عنوان تخفیف:', :class => "control-label"
+            = f.text_area :takhfif_title, :class => "form-control fill" 
+        
+          .form-group 
+            = f.label 'درصد تخفیف:', :class => "control-label"
+            = f.text_field :takhfif_precent, :class => "form-control"
+          .clear-float  
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} ثبت  
+          %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close  
+  .modal.fade.bs-example-modal-sm#installation{"aria-hidden" => "true", "aria-labelledby" => "mySmallModalLabel", role: "dialog", tabindex: "-1"}
+    .modal-dialog.modal-sm
+      .modal-content
+        .modal-header
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+          
+          %h4#myModalLabel.modal-title 
+            هزینه نصب و راه اندازی
+        .modal-body          
+        
+          .form-group 
+            = f.label 'عنوان :', :class => "control-label"
+            = f.text_area :installation_cost_title, :class => "form-control fill" 
+        
+          .form-group 
+            = f.label 'درصد:', :class => "control-label"
+            = f.text_field :installation_cost_precent, :class => "form-control"
+          .clear-float  
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} ثبت    
+          %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
 :javascript
   $(document).ready(function () {
     //called when key is pressed in textbox

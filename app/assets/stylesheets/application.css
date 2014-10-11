@@ -160,3 +160,6 @@ p.order_text_msg {overflow:hidden; height:100px; width:90%}
 p.order_text_msg:hover {overflow-y:scroll}
 .portfolio_img img {box-shadow: 1px 1px 1px #1A1A1A;}
 a.add_details_factor {background:#3edac6; height:40px; width:30px; padding:2%}
+
+tr.sum th{text-align:center; border:1px solid #4D4D4D; background:#7F7F7F; color:#000; font-weight:bold;}
+tr.takhfif td{text-align:center; border:1px solid #4D4D4D; color:#000; }

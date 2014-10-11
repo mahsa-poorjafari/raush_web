@@ -41,7 +41,7 @@ class FactorDetailsController < ApplicationController
   # PATCH/PUT /factor_details/1
   # PATCH/PUT /factor_details/1.json
   def update
-    @factor_detail.object_amount = @factor_detail.number_of * @factor_detail.objecct_price
+    
     respond_to do |format|
       if @factor_detail.update(factor_detail_params)
         format.html { redirect_to @factor_detail, notice: 'Factor detail was successfully updated.' }

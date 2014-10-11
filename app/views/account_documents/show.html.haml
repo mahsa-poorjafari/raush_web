@@ -54,7 +54,26 @@
                 %td= fd.number_of
                 %td= fd.objecct_price
                 %td= fd.object_amount
-      
+            %tr.sum
+              %th{:class => I18n.locale, :colspan=>4} جمع
+              %th{:class => I18n.locale, :colspan=>2}= @sum
+            - if @account_document.takhfif_precent.present?
+              %tr.takhfif{:class => I18n.locale}      
+                %th{:class => I18n.locale, :colspan=>2} تخفیف
+                %td{:class => I18n.locale, :colspan=>1}= @account_document.takhfif_precent 
+                %th{:class => I18n.locale, :colspan=>2} مبلغ تخفیف
+                %td{:class => I18n.locale, :colspan=>2}= @account_document.takhfif_amount 
+              
+                
+                
+            - if @account_document.installation_cost_precent.present?
+              %tr
+                %td{:class => I18n.locale, :colspan=>3}= @account_document.installation_cost_title
+                %td{:class => I18n.locale, :colspan=>1}= @account_document.installation_cost_precent
+                %td{:class => I18n.locale, :colspan=>2}= @account_document.installation_cost
+            %tr.sum
+              %th{:class => I18n.locale, :colspan=>4} جمع کل
+              %th{:class => I18n.locale, :colspan=>2}= @account_document.value
     .factor_footer
       -#
         .footer-img= image_tag 'footer-small.jpg', :style => "width:1170px"
