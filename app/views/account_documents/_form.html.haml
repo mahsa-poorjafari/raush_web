@@ -42,6 +42,7 @@
     .form-group
       = link_to 'اعمال تخفیف', '#', :class => "btn btn-default","data-toggle" => "modal", "data-target" => "#takhfif", :id => "set_order"
       = link_to 'هزینه نصب و راه اندازی', '#', :class => "btn btn-default","data-toggle" => "modal", "data-target" => "#installation", :id => "set_order"      
+      = link_to 'توجه', '#', :class => "btn btn-default","data-toggle" => "modal", "data-target" => "#tavajoh", :id => "set_order"      
       
       
     .form-group  
@@ -103,6 +104,26 @@
         .modal-footer
           %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} ثبت    
           %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+  .modal.fade.bs-example-modal-lg#tavajoh{"aria-hidden" => "true", "aria-labelledby" => "myLargeModalLabel", role: "dialog", tabindex: "-1"}
+    .modal-dialog.modal-lg
+      .modal-content
+        .modal-header
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+          
+          %h4#myModalLabel.modal-title  موارد قابل توجه
+            
+        .modal-body          
+        
+          .form-group 
+            .editor
+              = f.text_area :tavajoh, :class => "form-control ckeditor" 
+        
+          
+          .clear-float  
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} ثبت    
+          %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+  
 :javascript
   $(document).ready(function () {
     //called when key is pressed in textbox

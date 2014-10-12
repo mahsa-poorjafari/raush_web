@@ -104,14 +104,18 @@ background:1a1a1a;
 .accounting .partition  .boxes h3.title {text-shadow: 1px 1px 1px #74B3F1;}
 .accounting .partition  .boxes:hover {color:#74B0EB; cursor:pointer;}
 
-.show-factor {background:#fff; height:100%; overflow-y:scroll }
+.show-factor {background:#fff; height:100%; }
 .show-factor  .header p{margin:10px}
 .show-factor  .header .header-date{z-index:20; color:#000; position:absolute; margin-right:5%; width:30%; }
 .show-factor  .header .header-date-title {width:120px; margin-right:1px; text-align:right; float:right}
 .show-factor  .header .header-date p{z-index:20; color:#000}
 .show-factor  .header .header-img{position:absolute; z-index:0; top:0}
-.factor_footer .footer-img{position:absolute; z-index:0; bottom:0; right:10%}
-.show-factor  .body-factor {margin-top:15%; position:relative;  color:#000; height:200px; overflow-y:scroll}
+.factor_footer {margin-top:5%; bottom:0; position:absolute;}
+
+ .sign{ color:#000; text-align:left; padding-left:20%}
+ .tavajoh{ color:#000; margin-top:5%}
+ .tavajoh li{font-family: BYekan;}
+.show-factor  .body-factor {margin-top:10%; position:relative;  color:#000; height:200px; overflow-y:scroll}
 .show-factor  .body-factor p{margin:10px}
 .factor_table {height:350px; overflow-y:scroll}
 
@@ -123,9 +127,18 @@ background:1a1a1a;
 .nano .nano-content { padding: 10px; }
 .nano .nano-pane   { background: #888; }
 .nano .nano-slider { opacity:.8; background:#BFBFBF}
-table.table.table-striped tr td{color:#000; direction:rtl; font-family: BYekan; text-align:right}
-table.table.table-striped tr td a{color:#000;}
-table.table.table-striped tr td a:hover{color:#A52A2A;}
+table#account_table {width:100%; border:1px solid #4D4D4D;direction:rtl;color:#000;  
+font-family: BYekan; text-align:right;
+position:relative;
+margin-top:10%;
+height:100%
+}
+table#account_table tr.first {background:#BFBFBF; font-weight:bold; text-align:center}
+table#account_table tr.first th{ text-align:center}
+table#account_table tr {height:30px; font-family: BYekan; border:1px solid #4D4D4D;}
+table#account_table tr td,table#account_table tr th { font-family: BYekan; border:1px solid #4D4D4D; text-align:center}
+table#account_table tr td a{color:#000;}
+table#account_table tr td a:hover{color:#A52A2A;}
 .contact-search-form {width:50%; margin-top:5%}
 
 #search_result.search_result {overflow-y:scroll; height:300px}
@@ -161,5 +174,6 @@ p.order_text_msg:hover {overflow-y:scroll}
 .portfolio_img img {box-shadow: 1px 1px 1px #1A1A1A;}
 a.add_details_factor {background:#3edac6; height:40px; width:30px; padding:2%}
 
-tr.sum th{text-align:center; border:1px solid #4D4D4D; background:#7F7F7F; color:#000; font-weight:bold;}
+tr.sum{ border:1px solid #4D4D4D; background:#BFBFBF; color:#000; }
+tr.sum th{text-align:center; border:1px solid #4D4D4D; background:#BFBFBF; color:#000; font-weight:bold;}
 tr.takhfif td{text-align:center; border:1px solid #4D4D4D; color:#000; }

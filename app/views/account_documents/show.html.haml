@@ -18,7 +18,7 @@
             .avoid-this= JalaliDate.new(@account_document.payment_date)
         %p.fa
           %b.header-date-title.avoid-this شماره فاکتور
-          1234567
+          .show-date  1234567
         %p.fa
           %b.header-date-title.avoid-this تاریخ :
           .show-date= JalaliDate.new(@account_document.created_at)
@@ -28,7 +28,7 @@
         .clear-float
     .body-factor
       %p.fa
-        %b خریدار
+        %b خریدار:
         = @account_document.paid_by
       %p.fa
         %b شرح:
@@ -36,29 +36,31 @@
       
       .clear-float      
       %div
-        %table.table.table-striped{id:"account_table"}
+        %table{id:"account_table"}
           %thead
-            %tr{:class => I18n.locale}      
-              %th{:class => I18n.locale}       حذف
+            %tr.first{:class => I18n.locale}      
+              
               %th{:class => I18n.locale}       ردیف
               %th{:class => I18n.locale}       شرح کالا و خدمات
               %th{:class => I18n.locale}       تعداد
               %th{:class => I18n.locale}       فی
               %th{:class => I18n.locale}       مبلغ
+              %th.avoid-this{:class => I18n.locale}       حذف
           %tbody
             - @account_document.factor_details.each_with_index do |fd, i| 
               %tr
-                %td= link_to 'حذف', fd, :method => :delete, :data => { :confirm => 'Are you sure?' }
+                
                 %td= (i+1)
                 %td= fd.object_name
                 %td= fd.number_of
                 %td= fd.objecct_price
-                %td= fd.object_amount
-            %tr.sum
-              %th{:class => I18n.locale, :colspan=>4} جمع
-              %th{:class => I18n.locale, :colspan=>2}= @sum
+                %td.object_amount= fd.object_amount
+                %td.avoid-this= link_to 'حذف', fd, :method => :delete, :data => { :confirm => 'Are you sure?' }
+            %tr.sum{:style => "background:#7F7F7F"}
+              %th{:class => I18n.locale, :colspan=>3} جمع
+              %th#first_sum{:class => I18n.locale, :colspan=>2}
             - if @account_document.takhfif_precent.present?
-              %tr.takhfif{:class => I18n.locale}      
+              %tr.sum{:class => I18n.locale}      
                 %th{:class => I18n.locale, :colspan=>2} تخفیف
                 %td{:class => I18n.locale, :colspan=>1}= @account_document.takhfif_precent 
                 %th{:class => I18n.locale, :colspan=>2} مبلغ تخفیف
@@ -68,12 +70,16 @@
                 
             - if @account_document.installation_cost_precent.present?
               %tr
-                %td{:class => I18n.locale, :colspan=>3}= @account_document.installation_cost_title
-                %td{:class => I18n.locale, :colspan=>1}= @account_document.installation_cost_precent
-                %td{:class => I18n.locale, :colspan=>2}= @account_document.installation_cost
-            %tr.sum
-              %th{:class => I18n.locale, :colspan=>4} جمع کل
+                %td.fa{:class => I18n.locale, :colspan=>2}= @account_document.installation_cost_title
+                %td.fa{:class => I18n.locale, :colspan=>1}= @account_document.installation_cost_precent.to_s + '% مبلغ فوق'
+                %td.fa{:class => I18n.locale, :colspan=>2, :style => "text-align:center"}= @account_document.installation_cost
+            %tr.sum.bolder
+              %th{:class => I18n.locale, :colspan=>3} جمع کل
               %th{:class => I18n.locale, :colspan=>2}= @account_document.value
+        .tavajoh
+          %span.fa توجه:
+          .fa= raw @account_document.tavajoh        
+        .sign   امضا
     .factor_footer
       -#
         .footer-img= image_tag 'footer-small.jpg', :style => "width:1170px"
@@ -83,3 +89,8 @@
     $('body').css('position', 'absolute');
     window.print();
   });
+  var calculate = 0;
+  $('td.object_amount').each(function() {     
+    calculate += parseInt($(this).text());                     
+  });
+  $('#first_sum').html(calculate);

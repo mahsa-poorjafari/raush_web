@@ -1,6 +1,17 @@
 @media print { 
   .mainmenu, .footer, .avoid-this {display:none}
-  .show-factor {width:100%}
+  .show-factor {width:90%}
   .body-factor {top:8cm; bottom:5cm}
-  .show-date {width:4cm;right:2cm; position:absolute; border:1px solid red}
+  .show-date {width:4cm;right:3cm; }
+  table#account_table {width:90%; border:1px solid #4D4D4D;direction:rtl;color:#000;  font-family: BYekan; text-align:right; }
+  table#account_table tr.first {background:#BFBFBF; font-weight:bold; text-align:center}
+  table#account_table tr.first th{ text-align:center}
+  table#account_table tr {height:30px; font-family: BYekan; border:1px solid #4D4D4D;}
+  table#account_table tr td,table#account_table tr th { font-family: BYekan; border:1px solid #4D4D4D; text-align:center}
+  table#account_table tr td a{color:#000;}
+  table#account_table tr td a:hover{color:#A52A2A;}
+  .show-factor .body-factor {height:100%; overflow:visible; margin-top:1%}
+  tr.sum{ border:1px solid #4D4D4D; background-color:#7F7F7F !important; color:#000; }
+  tr.sum th{text-align:center; border:1px solid #4D4D4D; background-color:#7F7F7F !important; color:#000; font-weight:bold;}
+  tr.takhfif td{text-align:center; border:1px solid #4D4D4D; color:#000; }
 }

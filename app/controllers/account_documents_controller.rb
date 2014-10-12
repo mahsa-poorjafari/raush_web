@@ -150,7 +150,7 @@ class AccountDocumentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def account_document_params
       params.require(:account_document).permit(:payment_date_fa,:paid_by,:paid_to, :value, :payment_group_id, :physical_factor_number, :description, :factor_type, :status, :takhfif_title, :takhfif_precent, :takhfif_amount,
-        :installation_cost_title, :installation_cost_precent, :installation_cost,
+        :installation_cost_title, :installation_cost_precent, :installation_cost, :tavajoh,
         factor_details_attributes: [:id, :_destroy, :_update, :object_name, :number_of, :objecct_price, :object_amount, :account_document_id ]        
       )
     end
