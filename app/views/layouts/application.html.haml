@@ -7,6 +7,7 @@
       = ',' + Service.all.collect(&:title).join(",") #{@head.fetch(:title, '') if @head}    
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true 
     = stylesheet_link_tag    "print", media: "print"      
+    = stylesheet_link_tag    "animate", media: "all"      
     = javascript_include_tag "application", "data-turbolinks-track" => true    
     = javascript_include_tag "autocomplete-rails" 
     = csrf_meta_tags

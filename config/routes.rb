@@ -47,7 +47,11 @@ scope "(:locale)", :locale => /en|fa/ do
   resources :tariff_prices
 
   resources :tariff_orders
-  resources :teams
+  resources :teams do
+    collection do
+    get :team_work
+    end
+  end
 end
   #get "raush" => "static#home"
   root :to => 'static#home'

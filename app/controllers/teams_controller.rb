@@ -12,6 +12,9 @@ class TeamsController < ApplicationController
   # GET /teams/1.json
   def show
   end
+  def team_work
+    @teams = Team.all
+  end
 
   # GET /teams/new
   def new

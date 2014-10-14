@@ -39,19 +39,26 @@ width:25%;
 
 
 .our-team { 
-  height:325px;
-
-  overflow:hidden
+  overflow:hidden;
+  width:90%;position:relative
 }
-.our-team .team-item{width:25%; float:right;    
-  min-height:50%;
-  max-height:50%;
+.our-team .team-item{float:right;    
+  margin-top:1%;
   text-align:center;
 }
-.our-team .team-item .team-pic {width:90%; text-align:center}
-.our-team .team-item .team-pic img{width:100%; }
+.our-team .team-item .team-pic {width:90%; text-align:center; }
+.our-team .team-item .team-pic img:hover{cursor:pointer;}
+.our-team .team-item .team-pic img{
+ -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
+  transition: all 1s;}
+.our-team .team-item .team-pic img.move-img{position:absolute; left:3%; 
+  -webkit-animation: fadeInRight 2s; /* Chrome, Safari, Opera */
+    animation: fadeInRight 2s;
+}
 .our-team .team-item .teams.post{background:#12828B; width:50%; height:25px; padding-top:5px }
-.our-team .team-item .team-info{width:90%; height:1px; overflow:hidden;
+.our-team  .team-info{ display:none; 
+  position:absolute; right:0; top:5%;
+  margin-top:5%;
  -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
   transition: all 1s; }
 .our-team .team-item:hover .team-info{min-height:50px; background:#12828B; }
@@ -177,3 +184,4 @@ a.add_details_factor {background:#3edac6; height:40px; width:30px; padding:2%}
 tr.sum{ border:1px solid #4D4D4D; background:#BFBFBF; color:#000; }
 tr.sum th{text-align:center; border:1px solid #4D4D4D; background:#BFBFBF; color:#000; font-weight:bold;}
 tr.takhfif td{text-align:center; border:1px solid #4D4D4D; color:#000; }
+img.fade-img {opacity:.4}

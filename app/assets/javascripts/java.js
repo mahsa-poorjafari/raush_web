@@ -61,7 +61,7 @@ $(document).ready(function(){
       $('#homebtn1').click(function(){ $('#idhome #home ').hide(1000); $('#idhome #show-about').show(1000); });
 			$('#btn-bk-about').click(function(){ $('#idhome #show-about').fadeOut(1000); $('#idhome #home ').fadeIn(1000) });
       
-      $('#homebtn2').click(function(){ $('#idhome #home').hide(1000); $('#idhome #our-team').show(1000); });
+      //$('#homebtn2').click(function(){ $('#idhome #home').hide(1000); $('#idhome #our-team').show(1000); });
 			$('#btn-bk-team').click(function(){ $('#idhome #our-team').fadeOut(1000); $('#idhome #home').fadeIn(1000) });
       
       $('#homebtn3').click(function(){ $('#idhome #home').hide(1000); $('#idhome #order-online').show(1000); });
