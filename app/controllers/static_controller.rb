@@ -24,10 +24,10 @@ class StaticController < ApplicationController
       @lan = @network.subservices.find_by(title_en: "LAN")
       @voip = @network.subservices.find_by(title_en: "VOIP")
     end
-    if Subservice.present?
-      @camera_fam = Subservice.find_by( title_en: "Geovision")
-      @camera_hik = Subservice.find_by( title_en: "Hikvision")
-      @camera_sesco = Subservice.find_by( title_en: "Dahua")
+    if @camera
+      @ip_camera = @camera.subservices.find_by( title_en: "IP Camera")
+      @analog_camera = @camera.subservices.find_by( title_en: "Analog Camera")
+      
     end
     
     

@@ -264,13 +264,13 @@
           .sample-pic2.set-center.nano-content
             - if @web_demos.present?
               - @web_demos.each do |portfolio|
-                .col-xs-4.show-3box
-                  %h4{:class => I18n.locale}= portfolio.title                
+                .show-3box
+                  %h4{:class => I18n.locale, :style => "text-align:center"}= portfolio.title                
                   - if portfolio.in_production                    
                     .in-production
                       .portfolio_img= link_to (image_tag portfolio.image(:small), :alt => portfolio.image_file_name, :title => portfolio.image_file_name), url_with_protocol(portfolio.website), :target => "blank", :title => "طراحی وب سایت"
                   - else
-                    .portfolio_img= link_to (image_tag portfolio.image(:small), :alt => portfolio.image_file_name, :title => portfolio.image_file_name), url_with_protocol(portfolio.website), :target => "blank", :title => "طراحی وب سایت"
+                    .portfolio_img= link_to (image_tag portfolio.image(:original), :alt => portfolio.image_file_name, :title => portfolio.image_file_name), url_with_protocol(portfolio.website), :target => "blank", :title => "طراحی وب سایت"
               
       
       .link
@@ -290,17 +290,19 @@
       .col-xs-6
         #graphictext.text.bacher.vanr.object{waittime: "200"}
           = @graphic.description
-        .link
-          #graphicbtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
-            .item{:class => I18n.locale}= t('Portfolio')
-            .icon
-              = image_tag "ICON/نمونه کاری.png",height: "40" , width: "40", :alt => "نمونه کار طراحی گرافیک", :title => "نمونه کار طراحی گرافیک"
-            .clear-float
-          #graphicbtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
-            .item{:class => I18n.locale}= t('Tariff-Price')
-            .icon
-              = image_tag "ICON/تعرفه قیمت.png",height: "40" , width: "40", :alt => "تعرفه قیمت طراحی گرافیک", :title => "تعرفه قیمت طراحی گرافیک"
-            .clear-float
+          %b= 'In Product'
+          -#
+            .link
+              #graphicbtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
+                .item{:class => I18n.locale}= t('Portfolio')
+                .icon
+                  = image_tag "ICON/نمونه کاری.png",height: "40" , width: "40", :alt => "نمونه کار طراحی گرافیک", :title => "نمونه کار طراحی گرافیک"
+                .clear-float
+              #graphicbtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
+                .item{:class => I18n.locale}= t('Tariff-Price')
+                .icon
+                  = image_tag "ICON/تعرفه قیمت.png",height: "40" , width: "40", :alt => "تعرفه قیمت طراحی گرافیک", :title => "تعرفه قیمت طراحی گرافیک"
+                .clear-float
           
         .clear-float
   / end GRAPHIC
@@ -356,37 +358,32 @@
           = @camera.description
         .link
           #camerabtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
-            .item{:class => I18n.locale} Geovision
+            .item{:class => I18n.locale} IP Camera
             .icon
               = image_tag "ICON/دوربین مداربسته.png",height: "40",width: "40", :alt => "دوربین ژئوویژن", :title => "دوربین ژئوویژن"
             .clear-float
           #camerabtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
-            .item{:class => I18n.locale} Hikvision
+            .item{:class => I18n.locale} Analog Camera
             .icon
               = image_tag "ICON/دوربین مداربسته.png",height: "40", width: "40", :alt => "دوربین هایک ویژن", :title => "دوربین هایک ویژن"
             .clear-float
-          #camerabtn3.button.bacher.vanr.object.btnw30{waittime: "400"}
-            .item{:class => I18n.locale} Dahua
-            .icon
-              = image_tag "ICON/دوربین مداربسته.png",height: "40", width: "40", :alt => "دوربین داهووا", :title => "دوربین داهووا"
-            .clear-float
+          
         .clear-float
 
   #c-details 
     #fam.servic-descriptipn1.diplaynone
       #axis.show-demo.set-center
         .sample-pic1.nano
-          .sample-pic2.set-center.nano-content
-            - if @camera_fam.present?
-              - @camera_fam.camera_models.each do |model|
-                .col-xs-4.show-3box
-                  .col-xs-12
-                    = image_tag model.image(:medium), :alt => "دوربین مدار بسته", :title => "دوربین مدار بسته"
-                  .set-center.txt-center
-                    %b= model.title
-                    %p= model.description
-                  
-            
+          .sample-pic2.set-center.nano-content          
+            - if @ip_camera.present?
+              #axis.sample-pic
+                = image_tag @ip_camera.image(:large), :class => "sub-service-img", :alt => "دوربین تحت شبکه", :title => "دوربین تحت شبکه"
+                
+              .box-text{:class => I18n.locale}
+                %h2= @ip_camera.title
+                .details-text#about.nano{:class => I18n.locale}
+                  .nano-content=raw @ip_camera.text
+              
           .clear-float
           
       .link
@@ -400,13 +397,14 @@
       #axis.show-demo.set-center
         .sample-pic1.nano
           .sample-pic2.nano-content
-            - if @camera_hik.present?
-              - @camera_hik.camera_models.each do |model|
-                .col-xs-4.show-3box
-                  .col-xs-12
-                    = image_tag model.image(:medium), :alt => "مدل های دوربین مدار بسته", :title => "مدل های دوربین مدار بسته"
-                  .set-center= model.title
-            
+            - if @analog_camera.present?
+              #axis.sample-pic
+                = image_tag @analog_camera.image(:large), :class => "sub-service-img", :alt => "دوربین مداربسته", :title => "دوربین مداربسته"
+                
+              .box-text{:class => I18n.locale}
+                %h2= @analog_camera.title
+                .details-text#about.nano{:class => I18n.locale}
+                  .nano-content=raw @analog_camera.text
           .clear-float
             
       .link
@@ -416,25 +414,7 @@
             = image_tag "back.png",height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
           .clear-float
             
-    #sesco.servic-descriptipn1.diplaynone
-      #axis.show-demo.set-center
-        .sample-pic1.nano
-          .sample-pic2.nano-content
-            - if @camera_sesco.present?
-              - @camera_sesco.camera_models.each do |model|
-                .col-xs-4.show-3box
-                  .col-xs-12
-                    = image_tag model.image(:medium), :alt => "مدل دوربین مدار بسته", :title => "مدل دوربین مدار بسته"
-                  .set-center= model.title
-        
-          .clear-float
-           
-      .link
-        #btnbsesco.button.set-center.btnw10.back
-          .item{:class => I18n.locale}= t('back')
-          .icon
-            = image_tag "back.png",height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
-          .clear-float
+   
     / END HOTEL
   / end DESCRAPTION
 
