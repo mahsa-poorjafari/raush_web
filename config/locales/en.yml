@@ -58,3 +58,4 @@ en:
     lan: 'LAN'
     wan: 'WAN'
     voip: 'VOIP'
+  in-production: 'In Production'

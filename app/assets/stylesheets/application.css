@@ -98,7 +98,7 @@ height:auto; background:#12828B; overflow:hidden;
 
 .prtofilo {
 background:1a1a1a;
-  opacity: 0.8;
+  
 }
 .fa.width80 table tr th {text-align:right}
 /* accounting */
@@ -178,7 +178,7 @@ color: red;
 }
 p.order_text_msg {overflow:hidden; height:100px; width:90%}
 p.order_text_msg:hover {overflow-y:scroll}
-.portfolio_img img {box-shadow: 1px 1px 1px #1A1A1A;}
+.portfolio_img img {box-shadow: 1px 1px 1px #1A1A1A; border:2px #fff groove; margin-bottom:10px;}
 a.add_details_factor {background:#3edac6; height:40px; width:30px; padding:2%}
 
 tr.sum{ border:1px solid #4D4D4D; background:#BFBFBF; color:#000; }

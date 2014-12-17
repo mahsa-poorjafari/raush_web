@@ -23,7 +23,7 @@ fa:
   hello: "سلام"
   Tariff-Price: 'تعرفه قیمت'
   Portfolio: 'نمونه کار'
-  raushtitle: 'شرکت مهندسی راش'
+  raushtitle: 'گروه مهندسین راش'
   back: 'بازگشت'
   back_home: 'بازگشت به خانه'
   about-us: 'درباره راش'
@@ -60,3 +60,4 @@ fa:
     voip: 'VOIP'
 
   
+  in-production: 'درحال راه اندازی'

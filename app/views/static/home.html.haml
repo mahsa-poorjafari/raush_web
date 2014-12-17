@@ -265,12 +265,13 @@
             - if @web_demos.present?
               - @web_demos.each do |portfolio|
                 .show-3box
-                  %h4{:class => I18n.locale, :style => "text-align:center"}= portfolio.title                
-                  - if portfolio.in_production                    
+                  %h4{:class => I18n.locale, :style => "text-align:center"}
+                    =link_to portfolio.title,  url_with_protocol(portfolio.website), :target => "blank", :title => "طراحی وب سایت_" + portfolio.title
+                  - if portfolio.in_production 
                     .in-production
-                      .portfolio_img= link_to (image_tag portfolio.image(:small), :alt => portfolio.image_file_name, :title => portfolio.image_file_name), url_with_protocol(portfolio.website), :target => "blank", :title => "طراحی وب سایت"
+                      %h3{:style => "color:#fff"}= t('in-production')
                   - else
-                    .portfolio_img= link_to (image_tag portfolio.image(:original), :alt => portfolio.image_file_name, :title => portfolio.image_file_name), url_with_protocol(portfolio.website), :target => "blank", :title => "طراحی وب سایت"
+                    .portfolio_img= link_to (image_tag portfolio.image(:original), :alt => portfolio.image_file_name, :title => portfolio.image_file_name), url_with_protocol(portfolio.website), :target => "blank", :title => "طراحی وب سایت_" + portfolio.title
               
       
       .link
