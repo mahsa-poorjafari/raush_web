@@ -127,7 +127,7 @@ background:1a1a1a;
 .factor_table {height:350px; overflow-y:scroll}
 
 .txt-center {text-align:center}
-.show-3box {height:330px; text-align:center; margin-top:2%;}
+.show-3box {height:330px; text-align:center; margin-top:2%; margin-bottom:5%; overflow:hidden}
 
 
 .nano { width: 500px; height: 500px; }
