@@ -12,6 +12,10 @@
     = @team.post
   %p
     = image_tag @team.image(:small)
+  %div
+    - if @team.skills.present?
+      - @team.skills.each do |skill|
+        = image_tag skill.icon(:icon)
   = link_to 'Edit', edit_team_path(@team)
   \|
   = link_to 'Back', teams_path

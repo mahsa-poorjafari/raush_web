@@ -1,26 +1,27 @@
-%div     
+.fa    
   %h5.title= 'Admin Menu'
   %ul.items
     %li
       = link_to 'Home page', root_path
     %li
-      = link_to 'Admin Profile', edit_user_path(current_user)
+      = link_to 'پروفایل مدیرسایت', edit_user_path(current_user)
     %li
-      = link_to 'Manage Services', Service
+      = link_to 'مدیریت سرویس ها', Service
     %li
-      = link_to 'Manage Our Team', Team    
+      = link_to 'مدیریت تیم کاری', Team    
     %li
-      = link_to 'Set Sub Service', Subservice
+      = link_to 'مدیریت زیرگروه ها', Subservice
     %li
-      = link_to 'Manage Portfolio', Portfolio
+      = link_to 'مدیریت نمونه کاری', Portfolio
+    -#
+      %li
+        = link_to 'Add Camera Model', CameraModel
     %li
-      = link_to 'Add Camera Model', CameraModel
-    %li
-      = link_to 'Manage Tariff Price', TariffPrice
+      = link_to 'مدیریت تعرفه قیمت', TariffPrice
     %li
       = link_to 'مشاهده جزئیات سفارشات', OrderOnline
     %li
-      = link_to 'Accounting', accounting_path
+      = link_to 'حسابداری', accounting_path
     %li
       = link_to 'خروج', delete_session_path
 

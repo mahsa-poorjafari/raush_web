@@ -1,0 +1,10 @@
+.upload-pic      
+  = picture.file_field :icon
+  -if picture.object.icon.present?
+    = image_tag picture.object.icon(:icon) , :class => "enable_file_select" 
+  
+  .form-group  
+    = picture.label "برای حذف این کادر روی آیکن سطل آشغال مقابل کلیک کنید.", :class => "control-label" 
+    = picture.link_to_remove (image_tag ("Delete_Icon.png"), :class => "recyclebin-icon"), :class => "remove-task col-sm-3", :title => "آژانس_هواپیمایی_رادان_سیر"
+
+

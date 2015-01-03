@@ -16,14 +16,15 @@
  */
 .field-holder {width:50%;}
 
-.fa {direction:rtl; font-family: BYekan; text-align:right}
-.en {direction:ltr; font-family: 'eras_light_itc'; text-align:left; font-weight:bold}
+.fa, .fa p {direction:rtl; font-family: BYekan; text-align:right}
+.en, .en p {direction:ltr; font-family: 'eras_light_itc'; text-align:left; font-weight:bold}
 #fa {font-family: BYekan;}
 #en {font-family: 'eras_light_itc';}
 
 .mainmenu {position: fixed;
 z-index: 100;
-
+top:0;
+height: 100px;
 width: 100%;}
 
 .icons {position: fixed;
@@ -40,7 +41,7 @@ width:25%;
 
 .our-team { 
   overflow:hidden;
-  width:90%;position:relative
+  width:100%;position:relative
 }
 .our-team .team-item{float:right;    
   margin-top:1%;
@@ -51,16 +52,19 @@ width:25%;
 .our-team .team-item .team-pic img{
  -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
   transition: all 1s;}
-.our-team .team-item .team-pic img.move-img{position:absolute; left:3%; 
+.move-img{position:absolute; left:3%; 
   -webkit-animation: fadeInRight 2s; /* Chrome, Safari, Opera */
     animation: fadeInRight 2s;
 }
 .our-team .team-item .teams.post{background:#12828B; width:50%; height:25px; padding-top:5px }
-.our-team  .team-info{ display:none; 
+.team-group {}
+.our-team  .team-info{ 
   position:absolute; right:0; top:5%;
-  margin-top:5%;
+  padding:5%;
  -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
   transition: all 1s; }
+.our-team  .team-info .fa {text-align:right}
+.our-team  .team-info .en {text-align:left}
 .our-team .team-item:hover .team-info{min-height:50px; background:#12828B; }
 
 #b-details   #hotel .details-text{}
@@ -80,7 +84,7 @@ height:auto; background:#12828B; overflow:hidden;
   }
 .admin-menu:hover {margin-left:0px; cursor:pointer; }
 .admin-menu ul.items {margin-top: -25px; text-align:left; margin-right:5px; list-style:none}
-.admin-menu ul.items li {height:20px; cursor:pointer; margin:1px}
+.admin-menu ul.items li {height:20px; cursor:pointer; margin:1px; font-family: BYekan; }
 
 .admin-menu ul.items li:hover a {color:#1E90FF;}
 .admin-menu h5.title {font-weight:bold;
@@ -184,4 +188,9 @@ a.add_details_factor {background:#3edac6; height:40px; width:30px; padding:2%}
 tr.sum{ border:1px solid #4D4D4D; background:#BFBFBF; color:#000; }
 tr.sum th{text-align:center; border:1px solid #4D4D4D; background:#BFBFBF; color:#000; font-weight:bold;}
 tr.takhfif td{text-align:center; border:1px solid #4D4D4D; color:#000; }
-img.fade-img {opacity:.4}
+img.fade-img {opacity:0}
+.upload-pic  {border:1px #fff solid; margin:2px; height:110px}
+.team-text {margin-top:2%; }
+.team-text p{margin-top:2%; text-align:justify; line-height:2em}
+.show-team-detail {margin:2%; display:none}
+.team-skill span {margin:1%}

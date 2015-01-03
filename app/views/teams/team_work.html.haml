@@ -1,17 +1,29 @@
 .our-team  
-  - @teams.each do |team|
-    .team-item        
-      .team-pic.set-center.pull-right    
+  .team-group
+    - @teams.each do |team|    
+      .team-item.col-xs-2
+        .team-pic.set-center.pull-right    
+          = image_tag team.image(:large), :class => "team-img", :id => 'team_img_'+team.id.to_s
+      
+  .clear-float  
+  - @teams.each do |team| 
+    .col-xs-12.show-team-detail{:class => "team_img_"+team.id.to_s}
+      .col-xs-2.pull-left 
         = image_tag team.image(:large), :class => "team-img", :id => 'team_img_'+team.id.to_s
-    .btnw40.pull-right.team-info{:class => "team_img_"+team.id.to_s}
-      .set-center
-        .post= team.post
-        %div= team.name + " " +  team.last_name        
-        - if is_admin?
-          = link_to (image_tag 'edit.png', :alt => "edit"), edit_team_path(team)      
-          = link_to (image_tag 'del.png', :alt => "delete"), team, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      .col-xs-8.pull-right.team-info
+        .set-center{:class => I18n.locale}
+          %b.post= team.post
+          %div= team.name + " " +  team.last_name  
+          .team-text= raw team.description
+          .team-skill
+            - if team.skills.present?
+              - team.skills.each do |skill|
+                %span= skill.icon(:icon)
+          
+          - if is_admin?
+            = link_to (image_tag 'edit.png', :alt => "edit"), edit_team_path(team)      
+            = link_to (image_tag 'del.png', :alt => "delete"), team, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-  .clear-float
   .link{:style => "position:fixed; bottom:20%; min-width:10%; min-height:5%"}
     #team-bk.button.set-center.btnw10.back
       .item{:class => I18n.locale}= t('back')
@@ -19,18 +31,13 @@
         = image_tag "back.png", height: "40" , width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
       .clear-float
   
-:javascript
-  
-  $('img.team-img').click(function() {
-    $('img.team-img').not($(this)).addClass('fade-img');
-    $(this).addClass('move-img');
-    TeamId = $(this).attr('id')
-    $('.'+ TeamId).fadeIn(400);    
+:javascript  
+  $('img.team-img').click(function() { 
+    $('.team-group').hide(500);
+    TeamId = $(this).attr('id');
+    $('.'+ TeamId).show(800);   
   });
   $('#team-bk').click(function(){
-    $('.team-info').fadeOut(400);
-     $('img.team-img').removeClass('fade-img move-img');
-     
+    $('.show-team-detail').hide(500);
+    $('.team-group').show(800);   
   });
-  
-  

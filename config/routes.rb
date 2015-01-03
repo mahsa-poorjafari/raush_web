@@ -2,6 +2,8 @@ RaushWeb::Application.routes.draw do
   
 
 
+  resources :skills
+
   resources :factor_details
 
   resources :contacts do

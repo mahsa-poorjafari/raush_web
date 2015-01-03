@@ -2,16 +2,17 @@
 
 /* CSS Document */
 html {left:0; right:0; top:0; bottom:0;  } 
-body {color:#FFF; background:#01666e;left:0; background-size:cover; right:0; top:0; bottom:0;margin:0px; position:fixed} 
+body {color:#FFF; background:#01666e;left:0; background-size:cover; 
+right:0; top:0; bottom:0;margin:0px; position:relative} 
 .fix-height{min-height:100px;max-height:100px }
 .clear-float{ clear:both}
 .set-center { margin-right:auto; margin-left:auto}
-.main-div {
-  height: 70%;
-  position: absolute;
+.main-div {  
+  position: relative;
+  min-height: 425px;
   width: 100%;
-  top: 14%;
-  
+  top: 100px; 
+  margin-bottom:10%;
 }
 .menu{width:100%;height:30%;margin:0px}
 .total{width:100% ; margin:0px}
@@ -24,8 +25,8 @@ body {color:#FFF; background:#01666e;left:0; background-size:cover; right:0; top
 .bgweb{background:#1da0aa}
 .bggraphic{background:#29b7c2}
 .bgcamera{background:#3ccad5}
-.servic-descriptipn{width:100% ; height:100%; overflow:hidden; }
-.servic-descriptipn1{width:100% ; height:100%; overflow:hidden; }
+.servic-descriptipn{width:100% ;  }
+.servic-descriptipn1{width:100% ;  }
 .servic-descriptipn .text {
  width:85% ;height:25%; margin-top:100px ; padding:3px ;  font-size:40px ; color:#FFF; position:relative; 
 line-height:1em;
@@ -44,7 +45,7 @@ line-height:1em;
 .button.back {position:absolute; width:13%; bottom:0}
 .link .button .item {float:right ; width:65%; padding:10px }
 .link .button .icon { float:right ; width:35% ; background:#3edac6; text-align:center}
-.footer{width:100%;height:16.5%;position:fixed;bottom:0}
+.footer{width:100%;height:100px;position:relative;bottom:0}
 .footer .phone{height:100%;color:#FFF; background:#00AD69;width:40%;float:right}
 .footer .address{
 background:#FFF ;
