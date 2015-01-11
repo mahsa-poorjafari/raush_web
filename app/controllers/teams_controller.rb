@@ -5,7 +5,7 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.all
+    @teams = Team.order('set_order desc')
   end
 
   # GET /teams/1
@@ -13,7 +13,7 @@ class TeamsController < ApplicationController
   def show
   end
   def team_work
-    @teams = Team.all
+    @teams = Team.order('set_order desc')
   end
 
   # GET /teams/new
@@ -73,7 +73,7 @@ class TeamsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
-      params.require(:team).permit(:name, :last_name, :post, :image,:description_en, :description_fa, 
+      params.require(:team).permit(:name, :last_name, :post, :image,:description_en, :description_fa, :set_order,
       skills_attributes: [:id, :icon, :team_id, :_destroy, :_update])
       
     end

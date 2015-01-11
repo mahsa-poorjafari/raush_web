@@ -9,7 +9,7 @@
     = stylesheet_link_tag    "print", media: "print"      
     = stylesheet_link_tag    "animate", media: "all"      
     = javascript_include_tag "application", "data-turbolinks-track" => true    
-    = javascript_include_tag "autocomplete-rails" 
+    
     = csrf_meta_tags
     %meta{:charset => "utf-8"}
     %meta{:name => "google-site-verification", :content => "S5JQSWa3HDMpXSLq99069pTnv9xEXj1SyOHhjeAVXWQ" }
@@ -42,6 +42,7 @@
     $(document).ready(function(){
       $(".nano").nanoScroller();
     });
-
+    
+  
   = javascript_include_tag "jquery.nanoscroller" 
   

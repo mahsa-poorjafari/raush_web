@@ -9,10 +9,11 @@ right:0; top:0; bottom:0;margin:0px; position:relative}
 .set-center { margin-right:auto; margin-left:auto}
 .main-div {  
   position: relative;
-  min-height: 425px;
+  min-height: 460px;
   width: 100%;
   top: 100px; 
-  margin-bottom:10%;
+  margin-bottom:7%;
+  overflow:hidden;
 }
 .menu{width:100%;height:30%;margin:0px}
 .total{width:100% ; margin:0px}
@@ -25,7 +26,7 @@ right:0; top:0; bottom:0;margin:0px; position:relative}
 .bgweb{background:#1da0aa}
 .bggraphic{background:#29b7c2}
 .bgcamera{background:#3ccad5}
-.servic-descriptipn{width:100% ;  }
+.servic-descriptipn{width:100% ;  height:100%;}
 .servic-descriptipn1{width:100% ;  }
 .servic-descriptipn .text {
  width:85% ;height:25%; margin-top:100px ; padding:3px ;  font-size:40px ; color:#FFF; position:relative; 
@@ -153,10 +154,10 @@ height:100%;
 
 .object {
     position: absolute;
-    transition: all 2s ease-in-out;
-    -webkit-transition: all 2s ease-in-out; /** Chrome & Safari **/
-    -moz-transition: all 2s ease-in-out; /** Firefox **/
-    -o-transition: all 2s ease-in-out; /** Opera **/
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out; /** Chrome & Safari **/
+    -moz-transition: all 1s ease-in-out; /** Firefox **/
+    -o-transition: all 1s ease-in-out; /** Opera **/
 	animation:myfirst 5s;
 }
 .sample-pic { width:50%; float:left; padding:10px; text-align:center }
@@ -196,3 +197,4 @@ overflow: hidden;
 }
 .control  {margin-top:-10%; position:fixed}
 .control .next:hover, .control .prev:hover  {cursor:pointer}
+#team-bk {display:none}

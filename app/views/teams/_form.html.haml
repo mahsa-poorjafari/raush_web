@@ -22,7 +22,11 @@
         = f.submit 'ثبت', :class => "btn btn-default"    
   .col-xs-6 
     .form-group
-      %p{:class => I18n.locale}="برای افزودن تصاویر برای این پروژه دکمه زیر را فشار دهید و در کادری که نمایش داده می شود تصویر مورد نظر را انتخاب کنید:"
+      = f.label "ترتیب قرار گرفتن تصویر فرد", :class => "control-label"
+      %i= 'به ترتیب از چپ به راست - عدد کوچکتر اولیت نمایش بیشتر دارد.'
+      = f.text_field :set_order, :class => "form-control"
+    .form-group
+      %p{:class => I18n.locale}= 'آیکن هر مهارت را از این کادر انتخاب کنید.'
       %p{ :style=> "color:#ec523f", :class => I18n.locale}= "دقت داشته باشید حجم هر عکس باید کمتر از ۵۰۰کیلوبایت باشد."
       = f.link_to_add content_tag(:span, "افزودن تصویر", :class => "btn btn-warning" ), :skills, :id => "add_new_picture", :class => "btn"  
     .col-xs-12 

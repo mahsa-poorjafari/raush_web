@@ -1,14 +1,15 @@
 .our-team  
   .team-group
+    -@width_size = 100 / @teams.count
     - @teams.each do |team|    
-      .team-item.col-xs-2
+      .team-item.pull-right{:style => "width:"+@width_size.to_s+"%"}
         .team-pic.set-center.pull-right    
           = image_tag team.image(:large), :class => "team-img", :id => 'team_img_'+team.id.to_s
       
   .clear-float  
   - @teams.each do |team| 
     .col-xs-12.show-team-detail{:class => "team_img_"+team.id.to_s}
-      .col-xs-2.pull-left 
+      .col-xs-2.pull-left{:style => "text-align:right"} 
         = image_tag team.image(:large), :class => "team-img", :id => 'team_img_'+team.id.to_s
       .col-xs-8.pull-right.team-info
         .set-center{:class => I18n.locale}
@@ -35,9 +36,11 @@
   $('img.team-img').click(function() { 
     $('.team-group').hide(500);
     TeamId = $(this).attr('id');
-    $('.'+ TeamId).show(800);   
+    $('.'+ TeamId).show(800);
+    $('#team-bk').show();   
   });
   $('#team-bk').click(function(){
     $('.show-team-detail').hide(500);
-    $('.team-group').show(800);   
+    $('.team-group').show(800); 
+    $('#team-bk').hide();  
   });
