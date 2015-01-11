@@ -26,7 +26,7 @@ right:0; top:0; bottom:0;margin:0px; position:relative}
 .bgweb{background:#1da0aa}
 .bggraphic{background:#29b7c2}
 .bgcamera{background:#3ccad5}
-.servic-descriptipn{width:100% ;  height:100%;}
+.servic-descriptipn{width:100% ;  height:100%; overflow-y:scroll; overflow-x:hidden}
 .servic-descriptipn1{width:100% ;  }
 .servic-descriptipn .text {
  width:85% ;height:25%; margin-top:100px ; padding:3px ;  font-size:40px ; color:#FFF; position:relative; 
