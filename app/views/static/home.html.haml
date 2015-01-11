@@ -64,8 +64,8 @@
       = render 'teams/show_team'
         
       .clear-float      
-      .link{:style => "margin-top:0"}
-        #btn-bk-team.button.set-center.btnw10.back
+      .link{:style => "margin-top:0; "}
+        #btn-bk-team.button.set-center.btnw10.back{:style => " bottom:5%"}
           .item{:class => I18n.locale}= t('back-home')
           .icon
             = image_tag "back.png", height: "40" , width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
@@ -260,7 +260,7 @@
   #web-details
     .prtofilo.diplaynone.servic-descriptipn1
       #axis.show-demo.set-center
-        .sample-pic1.nano
+        .sample-pic1.nano{:style => "height:100%"}
           .sample-pic2.set-center.nano-content
             - if @web_demos.present?
               - @web_demos.each do |portfolio|
