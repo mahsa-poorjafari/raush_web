@@ -39,7 +39,8 @@ fa:
   total_price: 'قیمت کل به ریال'
   choose: 'انتخاب'
   module: 'ماژول'
-  
+  back-home: 'بازگشت به صفحه اصلی'
+  back-list: 'صفحه قبلی'
   order:
     name: 'نام'    
     phone: 'تلفن ثابت'    

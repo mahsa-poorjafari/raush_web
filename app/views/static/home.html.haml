@@ -13,10 +13,11 @@
             .icon
               = image_tag "ICON/درباره راش.png",height: "40",  width: "40", :alt => "درباره راش", :title => "درباره شرکت راش"
             .clear-float
-          #homebtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
-            
-            = link_to team_work_teams_path, :class => "item "+I18n.locale.to_s do
-              = t('our-team')
+          #homebtn2.button.bacher.vanr.object.btnw30{waittime: "350"} 
+            -#
+              = link_to team_work_teams_path, :class => "item "+I18n.locale.to_s do
+                = t('our-team')
+            .item{:class => I18n.locale}= t('our-team')
             .icon
               = image_tag "ICON/تیم کاری راش.png", height: "40", width: "40", :alt => "تیم کاری راش", :title => "تیم کاری راش"
             .clear-float
@@ -36,7 +37,7 @@
             %p{:style => "direction:ltr; text-align:justify", :class => I18n.locale}
               = render 'shared/about_en'
       .col-xs-6{:style => "margin-top:5%"}
-        %iframe{:height => "350px", :src => "https://mapsengine.google.com/map/embed?mid=zbDi3iZxywyM.kok52aJMJoYc", :width => "640"}
+        %iframe{:height => "350px", :src => "https://mapsengine.google.com/map/embed?mid=zbDi3iZxywyM.kok52aJMJoYc&z=13", :width => "640"}
       .link
         #btn-bk-about.button.set-center.btnw10.back
           .item{:class => I18n.locale}= t('back')
@@ -59,14 +60,12 @@
     /end order-online
     
     #our-team.diplaynone.servic-descriptipn1
-      .width80.set-center        
+      = render 'teams/show_team'
         
-        .clear-float
-      
-      .link
-        
+      .clear-float      
+      .link{:style => "margin-top:0"}
         #btn-bk-team.button.set-center.btnw10.back
-          .item{:class => I18n.locale}= t('back')
+          .item{:class => I18n.locale}= t('back-home')
           .icon
             = image_tag "back.png", height: "40" , width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
           .clear-float
