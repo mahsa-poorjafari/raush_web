@@ -41,7 +41,7 @@ width:25%;
 
 .our-team { 
   overflow:hidden;
-  width:100%;position:relative
+  width:100%;position:relative; min-height:450px;
 }
 .our-team .team-item{float:right;    
   margin-top:1%;

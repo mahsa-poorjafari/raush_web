@@ -9,7 +9,7 @@
   .clear-float  
   - @teams.each do |team| 
     .col-xs-12.show-team-detail{:class => "team_img_"+team.id.to_s}
-      .col-xs-2.pull-left{:style => "text-align:right"} 
+      .col-xs-4.pull-left{:style => "text-align:right"} 
         = image_tag team.image(:large), :class => "team-img", :id => 'team_img_'+team.id.to_s
       .col-xs-8.pull-right.team-info
         .set-center{:class => I18n.locale}
@@ -19,13 +19,13 @@
           .team-skill
             - if team.skills.present?
               - team.skills.each do |skill|
-                %span= skill.icon(:icon)
+                .col-xs-1= image_tag skill.icon(:icon)
           
           - if is_admin?
             = link_to (image_tag 'edit.png', :alt => "edit"), edit_team_path(team)      
             = link_to (image_tag 'del.png', :alt => "delete"), team, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-  .link{:style => "position:fixed; bottom:20%; min-width:10%; min-height:5%"}
+  .link{:style => "position:fixed; bottom:30%; min-width:10%; min-height:5%"}
     #team-bk.button.set-center.btnw10.back
       .item{:class => I18n.locale}= t('back-list')
       .icon
