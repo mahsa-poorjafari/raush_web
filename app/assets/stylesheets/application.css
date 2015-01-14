@@ -101,7 +101,7 @@ height:auto; background:#12828B; overflow:hidden;
 .btn {color:#000}
 
 .prtofilo {
-background:1a1a1a;
+width:90%; min-height:450px; position:relative;
   
 }
 .fa.width80 table tr th {text-align:right}

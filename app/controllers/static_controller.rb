@@ -9,10 +9,10 @@ class StaticController < ApplicationController
     @network = Service.find_by(title_en: "network") 
     @camera = Service.find_by(title_en: "camera") 
     if @web
-      @web_demos = Portfolio.where(:service_id => @web.id)
+      @web_demos = Portfolio.where(:service_id => @web.id).order(" created_at desc")
     end
     if @graphic
-      @graphic_demos = Portfolio.where(:service_id => @graphic.id)
+      @graphic_demos = Portfolio.where(:service_id => @graphic.id).order(" created_at desc")
     end
     if @bms
       @hotel = @bms.subservices.find_by(title_en: "Smart Hotel")
@@ -26,8 +26,7 @@ class StaticController < ApplicationController
     end
     if @camera
       @ip_camera = @camera.subservices.find_by( title_en: "IP Camera")
-      @analog_camera = @camera.subservices.find_by( title_en: "Analog Camera")
-      
+      @analog_camera = @camera.subservices.find_by( title_en: "Analog Camera")      
     end
     
     

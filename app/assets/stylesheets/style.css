@@ -26,7 +26,7 @@ right:0; top:0; bottom:0;margin:0px; position:relative}
 .bgweb{background:#1da0aa}
 .bggraphic{background:#29b7c2}
 .bgcamera{background:#3ccad5}
-.servic-descriptipn{width:100% ;  height:100%; overflow-y:scroll; overflow-x:hidden}
+.servic-descriptipn{width:100% ;  height:100%;  overflow-x:hidden}
 .servic-descriptipn1{width:100% ;  }
 .servic-descriptipn .text {
  width:85% ;height:25%; margin-top:100px ; padding:3px ;  font-size:40px ; color:#FFF; position:relative; 
@@ -163,7 +163,7 @@ height:100%;
 .sample-pic { width:50%; float:left; padding:10px; text-align:center }
 
 .sub-service-img {}
-.show-demo {width:100%; height:80%}
+.show-demo {width:100%; height:80%; position:absolute; top:0}
 .sample-pic2 {width:90%; padding:10px; overflow:hidden; 
 	min-height:100%;
 	max-height:100%;
