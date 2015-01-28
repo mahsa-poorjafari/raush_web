@@ -58,6 +58,7 @@ scope "(:locale)", :locale => /en|fa/ do
 end
   #get "raush" => "static#home"
   root :to => 'static#home'
+  get 'google46bde3a8d7d48d7d'  => 'static#google46bde3a8d7d48d7d'
   get 'accounting'  => 'static#accounting'
   get "login" => "users#login"  
   get 'search_phone' => 'contacts#search'

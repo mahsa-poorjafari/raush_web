@@ -39,5 +39,6 @@ class StaticController < ApplicationController
       format.xml
     end
   end
-  
+  def google46bde3a8d7d48d7d
+  end
 end
