@@ -2,7 +2,10 @@ RaushWeb::Application.routes.draw do
   
 
 
-  resources :skills
+ 
+
+scope "(:locale)", :locale => /en|fa/ do
+   resources :skills
 
   resources :factor_details
 
@@ -35,8 +38,6 @@ RaushWeb::Application.routes.draw do
   resources :subservices
 
   resources :users
-
-scope "(:locale)", :locale => /en|fa/ do
   resources :order_onlines
 
   resources :pictures
