@@ -25,6 +25,15 @@
   .icons .servic-menu {width:20%; height:60px;}
   .icons .servic-menu img{width: 70%;
     height: 100%;}
+  .servic-descriptipn .sample_image_responsive{width:100%; clear:both; height:260px;text-align:center}
+  .servic-descriptipn .sample_text_responsive{width:100%;clear:both}
+  .servic-descriptipn .sample_text_responsive .text{width:100%;
+    margin-top:0;
+    text-align:center; font-size:2.5em;
+    }
+  .servic-descriptipn .sample_text_responsive .text.showr {right:0;}
+  .servic-descriptipn .sample_image_responsive img.show{margin-top:0; left:0; right:0;}
+  .servic-descriptipn .sample_text_responsive .link .button {width:55%;}
   .servic-descriptipn {top:60px}
   .servic-descriptipn .one.picture-sample img{width:100%}
   .servic-descriptipn .link_to_pages{width:100%; clear:both; margin-top: 30%;}

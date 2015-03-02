@@ -77,11 +77,11 @@
 #idbms.servic-descriptipn.bgbms.diplaynone
   %div
     #b-info
-      .col-xs-6
-        #axis.one          
+      .col-xs-6.sample_image_responsive
+        #axis.one
           - if @bms.present?
             = image_tag  @bms.image(:large), waittime: "500", :id => 'moo', :class => 'object bache van', :alt => "هوشمندسازی ساختمان", :title => "هوشمندسازی ساختمان"
-      .col-xs-6
+      .col-xs-6.sample_text_responsive
         #bmstext.text.bacher.vanr.object{waittime: "200"}
           - if @bms.present?
             = @bms.description
@@ -158,10 +158,10 @@
 #idnet.servic-descriptipn.bgnet.diplaynone
   %div
     #n-info
-      .col-xs-6
+      .col-xs-6.sample_image_responsive
         #axis.one
           = image_tag @network.image(:large), :id => "netmoo", :class => 'object bache van', :alt => "نصب و راه اندازی شبکه", :title => "نصب و راه اندازی شبکه"
-      .col-xs-6
+      .col-xs-6.sample_text_responsive
         #nettext.text.bacher.vanr.object{waittime: "200"}
           = @network.description
         .link
@@ -235,11 +235,11 @@
   / iiii
 #idweb.servic-descriptipn.bgweb.diplaynone  
   #web-info
-    .col-xs-6
+    .col-xs-6.sample_image_responsive
       #axis.one
         - if @web.present?
           = image_tag  @web.image(:large), :id => "webmoo" , :class => 'object bache van', :alt => "طراحی وب سایت", :title => "طراحی وب سایت"
-    .col-xs-6
+    .col-xs-6.sample_text_responsive
       #webtext.text.bacher.vanr.object{waittime: "200"}
         - if @web.present?
           =raw @web.description
@@ -285,10 +285,10 @@
 #idgraphic.servic-descriptipn.bggraphic.diplaynone
   %div
     #g-info
-      .col-xs-6
+      .col-xs-6.sample_image_responsive
         #axis.one
           = image_tag @graphic.image(:large), :id => "graphicmoo" , :class => 'object bache van', :alt => "طراحی گرافیک", :title => "طراحی گرافیک"
-      .col-xs-6
+      .col-xs-6.sample_text_responsive
         #graphictext.text.bacher.vanr.object{waittime: "200"}
           = @graphic.description
           %b= t('in-production')
@@ -350,11 +350,11 @@
 #idcamera.servic-descriptipn.bgcamera.diplaynone
   %div
     #c-info
-      .col-xs-6
+      .col-xs-6.sample_image_responsive
         #axis.one
           
           = image_tag @camera.image(:large), :id => "cameramoo" , :class => 'object bache van', :alt => "نصب دوربین مدار بسته", :title => "نصب دوربین مدار بسته"
-      .col-xs-6
+      .col-xs-6.sample_text_responsive
         #cameratext.text.bacher.vanr.object{waittime: "200"}
           = @camera.description
         .link

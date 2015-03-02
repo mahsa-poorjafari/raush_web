@@ -400,3 +400,5 @@ overflow: hidden;
 .control  {margin-top:-10%; position:fixed}
 .control .next:hover, .control .prev:hover  {cursor:pointer}
 #team-bk {display:none}
+.admin-link a {color:#1E90FF;}
+.admin-link a:hover {color:#FFA500;}
