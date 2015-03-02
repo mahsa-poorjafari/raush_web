@@ -29,7 +29,7 @@
   .servic-descriptipn .one.picture-sample img{width:100%}
   .servic-descriptipn .link_to_pages{width:100%; clear:both; margin-top: 30%;}
   .main-div {min-height:100%}
-  .footer .responsive-phone-show {width:100%; clear:both}
+  .footer .responsive-phone-show {width:100%; clear:both; position:relative}
   .footer .responsive-phone-show .language{width:100%; clear:both; margin-top:0;
     position: absolute; text-align:center; font-size:1.5em; top:10%;
     }
