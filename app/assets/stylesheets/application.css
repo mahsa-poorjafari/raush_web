@@ -212,7 +212,7 @@ img.fade-img {opacity:0}
   min-height: 628px;
   width: 100%;
   top: 100px; 
-  
+  background:#01666e;
   overflow:hidden;
 }
 .container-full {height:100%}

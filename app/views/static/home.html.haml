@@ -165,21 +165,25 @@
         #nettext.text.bacher.vanr.object{waittime: "200"}
           = @network.description
         .link
-          #netbtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
-            .item{:class => I18n.locale}= t('net.wan')
-            .icon
-              = image_tag "ICON/شبکه شهری.png", height: "40", width: "40", :alt => "شبکه شهری", :title => "شبکه شهری"
-            .clear-float
-          #netbtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
-            .item{:class => I18n.locale}= t('net.lan')
-            .icon
-              = image_tag "ICON/شبکه محلی.png", height: "40", width: "40", :alt => "شبکه محلی", :title => "شبکه محلی"
-            .clear-float
-          #netbtn3.button.bacher.vanr.object.btnw30{waittime: "400"}
-            .item{:class => I18n.locale}= t('net.voip')
-            .icon
-              = image_tag "ICON/شبکه وویپ.png", height: "40", width: "40", :alt => "شبکه ویپ", :title => "شبکه وویپ"
-            .clear-float
+          - @network = Service.find_by_title_fa('راه اندازی شبکه')
+          - if @network.subservices.present?
+            - @network.subservices.each_with_index do |net_sub, i|              
+              .button.bacher.vanr.object.btnw30{waittime: "300", :id => 'netbtn'+(i+1).to_s}
+                .item{:class => I18n.locale}= net_sub.title
+                .icon
+                  = image_tag "ICON/شبکه شهری.png", height: "40", width: "40", :alt => "شبکه شهری", :title => "شبکه شهری"
+                .clear-float
+          -#
+            #netbtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
+              .item{:class => I18n.locale}= t('net.lan')
+              .icon
+                = image_tag "ICON/شبکه محلی.png", height: "40", width: "40", :alt => "شبکه محلی", :title => "شبکه محلی"
+              .clear-float
+            #netbtn3.button.bacher.vanr.object.btnw30{waittime: "400"}
+              .item{:class => I18n.locale}= t('net.voip')
+              .icon
+                = image_tag "ICON/شبکه وویپ.png", height: "40", width: "40", :alt => "شبکه ویپ", :title => "شبکه وویپ"
+              .clear-float
         .clear-float
   / end NETORK
   #b-details
