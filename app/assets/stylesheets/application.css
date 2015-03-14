@@ -40,13 +40,14 @@ height: 100px;
 width: 100%;}
 
 .icons {position: fixed;
-left:25%;
+left:20%;
 float: left;
-width: 82%;}
+width: 80%;}
 
 .logo {position: fixed;
 float: left;
-width:25%;
+width:20%;
+left:0;
 }
 
 
@@ -402,3 +403,4 @@ overflow: hidden;
 #team-bk {display:none}
 .admin-link a {color:#1E90FF;}
 .admin-link a:hover {color:#FFA500;}
+#home-link {margin-top:230px}

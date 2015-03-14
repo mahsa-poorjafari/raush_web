@@ -5,8 +5,8 @@
   .col-xs-7
     %table.table
       %tr
-        %th  Title
-        %th  service
+        %th  عنوان
+        %th  سرویس مربوطه
         %th
         
 
@@ -15,10 +15,10 @@
           %td= subservice.title
           %td= subservice.service.title
           %td
-            = link_to 'Show', subservice
+            = link_to 'مشاهده', subservice
             \|
-            = link_to 'Edit', edit_subservice_path(subservice)
+            = link_to 'ویرایش', edit_subservice_path(subservice)
             \|
-            = link_to 'Destroy', subservice, :method => :delete, :data => { :confirm => 'Are you sure?' }
+            = link_to 'حذف', subservice, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
   

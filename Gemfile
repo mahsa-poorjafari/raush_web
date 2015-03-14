@@ -8,8 +8,8 @@ gem 'haml-rails'
 gem 'jalalidate'
 gem "farsifu"
 gem "friendly_id", "~> 5.0.1"
-gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
-gem 'jquery-datatables-rails', '~> 1.12.2', git: 'git://github.com/rweng/jquery-datatables-rails.git'
+gem "paperclip"
+gem 'jquery-datatables-rails', '~> 1.12.2'
 gem 'ckeditor_rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

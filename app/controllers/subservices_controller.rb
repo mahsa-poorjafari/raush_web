@@ -69,6 +69,6 @@ class SubservicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def subservice_params
-      params.require(:subservice).permit(:text_fa, :text_en, :title_en, :title_fa, :service_id, :image)
+      params.require(:subservice).permit(:text_fa, :text_en, :title_en, :title_fa, :service_id, :image, :icon)
     end
 end

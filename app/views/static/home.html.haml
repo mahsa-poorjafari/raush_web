@@ -7,7 +7,7 @@
        
       .col-xs-3.link_to_pages
         
-        .link
+        .link#home-link
           #homebtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
             .item{:class => I18n.locale}= t('about-us')
             .icon
@@ -86,21 +86,30 @@
           - if @bms.present?
             = @bms.description
         .link
-          #bmsbtn1.button.vanr.bacher.object.btnw30{waittime: "300"}
-            .item{:class => I18n.locale}= t('bms.hotel')
-            .icon
-              = image_tag "ICON/هتل هوشمند.png",height: "40", width: "40", :alt => "هتل هوشمند", :title => "هتل هوشمند"
-            .clear-float
-          #bmsbtn2.button.vanr.bacher.object.btnw30{waittime: "350"}
-            .item{:class => I18n.locale}= t('bms.home')
-            .icon
-              = image_tag "ICON/خانه هوشمند.png", height: "40" , width: "40", :alt => "خانه هوشمند", :title => "خانه هوشمند"
-            .clear-float
-          #bmsbtn3.button.vanr.bacher.object.btnw30{waittime: "400"}
-            .item{:style => "text-align:justify", :class => I18n.locale}= t('bms.office')
-            .icon
-              = image_tag"ICON/اداره هوشمند.png", height: "40", width: "40", :alt => "اداره هوشمند", :title => "اداره  هوشمند"
-            .clear-float
+          - @service = Service.find_by_title_fa('هوشمندسازی')
+          - if @service.subservices.present?
+            - @service.subservices.each_with_index do |subservice, i|              
+              .button.bacher.vanr.object.btnw30{waittime: "300", :id => 'bmsbtn'+(i+1).to_s}
+                .item{:class => I18n.locale}= subservice.title
+                .icon
+                  = image_tag subservice.icon(:small), height: "40", width: "40", :alt => subservice.title_fa, :title => subservice.title_fa
+                .clear-float
+          -#
+            #bmsbtn1.button.vanr.bacher.object.btnw30{waittime: "300"}
+              .item{:class => I18n.locale}= t('bms.hotel')
+              .icon
+                = image_tag "ICON/هتل هوشمند.png",height: "40", width: "40", :alt => "هتل هوشمند", :title => "هتل هوشمند"
+              .clear-float
+            #bmsbtn2.button.vanr.bacher.object.btnw30{waittime: "350"}
+              .item{:class => I18n.locale}= t('bms.home')
+              .icon
+                = image_tag "ICON/خانه هوشمند.png", height: "40" , width: "40", :alt => "خانه هوشمند", :title => "خانه هوشمند"
+              .clear-float
+            #bmsbtn3.button.vanr.bacher.object.btnw30{waittime: "400"}
+              .item{:style => "text-align:justify", :class => I18n.locale}= t('bms.office')
+              .icon
+                = image_tag"ICON/اداره هوشمند.png", height: "40", width: "40", :alt => "اداره هوشمند", :title => "اداره  هوشمند"
+              .clear-float
         .clear-float
   / end BMS
   #b-details
@@ -171,19 +180,9 @@
               .button.bacher.vanr.object.btnw30{waittime: "300", :id => 'netbtn'+(i+1).to_s}
                 .item{:class => I18n.locale}= net_sub.title
                 .icon
-                  = image_tag "ICON/شبکه شهری.png", height: "40", width: "40", :alt => "شبکه شهری", :title => "شبکه شهری"
+                  = image_tag net_sub.icon(:small), height: "40", width: "40", :alt => "شبکه شهری", :title => "شبکه شهری"
                 .clear-float
-          -#
-            #netbtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
-              .item{:class => I18n.locale}= t('net.lan')
-              .icon
-                = image_tag "ICON/شبکه محلی.png", height: "40", width: "40", :alt => "شبکه محلی", :title => "شبکه محلی"
-              .clear-float
-            #netbtn3.button.bacher.vanr.object.btnw30{waittime: "400"}
-              .item{:class => I18n.locale}= t('net.voip')
-              .icon
-                = image_tag "ICON/شبکه وویپ.png", height: "40", width: "40", :alt => "شبکه ویپ", :title => "شبکه وویپ"
-              .clear-float
+          
         .clear-float
   / end NETORK
   #b-details
@@ -362,16 +361,25 @@
         #cameratext.text.bacher.vanr.object{waittime: "200"}
           = @camera.description
         .link
-          #camerabtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
-            .item{:class => I18n.locale} IP Camera
-            .icon
-              = image_tag "ICON/دوربین مداربسته.png",height: "40",width: "40", :alt => "دوربین ژئوویژن", :title => "دوربین ژئوویژن"
-            .clear-float
-          #camerabtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
-            .item{:class => I18n.locale} Analog Camera
-            .icon
-              = image_tag "ICON/دوربین مداربسته.png",height: "40", width: "40", :alt => "دوربین هایک ویژن", :title => "دوربین هایک ویژن"
-            .clear-float
+          - @service = Service.find_by_title_fa('نصب دوربین')
+          - if @service.subservices.present?
+            - @service.subservices.each_with_index do |subservice, i|              
+              .button.bacher.vanr.object.btnw30{waittime: "300", :id => 'camerabtn'+(i+1).to_s}
+                .item{:class => I18n.locale}= subservice.title
+                .icon
+                  = image_tag subservice.icon(:small), height: "40", width: "40", :alt => subservice.title_fa, :title => subservice.title_fa
+                .clear-float
+          -#
+            #camerabtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
+              .item{:class => I18n.locale} IP Camera
+              .icon
+                = image_tag "ICON/دوربین مداربسته.png",height: "40",width: "40", :alt => "دوربین ژئوویژن", :title => "دوربین ژئوویژن"
+              .clear-float
+            #camerabtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
+              .item{:class => I18n.locale} Analog Camera
+              .icon
+                = image_tag "ICON/دوربین مداربسته.png",height: "40", width: "40", :alt => "دوربین هایک ویژن", :title => "دوربین هایک ویژن"
+              .clear-float
           
         .clear-float
 
