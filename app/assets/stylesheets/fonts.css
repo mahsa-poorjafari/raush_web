@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'BYekan';
+    src: url('/assets/BYekan.eot');
+    src: url('/assets/BYekan.eot?#iefix') format('embedded-opentype'),
+         url('/assets/BYekan.woff') format('woff'),
+         url('/assets/BYekan.ttf') format('truetype'),
+         url('/assets/BYekan.svg#BYekan') format('svg');    
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'eras_light_itc';
+    
+    src: url('/assets/eras_light_itc.eot');
+    src: url('/assets/eras_light_itc.eot?#iefix') format('embedded-opentype'),
+         url('/assets/eras_light_itc.woff') format('woff'),
+         url('/assets/eras_light_itc.ttf') format('truetype'),
+         url('/assets/eras_light_itc.svg#eras_light_itc') format('svg');    
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'gothic';    
+    src: url('/assets/gothic.eot');
+    src: url('/assets/gothic.eot?#iefix') format('embedded-opentype'),
+         url('/assets/gothic.woff') format('woff'),
+         url('/assets/gothic.ttf') format('truetype'),
+         url('/assets/gothic.svg#gothic') format('svg');    
+    font-weight: normal;
+    font-style: normal;
+}
