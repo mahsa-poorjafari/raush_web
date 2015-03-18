@@ -295,19 +295,18 @@
         #graphictext.text.bacher.vanr.object{waittime: "200"}
           = @graphic.description
           %b= t('in-production')
-          -#
-            .link
-              #graphicbtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
-                .item{:class => I18n.locale}= t('Portfolio')
-                .icon
-                  = image_tag "ICON/نمونه کاری.png",height: "40" , width: "40", :alt => "نمونه کار طراحی گرافیک", :title => "نمونه کار طراحی گرافیک"
-                .clear-float
-              #graphicbtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
-                .item{:class => I18n.locale}= t('Tariff-Price')
-                .icon
-                  = image_tag "ICON/تعرفه قیمت.png",height: "40" , width: "40", :alt => "تعرفه قیمت طراحی گرافیک", :title => "تعرفه قیمت طراحی گرافیک"
-                .clear-float
           
+          .link
+            - @graphic = Service.find_by_title_fa('طراحی گرافیک')
+            - if @graphic.subservices.present?
+              - @graphic.subservices.each_with_index do |net_sub, i|
+                .button.bacher.vanr.object.btnw30{waittime: "300", :id => 'graphicbtn'+(i+1).to_s, :style => "width:50%"}
+                  .item{:class => I18n.locale, :style => "font-size:14px"}= net_sub.title
+                  .icon{:style => "height:60px"}
+                    = image_tag net_sub.icon(:small), height: "40", width: "40", :alt => "شبکه شهری", :title => "شبکه شهری"
+                  .clear-float
+            
+        
         .clear-float
   / end GRAPHIC
   #g-details
