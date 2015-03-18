@@ -69,7 +69,7 @@ left:0;
     animation: fadeInRight 2s;
 }
 .our-team .team-item .teams.post{background:#12828B; width:50%; height:25px; padding-top:5px }
-.team-group {}
+.team-group .team-item{width:11%}
 .our-team  .team-info{ 
   position:absolute; right:0; top:5%;
   padding:5%;

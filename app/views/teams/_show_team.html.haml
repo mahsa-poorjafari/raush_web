@@ -1,8 +1,8 @@
 .our-team  
   .team-group
-    -@width_size = 100 / @teams.count
+    
     - @teams.each do |team|    
-      .team-item.pull-right{:style => "width:"+@width_size.to_s+"%"}
+      .team-item.pull-right
         .team-pic.set-center.pull-right{ "data-toggle" => "tooltip", "data-placement" => "bottom", :title => team.post + " | " + team.name + " " + team.last_name  }
           = image_tag team.image(:large), :class => "team-img", :id => 'team_img_'+team.id.to_s
       

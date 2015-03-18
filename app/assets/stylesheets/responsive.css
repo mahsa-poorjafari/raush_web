@@ -2,11 +2,15 @@
 @media (min-width: 1200px) {  }
  
 /* Portrait tablet to landscape and desktop */
-@media (min-width: 768px) and (max-width: 979px) {  }
+@media (min-width: 768px) and (max-width: 979px) { 
+  .logo .logo-full-size {display:block;}
+ .logo .logo-small-size {display:none}
+ }
  
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
   .main-div {min-height:700px}
+  .servic-descriptipn {height:85%}
   .link .button {width:50%}
  .logo .logo-full-size {display:none;}
  .logo .logo-small-size {display:block}
@@ -18,7 +22,7 @@
  .link_to_pages {clear:both; width:60%; left: 20%;right: 20%;}
  #show-about .about-us {clear:both; width:100%}
  .link.tariff_price .button.back {width: 45%;
-top: 80%;}
+  top: 80%;}
  .google-map-box {clear:both; width:100%}
  .google-map-box iframe {width:90%; height:200px;
   margin-left: 5%;
@@ -37,6 +41,10 @@ top: 80%;}
     text-align: center;
     right:0; left:0;
     }
+  .prtofilo .sample-pic {width:100%; clear:both}
+  .prtofilo .box-text {width:100%; clear:both}
+  .sub-service-img {width:100%}
+  .team-group .team-item{width:30%; margin:1%}
   }
 /* Landscape phones and down */
 @media (max-width: 480px) { 
