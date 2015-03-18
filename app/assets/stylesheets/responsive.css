@@ -3,7 +3,7 @@
  
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) { 
-  .logo .logo-full-size {display:block;}
+ .logo .logo-full-size {display:block;}
  .logo .logo-small-size {display:none}
  }
  
@@ -49,7 +49,16 @@
   #b-details .box-text {width:100%; left:0; right:0}
   }
 /* Landscape phones and down */
-@media (max-width: 480px) { 
+@media (max-width: 480px) {
+  .mainmenu {position:static}
+  .logo .logo-full-size { 
+    display:block;
+    width: 50%;
+    height: 100%;
+    margin-left: 25%;
+    margin-right: 25%;
+    }
+  .logo .logo-small-size {display:none}
   .servic-descriptipn {overflow-x:visible; padding-top:5%}
   .servic-descriptipn.text { color:#00FF00;
     font-size:4em;  }  
@@ -80,7 +89,7 @@
   
   .servic-descriptipn .one.picture-sample img{width:100%}
   .servic-descriptipn .link_to_pages{width:100%; clear:both; margin-top: 30%;}
-  .main-div {min-height:auto}
+  .main-div {min-height:auto; top:60px}
   .footer .responsive-phone-show {width:100%; clear:both; position:relative}
   .footer .responsive-phone-show .language{width:100%; clear:both; margin-top:0;
      text-align:center; font-size:1.5em; display:none;
