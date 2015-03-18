@@ -274,7 +274,7 @@
                     .in-production
                       %h3{:style => "color:#fff"}= t('in-production')
                   - else
-                    .portfolio_img= link_to (image_tag portfolio.image(:original), :alt => portfolio.image_file_name, :title => portfolio.image_file_name), url_with_protocol(portfolio.website), :target => "blank", :title => "طراحی وب سایت_" + portfolio.title
+                    .portfolio_img= link_to (image_tag portfolio.image(:original), :alt => portfolio.image_file_name, :title => portfolio.image_file_name, :width => "100%"), url_with_protocol(portfolio.website), :target => "blank", :title => "طراحی وب سایت_" + portfolio.title
               
       
       .link

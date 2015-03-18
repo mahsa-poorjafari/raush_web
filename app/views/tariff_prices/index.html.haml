@@ -44,7 +44,7 @@
                   \|
                   = link_to 'حذف', tariff_price, :method => :delete, :data => { :confirm => 'Are you sure?' }
       = link_to t('set_order'), '#', :class => "btn btn-default","data-toggle" => "modal", "data-target" => ".bs-example-modal-lg", :id => "set_order"
-  = link_to root_path, :class=> "link" do
+  = link_to root_path, :class=> "link tariff_price" do
     #btn-bk-about.button.set-center.btnw10.back
       .item{:class => I18n.locale}= t('back_home')
       .icon

@@ -1,22 +1,30 @@
 .icons
-  #idbmsicon.col-md-2.servic-menu.bgbms{"div-name" => "idbms"}
+  - @width_percent =  100 / 5
+  #idbmsicon.col-md-2.servic-menu.bgbms{"div-name" => "idbms", :style => "width:"+@width_percent.to_s+ "%"}
     = image_tag 'ICON/هوشمندسازی ساختمان.png', height: "85", width: "108"
     
-  #idneticon.col-md-2.servic-menu.bgnet{"div-name" => "idnet"}
+  #idneticon.col-md-2.servic-menu.bgnet{"div-name" => "idnet", :style => "width:"+@width_percent.to_s+ "%"}
     = image_tag 'ICON/نصب شبکه.png', height: "91", width: "119"    
     
-  #idwebicon.col-md-2.servic-menu.bgweb{"div-name" => "idweb"}    
+  #idwebicon.col-md-2.servic-menu.bgweb{"div-name" => "idweb", :style => "width:"+@width_percent.to_s+ "%"}    
     = image_tag 'ICON/طراحی وب سایت.png', height: "85", width: "108"
     
-  #idgraphicicon.col-md-2.servic-menu.bggraphic{"div-name" => "idgraphic"}
+  #idgraphicicon.col-md-2.servic-menu.bggraphic{"div-name" => "idgraphic", :style => "width:"+@width_percent.to_s+ "%"}
     = image_tag 'ICON/طراحی گرافیکی.png', height: "85", width: "108"
     
-  #idcameraicon.col-md-2.servic-menu.bgcamera{"div-name" => "idcamera"}
+  #idcameraicon.col-md-2.servic-menu.bgcamera{"div-name" => "idcamera", :style => "width:"+@width_percent.to_s+ "%"}
     = image_tag 'ICON/نصب دوربین مداربسته.png', height: "85", width: "108"
     
   .clear-float
-.logo
-  #idhomeicon.bghome.servic-menu.servic-menuhome{"div-name" => "idhome"}
-    = image_tag 'ICON/گروه مهندسی راش.png', height: "69", width: "174"
-    
+- if current_page?('/') 
+  .logo
+    #idhomeicon.bghome.servic-menu.servic-menuhome{"div-name" => "idhome"}
+      = image_tag 'ICON/گروه مهندسی راش.png', height: "69", width: "174", :class => "logo-full-size"
+      = image_tag 'ICON/گروه مهندسی راش1.png', height: "100%", width: "80%", :class => "logo-small-size"
+- else
+  = link_to root_path, :class => "logo" do
+    #idhomeicon.bghome.servic-menu.servic-menuhome{"div-name" => "idhome"}
+      = image_tag 'ICON/گروه مهندسی راش.png', height: "69", width: "174", :class => "logo-full-size"
+      = image_tag 'ICON/گروه مهندسی راش1.png', height: "100%", width: "80%", :class => "logo-small-size"
+      
 / end of menu
