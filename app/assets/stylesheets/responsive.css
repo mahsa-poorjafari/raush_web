@@ -45,6 +45,8 @@
   .prtofilo .box-text {width:100%; clear:both}
   .sub-service-img {width:100%}
   .team-group .team-item{width:30%; margin:1%}
+  #b-details .sample-pic {width:90%; left:5%; right:5%}
+  #b-details .box-text {width:100%; left:0; right:0}
   }
 /* Landscape phones and down */
 @media (max-width: 480px) { 
