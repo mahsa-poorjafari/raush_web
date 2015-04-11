@@ -1,19 +1,19 @@
 .icons
   - @width_percent =  100 / 5
   #idbmsicon.col-md-2.servic-menu.bgbms{"div-name" => "idbms", :style => "width:"+@width_percent.to_s+ "%"}
-    = image_tag 'ICON/هوشمندسازی ساختمان.png', height: "70", width: "80"
+    .icon-for-nav#bmsicon    
     %p{:id => I18n.locale}= t('bms-item')    
   #idneticon.col-md-2.servic-menu.bgnet{"div-name" => "idnet", :style => "width:"+@width_percent.to_s+ "%"}
-    = image_tag 'ICON/نصب شبکه.png', height: "70", width: "80"    
+    .icon-for-nav#Networkicon 
     %p{:id => I18n.locale}= t('network-item')
   #idwebicon.col-md-2.servic-menu.bgweb{"div-name" => "idweb", :style => "width:"+@width_percent.to_s+ "%"}    
-    = image_tag 'ICON/طراحی وب سایت.png', height: "70", width: "80"
+    .icon-for-nav#webicon 
     %p{:id => I18n.locale}= t('web-item')
   #idgraphicicon.col-md-2.servic-menu.bggraphic{"div-name" => "idgraphic", :style => "width:"+@width_percent.to_s+ "%"}
-    = image_tag 'ICON/طراحی گرافیکی.png', height: "70", width: "80"
+    .icon-for-nav#Graphicon 
     %p{:id => I18n.locale}= t('graphic-item')
   #idcameraicon.col-md-2.servic-menu.bgcamera{"div-name" => "idcamera", :style => "width:"+@width_percent.to_s+ "%"}
-    = image_tag 'ICON/نصب دوربین مداربسته.png', height: "70", width: "80"
+    .icon-for-nav#cameraicon 
     %p{:id => I18n.locale}= t('camera-item')
   .clear-float
 - if current_page?('/') 

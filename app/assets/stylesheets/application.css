@@ -46,7 +46,25 @@ float: left;
 width:20%;
 left:0;
 }
-.icons p, .logo p {color:#fff; font-size:1.2em; text-align:center}
+
+.icons .servic-menu .icon-for-nav {  
+  background-repeat:no-repeat;
+  background-position:50% 0;
+  -webkit-transition: 0.2s;
+    -moz-transition:    0.2s;
+    -ms-transition:     0.2s;
+    -o-transition:      0.2s;
+    transition:         0.2s;
+    width:100%; height:55px;
+  }
+.icons .servic-menu .icon-for-nav#bmsicon {background-image: url('bms1.png');}
+.icons .servic-menu .icon-for-nav#cameraicon {background-image: url('camera1.png');}
+.icons .servic-menu .icon-for-nav#webicon {background-image: url('web1.png');}
+.icons .servic-menu .icon-for-nav#Graphicon {background-image: url('Graph1.png');}
+.icons .servic-menu .icon-for-nav#Networkicon {background-image: url('Network1.png');}
+.icons .servic-menu:hover .icon-for-nav {background-position:50% 100%;}
+.icons p {color:#fff; font-size:1.2em; text-align:center; margin-top:5%;}
+ .logo p {color:#fff; font-size:1.2em; text-align:center}
 .logo .logo-small-size {display:none}
 .logo  .bghome{ background:#01666e}
 .icons .bgbms{background:#097b84}
@@ -136,3 +154,4 @@ height:100%;
 .show-team-detail {margin:2%; display:none}
 #team-bk {display:none}
 .margin5 {margin:5px}
+
