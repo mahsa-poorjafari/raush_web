@@ -9,429 +9,414 @@
         
         .link#home-link
           #homebtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
-            .item{:class => I18n.locale}= t('about-us')
-            .icon
-              = image_tag "ICON/درباره راش.png",height: "40",  width: "40", :alt => "درباره راش", :title => "درباره شرکت راش"
+            = link_to page_path(@aboutus) do
+              .item{:class => I18n.locale}= t('about-us')
+              .icon
+                = image_tag "ICON/درباره راش.png",height: "40",  width: "40", :alt => "درباره راش", :title => "درباره شرکت راش"
             .clear-float
           #homebtn2.button.bacher.vanr.object.btnw30{waittime: "350"} 
-            -#
-              = link_to team_work_teams_path, :class => "item "+I18n.locale.to_s do
-                = t('our-team')
-            .item{:class => I18n.locale}= t('our-team')
-            .icon
-              = image_tag "ICON/تیم کاری راش.png", height: "40", width: "40", :alt => "تیم کاری راش", :title => "تیم کاری راش"
+            = link_to Team do
+              .item{:class => I18n.locale}= t('our-team')
+              .icon
+                = image_tag "ICON/تیم کاری راش.png", height: "40", width: "40", :alt => "تیم کاری راش", :title => "تیم کاری راش"
             .clear-float
           #homebtn3.button.bacher.vanr.object.btnw30{waittime: "400"}
-            .item{:class => I18n.locale}= t('Order-Online')
-            .icon
-              = image_tag "ICON/سفارش آنلاین راش.png",height: "40", width: "40", :alt => "سفارش آنلاین راش", :title => "سفارش آنلاین راش"
+            = link_to new_order_online_path do
+              .item{:class => I18n.locale}= t('Order-Online')
+              .icon
+                = image_tag "ICON/سفارش آنلاین راش.png",height: "40", width: "40", :alt => "سفارش آنلاین راش", :title => "سفارش آنلاین راش"
             .clear-float
         .clear-float
-    #show-about.diplaynone.servic-descriptipn1
-      #axis.one.about-us.col-xs-6{:class => I18n.locale}
-        %div{:style => "margin:30px; padding-top:20px"}  
-          - if I18n.locale == :fa
-            %p{:style => "direction:rtl; text-align:justify; font-size:15px; line-height:25px;", :class => I18n.locale}
-              = render 'shared/about_fa'
-          - else
-            %p{:style => "direction:ltr; text-align:justify", :class => I18n.locale}
-              = render 'shared/about_en'
-      .col-xs-6.google-map-box{:style => "margin-top:5%"}
-        %iframe{:height => "350px", :src => "https://www.google.com/maps/d/embed?mid=zbDi3iZxywyM.kok52aJMJoYc&z=13", :width => "640"}
         
-      .link
-        #btn-bk-about.button.set-center.btnw10.back
-          .item{:class => I18n.locale}= t('back')
-          .icon
-            = image_tag "back.png", height: "40" , width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
+    -#
+      #order-online.diplaynone.servic-descriptipn1
+        .width80.set-center
+          %h2= t ('Order-Online')
+          %div{:class => I18n.locale}
+            = render "order_onlines/form" 
           .clear-float
-    #order-online.diplaynone.servic-descriptipn1
-      .width80.set-center
-        %h2= t ('Order-Online')
-        %div{:class => I18n.locale}
-          = render "order_onlines/form" 
-        .clear-float
-      
-      .link
-        #btn-bk-order.button.set-center.btnw10.back
-          .item{:class => I18n.locale}= t('back')
-          .icon
-            = image_tag "back.png", height: "40" , width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
-          .clear-float
-    /end order-online
-    
-    #our-team.diplaynone.servic-descriptipn1
-      = render 'teams/show_team'
         
-      .clear-float      
-      .link{:style => "margin-top:0; "}
-        #btn-bk-team.button.set-center.btnw10.back{:style => " bottom:5%"}
-          .item{:class => I18n.locale}= t('back-home')
-          .icon
-            = image_tag "back.png", height: "40" , width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
-          .clear-float
-    /end our team
-    
-  / end home!
-/ end HOME
-#idbms.servic-descriptipn.bgbms.diplaynone
-  %div
-    #b-info
-      .col-xs-6.sample_image_responsive
-        #axis.one
-          - if @bms.present?
-            = image_tag  @bms.image(:large), waittime: "500", :id => 'moo', :class => 'object bache van', :alt => "هوشمندسازی ساختمان", :title => "هوشمندسازی ساختمان"
-      .col-xs-6.sample_text_responsive
-        #bmstext.text.bacher.vanr.object{waittime: "200"}
-          - if @bms.present?
-            = @bms.description
         .link
-          - @service = Service.find_by_title_fa('هوشمندسازی')
-          - if @service.subservices.present?
-            - @service.subservices.each_with_index do |subservice, i|              
-              .button.bacher.vanr.object.btnw30{waittime: "300", :id => 'bmsbtn'+(i+1).to_s}
-                .item{:class => I18n.locale}= subservice.title
-                .icon
-                  = image_tag subservice.icon(:small), height: "40", width: "40", :alt => subservice.title_fa, :title => subservice.title_fa
-                .clear-float
-          -#
-            #bmsbtn1.button.vanr.bacher.object.btnw30{waittime: "300"}
-              .item{:class => I18n.locale}= t('bms.hotel')
-              .icon
-                = image_tag "ICON/هتل هوشمند.png",height: "40", width: "40", :alt => "هتل هوشمند", :title => "هتل هوشمند"
-              .clear-float
-            #bmsbtn2.button.vanr.bacher.object.btnw30{waittime: "350"}
-              .item{:class => I18n.locale}= t('bms.home')
-              .icon
-                = image_tag "ICON/خانه هوشمند.png", height: "40" , width: "40", :alt => "خانه هوشمند", :title => "خانه هوشمند"
-              .clear-float
-            #bmsbtn3.button.vanr.bacher.object.btnw30{waittime: "400"}
-              .item{:style => "text-align:justify", :class => I18n.locale}= t('bms.office')
-              .icon
-                = image_tag"ICON/اداره هوشمند.png", height: "40", width: "40", :alt => "اداره هوشمند", :title => "اداره  هوشمند"
-              .clear-float
-        .clear-float
-  / end BMS
-  #b-details
-    / iiii
-    #hotel.diplaynone.servic-descriptipn1
-      #axis.sample-pic
-        = image_tag @hotel.image(:large), :class => "sub-service-img", :title => "هتل هوشمند", :alt => "هتل هوشمند"
-        .link
-          #btnbhotel.button.set-center.btnw10.back
+          #btn-bk-order.button.set-center.btnw10.back
             .item{:class => I18n.locale}= t('back')
             .icon
               = image_tag "back.png", height: "40" , width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
             .clear-float
-      .box-text{:class => I18n.locale}
-        %h2= @hotel.title
-        .details-text#about.nano{:class => I18n.locale}
-          .nano-content=raw @hotel.text          
+      /end order-online
       
-          .clear-float
-      / end box text
-    / END HOTEL
-    #house.diplaynone.servic-descriptipn1
-      #axis.sample-pic
-        = image_tag @house.image(:large), :class => "sub-service-img", :alt => "خانه هوشمند", :title => "خانه هوشمند"
-        .link
-          #btnbhome.button.set-center.btnw10.back
-            .item{:class => I18n.locale}= t('back')
-            .icon
-              = image_tag "back.png", height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
-            .clear-float
-      .box-text{:class => I18n.locale}
-        %h2= @house.title
-        .details-text#about.nano{:class => I18n.locale}
-          .nano-content=raw @house.text
-        
-      / end box
-    / END houes
-    #office.diplaynone.servic-descriptipn1
-      #axis.sample-pic
-        = image_tag @office.image(:large), :class => "sub-service-img", :alt => "دفترکار هوشمند", :title => "دفترکار هوشمند"
-        .link
-          #btnboffice.button.set-center.btnw10.back
-            .item{:class => I18n.locale}= t('back')
-            .icon
-              = image_tag "back.png", height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
-            .clear-float
-      .box-text{:class => I18n.locale}
-        %h2= @office.title
-        .details-text#about.nano{:class => I18n.locale}
-          .nano-content=raw @office.text
-        
-      / end box
-    / END Office
-  / iiii
-#idnet.servic-descriptipn.bgnet.diplaynone
-  %div
-    #n-info
-      .col-xs-6.sample_image_responsive
-        #axis.one
-          = image_tag @network.image(:large), :id => "netmoo", :class => 'object bache van', :alt => "نصب و راه اندازی شبکه", :title => "نصب و راه اندازی شبکه"
-      .col-xs-6.sample_text_responsive
-        #nettext.text.bacher.vanr.object{waittime: "200"}
-          = @network.description
-        .link
-          - @network = Service.find_by_title_fa('راه اندازی شبکه')
-          - if @network.subservices.present?
-            - @network.subservices.each_with_index do |net_sub, i|              
-              .button.bacher.vanr.object.btnw30{waittime: "300", :id => 'netbtn'+(i+1).to_s}
-                .item{:class => I18n.locale}= net_sub.title
-                .icon
-                  = image_tag net_sub.icon(:small), height: "40", width: "40", :alt => "شبکه شهری", :title => "شبکه شهری"
-                .clear-float
+      #our-team.diplaynone.servic-descriptipn1
+        = render 'teams/show_team'
           
-        .clear-float
-  / end NETORK
-  #b-details
-    / iiii
-    #wan.diplaynone.servic-descriptipn1
-      #axis.sample-pic
-        = image_tag @wan.image(:large), :class => "sub-service-img", :alt => "شبکه شهری", :title => "شبکه شهری"
-        .link
-          #btnbwan.button.set-center.btnw10.back
-            .item{:class => I18n.locale}= t('back')
+        .clear-float      
+        .link{:style => "margin-top:0; "}
+          #btn-bk-team.button.set-center.btnw10.back{:style => " bottom:5%"}
+            .item{:class => I18n.locale}= t('back-home')
             .icon
-              = image_tag "back.png", height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
+              = image_tag "back.png", height: "40" , width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
             .clear-float
-      .box-text{:class => I18n.locale}
-        %h2= @wan.title
-        .details-text#about.nano{:class => I18n.locale}
-          .nano-content=raw @wan.text
-        
-      / end box text
-    / END HOTEL
-    #lan.diplaynone.servic-descriptipn1
-      #axis.sample-pic
-        = image_tag @lan.image(:large), :class => "sub-service-img", :alt => "شبکه محلی", :title => "شبکه محلی"
-        .link
-          #btnblan.button.set-center.btnw10.back
-            .item{:class => I18n.locale}= t('back')
-            .icon
-              = image_tag "back.png",height: "40" , width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
-            .clear-float
-      .box-text{:class => I18n.locale}
-        %h2= @lan.title
-        .details-text#about.nano{:class => I18n.locale}
-          .nano-content=raw @lan.text
-        
-      / end box
-    / END houes
-    #voip.diplaynone.servic-descriptipn1
-      #axis.sample-pic
-        = image_tag @voip.image(:large), :class => "sub-service-img", :alt => "شبکه وویپ", :title => "شبکه وویپ"
-        .link
-          #btnbvoip.button.set-center.btnw10.back
-            .item{:class => I18n.locale}= t('back')
-            .icon
-              = image_tag "back.png", height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
-            .clear-float
-      .box-text{:class => I18n.locale}
-        %h2= @voip.title
-        .details-text#about.nano{:class => I18n.locale}
-          .nano-content=raw @voip.text
-        
-      / end box
-    / END voip
-  / iiii
-#idweb.servic-descriptipn.bgweb.diplaynone  
-  #web-info
-    .col-xs-6.sample_image_responsive
-      #axis.one
-        - if @web.present?
-          = image_tag  @web.image(:large), :id => "webmoo" , :class => 'object bache van', :alt => "طراحی وب سایت", :title => "طراحی وب سایت"
-    .col-xs-6.sample_text_responsive
-      #webtext.text.bacher.vanr.object{waittime: "200"}
-        - if @web.present?
-          =raw @web.description
-      .link
-        #webbtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
-          .item{:class => I18n.locale}= t('Portfolio')
-          .icon
-            = image_tag "ICON/نمونه کاری.png",height: "40" , width: "40", :alt => "نمونه کار وب سایت", :title => "نمونه کار وب سایت"
-          .clear-float
-        #webbtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
-          .item{:class => I18n.locale}
-            = link_to  t('Tariff-Price'), tariff_prices_path
-          .icon
-            = image_tag "ICON/تعرفه قیمت.png", height: "40", width: "40", :alt => "تعرفه طراحی سایت", :title => "تعرفه طراحی سایت"
-          .clear-float
-       
-      .clear-float
-  #web-details
-    .prtofilo.diplaynone.servic-descriptipn1
-      #axis.show-demo.set-center
-        .sample-pic1.nano{:style => "height:100%"}
-          .sample-pic2.set-center.nano-content
-            - if @web_demos.present?
-              - @web_demos.each do |portfolio|
-                .show-3box
-                  %h4{:class => I18n.locale, :style => "text-align:center"}
-                    =link_to portfolio.title,  url_with_protocol(portfolio.website), :target => "blank", :title => "طراحی وب سایت_" + portfolio.title
-                  - if portfolio.in_production 
-                    .in-production
-                      %h3{:style => "color:#fff"}= t('in-production')
-                  - else
-                    .portfolio_img= link_to (image_tag portfolio.image(:original), :alt => portfolio.image_file_name, :title => portfolio.image_file_name, :width => "100%"), url_with_protocol(portfolio.website), :target => "blank", :title => "طراحی وب سایت_" + portfolio.title
-              
+      /end our team
       
-      .link
-        #btn-web-prto.button.set-center.btnw10.back
-          .item{:class => I18n.locale}= t('back')
-          .icon
-            = image_tag "back.png",height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
-          .clear-float
-    
-/ end WEB
-#idgraphic.servic-descriptipn.bggraphic.diplaynone
-  %div
-    #g-info
-      .col-xs-6.sample_image_responsive
-        #axis.one
-          = image_tag @graphic.image(:large), :id => "graphicmoo" , :class => 'object bache van', :alt => "طراحی گرافیک", :title => "طراحی گرافیک"
-      .col-xs-6.sample_text_responsive
-        #graphictext.text.bacher.vanr.object{waittime: "200"}
-          = @graphic.description
-          %b= t('in-production')
-          
+  / end home!
+/ end HOME
+-#
+  #idbms.servic-descriptipn.bgbms.diplaynone
+    %div
+      #b-info
+        .col-xs-6.sample_image_responsive
+          #axis.one
+            - if @bms.present?
+              = image_tag  @bms.image(:large), waittime: "500", :id => 'moo', :class => 'object bache van', :alt => "هوشمندسازی ساختمان", :title => "هوشمندسازی ساختمان"
+        .col-xs-6.sample_text_responsive
+          #bmstext.text.bacher.vanr.object{waittime: "200"}
+            - if @bms.present?
+              = @bms.description
           .link
-            - @graphic = Service.find_by_title_fa('طراحی گرافیک')
-            - if @graphic.subservices.present?
-              - @graphic.subservices.each_with_index do |net_sub, i|
-                .button.bacher.vanr.object.btnw30{waittime: "300", :id => 'graphicbtn'+(i+1).to_s, :style => "width:50%"}
-                  .item{:class => I18n.locale, :style => "font-size:14px"}= net_sub.title
-                  .icon{:style => "height:60px"}
+            - @service = Service.find_by_title_fa('هوشمندسازی')
+            - if @service.subservices.present?
+              - @service.subservices.each_with_index do |subservice, i|              
+                .button.bacher.vanr.object.btnw30{waittime: "300", :id => 'bmsbtn'+(i+1).to_s}
+                  .item{:class => I18n.locale}= subservice.title
+                  .icon
+                    = image_tag subservice.icon(:small), height: "40", width: "40", :alt => subservice.title_fa, :title => subservice.title_fa
+                  .clear-float
+            -#
+              #bmsbtn1.button.vanr.bacher.object.btnw30{waittime: "300"}
+                .item{:class => I18n.locale}= t('bms.hotel')
+                .icon
+                  = image_tag "ICON/هتل هوشمند.png",height: "40", width: "40", :alt => "هتل هوشمند", :title => "هتل هوشمند"
+                .clear-float
+              #bmsbtn2.button.vanr.bacher.object.btnw30{waittime: "350"}
+                .item{:class => I18n.locale}= t('bms.home')
+                .icon
+                  = image_tag "ICON/خانه هوشمند.png", height: "40" , width: "40", :alt => "خانه هوشمند", :title => "خانه هوشمند"
+                .clear-float
+              #bmsbtn3.button.vanr.bacher.object.btnw30{waittime: "400"}
+                .item{:style => "text-align:justify", :class => I18n.locale}= t('bms.office')
+                .icon
+                  = image_tag"ICON/اداره هوشمند.png", height: "40", width: "40", :alt => "اداره هوشمند", :title => "اداره  هوشمند"
+                .clear-float
+          .clear-float
+    / end BMS
+    #b-details
+      / iiii
+      #hotel.diplaynone.servic-descriptipn1
+        #axis.sample-pic
+          = image_tag @hotel.image(:large), :class => "sub-service-img", :title => "هتل هوشمند", :alt => "هتل هوشمند"
+          .link
+            #btnbhotel.button.set-center.btnw10.back
+              .item{:class => I18n.locale}= t('back')
+              .icon
+                = image_tag "back.png", height: "40" , width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
+              .clear-float
+        .box-text{:class => I18n.locale}
+          %h2= @hotel.title
+          .details-text#about.nano{:class => I18n.locale}
+            .nano-content=raw @hotel.text          
+        
+            .clear-float
+        / end box text
+      / END HOTEL
+      #house.diplaynone.servic-descriptipn1
+        #axis.sample-pic
+          = image_tag @house.image(:large), :class => "sub-service-img", :alt => "خانه هوشمند", :title => "خانه هوشمند"
+          .link
+            #btnbhome.button.set-center.btnw10.back
+              .item{:class => I18n.locale}= t('back')
+              .icon
+                = image_tag "back.png", height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
+              .clear-float
+        .box-text{:class => I18n.locale}
+          %h2= @house.title
+          .details-text#about.nano{:class => I18n.locale}
+            .nano-content=raw @house.text
+          
+        / end box
+      / END houes
+      #office.diplaynone.servic-descriptipn1
+        #axis.sample-pic
+          = image_tag @office.image(:large), :class => "sub-service-img", :alt => "دفترکار هوشمند", :title => "دفترکار هوشمند"
+          .link
+            #btnboffice.button.set-center.btnw10.back
+              .item{:class => I18n.locale}= t('back')
+              .icon
+                = image_tag "back.png", height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
+              .clear-float
+        .box-text{:class => I18n.locale}
+          %h2= @office.title
+          .details-text#about.nano{:class => I18n.locale}
+            .nano-content=raw @office.text
+          
+        / end box
+      / END Office
+    / iiii
+  #idnet.servic-descriptipn.bgnet.diplaynone
+    %div
+      #n-info
+        .col-xs-6.sample_image_responsive
+          #axis.one
+            = image_tag @network.image(:large), :id => "netmoo", :class => 'object bache van', :alt => "نصب و راه اندازی شبکه", :title => "نصب و راه اندازی شبکه"
+        .col-xs-6.sample_text_responsive
+          #nettext.text.bacher.vanr.object{waittime: "200"}
+            = @network.description
+          .link
+            - @network = Service.find_by_title_fa('راه اندازی شبکه')
+            - if @network.subservices.present?
+              - @network.subservices.each_with_index do |net_sub, i|              
+                .button.bacher.vanr.object.btnw30{waittime: "300", :id => 'netbtn'+(i+1).to_s}
+                  .item{:class => I18n.locale}= net_sub.title
+                  .icon
                     = image_tag net_sub.icon(:small), height: "40", width: "40", :alt => "شبکه شهری", :title => "شبکه شهری"
                   .clear-float
             
-        
-        .clear-float
-  / end GRAPHIC
-  #g-details
-    / iiii
-    #prtofilo.diplaynone.servic-descriptipn1
-      #axis.show-demo.set-center
-        .sample-pic1.nano
-          .sample-pic2.set-center.nano-content
-            - if @graphic_demos.present?
-              - @graphic_demos.each do |portfolio|
-                .col-xs-4.show-3box
-                  %h4= portfolio.title                
-                  = link_to (image_tag portfolio.image(:small), :alt => portfolio.image_file_name, :title => portfolio.image_file_name), url_with_protocol(portfolio.website), :target => "blank", :title => "طراحی گرافیک"
-                    
-           
-      
-      .link
-        #btnbprtofilo.button.set-center.btnw10.back
-          .item{:class => I18n.locale}= t('back')
-          .icon
-            = image_tag "back.png",height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
           .clear-float
-    / END HOTEL
-    #price.diplaynone.servic-descriptipn1
-      #axis.sample-pic1
-        = image_tag "raush-logo.jpg", :alt => "گروه مهندسی راش", :title => "گروه مهندسی راش"
-      .box-text
-        %h2 price Information
-        .details-text
-          %p asdasdasd
-          %p asdasdasd
-          %p asdasdasd
-          %p asdasdasd
+    / end NETORK
+    #b-details
+      / iiii
+      #wan.diplaynone.servic-descriptipn1
+        #axis.sample-pic
+          = image_tag @wan.image(:large), :class => "sub-service-img", :alt => "شبکه شهری", :title => "شبکه شهری"
+          .link
+            #btnbwan.button.set-center.btnw10.back
+              .item{:class => I18n.locale}= t('back')
+              .icon
+                = image_tag "back.png", height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
+              .clear-float
+        .box-text{:class => I18n.locale}
+          %h2= @wan.title
+          .details-text#about.nano{:class => I18n.locale}
+            .nano-content=raw @wan.text
+          
+        / end box text
+      / END HOTEL
+      #lan.diplaynone.servic-descriptipn1
+        #axis.sample-pic
+          = image_tag @lan.image(:large), :class => "sub-service-img", :alt => "شبکه محلی", :title => "شبکه محلی"
+          .link
+            #btnblan.button.set-center.btnw10.back
+              .item{:class => I18n.locale}= t('back')
+              .icon
+                = image_tag "back.png",height: "40" , width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
+              .clear-float
+        .box-text{:class => I18n.locale}
+          %h2= @lan.title
+          .details-text#about.nano{:class => I18n.locale}
+            .nano-content=raw @lan.text
+          
+        / end box
+      / END houes
+      #voip.diplaynone.servic-descriptipn1
+        #axis.sample-pic
+          = image_tag @voip.image(:large), :class => "sub-service-img", :alt => "شبکه وویپ", :title => "شبکه وویپ"
+          .link
+            #btnbvoip.button.set-center.btnw10.back
+              .item{:class => I18n.locale}= t('back')
+              .icon
+                = image_tag "back.png", height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
+              .clear-float
+        .box-text{:class => I18n.locale}
+          %h2= @voip.title
+          .details-text#about.nano{:class => I18n.locale}
+            .nano-content=raw @voip.text
+          
+        / end box
+      / END voip
+    / iiii
+  #idweb.servic-descriptipn.bgweb.diplaynone  
+    #web-info
+      .col-xs-6.sample_image_responsive
+        #axis.one
+          - if @web.present?
+            = image_tag  @web.image(:large), :id => "webmoo" , :class => 'object bache van', :alt => "طراحی وب سایت", :title => "طراحی وب سایت"
+      .col-xs-6.sample_text_responsive
+        #webtext.text.bacher.vanr.object{waittime: "200"}
+          - if @web.present?
+            =raw @web.description
         .link
-          #btnblan.button.set-center.btnw10.back
+          #webbtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
+            .item{:class => I18n.locale}= t('Portfolio')
+            .icon
+              = image_tag "ICON/نمونه کاری.png",height: "40" , width: "40", :alt => "نمونه کار وب سایت", :title => "نمونه کار وب سایت"
+            .clear-float
+          #webbtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
+            .item{:class => I18n.locale}
+              = link_to  t('Tariff-Price'), tariff_prices_path
+            .icon
+              = image_tag "ICON/تعرفه قیمت.png", height: "40", width: "40", :alt => "تعرفه طراحی سایت", :title => "تعرفه طراحی سایت"
+            .clear-float
+         
+        .clear-float
+    #web-details
+      .prtofilo.diplaynone.servic-descriptipn1
+        #axis.show-demo.set-center
+          .sample-pic1.nano{:style => "height:100%"}
+            .sample-pic2.set-center.nano-content
+              - if @web_demos.present?
+                - @web_demos.each do |portfolio|
+                  .show-3box
+                    %h4{:class => I18n.locale, :style => "text-align:center"}
+                      =link_to portfolio.title,  url_with_protocol(portfolio.website), :target => "blank", :title => "طراحی وب سایت_" + portfolio.title
+                    - if portfolio.in_production 
+                      .in-production
+                        %h3{:style => "color:#fff"}= t('in-production')
+                    - else
+                      .portfolio_img= link_to (image_tag portfolio.image(:original), :alt => portfolio.image_file_name, :title => portfolio.image_file_name, :width => "100%"), url_with_protocol(portfolio.website), :target => "blank", :title => "طراحی وب سایت_" + portfolio.title
+                
+        
+        .link
+          #btn-web-prto.button.set-center.btnw10.back
             .item{:class => I18n.locale}= t('back')
             .icon
               = image_tag "back.png",height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
             .clear-float
-      / end box
-    / END houes
-  / iiii
-#idcamera.servic-descriptipn.bgcamera.diplaynone
-  %div
-    #c-info
-      .col-xs-6.sample_image_responsive
-        #axis.one
-          
-          = image_tag @camera.image(:large), :id => "cameramoo" , :class => 'object bache van', :alt => "نصب دوربین مدار بسته", :title => "نصب دوربین مدار بسته"
-      .col-xs-6.sample_text_responsive
-        #cameratext.text.bacher.vanr.object{waittime: "200"}
-          = @camera.description
-        .link
-          - @service = Service.find_by_title_fa('نصب دوربین')
-          - if @service.subservices.present?
-            - @service.subservices.each_with_index do |subservice, i|              
-              .button.bacher.vanr.object.btnw30{waittime: "300", :id => 'camerabtn'+(i+1).to_s}
-                .item{:class => I18n.locale}= subservice.title
-                .icon
-                  = image_tag subservice.icon(:small), height: "40", width: "40", :alt => subservice.title_fa, :title => subservice.title_fa
-                .clear-float
-          -#
-            #camerabtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
-              .item{:class => I18n.locale} IP Camera
-              .icon
-                = image_tag "ICON/دوربین مداربسته.png",height: "40",width: "40", :alt => "دوربین ژئوویژن", :title => "دوربین ژئوویژن"
-              .clear-float
-            #camerabtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
-              .item{:class => I18n.locale} Analog Camera
-              .icon
-                = image_tag "ICON/دوربین مداربسته.png",height: "40", width: "40", :alt => "دوربین هایک ویژن", :title => "دوربین هایک ویژن"
-              .clear-float
-          
-        .clear-float
-
-  #c-details 
-    #fam.servic-descriptipn1.diplaynone.prtofilo
-      #axis.show-demo.set-center
-        .sample-pic1.nano
-          .sample-pic2.set-center.nano-content          
-            - if @ip_camera.present?
-              #axis.sample-pic
-                = image_tag @ip_camera.image(:large), :class => "sub-service-img", :alt => "دوربین تحت شبکه", :title => "دوربین تحت شبکه"
-                
-              .box-text{:class => I18n.locale}
-                %h2= @ip_camera.title
-                .details-text#about.nano{:class => I18n.locale}
-                  .nano-content=raw @ip_camera.text
+      
+  / end WEB
+  #idgraphic.servic-descriptipn.bggraphic.diplaynone
+    %div
+      #g-info
+        .col-xs-6.sample_image_responsive
+          #axis.one
+            = image_tag @graphic.image(:large), :id => "graphicmoo" , :class => 'object bache van', :alt => "طراحی گرافیک", :title => "طراحی گرافیک"
+        .col-xs-6.sample_text_responsive
+          #graphictext.text.bacher.vanr.object{waittime: "200"}
+            = @graphic.description
+            %b= t('in-production')
+            
+            .link
+              - @graphic = Service.find_by_title_fa('طراحی گرافیک')
+              - if @graphic.subservices.present?
+                - @graphic.subservices.each_with_index do |net_sub, i|
+                  .button.bacher.vanr.object.btnw30{waittime: "300", :id => 'graphicbtn'+(i+1).to_s, :style => "width:50%"}
+                    .item{:class => I18n.locale, :style => "font-size:14px"}= net_sub.title
+                    .icon{:style => "height:60px"}
+                      = image_tag net_sub.icon(:small), height: "40", width: "40", :alt => "شبکه شهری", :title => "شبکه شهری"
+                    .clear-float
               
-          .clear-float
           
-      .link
-        #btnbfam.button.set-center.btnw10.back
-          .item{:class => I18n.locale}= t('back')
-          .icon
-            = image_tag "back.png",height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
           .clear-float
+    / end GRAPHIC
+    #g-details
+      / iiii
+      #prtofilo.diplaynone.servic-descriptipn1
+        #axis.show-demo.set-center
+          .sample-pic1.nano
+            .sample-pic2.set-center.nano-content
+              - if @graphic_demos.present?
+                - @graphic_demos.each do |portfolio|
+                  .col-xs-4.show-3box
+                    %h4= portfolio.title                
+                    = link_to (image_tag portfolio.image(:small), :alt => portfolio.image_file_name, :title => portfolio.image_file_name), url_with_protocol(portfolio.website), :target => "blank", :title => "طراحی گرافیک"
+                      
+             
+        
+        .link
+          #btnbprtofilo.button.set-center.btnw10.back
+            .item{:class => I18n.locale}= t('back')
+            .icon
+              = image_tag "back.png",height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
+            .clear-float
+      / END HOTEL
+      #price.diplaynone.servic-descriptipn1
+        #axis.sample-pic1
+          = image_tag "raush-logo.jpg", :alt => "گروه مهندسی راش", :title => "گروه مهندسی راش"
+        .box-text
+          %h2 price Information
+          .details-text
+            %p asdasdasd
+            %p asdasdasd
+            %p asdasdasd
+            %p asdasdasd
+          .link
+            #btnblan.button.set-center.btnw10.back
+              .item{:class => I18n.locale}= t('back')
+              .icon
+                = image_tag "back.png",height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
+              .clear-float
+        / end box
+      / END houes
+    / iiii
+  #idcamera.servic-descriptipn.bgcamera.diplaynone
+    %div
+      #c-info
+        .col-xs-6.sample_image_responsive
+          #axis.one
             
-    #hikvision.servic-descriptipn1.diplaynone.prtofilo
-      #axis.show-demo.set-center
-        .sample-pic1.nano
-          .sample-pic2.nano-content
-            - if @analog_camera.present?
-              #axis.sample-pic
-                = image_tag @analog_camera.image(:large), :class => "sub-service-img", :alt => "دوربین مداربسته", :title => "دوربین مداربسته"
+            = image_tag @camera.image(:large), :id => "cameramoo" , :class => 'object bache van', :alt => "نصب دوربین مدار بسته", :title => "نصب دوربین مدار بسته"
+        .col-xs-6.sample_text_responsive
+          #cameratext.text.bacher.vanr.object{waittime: "200"}
+            = @camera.description
+          .link
+            - @service = Service.find_by_title_fa('نصب دوربین')
+            - if @service.subservices.present?
+              - @service.subservices.each_with_index do |subservice, i|              
+                .button.bacher.vanr.object.btnw30{waittime: "300", :id => 'camerabtn'+(i+1).to_s}
+                  .item{:class => I18n.locale}= subservice.title
+                  .icon
+                    = image_tag subservice.icon(:small), height: "40", width: "40", :alt => subservice.title_fa, :title => subservice.title_fa
+                  .clear-float
+            -#
+              #camerabtn1.button.bacher.vanr.object.btnw30{waittime: "300"}
+                .item{:class => I18n.locale} IP Camera
+                .icon
+                  = image_tag "ICON/دوربین مداربسته.png",height: "40",width: "40", :alt => "دوربین ژئوویژن", :title => "دوربین ژئوویژن"
+                .clear-float
+              #camerabtn2.button.bacher.vanr.object.btnw30{waittime: "350"}
+                .item{:class => I18n.locale} Analog Camera
+                .icon
+                  = image_tag "ICON/دوربین مداربسته.png",height: "40", width: "40", :alt => "دوربین هایک ویژن", :title => "دوربین هایک ویژن"
+                .clear-float
+            
+          .clear-float
+
+    #c-details 
+      #fam.servic-descriptipn1.diplaynone.prtofilo
+        #axis.show-demo.set-center
+          .sample-pic1.nano
+            .sample-pic2.set-center.nano-content          
+              - if @ip_camera.present?
+                #axis.sample-pic
+                  = image_tag @ip_camera.image(:large), :class => "sub-service-img", :alt => "دوربین تحت شبکه", :title => "دوربین تحت شبکه"
+                  
+                .box-text{:class => I18n.locale}
+                  %h2= @ip_camera.title
+                  .details-text#about.nano{:class => I18n.locale}
+                    .nano-content=raw @ip_camera.text
                 
-              .box-text{:class => I18n.locale}
-                %h2= @analog_camera.title
-                .details-text#about.nano{:class => I18n.locale}
-                  .nano-content=raw @analog_camera.text
-          .clear-float
+            .clear-float
             
-      .link
-        #btnbhik.button.set-center.btnw10.back
-          .item{:class => I18n.locale}= t('back')
-          .icon
-            = image_tag "back.png",height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
-          .clear-float
-            
-   
-    / END HOTEL
-  / end DESCRAPTION
+        .link
+          #btnbfam.button.set-center.btnw10.back
+            .item{:class => I18n.locale}= t('back')
+            .icon
+              = image_tag "back.png",height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
+            .clear-float
+              
+      #hikvision.servic-descriptipn1.diplaynone.prtofilo
+        #axis.show-demo.set-center
+          .sample-pic1.nano
+            .sample-pic2.nano-content
+              - if @analog_camera.present?
+                #axis.sample-pic
+                  = image_tag @analog_camera.image(:large), :class => "sub-service-img", :alt => "دوربین مداربسته", :title => "دوربین مداربسته"
+                  
+                .box-text{:class => I18n.locale}
+                  %h2= @analog_camera.title
+                  .details-text#about.nano{:class => I18n.locale}
+                    .nano-content=raw @analog_camera.text
+            .clear-float
+              
+        .link
+          #btnbhik.button.set-center.btnw10.back
+            .item{:class => I18n.locale}= t('back')
+            .icon
+              = image_tag "back.png",height: "40", width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
+            .clear-float
+              
+     
+      / END HOTEL
+    / end DESCRAPTION
 
 
-  
+    
 
 :coffeescript
   $(document).ready ->

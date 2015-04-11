@@ -1,0 +1,24 @@
+.width80.fa.set-center   
+  %h1 صفحات متنی
+  - if is_admin?
+    %p= link_to 'صفحه جدید', new_page_path, :class => "btn btn-default"
+  .col-xs-5.margin5.pull-right
+    %table.table
+      %thead
+        %tr
+          %th عنوان صفحه          
+          %th عملیات
+
+      %tbody
+        - @pages.each do |page|
+          %tr
+            %td= page.title
+            
+            %td
+              - if is_admin?
+                = link_to 'Show', page
+                \|
+                = link_to 'Edit', edit_page_path(page)
+                \|
+                = link_to 'Destroy', page, :method => :delete, :data => { :confirm => 'Are you sure?' }
+

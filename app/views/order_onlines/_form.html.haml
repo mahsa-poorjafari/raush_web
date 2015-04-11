@@ -4,35 +4,38 @@
       %ul
         - @order_online.errors.full_messages.each do |msg|
           %li= msg
-  .btnw30.pull-left.margin5
-    .form-group 
-      = f.label t('order.email'), :class => "control-label"
-      = f.text_field :email, :class => "form-control fill" 
-  
-    .form-group 
-      = f.label t('order.web_site'), :class => "control-label"
-      = f.text_field :web_site, :class => "form-control "
-    
-    .form-group 
-      = f.label t('order.text_msg'), :class => "control-label"
-      = f.text_area :text_msg, :class => "form-control ", :style => "resize:none"
-    .form-group 
-      = f.submit  t('send'), :class => "btn btn-default", :id => "submit_btn"
+  .col-xs-8.pull-right
+    .col-xs-5.pull-left.margin5
       
-  .btnw30.pull-left.margin5
-    .form-group  
-      = f.label t('order.name'), :class => "control-label"
-      = f.text_field :name, :class => "form-control fill"
-    .form-group 
-      = f.label t('order.company_name'), :class => "control-label"
-      = f.text_field :company_name, :class => "form-control"
-    .form-group 
-      = f.label t('order.phone'), :class => "control-label"
-      = f.text_field :phone, :class => "form-control"
-    .form-group 
-      = f.label t('order.mobile'), :class => "control-label"
-      = f.text_field :mobile, :class => "form-control fill"
-  
+    
+      .form-group 
+        = f.label t('order.web_site'), :class => "control-label"
+        = f.text_field :web_site, :class => "form-control "
+      
+      .form-group 
+        = f.label t('order.text_msg'), :class => "control-label"
+        = f.text_area :text_msg, :class => "form-control ", :style => "resize:none"
+      .form-group 
+        = f.simple_captcha :label => t('captcha')
+        = f.submit  t('send'), :class => "btn btn-default", :id => "submit_btn"
+        
+    .col-xs-5.pull-right.margin5
+      .form-group  
+        = f.label t('order.name'), :class => "control-label"
+        = f.text_field :name, :class => "form-control fill"
+      .form-group 
+        = f.label t('order.company_name'), :class => "control-label"
+        = f.text_field :company_name, :class => "form-control"
+      .form-group 
+        = f.label t('order.phone'), :class => "control-label"
+        = f.text_field :phone, :class => "form-control"
+      .form-group 
+        = f.label t('order.mobile'), :class => "control-label"
+        = f.text_field :mobile, :class => "form-control fill"
+      .form-group 
+        = f.label t('order.email'), :class => "control-label"
+        = f.text_field :email, :class => "form-control fill" 
+  .clear-float
 :javascript 
   $(function() { 
     $(':submit#submit_btn').click(function(e) {

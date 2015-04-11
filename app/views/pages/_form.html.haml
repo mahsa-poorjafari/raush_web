@@ -1,0 +1,26 @@
+.col-xs-12.margin5{:class => I18n.locale}
+  = form_for @page do |f|
+    - if @page.errors.any?
+      #error_explanation
+        
+        %ul
+          - @page.errors.full_messages.each do |msg|
+            %li= msg
+
+    .form-group.col-xs-6.pull-right.margin5
+      = f.label 'عنوان فارسی', :class => "control-label"
+      = f.text_field :title_fa, :class => "form-control"
+    .form-group.col-xs-6.pull-right.margin5
+      = f.label 'عنوان انگلیسی', :class => "control-label"
+      = f.text_field :title_en, :class => "form-control"
+    .form-group
+      .editor
+        = f.label 'متن به فارسی', :class => "control-label"        
+        = f.text_area :text_fa, :class => "form-control ckeditor"
+    .form-group
+      .editor
+        = f.label 'متن به انگلیسی', :class => "control-label"
+        = f.text_area :text_en, :class => "form-control ckeditor"
+    .form-group
+      = f.submit 'ثبت', :class => "btn btn-default"
+.clear-float

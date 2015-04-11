@@ -1,5 +1,6 @@
 # encoding: UTF-8
 class OrderOnline < ActiveRecord::Base
+  apply_simple_captcha
   extend FriendlyId  
   friendly_id :name
   has_many :tariff_orders

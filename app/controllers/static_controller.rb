@@ -2,7 +2,7 @@
 class StaticController < ApplicationController
   def home
     @teams = Team.all
-
+    @aboutus = Page.find_by_title_en('About us')
     @web = Service.find_by(title_en: "web")    
     @graphic = Service.find_by(title_en: "graphic")    
     @bms = Service.find_by(title_en: "bms") 

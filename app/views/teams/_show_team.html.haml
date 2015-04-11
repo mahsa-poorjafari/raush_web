@@ -26,7 +26,7 @@
             = link_to (image_tag 'del.png', :alt => "delete"), team, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
   .link{:style => "position:fixed; bottom:30%; min-width:10%; min-height:5%"}
-    #team-bk.button.set-center.btnw10.back
+    #team-bk.button.set-center.btnw10.back{:style => "width:100%"}
       .item{:class => I18n.locale}= t('back-list')
       .icon
         = image_tag "back.png", height: "40" , width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"

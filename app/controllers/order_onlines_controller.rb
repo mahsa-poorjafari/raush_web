@@ -28,7 +28,7 @@ class OrderOnlinesController < ApplicationController
   def create
     @order_online = OrderOnline.new(order_online_params)
     
-   if @order_online.save
+   if @order_online.save_with_captcha
     if params[:set_modual_numbers].present? and params[:modual_ids].present?
       p '-------------set_modual_numbers-------------'
       p @set_modual_numbers = params[:set_modual_numbers].split(',').map(&:to_i)
@@ -78,6 +78,7 @@ class OrderOnlinesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_online_params
-      params.require(:order_online).permit(:name, :phone, :email, :company_name, :web_site, :mobile, :text_msg)
+      params.require(:order_online).permit(:name, :phone, :email, :company_name, :web_site, :mobile, :text_msg, :captcha, :captcha_key)
     end
 end
+  

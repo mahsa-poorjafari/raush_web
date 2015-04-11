@@ -1,26 +1,27 @@
 .icons
   - @width_percent =  100 / 5
   #idbmsicon.col-md-2.servic-menu.bgbms{"div-name" => "idbms", :style => "width:"+@width_percent.to_s+ "%"}
-    = image_tag 'ICON/هوشمندسازی ساختمان.png', height: "85", width: "108"
-    
+    = image_tag 'ICON/هوشمندسازی ساختمان.png', height: "70", width: "80"
+    %p{:id => I18n.locale}= t('bms-item')    
   #idneticon.col-md-2.servic-menu.bgnet{"div-name" => "idnet", :style => "width:"+@width_percent.to_s+ "%"}
-    = image_tag 'ICON/نصب شبکه.png', height: "91", width: "119"    
-    
+    = image_tag 'ICON/نصب شبکه.png', height: "70", width: "80"    
+    %p{:id => I18n.locale}= t('network-item')
   #idwebicon.col-md-2.servic-menu.bgweb{"div-name" => "idweb", :style => "width:"+@width_percent.to_s+ "%"}    
-    = image_tag 'ICON/طراحی وب سایت.png', height: "85", width: "108"
-    
+    = image_tag 'ICON/طراحی وب سایت.png', height: "70", width: "80"
+    %p{:id => I18n.locale}= t('web-item')
   #idgraphicicon.col-md-2.servic-menu.bggraphic{"div-name" => "idgraphic", :style => "width:"+@width_percent.to_s+ "%"}
-    = image_tag 'ICON/طراحی گرافیکی.png', height: "85", width: "108"
-    
+    = image_tag 'ICON/طراحی گرافیکی.png', height: "70", width: "80"
+    %p{:id => I18n.locale}= t('graphic-item')
   #idcameraicon.col-md-2.servic-menu.bgcamera{"div-name" => "idcamera", :style => "width:"+@width_percent.to_s+ "%"}
-    = image_tag 'ICON/نصب دوربین مداربسته.png', height: "85", width: "108"
-    
+    = image_tag 'ICON/نصب دوربین مداربسته.png', height: "70", width: "80"
+    %p{:id => I18n.locale}= t('camera-item')
   .clear-float
 - if current_page?('/') 
   .logo
     #idhomeicon.bghome.servic-menu.servic-menuhome{"div-name" => "idhome"}
       = image_tag 'ICON/گروه مهندسی راش.png', height: "69", width: "174", :class => "logo-full-size"
       = image_tag 'ICON/گروه مهندسی راش1.png', height: "100%", width: "80%", :class => "logo-small-size"
+      %p{:id => I18n.locale}= t('raushtitle')
 - else
   = link_to root_path, :class => "logo" do
     #idhomeicon.bghome.servic-menu.servic-menuhome{"div-name" => "idhome"}

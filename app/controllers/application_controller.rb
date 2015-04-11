@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception 
   before_filter :set_locale
   #before_filter :authenticate
-  
+  include SimpleCaptcha::ControllerHelpers
   protected
     def check_autentication
       redirect_to :root unless session[:admin].present?
