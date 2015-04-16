@@ -1,9 +1,4 @@
 RaushWeb::Application.routes.draw do
-  
-
-
- 
-
   resources :pages
 
 scope "(:locale)", :locale => /en|fa/ do

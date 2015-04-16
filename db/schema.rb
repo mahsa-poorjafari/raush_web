@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150411133117) do
+ActiveRecord::Schema.define(version: 20150411133118) do
 
   create_table "account_documents", force: true do |t|
     t.date     "payment_date"
@@ -27,8 +27,6 @@ ActiveRecord::Schema.define(version: 20150411133117) do
     t.datetime "image_updated_at"
     t.string   "factor_type"
     t.boolean  "status",                    default: false
-    t.string   "paid_to"
-    t.string   "paid_by"
     t.integer  "takhfif_precent"
     t.string   "takhfif_title"
     t.integer  "takhfif_amount"

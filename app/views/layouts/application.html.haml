@@ -21,6 +21,7 @@
     %meta{:content => "width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no", :name => "viewport"}/
     = favicon_link_tag 'favicon.png', :rel => 'shortcut icon'
   %body{style: "margin:0px"}
+    
     .container-full{:id => I18n.locale}
       .row.mainmenu     
         = render "shared/nav_bar"
