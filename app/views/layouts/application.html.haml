@@ -24,7 +24,7 @@
     
     .container-full{:id => I18n.locale}
       .row.mainmenu     
-        = render "shared/nav_bar"
+        
         - if is_admin?
           .admin-menu            
             = render "shared/admin_menu"
