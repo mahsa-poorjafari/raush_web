@@ -107,7 +107,7 @@ height:auto; background:#12828B; overflow:hidden;
 }
 .main-div {  
   position: relative;
-  min-height: 570px;
+  min-height: 503px;
   width: 100%;
   top: 100px; 
   background:#01666e;  
@@ -155,3 +155,4 @@ height:100%;
 #team-bk {display:none}
 .margin5 {margin:5px}
 
+.order-online .form-group label{color:#fff}

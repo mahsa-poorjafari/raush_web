@@ -1,20 +1,30 @@
 .icons
   - @width_percent =  100 / 5
-  #idbmsicon.col-md-2.servic-menu.bgbms{"div-name" => "idbms", :style => "width:"+@width_percent.to_s+ "%"}
-    .icon-for-nav#bmsicon    
-    %p{:id => I18n.locale}= t('bms-item')    
-  #idneticon.col-md-2.servic-menu.bgnet{"div-name" => "idnet", :style => "width:"+@width_percent.to_s+ "%"}
-    .icon-for-nav#Networkicon 
-    %p{:id => I18n.locale}= t('network-item')
-  #idwebicon.col-md-2.servic-menu.bgweb{"div-name" => "idweb", :style => "width:"+@width_percent.to_s+ "%"}    
-    .icon-for-nav#webicon 
-    %p{:id => I18n.locale}= t('web-item')
-  #idgraphicicon.col-md-2.servic-menu.bggraphic{"div-name" => "idgraphic", :style => "width:"+@width_percent.to_s+ "%"}
-    .icon-for-nav#Graphicon 
-    %p{:id => I18n.locale}= t('graphic-item')
-  #idcameraicon.col-md-2.servic-menu.bgcamera{"div-name" => "idcamera", :style => "width:"+@width_percent.to_s+ "%"}
-    .icon-for-nav#cameraicon 
-    %p{:id => I18n.locale}= t('camera-item')
+  - @bms = Service.find(1)
+  - @web = Service.find(2)
+  - @graphic = Service.find(3)
+  - @camera = Service.find(4)
+  - @network = Service.find(5)
+  = link_to service_path(@bms) do
+    #idbmsicon.col-md-2.servic-menu.bgbms{"div-name" => "idbms", :style => "width:"+@width_percent.to_s+ "%"}
+      .icon-for-nav#bmsicon    
+      %p{:id => I18n.locale}= t('bms-item')    
+  = link_to service_path(@network) do
+    #idneticon.col-md-2.servic-menu.bgnet{"div-name" => "idnet", :style => "width:"+@width_percent.to_s+ "%"}
+      .icon-for-nav#Networkicon 
+      %p{:id => I18n.locale}= t('network-item')
+  = link_to service_path(@web) do
+    #idwebicon.col-md-2.servic-menu.bgweb{"div-name" => "idweb", :style => "width:"+@width_percent.to_s+ "%"}    
+      .icon-for-nav#webicon 
+      %p{:id => I18n.locale}= t('web-item')
+  = link_to service_path(@graphic) do
+    #idgraphicicon.col-md-2.servic-menu.bggraphic{"div-name" => "idgraphic", :style => "width:"+@width_percent.to_s+ "%"}
+      .icon-for-nav#Graphicon 
+      %p{:id => I18n.locale}= t('graphic-item')
+  = link_to service_path(@camera) do  
+    #idcameraicon.col-md-2.servic-menu.bgcamera{"div-name" => "idcamera", :style => "width:"+@width_percent.to_s+ "%"}
+      .icon-for-nav#cameraicon 
+      %p{:id => I18n.locale}= t('camera-item')
   .clear-float
 - if current_page?('/') 
   .logo

@@ -19,6 +19,8 @@
       = f.text_field :description_fa, :class => "form-control"
     .form-group
       = f.label 'تصویر نمونه:', :class => "control-label"
+      - if @service.image.present?
+        = image_tag @service.image(:small)
       = f.file_field :image
     .form-group
       = f.submit 'ثبت', :class => "btn btn-default"

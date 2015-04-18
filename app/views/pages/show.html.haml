@@ -1,5 +1,6 @@
 #show-about.diplaynone.servic-descriptipn1
-  #axis.one.about-us.col-xs-6.pull-right{:class => I18n.locale}
+  #axis.one.about-us.col-xs-5.pull-right{:class => I18n.locale}
+    %h2{:class => I18n.locale, :style => "color:#fff"}= t('raushtitle')
     %div{:style => "margin:30px; padding-top:20px"}  
       - if I18n.locale == :fa
         .show-text-aboutus{:class => I18n.locale}
