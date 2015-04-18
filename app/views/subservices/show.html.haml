@@ -1,15 +1,15 @@
-.fa.width80  
-  %p#notice= notice
+#b-details      
+  #hotel.diplaynone.servic-descriptipn1
+    #axis.sample-pic.col-xs-5
+      = image_tag @subservice.image(:large), :class => "sub-service-img", :title => @subservice.title_fa, :alt => @subservice.title_fa
+      
+    .box-text.col-xs-7{:class => I18n.locale}
+      %h2= @subservice.title
+      .details-text{:class => I18n.locale}
+        %div=raw @subservice.text   
+    .clear-float
 
-  %p
-    %b Text:
-    =raw @subservice.text
-  
-  %p
-    %b Title:
-    = @subservice.title
-  
-
-  = link_to 'Edit', edit_subservice_path(@subservice)
-  \|
-  = link_to 'Back', subservices_path
+  - if is_admin?
+    = link_to 'Edit', edit_subservice_path(@subservice)
+    \|
+    = link_to 'Back', subservices_path

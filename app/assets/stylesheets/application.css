@@ -177,3 +177,7 @@ p.calculate_the_price b.s p{font-size:20px; text-align:center}
 .burchure-link.link .button {width:45%;}
 .burchure-link.link .button .icon{width:20%;}
 .burchure-link.link .button .item { background:#06ccb3; height:40px}
+.box-text {padding:1%}
+.box-text h2 {color:#fff}
+.box-text .details-text p{color:#fff}
+.box-text .details-text.fa p, .box-text .details-text.fa p span{direction:rtl; font-family: BYekan; text-align:justify}

@@ -26,12 +26,13 @@
          
             
           - elsif @service.subservices.present?
-            - @service.subservices.each_with_index do |subservice, i|              
-              .button.bacher.vanr.object.btnw30{waittime: "300", :id =>  'subservice_btn_'+ subservice.id.to_s}
-                .item{:class => I18n.locale}= subservice.title
-                .icon
-                  = image_tag subservice.icon(:small), height: "40", width: "40", :alt => subservice.title_fa, :title => subservice.title_fa
-                .clear-float
+            - @service.subservices.each do |subservice|              
+              = link_to subservice do
+                .button.bacher.vanr.object.btnw30{waittime: "300", :id =>  'subservice_btn_'+ subservice.id.to_s}
+                  .item{:class => I18n.locale}= subservice.title
+                  .icon
+                    = image_tag subservice.icon(:small), height: "40", width: "40", :alt => subservice.title_fa, :title => subservice.title_fa
+                  .clear-float
   - if is_admin?
     = link_to 'Edit', edit_service_path(@service)
     \|

@@ -22,7 +22,7 @@
       = f.text_field :title_fa, :class => "form-control"
     .form-group
       = f.label 'سرویس مربوطه ', :class => "control-label"
-      = f.select(:service_id, Service.find(:all).collect {|u| [u.title, u.id]}, :prompt => 'Select Service')      
+      = f.select(:service_id, Service.all.collect {|u| [u.title, u.id]}, :prompt => 'Select Service')      
     .form-group
       = f.label 'تصویر نمونه', :class => "control-label"
       = f.file_field :image

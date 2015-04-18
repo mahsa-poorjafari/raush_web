@@ -1,5 +1,7 @@
 # encoding: UTF-8
 class Subservice < ActiveRecord::Base
+  extend FriendlyId  
+  friendly_id :title_fa
   belongs_to :service
   has_many :camera_models
   
