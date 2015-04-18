@@ -8,4 +8,5 @@
 Rake::Task['db:create_default_users'].invoke
 Rake::Task['db:create_default_services'].invoke
 Rake::Task['db:create_default_subservices'].invoke
+Rake::Task['db:create_default_pages'].invoke
 

@@ -11,14 +11,14 @@ namespace :db do
   
   desc "creates default services"
   task :create_default_services => :environment do
-    Service.create(title_fa: "هوشمندسازی", title_en: "bms") if Service.where(title_en:"bms").blank?
-    Service.create(title_fa: "طراحی وب", title_en: "web") if Service.where(title_en:"web").blank?
-    Service.create(title_fa: "طراحی گرافیک", title_en: "graphic") if Service.where(title_en:"graphic").blank?
-    Service.create(title_fa: "نصب دوربین", title_en: "camera") if Service.where(title_en:"camera").blank?
-    Service.create(title_fa: "راه اندازی شبکه", title_en: "network") if Service.where(title_en:"network").blank?
+    
     p "#{Service.count} services created"
   end
-  
+  desc "creates default pages"
+  task :create_default_pages => :environment do
+    Page.create(title_fa:"درباره ما", title_en:"About us") if Page.where(title_en:"About us").blank?
+    p "#{Page.count} Pages created"
+  end
   desc "creates default subservices"
   task :create_default_subservices => :environment do
     @bms = Service.find_by(title_en: "bms")

@@ -1,6 +1,6 @@
 # encoding: UTF-8
 class StaticController < ApplicationController
-  def home    
+  def home 
     @aboutus = Page.find_by_title_en('About us')
   end
   

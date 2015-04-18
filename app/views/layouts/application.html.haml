@@ -4,7 +4,7 @@
     %meta{charset: "utf-8"}/
     %title 
       = t('raushtitle')
-      
+      = '|' + Service.all.collect(&:title).join("|") #{@head.fetch(:title, '') if @head}
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true 
     = stylesheet_link_tag    "print", media: "print"      
     = stylesheet_link_tag    "animate", media: "all"      
@@ -20,11 +20,10 @@
     %meta{:content => "true", :name => "HandheldFriendly"}/
     %meta{:content => "width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no", :name => "viewport"}/
     = favicon_link_tag 'favicon.png', :rel => 'shortcut icon'
-  %body{style: "margin:0px"}
-    
+  %body{style: "margin:0px"}    
     .container-full{:id => I18n.locale}
       .row.mainmenu     
-        
+        = render "shared/nav_bar"
         - if is_admin?
           .admin-menu            
             = render "shared/admin_menu"

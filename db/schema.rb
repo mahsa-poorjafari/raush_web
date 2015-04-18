@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150411133118) do
+ActiveRecord::Schema.define(version: 20150411133119) do
 
   create_table "account_documents", force: true do |t|
     t.date     "payment_date"
@@ -76,12 +76,12 @@ ActiveRecord::Schema.define(version: 20150411133118) do
 
   create_table "factor_details", force: true do |t|
     t.string   "object_name"
+    t.string   "number_of"
     t.integer  "objecct_price"
     t.integer  "object_amount"
     t.integer  "account_document_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "number_of"
   end
 
   create_table "order_onlines", force: true do |t|
@@ -195,10 +195,10 @@ ActiveRecord::Schema.define(version: 20150411133118) do
   end
 
   create_table "tariff_orders", force: true do |t|
+    t.integer  "order_online_id"
     t.integer  "modual_number"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "order_online_id"
     t.integer  "tariff_price_id"
   end
 
