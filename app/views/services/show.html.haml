@@ -1,18 +1,37 @@
-%p#notice= notice
-= t('hello')
-%p
-  %b Title en:
-  = @service.title_en
-%p
-  %b Title fa:
-  = @service.title_fa
-%p
-  %b Description en:
-  = @service.description_en
-%p
-  %b Description fa:
-  = @service.description_fa
-= image_tag @service.image(:medium)
-= link_to 'Edit', edit_service_path(@service)
-\|
-= link_to 'Back', services_path
+.servic-descriptipn.bgbms
+  %div
+    #b-info
+      .col-xs-6.sample_image_responsive
+        #axis.one
+          - if @service.image.present?
+            = image_tag  @service.image(:large), waittime: "500", :height => "300", :width => "500" , :id => 'service_'+@service.id.to_s, :class => 'object bache van', :alt => @service.title, :title => @service.title
+      .col-xs-6.sample_text_responsive
+        #bmstext.text.bacher.vanr.object{waittime: "200"}
+          - if @service.present?
+            %h2.title{:class => I18n.locale}= @service.description
+        .link 
+          - if @service.id == 2 
+            .button.bacher.vanr.object.btnw30{waittime: "300"}
+              .item{:class => I18n.locale}= t('Portfolio')
+              .icon
+                = image_tag "ICON/نمونه کاری.png",height: "40" , width: "40", :alt => "نمونه کار وب سایت", :title => "نمونه کار وب سایت"
+              .clear-float
+            .button.bacher.vanr.object.btnw30{waittime: "350"}
+              .item{:class => I18n.locale}
+                = link_to  t('Tariff-Price'), tariff_prices_path
+              .icon
+                = image_tag "ICON/تعرفه قیمت.png", height: "40", width: "40", :alt => "تعرفه طراحی سایت", :title => "تعرفه طراحی سایت"
+              .clear-float
+         
+            
+          - elsif @service.subservices.present?
+            - @service.subservices.each_with_index do |subservice, i|              
+              .button.bacher.vanr.object.btnw30{waittime: "300", :id =>  'subservice_btn_'+ subservice.id.to_s}
+                .item{:class => I18n.locale}= subservice.title
+                .icon
+                  = image_tag subservice.icon(:small), height: "40", width: "40", :alt => subservice.title_fa, :title => subservice.title_fa
+                .clear-float
+  - if is_admin?
+    = link_to 'Edit', edit_service_path(@service)
+    \|
+    = link_to 'Back', services_path
