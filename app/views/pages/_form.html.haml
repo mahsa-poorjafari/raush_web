@@ -21,6 +21,9 @@
       .editor
         = f.label 'متن به انگلیسی', :class => "control-label"
         = f.text_area :text_en, :class => "form-control ckeditor"
+    .form-group.col-xs-6.pull-right.margin5
+      = f.label 'فایل بروشورها', :class => "control-label"
+      = f.file_field :pdf, :class => "form-control"
     .form-group
       = f.submit 'ثبت', :class => "btn btn-default"
 .clear-float

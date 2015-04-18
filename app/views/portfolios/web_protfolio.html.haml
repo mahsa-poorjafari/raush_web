@@ -1,0 +1,16 @@
+.prtofilo.servic-descriptipn1
+  #axis.show-demo.set-center
+    .sample-pic1.nano{:style => "height:100%"}
+      .sample-pic2.set-center.nano-content
+        - @web = Service.find(2)
+        - if @web.present?
+          - @web.portfolios.each do |portfolio|
+            .show-3box
+              %h4{:class => I18n.locale, :style => "text-align:center"}
+                =link_to portfolio.title,  url_with_protocol(portfolio.website), :target => "blank", :title => "طراحی وب سایت_" + portfolio.title
+              - if portfolio.in_production 
+                .in-production
+                  %h3{:style => "color:#fff"}= t('in-production')
+              - else
+                .portfolio_img= link_to (image_tag portfolio.image(:original), :alt => portfolio.image_file_name, :title => portfolio.image_file_name, :width => "100%"), url_with_protocol(portfolio.website), :target => "blank", :title => "طراحی وب سایت_" + portfolio.title
+                

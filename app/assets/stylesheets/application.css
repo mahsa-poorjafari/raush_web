@@ -115,7 +115,7 @@ height:auto; background:#12828B; overflow:hidden;
   margin-bottom:4%;
 }
 #home {padding:5%;}
-#home .button {width:55%}
+#home .button {width:60%}
 .link .button { margin-left:40%; background:#06ccb3 ; margin-bottom:7px;
   position:relative; font-family: 'gothic'; width:30%;
    -webkit-transition: 0.2s;
@@ -147,7 +147,7 @@ height:100%;
         -ms-filter: "FlipH";}
 .link_to_pages {margin-top:5%}
 
-.show-text-aboutus p {text-align:justify; font-size:1.2em; line-height:25px;
+.show-text-aboutus p {text-align:justify; font-size:1em; line-height:25px;
   color:#fff;
   }
 .find-us-google-map {text-align:center; color:#fff}
@@ -160,3 +160,20 @@ height:100%;
 margin-right: 5%;}
 h2.title {color:#fff; text-align:center}
 .sample_text_responsive .link {padding-top:10%}
+.show-3box {height:330px; text-align:center; margin-top:2%; margin-bottom:5%; overflow:hidden}
+.tariff-price-box {margin-bottom:2%;
+  width: 90%;
+margin-right: 5%;
+margin-left: 5%;
+}
+p.calculate_the_price { position:fixed; width:20%; 
+height:10%;top:15%; right:30%; left:40%; 
+background:#01666e#075056;
+box-shadow: 1px 1px 1px #1A1A1A;
+ }
+p.calculate_the_price b.s p{font-size:20px; text-align:center}
+
+.burchure-link {margin-bottom:4%; height:50px}
+.burchure-link.link .button {width:45%;}
+.burchure-link.link .button .icon{width:20%;}
+.burchure-link.link .button .item { background:#06ccb3; height:40px}

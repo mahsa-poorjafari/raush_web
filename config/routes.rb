@@ -39,7 +39,11 @@ scope "(:locale)", :locale => /en|fa/ do
 
   resources :pictures
 
-  resources :portfolios
+  resources :portfolios do
+    collection do
+      get :web_protfolio
+    end
+  end
   resources :services
 
   resources :design_samples

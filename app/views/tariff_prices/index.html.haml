@@ -1,5 +1,5 @@
 .width80.set-center{:class => I18n.locale}
-  %h3.btnw40= t('tariff_prices')
+  %h3.btnw40{:style => "color:#fff"}= t('tariff_prices')
   - if is_admin?
     .fa.btnw30.pull-right
       = link_to 'تعریف تعرفه جدید', new_tariff_price_path, :class => "btn btn-default"
@@ -8,48 +8,43 @@
     %b.s{:class => I18n.locale, :style => "font-size:20px"}
     
   .clear-float  
-  .nano  
-    .nano-content{:style=> "height:300px"}
-      %table.table{:class => I18n.locale, :id => "tariff_prices_table"}
-        %thead
-          %tr{:class => I18n.locale}             
-            %th= t('row')
-            %th= t('module')
-            %th= t('unit_price')        
-            %th= t('cost')        
-            %th= t('choose')        
+    
+  .tariff-price-box
+    %table.table{:class => I18n.locale, :id => "tariff_prices_table"}
+      %thead
+        %tr{:class => I18n.locale}             
+          %th= t('row')
+          %th= t('module')
+          %th= t('unit_price')        
+          %th= t('cost')        
+          %th= t('choose')        
+          - if is_admin?
+            %th عملیات
+    
+      %tbody
+        - @tariff_prices.each_with_index do |tariff_price, i|      
+          %tr{:class => I18n.locale}
+            %td{:class => I18n.locale}= (i+1)  
+            %td{:class => I18n.locale}=tariff_price.modual
+            %td{:id => 'div_price_' + tariff_price.id.to_s, :class => I18n.locale }=  tariff_price.price_unit
+            %td{:id => 'div_cost_' + tariff_price.id.to_s , :class => "div_cost"}          
+            %td
+              - if tariff_price.set_number
+                              
+                = check_box('tariff_price', tariff_price.id,{:modual_id => tariff_price.id,:id => "number_check_box_"+tariff_price.id.to_s, :class => "check_box_checked"}, tariff_price.id)
+                = text_field_tag :modual_number ,params[:modual_number] , :style => "width:30px", :class => "sel_check_box", :modual_id => tariff_price.id, :id => "number_field_"+tariff_price.id.to_s, :value => 1
+                %span#errmsg
+                
+              - else
+                = check_box('tariff_price', tariff_price.id,{:modual_id => tariff_price.id, :class => "check_box_checked"}, tariff_price.id)
+                = hidden_field_tag :modual_number ,params[:modual_number], :value => 1 , :style => "width:30px", :class => "sel_check_box", :modual_id => tariff_price.id, :id => "number_field_"+tariff_price.id.to_s
             - if is_admin?
-              %th عملیات
-      
-        %tbody
-          - @tariff_prices.each_with_index do |tariff_price, i|      
-            %tr{:class => I18n.locale}
-              %td{:class => I18n.locale}= (i+1)  
-              %td{:class => I18n.locale}=tariff_price.modual
-              %td{:id => 'div_price_' + tariff_price.id.to_s, :class => I18n.locale }=  tariff_price.price_unit
-              %td{:id => 'div_cost_' + tariff_price.id.to_s , :class => "div_cost"}          
-              %td
-                - if tariff_price.set_number
-                                
-                  = check_box('tariff_price', tariff_price.id,{:modual_id => tariff_price.id,:id => "number_check_box_"+tariff_price.id.to_s, :class => "check_box_checked"}, tariff_price.id)
-                  = text_field_tag :modual_number ,params[:modual_number] , :style => "width:30px", :class => "sel_check_box", :modual_id => tariff_price.id, :id => "number_field_"+tariff_price.id.to_s, :value => 1
-                  %span#errmsg
-                  
-                - else
-                  = check_box('tariff_price', tariff_price.id,{:modual_id => tariff_price.id, :class => "check_box_checked"}, tariff_price.id)
-                  = hidden_field_tag :modual_number ,params[:modual_number], :value => 1 , :style => "width:30px", :class => "sel_check_box", :modual_id => tariff_price.id, :id => "number_field_"+tariff_price.id.to_s
-              - if is_admin?
-                %td            
-                  = link_to 'ویرایش', edit_tariff_price_path(tariff_price)
-                  \|
-                  = link_to 'حذف', tariff_price, :method => :delete, :data => { :confirm => 'Are you sure?' }
-      = link_to t('set_order'), '#', :class => "btn btn-default","data-toggle" => "modal", "data-target" => ".bs-example-modal-lg", :id => "set_order"
-  = link_to root_path, :class=> "link tariff_price" do
-    #btn-bk-about.button.set-center.btnw10.back
-      .item{:class => I18n.locale}= t('back_home')
-      .icon
-        = image_tag "back.png", height: "40" , width: "40", :alt => "بازگشت", :title => "گروه مهندسی راش"
-      .clear-float
+              %td            
+                = link_to 'ویرایش', edit_tariff_price_path(tariff_price)
+                \|
+                = link_to 'حذف', tariff_price, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    = link_to t('set_order'), '#', :class => "btn btn-default","data-toggle" => "modal", "data-target" => ".bs-example-modal-lg", :id => "set_order"
+  
   .modal.fade.bs-example-modal-lg{"aria-hidden" => "true", "aria-labelledby" => "myLargeModalLabel", role: "dialog", tabindex: "-1"}
     .modal-dialog.modal-lg
       .modal-content

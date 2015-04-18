@@ -8,8 +8,20 @@
       - else
         %p{:style => "direction:ltr; text-align:justify", :class => I18n.locale}
           = render 'shared/about_en'
+    .col-xs-12.clear-float
+      -if @page.pdf.present?
+        =link_to @page.pdf.url, :target => "blank" do          
+          .link.burchure-link
+            .button.bacher.vanr.object.btnw30{waittime: "300"}
+              .item{:class => I18n.locale}= t('get-brouchure')
+              .icon
+                = image_tag "ICON/pdf-icon.png", height: "40", width: "40", :alt => "دانلود بروشور راش", :title => "بروشور راش"
   .col-xs-6.google-map-box.pull-left
     %h2.find-us-google-map{:class => I18n.locale}= t('find-us')
     %iframe{:height => "350px", :src => "https://www.google.com/maps/d/embed?mid=zbDi3iZxywyM.kok52aJMJoYc&z=13", :width => "640"}
     
   
+  - if is_admin?
+    = link_to 'Edit', edit_page_path(@page)
+    \|
+    = link_to 'Back', pages_path

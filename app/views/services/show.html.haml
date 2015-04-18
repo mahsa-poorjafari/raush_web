@@ -11,11 +11,12 @@
             %h2.title{:class => I18n.locale}= @service.description
         .link 
           - if @service.id == 2 
-            .button.bacher.vanr.object.btnw30{waittime: "300"}
-              .item{:class => I18n.locale}= t('Portfolio')
-              .icon
-                = image_tag "ICON/نمونه کاری.png",height: "40" , width: "40", :alt => "نمونه کار وب سایت", :title => "نمونه کار وب سایت"
-              .clear-float
+            = link_to web_protfolio_portfolios_path do
+              .button.bacher.vanr.object.btnw30{waittime: "300"}
+                .item{:class => I18n.locale}= t('Portfolio')
+                .icon
+                  = image_tag "ICON/نمونه کاری.png",height: "40" , width: "40", :alt => "نمونه کار وب سایت", :title => "نمونه کار وب سایت"
+                .clear-float
             .button.bacher.vanr.object.btnw30{waittime: "350"}
               .item{:class => I18n.locale}
                 = link_to  t('Tariff-Price'), tariff_prices_path

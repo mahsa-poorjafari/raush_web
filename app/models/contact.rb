@@ -1,3 +1,5 @@
+
+# encoding: UTF-8
 class Contact < ActiveRecord::Base
   def self.search(search)
     search_condition = "%" + search + "%"  
