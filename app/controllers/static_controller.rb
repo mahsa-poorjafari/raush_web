@@ -13,4 +13,5 @@ class StaticController < ApplicationController
   end
   def google46bde3a8d7d48d7d
   end
+ 
 end

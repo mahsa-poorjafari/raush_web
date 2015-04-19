@@ -1,31 +1,36 @@
 !!!
 %html
   %head
-    %meta{charset: "utf-8"}/
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}
+    %meta{:charset => "utf-8"}    
     %title 
       = t('raushtitle')
-      = '|' + Service.all.collect(&:title).join("|") #{@head.fetch(:title, '') if @head}
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true 
     = stylesheet_link_tag    "print", media: "print"      
     = stylesheet_link_tag    "animate", media: "all"      
     = javascript_include_tag "application", "data-turbolinks-track" => true    
-    
-    = csrf_meta_tags
-    %meta{:charset => "utf-8"}    
-    %meta{:content => "گروه مهندسین راش| Raush co |  طراحی و تولید وب سایت | خانه هوشمند |نصب و راه اندازی دوربین مداربسته| نصب و راه اندازی سیستمهای شبکه | طراحی گرافیکی|", :name => "Description"}/
-    %meta{:content => "طراحی وب سایت ، وب سایت، طراحی و تولید وب سایت، طراحی صفحات وب، گروه مهندسین راش | Raush Co | دوربین مدار بسته | شبکه های کامپیوتری | خانه هوشمند | smart home | bms بی ام اس", :name => "Keywords"}/
+    %meta{:name => "description", :content => "گروه مهندسین راش فعالیتهای کلی مجموعه شامل هوشمند سازی ساختمان، نصب و راه اندازی دوربین و در زمینه کامپیوتر شاخه های راه اندازی و پشتیبانی شبکه های کامپیوتری، طراحی و تولید وب سایت، طراحی و تولید نرم افزار و پیشتیبانی سیستم های کامپیوتری می باشد که می توانید توضیحات جزئی مربوط به هر شاخه از فعالیت را در قسمت خدمات سایت مشاهده کنید. "}
+    %meta{:name => "keywords", :content =>  Service.all.collect(&:title_fa).join(" ") + " " + Subservice.all.collect(&:title_fa).join(" ") }
     %meta{content: "no", "http-equiv" => "imagetoolbar"}
     %meta{:content => "Raush Co", :name => "author"}/
     %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
     %meta{:content => "true", :name => "HandheldFriendly"}/
     %meta{:content => "width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no", :name => "viewport"}/
+    %meta{:name => "robots", :content => "Index,follow"}
+    %meta{:name => "googlebot", :content => "Index"}
+    %meta{:name => "slurp", :content => "Index,follow"}
+    %meta{:name => "msnbot", :content => "Index,follow"}
+    %meta{:name => "teoma", :content => "Index,follow"}
+    = csrf_meta_tags       
+    
+    
     = favicon_link_tag 'favicon.png', :rel => 'shortcut icon'
   %body{style: "margin:0px"}    
     .container-full{:id => I18n.locale}
       .row.mainmenu     
         = render "shared/nav_bar"
         - if is_admin?
-          .admin-menu            
+          .admin-menu
             = render "shared/admin_menu"
       .row.main-div
         = yield     

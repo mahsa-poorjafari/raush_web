@@ -60,6 +60,7 @@ end
   #get "raush" => "static#home"
   root :to => 'static#home'
   get 'google46bde3a8d7d48d7d'  => 'static#google46bde3a8d7d48d7d'
+  get 'site-seo-analysis.com'  => 'static#site-seo-analysis.com'
   get 'accounting'  => 'static#accounting'
   get "login" => "users#login"  
   get 'search_phone' => 'contacts#search'
