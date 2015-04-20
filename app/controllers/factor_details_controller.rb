@@ -1,6 +1,6 @@
 class FactorDetailsController < ApplicationController
   before_action :set_factor_detail, only: [:show, :edit, :update, :destroy]
-
+  before_filter :check_autentication
   # GET /factor_details
   # GET /factor_details.json
   def index

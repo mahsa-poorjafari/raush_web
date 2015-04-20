@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class CameraModelsController < ApplicationController
   before_action :set_camera_model, only: [:show, :edit, :update, :destroy]
-  before_filter :check_autentication
+  
   # GET /camera_models
   # GET /camera_models.json
   def index

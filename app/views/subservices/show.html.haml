@@ -7,6 +7,10 @@
       %h2= @subservice.title
       .details-text{:class => I18n.locale}
         %div=raw @subservice.text   
+        %ul.tag-keywords{:class => I18n.locale}
+          %li.tag-cloud= link_to t('raushtitle'), root_path
+          - Service.all.each do |service|
+            %li.tag-cloud= link_to service.title, service
     .clear-float
 
   - if is_admin?

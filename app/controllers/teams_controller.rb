@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
-  before_filter :check_autentication, only: [:show, :edit, :update, :destroy, :index]
+  
   # GET /teams
   # GET /teams.json
   def index

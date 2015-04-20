@@ -2,6 +2,7 @@
 class AccountDocumentsController < ApplicationController
   before_action :set_account_document, only: [:show, :edit, :update, :destroy, :confirm]
   autocomplete :contact, :company_name, :display_value => :funky_method
+  before_filter :check_autentication
   # GET /account_documents
   # GET /account_documents.json
   def index

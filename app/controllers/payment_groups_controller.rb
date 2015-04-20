@@ -1,6 +1,6 @@
 class PaymentGroupsController < ApplicationController
   before_action :set_payment_group, only: [:show, :edit, :update, :destroy]
-
+  before_filter :check_autentication
   # GET /payment_groups
   # GET /payment_groups.json
   def index

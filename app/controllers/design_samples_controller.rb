@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class DesignSamplesController < ApplicationController
   before_action :set_design_sample, only: [:show, :edit, :update, :destroy]
-  before_filter :check_autentication
+  
   # GET /design_samples
   # GET /design_samples.json
   def index
