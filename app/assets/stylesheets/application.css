@@ -182,5 +182,5 @@ p.calculate_the_price b.s p{font-size:20px; text-align:center}
 .box-text .details-text p{color:#fff}
 .box-text .details-text.fa p, .box-text .details-text.fa p span{direction:rtl; font-family: BYekan; text-align:justify}
 .tag-keywords {margin-top:5%;}
-.details-text ul {list-style:cirle}
-.details-text.fa ul li{list-style:circle; direction:rtl; font-family: BYekan; text-align:right}
+.details-text ul {list-style:cirle; color:#fff;}
+.details-text.fa ul li{color:#fff; direction:rtl; font-family: BYekan; text-align:right}
