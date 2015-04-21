@@ -4,7 +4,7 @@
       .sample-pic2.set-center.nano-content
         - @web = Service.find(2)
         - if @web.present?
-          - @web.portfolios.each do |portfolio|
+          - @web.portfolios.order(" created_at desc").each do |portfolio|
             .show-3box
               %h4{:class => I18n.locale, :style => "text-align:center"}
                 =link_to portfolio.title,  url_with_protocol(portfolio.website), :target => "blank", :title => "طراحی وب سایت_" + portfolio.title

@@ -161,12 +161,24 @@ height:100%;
 margin-right: 5%;}
 h2.title {color:#fff; text-align:center}
 .sample_text_responsive .link {padding-top:10%}
-.show-3box {height:330px; text-align:center; margin-top:2%; margin-bottom:5%; overflow:hidden}
+.show-3box {height:330px; text-align:center; margin-top:2%; margin-bottom:5%; overflow:hidden;
+-webkit-transition: 0.2s;
+    -moz-transition:    0.2s;
+    -ms-transition:     0.2s;
+    -o-transition:      0.2s;
+    transition:         0.2s;
+}
 .tariff-price-box {margin-bottom:2%;
   width: 90%;
 margin-right: 5%;
 margin-left: 5%;
 }
+.show-3box:hover .portfolio_img  img {-webkit-transition: 0.2s;
+    -moz-transition:    0.2s;
+    -ms-transition:     0.2s;
+    -o-transition:      0.2s;
+    transition:         0.2s;}
+.show-3box:hover .portfolio_img  img {width:110%}
 p.calculate_the_price { position:fixed; width:20%; 
 height:10%;top:15%; right:30%; left:40%; 
 background:#01666e#075056;
