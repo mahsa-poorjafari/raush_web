@@ -124,8 +124,8 @@ height:auto; background:#12828B; overflow:hidden;
     -ms-transition:     0.2s;
     -o-transition:      0.2s;
     transition:         0.2s;}
-.link .button .item {float:right ; width:65%; padding:10px; color:#fff; font-size:1.2em }
-.link .button .icon { float:right ; width:35% ; background:#3edac6; text-align:center}
+.link .button .item {float:right ; width:70%; padding:10px; color:#fff; font-size:1.2em }
+.link .button .icon { float:right ; width:30% ; background:#3edac6; text-align:center}
 .link .button:hover {cursor:pointer; background:#4D4D4D;}
 .footer{width:100%;height:100px;position:relative;z-index: 100}
 .footer .phone{height:100%;color:#FFF; background:#00AD69;width:40%;float:right; padding:1%;}
