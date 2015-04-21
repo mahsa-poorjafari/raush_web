@@ -26,7 +26,7 @@ right:0; top:0; bottom:0;margin:0px; position:relative}
 .clear-float{ clear:both}
 .set-center { margin-right:auto; margin-left:auto}
 .field-holder {width:50%;}
-
+.diplaynone {display:none}
 .fa, .fa p, .fa .control-label {direction:rtl; font-family: BYekan; text-align:right}
 .en, .en p {direction:ltr; font-family: 'eras_light_itc'; text-align:left; font-weight:bold}
 
@@ -184,3 +184,7 @@ p.calculate_the_price b.s p{font-size:20px; text-align:center}
 .tag-keywords {margin-top:5%;}
 .details-text ul {list-style:cirle; color:#fff;}
 .details-text.fa ul li{color:#fff; direction:rtl; font-family: BYekan; text-align:right}
+.service-sample-image {left:-50%}
+.service-sample-image-show {left:0}
+.service-sample-text-show {right:0}
+service-sample-text {right:-50%}

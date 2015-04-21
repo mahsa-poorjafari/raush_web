@@ -1,11 +1,11 @@
-.servic-descriptipn.bgbms
+.servic-descriptipn.show-effectively{:id => 'service_id_' + @service.id.to_s}
   %div
     #b-info
-      .col-xs-6.sample_image_responsive
+      .col-xs-6.sample_image_responsive.service-sample-image.diplaynone#service-image
         #axis.one
           - if @service.image.present?
             = image_tag  @service.image(:large), waittime: "500", :height => "300", :width => "500" , :id => 'service_'+@service.id.to_s, :class => 'object bache van', :alt => @service.title, :title => @service.title
-      .col-xs-6.sample_text_responsive
+      .col-xs-6.sample_text_responsive.diplaynone#service-text.service-sample-text
         #bmstext.text.bacher.vanr.object{waittime: "200"}
           - if @service.present?
             %h2.title{:class => I18n.locale}= @service.description
