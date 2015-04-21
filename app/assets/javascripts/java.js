@@ -7,4 +7,7 @@ $(document).ready(function(){
   $('#service-text').fadeIn(1000);
   $('#service-text').removeClass('service-sample-text');
   $('#service-text').addClass('service-sample-text-show');
+  $('#subservice-image').fadeIn(1000);
+  $('#subservice-image').removeClass('subservice-text');
+  $('#subservice-image').addClass('subservice-text-show');
 });
