@@ -5,7 +5,7 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.order('set_order desc')
+    @teams = Team.order('set_order asc')
   end
 
   # GET /teams/1
@@ -13,7 +13,7 @@ class TeamsController < ApplicationController
   def show
   end
   def team_work
-    @teams = Team.order('set_order desc')
+    @teams = Team.order('set_order asc')
   end
 
   # GET /teams/new
