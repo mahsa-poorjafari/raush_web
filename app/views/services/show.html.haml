@@ -37,3 +37,23 @@
     = link_to 'Edit', edit_service_path(@service)
     \|
     = link_to 'Back', services_path
+- if @service.id == 1
+  :javascript    
+    $('.main-div').addClass('bmsbgcolor');
+- elsif @service.id == 5
+  :javascript
+    $('.main-div').addClass('netbgcolor');
+    
+    
+- elsif @service.id == 2
+  :javascript
+    $('.main-div').addClass('webbgcolor');
+    
+- elsif @service.id == 3
+  :javascript
+    $('.main-div').addClass('graphicbgcolor');
+    
+- elsif @service.id == 4
+  :javascript
+    $('.main-div').addClass('camerabgcolor');
+    

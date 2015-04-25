@@ -22,8 +22,7 @@
     %meta{:name => "slurp", :content => "Index,follow"}
     %meta{:name => "msnbot", :content => "Index,follow"}
     %meta{:name => "teoma", :content => "Index,follow"}
-    = csrf_meta_tags       
-    
+    = csrf_meta_tags
     
     = favicon_link_tag 'favicon.png', :rel => 'shortcut icon'
   %body{style: "margin:0px"}    
@@ -32,7 +31,7 @@
         = render "shared/nav_bar"
         - if is_admin?
           .admin-menu
-            = render "shared/admin_menu"
+            = render "shared/admin_menu"      
       .row.main-div
         = yield     
         
@@ -50,8 +49,7 @@
     ga('send', 'pageview');
     $(document).ready(function(){
       $(".nano").nanoScroller();
-    });
-    
+    });    
   
   = javascript_include_tag "jquery.nanoscroller" 
   

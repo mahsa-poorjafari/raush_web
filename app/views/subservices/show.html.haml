@@ -17,3 +17,24 @@
     = link_to 'Edit', edit_subservice_path(@subservice)
     \|
     = link_to 'Back', subservices_path
+
+- if @subservice.service.id == 1
+  :javascript    
+    $('.main-div').addClass('bmsbgcolor');
+- elsif @subservice.service.id == 5
+  :javascript
+    $('.main-div').addClass('netbgcolor');
+    
+    
+- elsif @subservice.service.id == 2
+  :javascript
+    $('.main-div').addClass('webbgcolor');
+    
+- elsif @subservice.service.id == 3
+  :javascript
+    $('.main-div').addClass('graphicbgcolor');
+    
+- elsif @subservice.service.id == 4
+  :javascript
+    $('.main-div').addClass('camerabgcolor');
+    

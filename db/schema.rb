@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150418110543) do
+ActiveRecord::Schema.define(version: 20150425094948) do
 
   create_table "account_documents", force: true do |t|
     t.date     "payment_date"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20150418110543) do
     t.integer  "installation_cost_precent"
     t.integer  "installation_cost"
     t.string   "tavajoh"
+    t.string   "paid_by"
+    t.string   "paid_to"
   end
 
   create_table "camera_models", force: true do |t|
