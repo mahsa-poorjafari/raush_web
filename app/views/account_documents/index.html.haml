@@ -54,10 +54,10 @@
               - if account_document.status
                 %b= 'تایید شده'
               - else
-                .confirm-link{:id => account_document.id}= link_to 'confirm', confirm_account_document_path(account_document), :remote => true
-              = link_to 'Show', account_document            
-              = link_to 'Edit', edit_account_document_path(account_document)
-              = link_to 'Destroy', account_document, :method => :delete, :data => { :confirm => 'Are you sure?' }
+                .confirm-link{:id => account_document.id}= link_to 'تایید', confirm_account_document_path(account_document), :remote => true, :class => "btn btn-success"
+              = link_to 'مشاهده', account_document            
+              = link_to 'ویرایش', edit_account_document_path(account_document)
+              = link_to 'حذف', account_document, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
   
   

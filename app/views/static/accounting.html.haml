@@ -2,21 +2,21 @@
   %h1= 'بخش حسابداری'
   .partition.set-center
     = link_to RelatedPerson do
-      .boxes
+      .boxes.col-xs-3
         %h3.title= 'افراد مرتبط'
         = image_tag 'people.png'
         
     = link_to PaymentGroup do        
-      .boxes
+      .boxes.col-xs-3
         %h3.title= 'عناوین فاکتور'
         = image_tag 'factor.png'
         
     = link_to AccountDocument do
-      .boxes
+      .boxes.col-xs-3
         %h3.title= 'مدیریت فاکتورها'
         = image_tag 'set-factor.png'  
     = link_to contacts_path do
-      .boxes
+      .boxes.col-xs-3
         %h3.title= 'دفترچه تلفن'
         = image_tag 'acc.png'
         
