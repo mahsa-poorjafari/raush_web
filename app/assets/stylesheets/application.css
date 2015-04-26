@@ -222,3 +222,17 @@ service-sample-text {right:-50%}
 .link .sunmenu .item {float:right ; width:70%; padding:10px; color:#fff; font-size:1.2em }
 .link .sunmenu .icon { float:right ; width:30% ; background:#3edac6; text-align:center}
 .link .sunmenu:hover {cursor:pointer; background:#4D4D4D;}
+.header-date {width:40%; top: 3%; right:3%;
+z-index: 100;
+position: absolute;}
+.header-img, .factor_footer       {background:#fff}
+.header-img img, .factor_footer  img{width:100%;}
+.body-factor {background:#fff; padding-top:10%; padding-right:5%;
+   padding-bottom:10%;}
+.body-factor #account_table{width:90%; border:1px solid #4D4D4D}
+.body-factor #account_table thead{background:#BFBFBF}
+.body-factor #account_table tbody tr.sum.bolder{background:#7F7F7F}
+.body-factor #account_table tr{border:1px solid #4D4D4D}
+.body-factor #account_table tr td, .body-factor #account_table tr th{border:1px solid #4D4D4D; text-align:center}
+
+.show-factor {margin-bottom:5%}

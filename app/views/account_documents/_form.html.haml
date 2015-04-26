@@ -53,7 +53,7 @@
       = f.text_area :description, :class => "form-control"
     .form-group
       = f.submit 'ثبت', :class => "btn btn-default"
-  .col-sm-5{:style => "overflow-y:scroll; height:300px"} 
+  .col-sm-5
     .form-group
       = f.label 'جزئیات فاکتور:', :class => "control-label"     
       
@@ -61,7 +61,7 @@
         .col-sm-12
           = render "factor_details/set_detail", :detail => detail
     .form-group
-      = f.link_to_add content_tag(:span, "افزودن "), :factor_details, :id => "add_new_picture", :class => "save-btn add_details_factor"
+      = f.link_to_add content_tag(:span, "افزودن ", :class => "btn btn-success"), :factor_details, :id => "add_new_picture", :class => "save-btn add_details_factor"
       
   .modal.fade.bs-example-modal-sm#takhfif{"aria-hidden" => "true", "aria-labelledby" => "mySmallModalLabel", role: "dialog", tabindex: "-1"}
     .modal-dialog.modal-sm

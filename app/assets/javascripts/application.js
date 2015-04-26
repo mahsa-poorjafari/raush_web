@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-
 //= require autocomplete-rails
+
 //= require ckeditor-jquery
 //= require dataTables/jquery.dataTables
 //= require jquery_nested_form
