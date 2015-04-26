@@ -8,8 +8,7 @@
       \|
       = link_to 'بازگشت', account_documents_path
   .show-factor.fa.col-sm-12
-    .header
-      
+    .header      
       .header-img.avoid-this= image_tag 'header-small.jpg'
       .header-date
         %p.fa
@@ -78,7 +77,7 @@
               %th{:class => I18n.locale, :colspan=>2}= @account_document.value
         - if @account_document.tavajoh.present?
           .tavajoh
-            %span.fa توجه:
+            %b.fa توجه:
             .fa= raw @account_document.tavajoh        
         .sign   امضا
     .factor_footer.avoid-this      
