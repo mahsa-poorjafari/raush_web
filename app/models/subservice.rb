@@ -4,6 +4,7 @@ class Subservice < ActiveRecord::Base
   friendly_id :title_fa
   belongs_to :service
   has_many :camera_models
+  has_many :submenus
   validates :service_id, :presence => {:message => 'فیلدهای ضروری را پر کنید'}
   has_attached_file :image, :styles => { :large => "500x500>" , :medium => "300x300>", :small => "200x200>" }
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"],

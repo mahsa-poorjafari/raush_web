@@ -26,13 +26,19 @@
          
             
           - elsif @service.subservices.present?
-            - @service.subservices.each do |subservice|              
-              = link_to subservice do
+            - @service.subservices.each do |subservice|
+              = link_to subservice, :divname => "subservice-"+ subservice.id.to_s, :class => 'open-submenu' do
                 .button.bacher.vanr.object.btnw30{waittime: "300", :id =>  'subservice_btn_'+ subservice.id.to_s}
                   .item{:class => I18n.locale}= subservice.title
                   .icon
                     = image_tag subservice.icon(:small), height: "40", width: "40", :alt => subservice.title_fa, :title => subservice.title_fa
                   .clear-float
+              -  subservice.submenus.each do |submenu|
+                .sunmenu.col-xs-3.pull-left{:id => "subservice-"+ subservice.id.to_s}
+                  .item{:class => I18n.locale}= submenu.title
+                  
+                  .clear-float
+                  
   - if is_admin?
     = link_to 'Edit', edit_service_path(@service)
     \|
@@ -57,3 +63,14 @@
   :javascript
     $('.main-div').addClass('camerabgcolor');
     
+:javascript
+  
+  $('.open-submenu').mouseover(function(){
+    $('.sunmenu').fadeOut(50);
+    var a = $(this).attr('divname');
+    $('#'+a).fadeIn(200);
+  });
+  $('.open-submenu').mouseout(function(){
+    $('.sunmenu').fadeOut(50);
+  });
+  

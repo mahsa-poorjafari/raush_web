@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150425094948) do
+ActiveRecord::Schema.define(version: 20150425112010) do
 
   create_table "account_documents", force: true do |t|
     t.date     "payment_date"
@@ -180,6 +180,14 @@ ActiveRecord::Schema.define(version: 20150425094948) do
     t.integer  "icon_file_size"
     t.datetime "icon_updated_at"
     t.integer  "team_id"
+  end
+
+  create_table "submenus", force: true do |t|
+    t.string   "title_en"
+    t.string   "title_fa"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "subservice_id"
   end
 
   create_table "subservices", force: true do |t|

@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Title en:
+  = @submenu.title_en
+%p
+  %b Title fa:
+  = @submenu.title_fa
+
+= link_to 'Edit', edit_submenu_path(@submenu)
+\|
+= link_to 'Back', submenus_path

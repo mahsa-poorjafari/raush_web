@@ -1,0 +1,24 @@
+.fa.width80.set-center
+  %h1 لیست زیرمنوهای کشویی
+  .col-xs-4{:style=> "margin-top:10%"}
+    = link_to 'زیرمنو جدید', new_submenu_path, :class => "btn btn-default"
+  .col-xs-7
+    %table.table
+      %tr
+        %th  عنوان
+        %th  سرویس مربوطه
+        %th
+        
+
+      - @submenus.each do |submenu|
+        %tr        
+          %td= submenu.title
+          %td= submenu.subservice.title
+          %td
+            %td= link_to 'مشاهده', submenu
+            \|
+            %td= link_to 'ویرایش', edit_submenu_path(submenu)
+            \|
+            %td= link_to 'حذف', submenu, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+  

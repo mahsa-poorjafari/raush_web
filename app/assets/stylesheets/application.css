@@ -210,3 +210,15 @@ service-sample-text {right:-50%}
 .webbgcolor {background-color:#1da0aa}
 .graphicbgcolor{background-color:#29b7c2}
 .camerabgcolor{background-color:#3ccad5}
+.sunmenu {background:#06ccb3 ; display:none;
+  margin-left:15%; margin-top:-8%;
+  position:relative; font-family: 'gothic'; width:35%;
+   -webkit-transition: 0.2s;
+    -moz-transition:    0.2s;
+    -ms-transition:     0.2s;
+    -o-transition:      0.2s;
+    transition:         0.2s;    
+    }
+.link .sunmenu .item {float:right ; width:70%; padding:10px; color:#fff; font-size:1.2em }
+.link .sunmenu .icon { float:right ; width:30% ; background:#3edac6; text-align:center}
+.link .sunmenu:hover {cursor:pointer; background:#4D4D4D;}

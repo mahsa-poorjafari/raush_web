@@ -1,0 +1,18 @@
+= form_for @submenu do |f|
+  - if @submenu.errors.any?
+    #error_explanation
+      %ul
+        - @submenu.errors.each do |attr, msg|
+          %li= msg
+
+  .form-group
+    = f.label 'عنوان مدل به انگلیسی:', :class => "control-label"
+    = f.text_field :title_en, :class => "form-control"
+  .form-group
+    = f.label 'عنوان مدل به فارسی', :class => "control-label"
+    = f.text_field :title_fa, :class => "form-control"
+  .form-group    
+    = f.label 'زیرگروه مربوطه را انتخاب کنید', :class => "control-label"
+    = f.select(:subservice_id, Subservice.all.collect {|u| [u.title_fa, u.id]}, :prompt => 'Select subservice')      
+  .form-group
+    = f.submit 'Save', :class => "btn btn-default"
