@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150425112010) do
+ActiveRecord::Schema.define(version: 20150427080236) do
 
   create_table "account_documents", force: true do |t|
     t.date     "payment_date"
@@ -58,6 +58,16 @@ ActiveRecord::Schema.define(version: 20150425112010) do
     t.string   "phone"
     t.string   "fax"
     t.string   "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "customers", force: true do |t|
+    t.string   "title"
+    t.date     "contract_start_date"
+    t.date     "contract_end_date"
+    t.text     "description"
+    t.integer  "service_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

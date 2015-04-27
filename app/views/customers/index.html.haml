@@ -1,0 +1,65 @@
+.accounting.fa
+  %h1 مدیریت مشتریان
+  - if is_admin?
+    = link_to 'تعریف مشتری جدید', new_customer_path, :class => "btn btn-default"
+.partition.set-center
+  - Service.all.each do |service|
+    = link_to show_customer_by_service_customer_path(service.id) do
+      .boxes.col-xs-2
+        %h3.title= service.title_fa
+        = image_tag 'go-down.png'
+.show-all-cusromers.clear-float.fa
+  .accounting.fa
+    %h1 لیست کلی مشتریان
+  %table.table.table-striped{id:"customer_table"}
+    %thead
+      %tr
+        %th ردیف
+        %th نام و نام خانوادگی مشتری
+        %th تاریخ ثبت قرارداد 
+        %th تاریخ اتمام قرارداد
+        %th توضیحات          
+        %th عملیات
+
+    %tbody
+      - @customers.each_with_index do |customer, i|
+        %tr
+          %td= (i+1)
+          %td= customer.title
+          %td= customer.contract_start_date
+          %td= customer.contract_end_date
+          %td= raw customer.description          
+          %td
+            = link_to 'مشاهده', customer, :class => "btn btn-warning"
+            
+            = link_to 'ویرایش', edit_customer_path(customer), :class => "btn btn-info"
+            
+            = link_to 'حذف', customer, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger"
+
+:coffeescript
+  window.reloadDataTable = ->
+    if !!window.oTable
+      window.oTable.fnDestroy(); 
+    window.oTable = $("#customer_table").dataTable aoColumnDefs: [
+      bSearchable: false
+      aTargets: [0,5]
+    ,  
+      bSortable: false
+      aTargets: [0,5]
+    ],  oLanguage:
+      sSearch: "جستجو:"
+      sLengthMenu: "نمایش _MENU_ ردیف"
+      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+      sZeroRecords: "هیچ داده ای وجود ندارد"
+      sInfoEmpty: "هیچ موردی یافت نشد"
+      sInfoFiltered: " - از بین _MAX_ داده موجود"
+      oPaginate:
+        sPrevious: "صفحه قبلی"
+        sNext: "صفحه بعدی"
+
+  window.reloadDataTable()
+
+
+
+
+    

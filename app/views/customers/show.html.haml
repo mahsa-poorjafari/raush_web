@@ -1,0 +1,26 @@
+.accounting.fa
+  %h1= @customer.title 
+  
+.col-xs-12.fa.customer-info
+  .col-xs-5.fa
+    %h2 اطلاعات تماس
+  .col-xs-5.fa
+    %h2 اطلاعات قرارداد
+    %p
+      %b سرویس مربوط
+      = @customer.service.title_fa
+    %p
+      %b تاریخ ثبت قرارداد
+      = @customer.contract_start_date
+    %p
+      %b تاریخ اتمام قرارداد
+      = @customer.contract_end_date
+    %p
+      %b توضیحات
+      = raw @customer.description
+    
+  
+
+  = link_to 'ویرایش', edit_customer_path(@customer), :class => "btn btn-info"
+  \|
+  = link_to 'Back', customers_path

@@ -1,4 +1,10 @@
 RaushWeb::Application.routes.draw do
+  resources :customers do
+    member do
+      get :show_customer_by_service
+    end    
+  end
+
   resources :submenus
 
   resources :pages
