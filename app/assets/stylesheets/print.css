@@ -2,7 +2,7 @@
   .mainmenu, .footer, .avoid-this {display:none}
   .show-factor {width:100%; top:0; position:fixed; clear:both}
   .header-date {top:0; bottom:5cm; z-index:100; position:absolute;clear:both}
-  .body-factor {margin-top:200pt; bottom:5cm; }
+  .body-factor {margin-top:150pt; bottom:5cm; }
   .show-date {width:4cm;right:3cm; top:5px; }
   
   .body-factor #account_table thead{background:#BFBFBF}

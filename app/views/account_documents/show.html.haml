@@ -17,7 +17,7 @@
             .avoid-this.col-sm-6= JalaliDate.new(@account_document.payment_date)
         %p.fa
           %b.header-date-title.avoid-this.col-sm-6.pull-right شماره فاکتور
-          .show-date.col-sm-6  1234567
+          .show-date.col-sm-6=@account_document.factor_number
         %p.fa
           %b.header-date-title.avoid-this.col-sm-6.pull-right تاریخ :
           .show-date.col-sm-6= JalaliDate.new(@account_document.created_at)
@@ -43,7 +43,7 @@
               %th{:class => I18n.locale}       شرح کالا و خدمات
               %th{:class => I18n.locale}       تعداد
               %th{:class => I18n.locale}       فی
-              %th{:class => I18n.locale}       مبلغ
+              %th{:class => I18n.locale}       مبلغ به ریال
               %th.avoid-this{:class => I18n.locale}       حذف
           %tbody
             - @account_document.factor_details.each_with_index do |fd, i| 
@@ -54,15 +54,15 @@
                 %td.fa= fd.number_of
                 %td.fa= fd.objecct_price
                 %td.fa.object_amount= fd.object_amount
-                %td.avoid-this= link_to 'حذف', fd, :method => :delete, :data => { :confirm => 'Are you sure?' }
+                %td.avoid-this.remove= link_to 'حذف', fd, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
             %tr.sum{:style => "background:#BFBFBF"}
               %th{:class => I18n.locale, :colspan=>3} جمع
               %th#first_sum{:class => I18n.locale, :colspan=>2}
             - if @account_document.takhfif_precent.present?
               %tr.sum{:class => I18n.locale}      
-                %th{:class => I18n.locale, :colspan=>2} تخفیف
+                %th{:class => I18n.locale, :colspan=>2}درصد تخفیف
                 %td{:class => I18n.locale, :colspan=>1}= @account_document.takhfif_precent 
-                %th{:class => I18n.locale, :colspan=>2} مبلغ تخفیف
+                %th{:class => I18n.locale, :colspan=>2} مبلغ تخفیف به ریال
                 %td{:class => I18n.locale, :colspan=>2}= @account_document.takhfif_amount 
               
                 
@@ -73,13 +73,18 @@
                 %td.fa{:class => I18n.locale, :colspan=>1}= @account_document.installation_cost_precent.to_s + '% مبلغ فوق'
                 %td.fa{:class => I18n.locale, :colspan=>2, :style => "text-align:center"}= @account_document.installation_cost
             %tr.sum.bolder
-              %th{:class => I18n.locale, :colspan=>3} جمع کل
+              %th{:class => I18n.locale, :colspan=>3} جمع کل به ریال
               %th{:class => I18n.locale, :colspan=>2}= @account_document.value
         - if @account_document.tavajoh.present?
           .tavajoh
             %b.fa توجه:
             .fa= raw @account_document.tavajoh        
-        .sign   امضا
+        .sign
+          .col-sm-2
+          .col-sm-3{:style => "text-align:center"}
+            %p با تشکر
+            %p مدیرعامل اخوان راد
+            
     .factor_footer.avoid-this      
       .footer-img= image_tag 'footer-small.jpg'
   

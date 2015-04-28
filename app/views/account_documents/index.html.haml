@@ -16,22 +16,22 @@
       %thead
         %tr      
           %th ردیف
+          %th شماره فاکتور
           %th تاریخ ثبت
           %th مبلغ به ریال
           %th پرداخت به آقای/خانم/شرکت
           %th پرداخت توسط آقای/خانم/شرکت
           %th بابت
           %th نوع فاکتور
-          %th وضعیت
-          %th شماره فیزیکی فاکتور
-          %th توضیحات
+          %th وضعیت          
           %th
        
       %tbody
         - @account_documents.each_with_index do |account_document, i|
           %tr
             %td= (i+1)
-            %td              
+            %td= account_document.factor_number
+            %td
               = JalaliDate.new(account_document.created_at)
             %td= account_document.value
             
@@ -47,17 +47,15 @@
                 فاکتور نهایی
               - else
                 پیش فاکتور
-            %td= account_document.physical_factor_number
-            %td= account_document.description        
             
             %td
               - if account_document.status
                 %b= 'تایید شده'
               - else
                 .confirm-link{:id => account_document.id}= link_to 'تایید', confirm_account_document_path(account_document), :remote => true, :class => "btn btn-success"
-              = link_to 'مشاهده', account_document            
-              = link_to 'ویرایش', edit_account_document_path(account_document)
-              = link_to 'حذف', account_document, :method => :delete, :data => { :confirm => 'Are you sure?' }
+              = link_to 'مشاهده', account_document            , :class => "btn btn-warning"
+              = link_to 'ویرایش', edit_account_document_path(account_document), :class => "btn btn-info"
+              = link_to 'حذف', account_document, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }, :class => "btn btn-danger"
 
   
   

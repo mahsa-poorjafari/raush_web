@@ -26,6 +26,19 @@ class AccountDocumentsController < ApplicationController
       flash[:FactorTypeEmpty] = 'نوع فاکتور را انتخاب کنید.'      
       redirect_to :back
     end
+    @current_date = JalaliDate.new(Date.today)    
+    @current_year = JalaliDate.new(Date.today).strftime("%y")
+    if AccountDocument.last.present? && AccountDocument.last.factor_number.present?
+      p @last_letter = AccountDocument.maximum(:factor_number)      
+       @last_letter_split = @last_letter.split('/').last       
+       p '-------last_factor_counter----------'
+       p @last_letter_split = @last_letter_split.to_i
+       @last_letter_split = @last_letter_split + 1
+       @last_letter_split = @last_letter_split.to_s
+      
+    else
+      @last_letter_split = 200
+    end
     
     
     
@@ -69,8 +82,15 @@ class AccountDocumentsController < ApplicationController
   
   def create
     @account_document = AccountDocument.new(account_document_params)   
-    
-    if @account_document.save
+    @current_date = JalaliDate.new(Date.today)    
+    @current_year = JalaliDate.new(Date.today).strftime("%y")
+    @counter_number = params[:counter_number]
+    if @current_year && @counter_number
+      @factor_number =   'R-' + @current_year + '/' + @counter_number
+      p '---------factor_number----------'
+      p @account_document.factor_number = @factor_number
+    end
+    if @account_document.save      
       p '--factor_details-----'
       p @account_document.factor_details.each {|fd| fd.object_amount = fd.objecct_price * fd.number_of }
       p '-----------fd.object_amount-------------'
@@ -150,9 +170,12 @@ class AccountDocumentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def account_document_params
-      params.require(:account_document).permit(:payment_date_fa,:paid_by,:paid_to, :value, :payment_group_id, :physical_factor_number, :description, :factor_type, :status, :takhfif_title, :takhfif_precent, :takhfif_amount,
+      params.require(:account_document).permit(:payment_date_fa,:paid_by,:paid_to, :value, :payment_group_id,
+       :physical_factor_number, :description, :factor_type, :status, :takhfif_title, :takhfif_precent,
+        :takhfif_amount, :factor_number,
         :installation_cost_title, :installation_cost_precent, :installation_cost, :tavajoh,
-        factor_details_attributes: [:id, :_destroy, :_update, :object_name, :number_of, :objecct_price, :object_amount, :account_document_id ]        
+        factor_details_attributes: [:id, :_destroy, :_update, :object_name, :number_of, :objecct_price, 
+        :object_amount, :account_document_id ]        
       )
     end
 end

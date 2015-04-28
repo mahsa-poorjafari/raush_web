@@ -245,3 +245,16 @@ position: absolute;}
 table.table tr th{color:#fff; text-align:right}
 table.table tr td{color:#000; text-align:right}
 .customer-info {color:#fff}
+.sign {margin-top:5%}
+.sign p{text-align:center; font-weight:bold}
+table tr td.remove {background:#F15C5C}
+table tr td.remove a{color:#fff}
+table tr td.remove:hover a{color:#000000}
+table#account_table tr.even td{color:#fff} 
+.factor_table {margin-bottom:5%}
+a.paginate_disabled_previous, a.paginate_enabled_next {background:#fff; padding:1%; margin:1%;}
+
+.dataTables_info {margin-bottom:5%; text-align:center}
+.dataTables_paginate.paging_two_button {text-align:center}
+.dataTables_paginate.paging_two_button a:hover{cursor:pointer; color:#000}
+
