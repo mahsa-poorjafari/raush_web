@@ -5,8 +5,12 @@
   .body-factor {margin-top:150pt; bottom:5cm; }
   .show-date {width:4cm;right:3cm; top:5px; }
   
-  .body-factor #account_table thead{background:#BFBFBF}
-  .body-factor #account_table tbody tr.sum.bolder{background:#7F7F7F}
+  .body-factor table#account_table {width:430pt; 
+  -webkit-print-color-adjust: exact;
+    }
+  
+  .body-factor #account_table thead tr th{background:#BFBFBF; -webkit-print-color-adjust: exact;}
+  .body-factor #account_table tbody tr.sum.bolder{background:#7F7F7F; -webkit-print-color-adjust: exact;}
   .body-factor #account_table tr{border:1px solid #4D4D4D}
   .body-factor #account_table tr td, .body-factor #account_table tr th{border:1px solid #4D4D4D; text-align:center}
   

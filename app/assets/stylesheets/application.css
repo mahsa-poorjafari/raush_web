@@ -222,9 +222,10 @@ service-sample-text {right:-50%}
 .link .sunmenu .item {float:right ; width:70%; padding:10px; color:#fff; font-size:1.2em }
 .link .sunmenu .icon { float:right ; width:30% ; background:#3edac6; text-align:center}
 .link .sunmenu:hover {cursor:pointer; background:#4D4D4D;}
-.header-date {width:40%; top: 3%; right:3%;
+.header-date {width:30%; top: 3%; right:3%;
 z-index: 100;
 position: absolute;}
+.header-date p {margin:0;}
 .header-img, .factor_footer       {background:#fff}
 .header-img img, .factor_footer  img{width:100%;}
 .body-factor {background:#fff; padding-top:10%; padding-right:5%;
@@ -247,6 +248,7 @@ table.table tr td{color:#000; text-align:right}
 .customer-info {color:#fff}
 .sign {margin-top:5%}
 .sign p{text-align:center; font-weight:bold}
+table tr.takhfif {border-bottom:5px solid #ddd;}
 table tr td.remove {background:#F15C5C}
 table tr td.remove a{color:#fff}
 table tr td.remove:hover a{color:#000000}
@@ -258,3 +260,5 @@ a.paginate_disabled_previous, a.paginate_enabled_next {background:#fff; padding:
 .dataTables_paginate.paging_two_button {text-align:center}
 .dataTables_paginate.paging_two_button a:hover{cursor:pointer; color:#000}
 
+.not-nesesery {border:1px solid #ccc; height: 100px;
+padding: 5%;}

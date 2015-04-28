@@ -94,11 +94,11 @@ class AccountDocumentsController < ApplicationController
       p '--factor_details-----'
       p @account_document.factor_details.each {|fd| fd.object_amount = fd.objecct_price * fd.number_of }
       p '-----------fd.object_amount-------------'
-      p @sum = @account_document.factor_details.inject(0){|sum,fd| sum + fd.object_amount }
+      p @sum = @account_document.factor_details.inject(0){|sum,fd| sum + fd.object_amount.to_i }
       @account_document.update_attributes(:value => @sum)
       if @account_document.takhfif_precent.present?
         p '========set takhfif==========='
-        a = account_document.value * account_document.takhfif_precent
+        a = @account_document.value * @account_document.takhfif_precent
         takhfif_amount = a / 100
         @account_document.update_attributes(:takhfif_amount => takhfif_amount)        
         p @total =  @account_document.value - takhfif_amount
@@ -122,12 +122,12 @@ class AccountDocumentsController < ApplicationController
   # PATCH/PUT /account_documents/1.json
   def update
     p '________sum______'
-    p @sum = @account_document.factor_details.inject(0){|sum,fd| sum + fd.object_amount }
+    p @sum = @account_document.factor_details.inject(0){|sum,fd| sum + fd.object_amount.to_i }
     if @account_document.update(account_document_params)            
       @account_document.update_attributes(:value => @sum)
       if @account_document.takhfif_precent.present?
         p '========set takhfif==========='
-        a = account_document.value * account_document.takhfif_precent
+        a = @account_document.value * @account_document.takhfif_precent
         takhfif_amount = a / 100
         @account_document.update_attributes(:takhfif_amount => takhfif_amount)        
         p @total =  @account_document.value - takhfif_amount

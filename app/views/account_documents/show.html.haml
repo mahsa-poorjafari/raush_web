@@ -10,20 +10,21 @@
   .show-factor.fa.col-sm-12
     .header      
       .header-img.avoid-this= image_tag 'header-small.jpg'
-      .header-date
-        %p.fa
-          - if @account_document.payment_date.present?
-            %b.header-date-title.avoid-this.col-sm-6.pull-right= 'تاریخ پرداخت'                   
-            .avoid-this.col-sm-6= JalaliDate.new(@account_document.payment_date)
-        %p.fa
-          %b.header-date-title.avoid-this.col-sm-6.pull-right شماره فاکتور
-          .show-date.col-sm-6=@account_document.factor_number
+      .header-date        
         %p.fa
           %b.header-date-title.avoid-this.col-sm-6.pull-right تاریخ :
           .show-date.col-sm-6= JalaliDate.new(@account_document.created_at)
         %p.fa
-          %b.col-sm-6.pull-right.header-date-title.avoid-thisشماره فیزیکی فاکتور:
-          .avoid-this.col-sm-6= @account_document.physical_factor_number
+          %b.header-date-title.avoid-this.col-sm-6.pull-right شماره فاکتور
+          .show-date.col-sm-6=@account_document.factor_number
+        .not-nesesery.clear-float.avoid-this
+          %p.fa
+            - if @account_document.payment_date.present?
+              %b.header-date-title.avoid-this.col-sm-6.pull-right= 'تاریخ پرداخت'                   
+              .avoid-this.col-sm-6= JalaliDate.new(@account_document.payment_date)
+          %p.fa
+            %b.col-sm-6.pull-right.header-date-title.avoid-thisشماره فیزیکی فاکتور:
+            .avoid-this.col-sm-6= @account_document.physical_factor_number
         .clear-float
     .body-factor
       %p.fa
@@ -56,13 +57,13 @@
                 %td.fa.object_amount= fd.object_amount
                 %td.avoid-this.remove= link_to 'حذف', fd, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
             %tr.sum{:style => "background:#BFBFBF"}
-              %th{:class => I18n.locale, :colspan=>3} جمع
+              %th{:class => I18n.locale, :colspan=>3} جمع هزینه ها به ریال
               %th#first_sum{:class => I18n.locale, :colspan=>2}
             - if @account_document.takhfif_precent.present?
-              %tr.sum{:class => I18n.locale}      
+              %tr.takhfif{:class => I18n.locale}      
                 %th{:class => I18n.locale, :colspan=>2}درصد تخفیف
-                %td{:class => I18n.locale, :colspan=>1}= @account_document.takhfif_precent 
-                %th{:class => I18n.locale, :colspan=>2} مبلغ تخفیف به ریال
+                %td{:class => I18n.locale, :colspan=>1}= @account_document.takhfif_precent.to_s + '% مبلغ فوق'
+                
                 %td{:class => I18n.locale, :colspan=>2}= @account_document.takhfif_amount 
               
                 
