@@ -1,10 +1,24 @@
 .fa.set-center
   .col-sm-12.avoid-this.pull-right.margin5
     %p#notice= notice
-    = link_to (image_tag 'print.png'), '#', :id => "print"
-    .pull-right= 'چاپ فاکتور'
+    .print-box.col-sm-2
+      = link_to  '#', :id => "print" do
+        = image_tag 'print.png'
+        %p  چاپ فاکتور با سایز A4
+    .print-box.col-sm-2
+      = link_to  '#', :id => "printa5" do
+        = image_tag 'print.png'
+        %p  چاپ فاکتور با سایز A5
+    .print-box.col-sm-2
+      = link_to  '#', :id => "printa4s" do
+        = image_tag 'print.png'
+        %p  چاپ فاکتور با سایز A4 و سربرگ
+    .print-box.col-sm-2
+      = link_to  '#', :id => "printa5s" do
+        = image_tag 'print.png'
+        %p  چاپ فاکتور با سایز A5 و سربرگ
     - if is_admin?
-      = link_to 'ویرایش', edit_account_document_path(@account_document)
+      = link_to 'ویرایش', edit_account_document_path(@account_document), :class => "btn btn-info"
       \|
       = link_to 'بازگشت', account_documents_path
   .show-factor.fa.col-sm-12

@@ -11,8 +11,12 @@
     = f.hidden_field :factor_type, :value => @factor_type
     = hidden_field_tag :counter_number, params[:counter_number], :id => 'counter_number_field', :value => @last_letter_split
     .form-group
-      = f.label 'تاریخ پرداخت:', :class => "control-label"
-      = f.text_field :payment_date_fa, :class => "fa_date form-control"
+      %b= 'تاریخ: '  + JalaliDate.new(Date.today).to_s
+    - unless @factor_type == 'received'
+      .form-group
+        = f.label 'تاریخ پرداخت:', :class => "control-label"
+        = f.text_field :payment_date_fa, :class => "fa_date form-control"
+    
     .form-group
       = f.label 'فاکتور بابت:', :class => "control-label"
       = f.select(:payment_group_id, PaymentGroup.all.collect {|u| [u.title, u.id]}, :prompt => ' این فاکتور بابت...') 
@@ -47,10 +51,10 @@
       = link_to 'هزینه نصب و راه اندازی', '#', :class => "btn btn-default","data-toggle" => "modal", "data-target" => "#installation", :id => "set_order"      
       = link_to 'توجه', '#', :class => "btn btn-default","data-toggle" => "modal", "data-target" => "#tavajoh", :id => "set_order"      
       
-      
-    .form-group  
-      = f.label 'شماره فیزیکی فاکتور', :class => "control-label"
-      = f.text_field :physical_factor_number, :class => "form-control"
+    - if @factor_type == 'received'
+      .form-group  
+        = f.label 'شماره فیزیکی فاکتور', :class => "control-label"
+        = f.text_field :physical_factor_number, :class => "form-control"
     .form-group
       = f.label 'شرح:', :class => "control-label"
       = f.text_area :description, :class => "form-control"

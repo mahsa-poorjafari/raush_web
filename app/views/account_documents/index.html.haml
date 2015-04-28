@@ -5,10 +5,11 @@
       = flash[:FactorTypeEmpty]
     .pull-right{:style => "margin-top:2%; margin-right:5%"}
       = link_to 'ثبت فاکتور دریافتی', new_account_document_path(:factor_type => "received"), :class => "btn btn-default"
+      = link_to 'فاکتور صادره', new_account_document_path(:factor_type => "customer"), :class => "btn btn-default"
       = link_to 'ثبت فاکتور هزینه ها', new_account_document_path(:factor_type => "cost"), :class => "btn btn-default"
-      = link_to 'فاکتور مشتری', new_account_document_path(:factor_type => "customer"), :class => "btn btn-default"
+      
       = link_to 'محاسبه سود', profit_account_documents_path, :class => "btn btn-default"
-      = link_to 'بازگشت',accounting_path 
+      
         
   
   .factor_table

@@ -9,17 +9,19 @@
   .clear-float  
   - @teams.each do |team| 
     .col-xs-12.show-team-detail{:class => "team_img_"+team.id.to_s}
-      .col-xs-4.pull-left{:style => "text-align:right"} 
+      .col-xs-3.pull-left{:style => "text-align:center"} 
         = image_tag team.image(:large), :class => "team-img", :id => 'team_img_'+team.id.to_s
-      .col-xs-8.pull-right.team-info
+      .col-xs-3{:style => 'padding:1%'}
+        .team-skill
+          - if team.skills.present?
+            - team.skills.each do |skill|
+              .col-xs-2.skills-icon= image_tag skill.icon(:icon)
+      .col-xs-6.pull-right.team-info
         .set-center{:class => I18n.locale}
           %b.post= team.post
           %div= team.name + " " +  team.last_name  
           .team-text= raw team.description
-          .team-skill
-            - if team.skills.present?
-              - team.skills.each do |skill|
-                .col-xs-1= image_tag skill.icon(:icon)
+          
           
           - if is_admin?
             = link_to (image_tag 'edit.png', :alt => "edit"), edit_team_path(team)      

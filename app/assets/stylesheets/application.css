@@ -22,6 +22,7 @@
 html {left:0; right:0; top:0; bottom:0;  height:100vh;} 
 body {color:#FFF; background:#01666e;left:0; background-size:cover; height:100vh;
 right:0; top:0; bottom:0;margin:0px; position:relative} 
+p, b, div {color:#FFF;}
 .fix-height{min-height:100px;max-height:100px }
 .clear-float{ clear:both}
 .set-center { margin-right:auto; margin-left:auto}
@@ -262,3 +263,10 @@ a.paginate_disabled_previous, a.paginate_enabled_next {background:#fff; padding:
 
 .not-nesesery {border:1px solid #ccc; height: 100px;
 padding: 5%;}
+.print-box {background:#1A1A1A; color:#fff; text-align:center; position:relative; height:80px; margin:1%}
+.print-box.col-sm-2 {float:right}
+.print-box:hover {background:#078932; }
+.print-box a{position:absolute; width:100%; height:100%; top:0; left:0; right:0}
+.print-box a, .print-box p{ color:#fff; text-align:center; }
+
+.team-skill .skills-icon {margin:1%;}

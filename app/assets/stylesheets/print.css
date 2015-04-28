@@ -1,9 +1,28 @@
+  body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #FAFAFA;
+    font: 12pt "Tahoma";
+  }
+ @page {
+      size: A4;
+      margin: 0;
+  }
 @media print { 
+
   .mainmenu, .footer, .avoid-this {display:none}
-  .show-factor {width:100%; top:0; position:fixed; clear:both}
+  .show-factor {width:100%; top:5%; position:fixed; clear:both; 
+    width: initial;
+    min-height: initial;
+    box-shadow: initial;
+    background: initial;
+    page-break-after: always;
+    }
   .header-date {top:0; bottom:5cm; z-index:100; position:absolute;clear:both}
   .body-factor {margin-top:150pt; bottom:5cm; }
-  .show-date {width:4cm;right:3cm; top:5px; }
+  .show-date {width:4cm;right:1.5cm; top:5px; }
   
   .body-factor table#account_table {width:430pt; 
   -webkit-print-color-adjust: exact;
@@ -19,6 +38,6 @@
   tr.takhfif td{text-align:center; border:1px solid #4D4D4D; color:#000; }
   .tavajoh {margin-top:20pt; clear:both}
   .tavajoh ul {list-style:circle}
-  .sign {position:fixed; bottom:130pt; width:100pt; left:50pt}
+  .sign {position:fixed; bottom:15%; width:100pt; left:50pt}
   .sign p{text-align:center}
 }
