@@ -19,5 +19,6 @@
   tr.takhfif td{text-align:center; border:1px solid #4D4D4D; color:#000; }
   .tavajoh {margin-top:20pt; clear:both}
   .tavajoh ul {list-style:circle}
-  .sign {position:fixed; bottom:30pt}
+  .sign {position:fixed; bottom:130pt; width:100pt; left:50pt}
+  .sign p{text-align:center}
 }
