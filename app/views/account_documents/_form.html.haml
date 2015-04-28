@@ -6,7 +6,8 @@
         - @account_document.errors.full_messages.each do |msg|
           %li= msg
   .pull-right.margin5.col-sm-3 
-    %b= 'شماره فاکتور: ' + ' ' + 'R-'+ @current_year + '/' +@last_letter_split
+    - if @last_letter_split.present?
+      %b= 'شماره فاکتور: ' + ' ' + 'R-'+ @current_year.to_s + '/' +@last_letter_split.to_s
     = f.hidden_field :factor_type, :value => @factor_type
     = hidden_field_tag :counter_number, params[:counter_number], :id => 'counter_number_field', :value => @last_letter_split
     .form-group
