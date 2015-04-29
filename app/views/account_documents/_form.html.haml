@@ -19,7 +19,7 @@
     
     .form-group
       = f.label 'فاکتور بابت:', :class => "control-label"
-      = f.select(:payment_group_id, PaymentGroup.all.collect {|u| [u.title, u.id]}, :prompt => ' این فاکتور بابت...') 
+      = f.select(:payment_group_id, PaymentGroup.all.collect {|u| [u.title, u.id]}, :prompt => ' این فاکتور بابت...')
     
       = link_to 'افزودن عنوان فاکتور', new_payment_group_path,  :class => "btn btn-default"
     .form-group
@@ -42,7 +42,7 @@
         = f.text_field :paid_by, :class => "form-control"
       - else
         = f.label 'پرداخت توسط', :class => "control-label"      
-        = f.text_field :paid_by, :class => "form-control"
+        = f.text_field :paid_by, :class => "form-control", :id => "paid-by"
     
     
   .col-sm-3.pull-right.margin5
@@ -59,7 +59,7 @@
       = f.label 'شرح:', :class => "control-label"
       = f.text_area :description, :class => "form-control"
     .form-group
-      = f.submit 'ثبت', :class => "btn btn-default"
+      = f.submit 'ثبت', :class => "btn btn-default", :id => "save_factor"
   .col-sm-5
     .form-group
       = f.label 'جزئیات فاکتور:', :class => "control-label"     
@@ -102,14 +102,14 @@
         
           .form-group 
             = f.label 'عنوان :', :class => "control-label"
-            = f.text_area :installation_cost_title, :class => "form-control fill" 
+            = f.text_area :installation_cost_title, :class => "form-control fill " 
         
           .form-group 
             = f.label 'درصد:', :class => "control-label"
-            = f.text_field :installation_cost_precent, :class => "form-control"
+            = f.text_field :installation_cost_precent, :class => "form-control "
           .clear-float  
         .modal-footer
-          %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} ثبت    
+          %button.btn.btn-default#set-installation-cost{"data-dismiss" => "modal", type: "button"} ثبت    
           %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
   .modal.fade.bs-example-modal-lg#tavajoh{"aria-hidden" => "true", "aria-labelledby" => "myLargeModalLabel", role: "dialog", tabindex: "-1"}
     .modal-dialog.modal-lg
@@ -159,4 +159,15 @@
     window.setTimeout('enable_file_select()', 1000);
   });
   $('.fa_date').datepicker()
+   
+  $(function() { 
+    $(':submit#save_factor').click(function(e) {
+      $(':text#paid-by, #account_document_payment_group_id').each(function() {
+        if ($(this).val().length == 0) {
+          $(this).css('border', '2px solid red');
+          e.preventDefault();
+        }
+      });
+    });
+  });
 
