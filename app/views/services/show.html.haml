@@ -33,11 +33,12 @@
                   .icon
                     = image_tag subservice.icon(:small), height: "40", width: "40", :alt => subservice.title_fa, :title => subservice.title_fa
                   .clear-float
-              -  subservice.submenus.each do |submenu|
-                .sunmenu.col-xs-3.pull-left{:id => "subservice-"+ subservice.id.to_s}
-                  .item{:class => I18n.locale}= submenu.title
-                  
-                  .clear-float
+              -#
+                -  subservice.submenus.each do |submenu|
+                  .sunmenu.col-xs-3.pull-left{:id => "subservice-"+ subservice.id.to_s}
+                    .item{:class => I18n.locale}= submenu.title
+                    
+                    .clear-float
                   
   - if is_admin?
     = link_to 'Edit', edit_service_path(@service)
