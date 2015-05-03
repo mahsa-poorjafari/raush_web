@@ -238,7 +238,8 @@ position: absolute;}
 .body-factor #account_table tr{border:1px solid #4D4D4D}
 .body-factor #account_table tr td, .body-factor #account_table tr th{border:1px solid #4D4D4D; text-align:center}
 
-.show-factor {margin-bottom:5%}
+.show-factor {margin-bottom:5%; color:#000}
+.show-factor p, .show-factor div, .show-factor span, .show-factor b{color:#000}
 .tavajoh span, .tavajoh p, .tavajoh ul li {direction:rtl; font-family: BYekan; text-align:right}
 .accounting {color:#fff; text-align:center; border-bottom:1px #fff solid}
 .show-all-cusromers {margin-top:20%}

@@ -22,22 +22,25 @@
     }
   .header-date {top:0; bottom:5cm; z-index:100; position:absolute;clear:both}
   .body-factor {margin-top:150pt; bottom:5cm; }
-  .show-date {width:4cm;right:1.5cm; top:5px; }
+  .show-date {width:4cm;right:2.5cm; top:2px; position:absolute }
+  .show-number {width:4cm;right:2.5cm; top:25px; position:absolute}
+  
   
   .body-factor table#account_table {width:430pt; 
   -webkit-print-color-adjust: exact;
     }
   
-  .body-factor #account_table thead tr th{background:#BFBFBF; -webkit-print-color-adjust: exact;}
-  .body-factor #account_table tbody tr.sum.bolder{background:#7F7F7F; -webkit-print-color-adjust: exact;}
+  .body-factor #account_table thead tr th{background:#BFBFBF; -webkit-print-color-adjust: exact;font-size:.7em}
+  .body-factor #account_table tbody tr.sum.bolder{background:#BFBFBF; -webkit-print-color-adjust: exact;}
   .body-factor #account_table tr{border:1px solid #4D4D4D}
-  .body-factor #account_table tr td, .body-factor #account_table tr th{border:1px solid #4D4D4D; text-align:center}
+  .body-factor #account_table tr td, .body-factor #account_table tr th{border:1px solid #4D4D4D; text-align:center;
+   font-size:.7em}
   
   tr.sum{ border:1px solid #4D4D4D; background-color:#7F7F7F !important; color:#000; }
   tr.sum th{text-align:center; border:1px solid #4D4D4D; background-color:#7F7F7F !important; color:#000; font-weight:bold;}
   tr.takhfif td{text-align:center; border:1px solid #4D4D4D; color:#000; }
   .tavajoh {margin-top:20pt; clear:both}
   .tavajoh ul {list-style:circle}
-  .sign {position:fixed; bottom:15%; width:100pt; left:50pt}
+  .sign {width:100pt; float:left;}
   .sign p{text-align:center}
 }

@@ -8,7 +8,10 @@
   .pull-right.margin5.col-sm-3 
     - if @last_letter_split.present?
       %b= 'شماره فاکتور: ' + ' ' + 'R-'+ @current_year.to_s + '/' +@last_letter_split.to_s
-    = f.hidden_field :factor_type, :value => @factor_type
+    - if @account_document.present?
+      %b= @account_document.factor_type
+    - else
+      = f.hidden_field :factor_type, :value => @factor_type
     = hidden_field_tag :counter_number, params[:counter_number], :id => 'counter_number_field', :value => @last_letter_split
     .form-group
       %b= 'تاریخ: '  + JalaliDate.new(Date.today).to_s

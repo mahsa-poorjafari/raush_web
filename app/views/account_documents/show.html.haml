@@ -30,7 +30,7 @@
           .show-date.col-sm-6= JalaliDate.new(@account_document.created_at)
         %p.fa
           %b.header-date-title.avoid-this.col-sm-6.pull-right شماره فاکتور
-          .show-date.col-sm-6=@account_document.factor_number
+          .show-number.col-sm-6=@account_document.factor_number
         .not-nesesery.clear-float.avoid-this
           %p.fa
             - if @account_document.payment_date.present?
@@ -99,7 +99,7 @@
           .col-sm-3{:style => "text-align:center"}
             %p با تشکر
             %p مدیرعامل اخوان راد
-            
+        .clear-float    
     .factor_footer.avoid-this      
       .footer-img= image_tag 'footer-small.jpg'
   
