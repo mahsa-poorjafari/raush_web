@@ -1,5 +1,11 @@
 .fa.set-center   
-  %h1= 'ایجاد فاکتور' + @factor_type
+  %h1
+    ثبت فاکتور
+    - if @factor_type == 'customer'
+      %span فروش
+    - elsif @factor_type == 'cost'
+      %span خرید
+      
   
   .col-sm-12.pull-right
     = render 'form'
