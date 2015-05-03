@@ -8,7 +8,7 @@
   .pull-right.margin5.col-sm-3 
     - if @last_letter_split.present?
       %b= 'شماره فاکتور: ' + ' ' + 'R-'+ @current_year.to_s + '/' +@last_letter_split.to_s
-    - if @account_document.present?
+    - if @account_document.factor_type.present?
       %b= @account_document.factor_type
     - else
       = f.hidden_field :factor_type, :value => @factor_type

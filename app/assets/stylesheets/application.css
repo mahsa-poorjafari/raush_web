@@ -253,6 +253,7 @@ table.table tr td{color:#000; text-align:right}
 .sign p{text-align:center; font-weight:bold}
 table tr.takhfif {border-bottom:5px solid #ddd;}
 table tr td.remove {background:#F15C5C}
+table tr td.factor_type b{color:#000}
 table tr td.remove a{color:#fff}
 table tr td.remove:hover a{color:#000000}
 table#account_table tr.even td{color:#fff} 

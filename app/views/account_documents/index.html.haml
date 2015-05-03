@@ -31,11 +31,7 @@
         - @account_documents.each_with_index do |account_document, i|
           %tr
             %td= (i+1)
-            %td
-              - if account_document.factor_number == 'customer'
-                %b فروش
-              - elsif account_document.factor_number == 'cost'
-                %b خرید
+            %td= account_document.factor_number
             %td
               = JalaliDate.new(account_document.created_at)
             %td= account_document.value
@@ -46,7 +42,12 @@
             %td
               - if account_document.payment_group.present?
                 = account_document.payment_group.title
-            %td= account_document.factor_type
+            %td.factor_type
+              - if account_document.factor_type == 'customer'
+                %b فروش
+              - elsif account_document.factor_type == 'cost'
+                %b خرید
+              
             %td.factor-status{:class => account_document.id}
               - if account_document.status
                 فاکتور نهایی
