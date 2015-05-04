@@ -1,0 +1,9 @@
+.fa.set-center 
+  .title{:style => "height:100px"}
+  %h1 ویرایش پرداختی
+
+  = render 'form'
+  -if is_admin?
+    = link_to 'Show', @payment
+    \|
+    = link_to 'Back', payments_path

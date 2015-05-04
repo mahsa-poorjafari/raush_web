@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Account document:
+  = @payment.account_document_id
+%p
+  %b Payment amount:
+  = @payment.payment_amount
+%p
+  %b Payment type:
+  = @payment.payment_type
+%p
+  %b Payment date:
+  = @payment.payment_date
+%p
+  %b Description:
+  = @payment.description
+
+= link_to 'Edit', edit_payment_path(@payment)
+\|
+= link_to 'Back', payments_path

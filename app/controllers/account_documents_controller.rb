@@ -114,17 +114,15 @@ class AccountDocumentsController < ApplicationController
       render action: 'show'
     else
       render action: 'new'      
-    end
-  
+    end  
   end
 
   # PATCH/PUT /account_documents/1
   # PATCH/PUT /account_documents/1.json
   def update
-    p '________sum______'
-    p @sum = @account_document.factor_details.inject(0){|sum,fd| sum + fd.object_amount.to_i }
-    if @account_document.update(account_document_params)            
-      @account_document.update_attributes(:value => @sum)
+    
+    if @account_document.update(account_document_params)      
+            
       if @account_document.takhfif_precent.present?
         p '========set takhfif==========='
         a = @account_document.value * @account_document.takhfif_precent
@@ -140,16 +138,16 @@ class AccountDocumentsController < ApplicationController
         @total = @account_document.value + @account_document.installation_cost
         @account_document.update_attributes(:value => @total)             
       end          
-      @account_document.factor_details.each {|fd| fd.object_amount = fd.objecct_price * fd.number_of }
+      p '----------'
+      p @account_document.factor_details.each {|fd| fd.object_amount = fd.objecct_price * fd.number_of }
+      p '________sum______'
+      p @sum = @account_document.factor_details.inject(0){|sum,fd| sum + fd.object_amount.to_i }
+      @account_document.update_attributes(:value => @sum)
       @account_document.save
-      
       redirect_to @account_document
-      
     else
-      render action: 'edit'
-      
-    end
-  
+      render action: 'edit'      
+    end  
   end
 
   # DELETE /account_documents/1
@@ -175,7 +173,9 @@ class AccountDocumentsController < ApplicationController
         :takhfif_amount, :factor_number,
         :installation_cost_title, :installation_cost_precent, :installation_cost, :tavajoh,
         factor_details_attributes: [:id, :_destroy, :_update, :object_name, :number_of, :objecct_price, 
-        :object_amount, :account_document_id ]        
+        :object_amount, :account_document_id ],
+        payments_attributes: [:id, :_destroy, :_update, :account_document_id, :payment_amount, :payment_type,
+         :payment_date, :description ]                
       )
     end
 end

@@ -1,0 +1,9 @@
+
+= nested_form_for @account_document, :html => { :multipart => true  }  do |f|
+  - if @account_document.errors.any?
+    #error_explanation
+      
+      %ul
+        - @account_document.errors.full_messages.each do |msg|
+          %li= msg
+  .pull-right.margin5.col-sm-3 

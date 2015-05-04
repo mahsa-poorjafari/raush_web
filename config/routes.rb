@@ -1,4 +1,6 @@
 RaushWeb::Application.routes.draw do
+  resources :payments
+
   resources :customers do
     member do
       get :show_customer_by_service
@@ -30,6 +32,7 @@ scope "(:locale)", :locale => /en|fa/ do
       get :profit
       get :profit_month   
       get :autocomplete_contact_company_name
+      
     end
     member do
       get :confirm

@@ -1,0 +1,55 @@
+.fa.set-center 
+  .title{:style => "height:100px"}
+    %h1.col-sm-5.pull-right ثبت پرداختی برای فاکتور شماره 
+    %h2.col-sm-2.pull-right= @related_account.factor_number
+    %h3.col-sm-2.pull-right= @related_account.paid_to
+    
+  = render 'form'
+  %hr
+  .col-sm-4.pull-right
+    %b  جمع مبلغ پرداخت شده تا کنون
+    %p= @sum_payment
+  .col-sm-4.pull-right    
+    %b جمع مبلغ کل فاکتور
+    %p= @related_account.value
+  .col-sm-4.pull-right  
+    %b جمع مبلغ مانده  
+    %p= @related_account.value - @sum_payment
+  .factor_table
+    %table.table.table-striped{id:"account_table"}
+      %thead
+        %tr      
+          %th ردیف
+          %th شماره فاکتور
+          %th تاریخ پرداخت
+          %th مبلغ پرداخت
+          %th نوع پرداخت          
+          %th توضیحات
+          
+       
+      %tbody
+        - @payments_related_account.each_with_index do |payments_related, i|
+          %tr
+            %td= (i+1)
+            %td= payments_related.account_document.factor_number
+            %td
+              = payments_related.payment_date_fa
+            %td= payments_related.payment_amount
+            
+            %td.taeed
+              -if payments_related.payment_type == 1
+                %b نقدی
+              -elsif payments_related.payment_type == 2
+                %b چک
+              -elsif payments_related.payment_type == 3
+                %b واریز به کارت
+              - else
+                %pثبت نشده
+              
+
+            
+            %td= raw payments_related.description
+            
+            %td= link_to 'ویرایش', edit_payment_path(payments_related), :class => "btn btn-info"
+
+  

@@ -245,6 +245,7 @@ position: absolute;}
 .show-all-cusromers {margin-top:20%}
 .partition {padding-top:5%}
 .partition .boxes{text-align:center}
+.partition .boxes:hover{background:#BFBFBF;}
 .partition .boxes .title{text-align:center}
 table.table tr th{color:#fff; text-align:right}
 table.table tr td{color:#000; text-align:right}
@@ -253,7 +254,7 @@ table.table tr td{color:#000; text-align:right}
 .sign p{text-align:center; font-weight:bold}
 table tr.takhfif {border-bottom:5px solid #ddd;}
 table tr td.remove {background:#F15C5C}
-table tr td.factor_type b{color:#000}
+table tr td.factor_type b, table tr td.taeed b{color:#000}
 table tr td.remove a{color:#fff}
 table tr td.remove:hover a{color:#000000}
 table#account_table tr.even td{color:#fff} 

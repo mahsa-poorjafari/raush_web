@@ -10,6 +10,7 @@
       
       = link_to 'محاسبه سود', profit_account_documents_path, :class => "btn btn-default"
       
+      
         
   
   .factor_table
@@ -54,7 +55,7 @@
               - else
                 پیش فاکتور
             
-            %td
+            %td.taeed
               - if account_document.status
                 %b= 'تایید شده'
               - else

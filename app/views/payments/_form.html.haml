@@ -1,0 +1,34 @@
+= form_for @payment do |f|
+  - if @payment.errors.any?
+    #error_explanation
+      
+      %ul
+        - @payment.errors.each do |attr, msg|
+          %li= msg
+  .col-sm-12        
+    .col-sm-4.pull-right
+      .form-group
+        - unless
+          = f.hidden_field :account_document_id, :value => @related_account.id
+      .form-group
+        = f.label 'مبلغ پرداختی', :class => "control-label"
+        = f.text_field :payment_amount, :class => "form-control"
+      .form-group
+        = f.label 'نوع پرداخت', :class => "control-label"
+        = f.select :payment_type, options_for_select([["نقدی",1],["چک",2], ['واریز به کارت', 3]])
+        
+      .form-group
+        = f.label 'تاریخ پرداخت', :class => "control-label"
+        = f.text_field :payment_date_fa, :class => "fa_date form-control "
+      .form-group
+        = f.submit 'ثبت', :class => "btn btn-default", :id => "save_payment"
+    .col-sm-1.pull-right        
+    .col-sm-6.pull-right      
+      .form-group
+        = f.label 'توضیحات', :class => "control-label"
+        .editor
+          = f.text_area :description, :class => "form-control ckeditor"
+      
+  %hr
+:javascript
+  $('.fa_date').datepicker()

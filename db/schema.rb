@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150428050911) do
+ActiveRecord::Schema.define(version: 20150503122934) do
 
   create_table "account_documents", force: true do |t|
     t.date     "payment_date"
@@ -124,6 +124,16 @@ ActiveRecord::Schema.define(version: 20150428050911) do
 
   create_table "payment_groups", force: true do |t|
     t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "payments", force: true do |t|
+    t.integer  "account_document_id"
+    t.integer  "payment_amount"
+    t.integer  "payment_type"
+    t.date     "payment_date"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
