@@ -61,7 +61,8 @@
               - else
                 .confirm-link{:id => account_document.id}= link_to 'تایید', confirm_account_document_path(account_document), :remote => true, :class => "btn btn-success"
               = link_to 'مشاهده', account_document            , :class => "btn btn-warning"
-              = link_to 'ویرایش', edit_account_document_path(account_document), :class => "btn btn-info"
+              - unless account_document.status
+                = link_to 'ویرایش', edit_account_document_path(account_document), :class => "btn btn-info"
               = link_to 'حذف', account_document, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }, :class => "btn btn-danger"
 
   
