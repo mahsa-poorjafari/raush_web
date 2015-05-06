@@ -18,34 +18,36 @@
         %th  
     %tbody
       - @account_documents.each_with_index do |account_document, i|
-        %tr
-          %td= (i+1)
-          %td= account_document.factor_number
-          %td
-            = JalaliDate.new(account_document.created_at)
-          %td= account_document.value
-          %td.mod= account_document.value - account_document.payments.sum(:payment_amount)
-          
-          %td= account_document.paid_to
-          
-          %td= account_document.paid_by
-          %td
-            - if account_document.payment_group.present?
-              = account_document.payment_group.title
-          %td.factor_type
-            - if account_document.factor_type == 'customer'
-              %b فروش
-            - elsif account_document.factor_type == 'cost'
-              %b خرید
+        - @mod = account_document.value - account_document.payments.sum(:payment_amount)
+        - unless @mod === 0
+          %tr
+            %td= (i+1)
+            %td= account_document.factor_number
+            %td
+              = JalaliDate.new(account_document.created_at)
+            %td= account_document.value
+            %td.mod= @mod
             
-          %td.factor-status{:class => account_document.id}
-            - if account_document.status
-              فاکتور نهایی
-            - else
-              پیش فاکتور
-          
-          %td.taeed
-            = link_to 'ثبت پرداخت', new_payment_path(:factor_number => account_document.factor_number), :class => "btn btn-primary"
+            %td= account_document.paid_to
+            
+            %td= account_document.paid_by
+            %td
+              - if account_document.payment_group.present?
+                = account_document.payment_group.title
+            %td.factor_type
+              - if account_document.factor_type == 'customer'
+                %b فروش
+              - elsif account_document.factor_type == 'cost'
+                %b خرید
+              
+            %td.factor-status{:class => account_document.id}
+              - if account_document.status
+                فاکتور نهایی
+              - else
+                پیش فاکتور
+            
+            %td.taeed
+              = link_to 'ثبت پرداخت', new_payment_path(:factor_number => account_document.factor_number), :class => "btn btn-primary"
         
       %tr.sum
         %td{:colspan => "4"} 

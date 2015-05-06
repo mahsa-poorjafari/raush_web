@@ -234,7 +234,7 @@ position: absolute;}
    padding-bottom:10%;}
 .body-factor #account_table{width:90%; border:1px solid #4D4D4D}
 .body-factor #account_table thead{background:#BFBFBF}
-.body-factor #account_table tbody tr.sum.bolder{background:#7F7F7F}
+.body-factor #account_table tbody tr.sum.bolder{background:#7F7F7F;}
 .body-factor #account_table tr{border:1px solid #4D4D4D}
 .body-factor #account_table tr td, .body-factor #account_table tr th{border:1px solid #4D4D4D; text-align:center}
 
@@ -293,3 +293,4 @@ padding: 5%;}
 .team-info-box.post {margin:2%}
 
 
+tr.sum td b{color:#000}
