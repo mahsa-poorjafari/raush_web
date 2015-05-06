@@ -8,7 +8,8 @@
         %th ردیف
         %th شماره فاکتور
         %th تاریخ ثبت
-        %th مبلغ به ریال
+        %th مبلغ فاکتور به ریال
+        %th مبلغ مانده به ریال
         %th پرداخت به آقای/خانم/شرکت
         %th پرداخت توسط آقای/خانم/شرکت
         %th بابت
@@ -23,6 +24,7 @@
           %td
             = JalaliDate.new(account_document.created_at)
           %td= account_document.value
+          %td.mod= account_document.value - account_document.payments.sum(:payment_amount)
           
           %td= account_document.paid_to
           
@@ -45,28 +47,15 @@
           %td.taeed
             = link_to 'ثبت پرداخت', new_payment_path(:factor_number => account_document.factor_number), :class => "btn btn-primary"
         
-  %table.table
-    %thead
-      %tr
-        %th ردیف
-        %th Account document
-        %th مبلغ پرداخت
-        %th نوع پرداخت
-        %th تاریخ پرداخت
-        %th توضیحات
-        %th عملیات
-        
-    %tbody
-      - @payments.each_with_index do |payment, i|
-        %tr
-          %td= (i+1)
-          %td= payment.account_document_id
-          %td= payment.payment_amount
-          %td= payment.payment_type
-          %td= payment.payment_date
-          %td= raw payment.description
-          %td
-            = link_to 'Show', payment
-            = link_to 'Edit', edit_payment_path(payment)
-            = link_to 'Destroy', payment, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+        %tr.sum
+          %td{:colspan => "4"} 
+            %b کل مبلغ مانده حساب
+          %td#sum_mod
+:javascript  
+  $(document).ready(function(){
+    var calculate = 0;
+    $('td.mod').each(function() {     
+      calculate += parseInt($(this).text());                     
+    });
+    $('#sum_mod').html('<b>'+calculate+'</b>');
+  });

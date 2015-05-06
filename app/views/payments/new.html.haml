@@ -3,8 +3,6 @@
     %h1.col-sm-5.pull-right ثبت پرداختی برای فاکتور شماره 
     %h2.col-sm-2.pull-right= @related_account.factor_number
     %h3.col-sm-2.pull-right= @related_account.paid_to
-    
-  = render 'form'
   %hr
   .col-sm-4.pull-right
     %b  جمع مبلغ پرداخت شده تا کنون
@@ -52,4 +50,6 @@
             
             %td= link_to 'ویرایش', edit_payment_path(payments_related), :class => "btn btn-info"
 
+  %hr  
+  = render 'form'
   

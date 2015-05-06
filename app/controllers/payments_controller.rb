@@ -6,6 +6,7 @@ class PaymentsController < ApplicationController
   def index
     @payments = Payment.order('created_at desc')
     @account_documents = AccountDocument.where(factor_type: 'cost').order('created_at desc')
+    
   end
 
   # GET /payments/1
