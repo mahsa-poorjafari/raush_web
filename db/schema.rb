@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150503122934) do
+ActiveRecord::Schema.define(version: 20150506040654) do
 
   create_table "account_documents", force: true do |t|
     t.date     "payment_date"
@@ -261,6 +261,14 @@ ActiveRecord::Schema.define(version: 20150503122934) do
     t.text     "description_en"
     t.text     "description_fa"
     t.integer  "set_order"
+    t.text     "education"
+    t.text     "job_field"
+    t.text     "ability"
+    t.text     "contact_info"
+    t.text     "education_en"
+    t.text     "job_field_en"
+    t.text     "ability_en"
+    t.text     "contact_info_en"
   end
 
   create_table "users", force: true do |t|

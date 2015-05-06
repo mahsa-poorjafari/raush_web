@@ -8,4 +8,16 @@ class Team < ActiveRecord::Base
   def description
     I18n.locale == :fa ? self.read_attribute("description_fa") : self.read_attribute("description_en")
   end
+  def education
+    I18n.locale == :fa ? self.read_attribute("education") : self.read_attribute("education_en")
+  end
+  def job_field
+    I18n.locale == :fa ? self.read_attribute("job_field") : self.read_attribute("job_field_en")
+  end
+  def ability
+    I18n.locale == :fa ? self.read_attribute("ability") : self.read_attribute("ability_en")
+  end
+  def contact_info
+    I18n.locale == :fa ? self.read_attribute("contact_info") : self.read_attribute("contact_info_en")
+  end
 end

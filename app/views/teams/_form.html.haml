@@ -34,9 +34,45 @@
         .col-xs-6
           = render "shared/upload_image_form", :picture => picture
   .col-xs-12
+    .col-xs-6
+      .form-group.editor
+        = f.label 'رشته تحصیلی به فارسی', :class => "control-label"
+        = f.text_area :education, :class => "ckeditor"
+    .col-xs-6
+      .form-group.editor
+        = f.label 'رشته تحصیلی به انگلیسی', :class => "control-label"
+        = f.text_area :education_en, :class => "ckeditor"
+  .col-xs-12
+    .col-xs-6
+      .form-group.editor
+        = f.label 'زمینه کاری به فارسی', :class => "control-label"
+        = f.text_area :job_field, :class => "ckeditor"
+    .col-xs-6
+      .form-group.editor
+        = f.label 'زمینه کاری به انگلیسی', :class => "control-label"
+        = f.text_area :job_field_en, :class => "ckeditor"
+  .col-xs-12
+    .col-xs-6
+      .form-group.editor
+        = f.label 'توانایی های مرتبط به فارسی', :class => "control-label"
+        = f.text_area :ability, :class => "ckeditor"
+    .col-xs-6
+      .form-group.editor
+        = f.label 'توانایی های مرتبط به انگلیسی', :class => "control-label"
+        = f.text_area :ability_en, :class => "ckeditor"
+  .col-xs-12
+    .col-xs-6
+      .form-group.editor
+        = f.label 'اطلاعات تماس به فارسی', :class => "control-label"
+        = f.text_area :contact_info, :class => "ckeditor"
+    .col-xs-6
+      .form-group.editor
+        = f.label 'اطلاعات تماس به انگلیسی', :class => "control-label"
+        = f.text_area :contact_info_en, :class => "ckeditor"
+  .col-xs-12
     .form-group.editor
-      = f.label 'متن فارسی', :class => "control-label"
+      = f.label 'توضیحات متن فارسی', :class => "control-label"
       = f.text_area :description_fa, :class => "ckeditor"
     .form-group.editor
-      = f.label 'متن انگلیسی', :class => "control-label"
+      = f.label 'توضیحات متن انگلیسی', :class => "control-label"
       = f.text_area :description_en, :class => "ckeditor"
