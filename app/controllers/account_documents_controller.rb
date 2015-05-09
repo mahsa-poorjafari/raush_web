@@ -86,7 +86,7 @@ class AccountDocumentsController < ApplicationController
     @current_year = JalaliDate.new(Date.today).strftime("%y")
     @counter_number = params[:counter_number]
     @primary_value = @account_document.value
-    if @account_document.factor_details.present? && @account_document.value == 0
+    if @account_document.factor_details.present? 
       @account_document.factor_details.each {|fd| fd.object_amount = fd.objecct_price * fd.number_of }      
       p '-------sum------------'
       p @sum = @account_document.factor_details.inject(0){|sum,fd| sum + fd.object_amount.to_i }
@@ -101,7 +101,7 @@ class AccountDocumentsController < ApplicationController
       
     end
     if @account_document.save 
-      if @account_document.takhfif_precent.present?        
+      if @account_document.takhfif_precent.present?   && @account_document.takhfif_precent != 0      
         a = @account_document.value * @account_document.takhfif_precent
         @takhfif_total = a / 100
         @account_document.update_attributes(:takhfif_amount => @takhfif_total)               
@@ -109,7 +109,7 @@ class AccountDocumentsController < ApplicationController
         @account_document.update_attributes(:value => @total)          
         @total = 0
       end
-      if @account_document.installation_cost_precent.present?
+      if @account_document.installation_cost_precent.present? && @account_document.installation_cost_precent != 0
         b = @account_document.value * @account_document.installation_cost_precent        
         @inst_total = b / 100
         @account_document.update_attributes(:installation_cost => @inst_total)        
@@ -141,8 +141,7 @@ class AccountDocumentsController < ApplicationController
         @account_document.update_attributes(:primary_value => @primary_value) 
       end  
       
-      if @account_document.takhfif_precent.present?        
-        
+      if @account_document.takhfif_precent.present? && @account_document.takhfif_precent != 0
         a = @account_document.value * @account_document.takhfif_precent
         @takhfif_total = a / 100
         @account_document.update_attributes(:takhfif_amount => @takhfif_total)        
@@ -150,7 +149,7 @@ class AccountDocumentsController < ApplicationController
         @account_document.update_attributes(:value => @total)        
         @total = 0
       end
-      if @account_document.installation_cost_precent.present?
+      if @account_document.installation_cost_precent.present? && @account_document.installation_cost_precent != 0
         b = @account_document.value * @account_document.installation_cost_precent
         @inst_total = b / 100
         @account_document.update_attributes(:installation_cost => @inst_total)

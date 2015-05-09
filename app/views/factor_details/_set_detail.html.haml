@@ -6,11 +6,11 @@
     
   .form-group.col-sm-6.pull-right   
     = detail.text_field :object_name, :rows => 2, :style => "resize:none"  , :class => "form-control"
-  .form-group.col-sm-1.pull-right
-    = detail.text_field :number_of, :rows => 2, :style => "resize:none" , :class => "form-control"   
+  .form-group.col-sm-2.pull-right
+    = detail.number_field :number_of, :rows => 2, :style => "resize:none" , :class => "form-control"   
   
   .form-group.col-sm-2.pull-right
-    = detail.text_field :objecct_price, :rows => 2, :style => "resize:none" , :class => "form-control" 
+    = detail.number_field :objecct_price, :rows => 2, :style => "resize:none" , :class => "form-control" 
   .form-group.col-sm-3.pull-left  
     = detail.link_to_remove (image_tag ("Delete_Icon.png"), :class => "recyclebin-icon"), :class => "remove-task"
   

@@ -61,7 +61,7 @@
     .form-group
       = f.label 'شرح:', :class => "control-label"
       = f.text_area :description, :class => "form-control"
-    - if @factor_type == 'cost'
+    - if  @account_document.factor_type == 'cost' || @factor_type == 'cost'
       .form-group
         %b اگر تصویر فاکتور را می خواهید وارد کنید روی دکمه زیر کلیک کنید
         = f.file_field :scan_file, :class => "form-control"
@@ -69,7 +69,7 @@
         %i درصورتی که می خواهید مبلغ کل را دستی وارد کنید اینجا کلیک کنید.
       .form-group#set-value-custome{:style => ('display:block' if @account_document.value.present?)}
         = f.label 'مبلغ کل فاکتور', :class => "control-label"
-        = f.text_field :value, :class => "form-control"
+        = f.number_field :value, :class => "form-control"
       #show-add-details.btn.btn-warning
         %i نمایش مجدد جزئیات فاکتور
     .form-group
@@ -82,8 +82,6 @@
       = f.fields_for :factor_details do |detail|          
         .col-sm-12
           = render "factor_details/set_detail", :detail => detail
-    
-      
     .form-group
       = f.link_to_add content_tag(:span, "افزودن ", :class => "btn btn-success"), :factor_details, :id => "add_new_picture", :class => "save-btn add_details_factor"
       
@@ -94,15 +92,10 @@
           %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
           %h4#myModalLabel.modal-title 
             تخفیف
-        .modal-body          
-        
-          .form-group 
-            = f.label 'عنوان تخفیف:', :class => "control-label"
-            = f.text_area :takhfif_title, :class => "form-control fill" 
-        
+        .modal-body 
           .form-group 
             = f.label 'درصد تخفیف:', :class => "control-label"
-            = f.text_field :takhfif_precent, :class => "form-control"
+            = f.number_field :takhfif_precent, :class => "form-control", :value => "0"
           .clear-float  
         .modal-footer
           %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} ثبت  
@@ -123,7 +116,7 @@
         
           .form-group 
             = f.label 'درصد:', :class => "control-label"
-            = f.text_field :installation_cost_precent, :class => "form-control "
+            = f.number_field :installation_cost_precent, :class => "form-control "
           .clear-float  
         .modal-footer
           %button.btn.btn-default#set-installation-cost{"data-dismiss" => "modal", type: "button"} ثبت    
