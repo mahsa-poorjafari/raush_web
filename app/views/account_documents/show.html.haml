@@ -72,8 +72,9 @@
                 %td.avoid-this.remove= link_to 'حذف', fd, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
             %tr.sum{:style => "background:#BFBFBF"}
               %th{:class => I18n.locale, :colspan=>3} جمع هزینه ها به ریال
-              - if @account_document.value.present?
-                %th{:class => I18n.locale, :colspan=>2}= @primary_value
+              
+              - if @account_document.primary_value.present? && !@account_document.factor_details.present?
+                %th{:class => I18n.locale, :colspan=>2}= @account_document.primary_value
               - else
                 %th#first_sum{:class => I18n.locale, :colspan=>2}
                 

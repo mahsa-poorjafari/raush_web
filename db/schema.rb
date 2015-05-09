@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150509072739) do
+ActiveRecord::Schema.define(version: 20150509085710) do
 
   create_table "account_documents", force: true do |t|
     t.date     "payment_date"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20150509072739) do
     t.string   "scan_file_content_type"
     t.integer  "scan_file_file_size"
     t.datetime "scan_file_updated_at"
+    t.integer  "primary_value"
   end
 
   create_table "camera_models", force: true do |t|
