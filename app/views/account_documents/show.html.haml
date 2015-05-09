@@ -72,7 +72,11 @@
                 %td.avoid-this.remove= link_to 'حذف', fd, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
             %tr.sum{:style => "background:#BFBFBF"}
               %th{:class => I18n.locale, :colspan=>3} جمع هزینه ها به ریال
-              %th#first_sum{:class => I18n.locale, :colspan=>2}
+              - if @account_document.value.present?
+                %th{:class => I18n.locale, :colspan=>2}= @primary_value
+              - else
+                %th#first_sum{:class => I18n.locale, :colspan=>2}
+                
             - if @account_document.takhfif_precent.present?
               %tr.takhfif{:class => I18n.locale}      
                 %th{:class => I18n.locale, :colspan=>2}درصد تخفیف
@@ -100,6 +104,16 @@
             %p با تشکر
             %p مدیرعامل اخوان راد
         .clear-float    
+      - if @account_document.factor_type = 'cost' 
+        .show-scan-file
+          %b تصویر فاکتور
+          - if @account_document.scan_file.present?
+            =link_to @account_document.scan_file.url, :target => "_blank" do          
+              .link.burchure-link
+                .button.bacher.vanr.object.btnw30{waittime: "300"}                  
+                  .icon
+                    = image_tag "ICON/pdf-icon.png", height: "40", width: "40", :alt => "دانلود بروشور راش", :title => "بروشور راش"
+          
     .factor_footer.avoid-this      
       .footer-img= image_tag 'footer-small.jpg'
   

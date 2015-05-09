@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
       @customers.each do |customer|
        
         @customer_start_date = JalaliDate.new(customer.contract_start_date).strftime("%Y-%m-%d")
-        if @customer_start_date == @today          
+        if @customer_start_date == @today.1.mounth
           OrderMailer.send_deadline_alarm(customer).deliver
          
         end

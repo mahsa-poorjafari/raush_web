@@ -29,10 +29,10 @@ class AccountDocumentsController < ApplicationController
     @current_date = JalaliDate.new(Date.today)    
     @current_year = JalaliDate.new(Date.today).strftime("%y")
     if AccountDocument.last.present? && AccountDocument.last.factor_number.present?
-      p @last_letter = AccountDocument.maximum(:factor_number)      
+      @last_letter = AccountDocument.maximum(:factor_number)      
        @last_letter_split = @last_letter.split('/').last       
-       p '-------last_factor_counter----------'
-       p @last_letter_split = @last_letter_split.to_i
+       
+       @last_letter_split = @last_letter_split.to_i
        @last_letter_split = @last_letter_split + 1
        @last_letter_split = @last_letter_split.to_s
       
@@ -85,32 +85,36 @@ class AccountDocumentsController < ApplicationController
     @current_date = JalaliDate.new(Date.today)    
     @current_year = JalaliDate.new(Date.today).strftime("%y")
     @counter_number = params[:counter_number]
-    if @current_year && @counter_number
-      @factor_number =   'R-' + @current_year + '/' + @counter_number
-      p '---------factor_number----------'
-      p @account_document.factor_number = @factor_number
-    end
-    if @account_document.save      
-      p '--factor_details-----'
-      p @account_document.factor_details.each {|fd| fd.object_amount = fd.objecct_price * fd.number_of }
-      p '-----------fd.object_amount-------------'
+    @primary_value = @account_document.value
+    if @account_document.value.blank? || @account_document.value == 0
+      @account_document.factor_details.each {|fd| fd.object_amount = fd.objecct_price * fd.number_of }      
+      p '-------sum------------'
       p @sum = @account_document.factor_details.inject(0){|sum,fd| sum + fd.object_amount.to_i }
       @account_document.update_attributes(:value => @sum)
-      if @account_document.takhfif_precent.present?
-        p '========set takhfif==========='
+    end
+    if @current_year && @counter_number
+      @factor_number =   'R-' + @current_year + '/' + @counter_number      
+      @account_document.factor_number = @factor_number
+      
+    end
+    if @account_document.save 
+      if @account_document.takhfif_precent.present?        
         a = @account_document.value * @account_document.takhfif_precent
         takhfif_amount = a / 100
         @account_document.update_attributes(:takhfif_amount => takhfif_amount)        
-        p @total =  @account_document.value - takhfif_amount
-        @account_document.update_attributes(:value => @total)
+        @takhfif_total =  @account_document.value - takhfif_amount
+        
       end
       if @account_document.installation_cost_precent.present?
         b = @account_document.value * @account_document.installation_cost_precent
-        installation_cost = b / 100
+        p '====installation_cost====='
+        p installation_cost = b / 100
         @account_document.update_attributes(:installation_cost => installation_cost)
-        @total = @account_document.value + @account_document.installation_cost
-        @account_document.update_attributes(:value => @total)             
-      end          
+        @inst_total = @account_document.value + @account_document.installation_cost
+        
+      end 
+      @total = @account_document.value - @takhfif_total + @inst_total
+      @account_document.update_attributes(:value => @total)             
       render action: 'show'
     else
       render action: 'new'      
@@ -122,27 +126,28 @@ class AccountDocumentsController < ApplicationController
   def update
     
     if @account_document.update(account_document_params)      
-            
-      if @account_document.takhfif_precent.present?
-        p '========set takhfif==========='
+      if @account_document.value.blank? || @account_document.value == 0
+        @account_document.factor_details.each {|fd| fd.object_amount = fd.objecct_price * fd.number_of }        
+        @sum = @account_document.factor_details.inject(0){|sum,fd| sum + fd.object_amount.to_i }
+        @account_document.update_attributes(:value => @sum)        
+      end  
+      if @account_document.takhfif_precent.present?        
         a = @account_document.value * @account_document.takhfif_precent
         takhfif_amount = a / 100
         @account_document.update_attributes(:takhfif_amount => takhfif_amount)        
-        p @total =  @account_document.value - takhfif_amount
-        @account_document.update_attributes(:value => @total)
+        @takhfif_total =  @account_document.value - takhfif_amount
+        
       end
       if @account_document.installation_cost_precent.present?
         b = @account_document.value * @account_document.installation_cost_precent
         installation_cost = b / 100
         @account_document.update_attributes(:installation_cost => installation_cost)
-        @total = @account_document.value + @account_document.installation_cost
-        @account_document.update_attributes(:value => @total)             
+        @inst_total = @account_document.value + @account_document.installation_cost
+        
       end          
-      p '----------'
-      p @account_document.factor_details.each {|fd| fd.object_amount = fd.objecct_price * fd.number_of }
-      p '________sum______'
-      p @sum = @account_document.factor_details.inject(0){|sum,fd| sum + fd.object_amount.to_i }
-      @account_document.update_attributes(:value => @sum)
+      
+      @total = @account_document.value - @takhfif_total + @inst_total
+      @account_document.update_attributes(:value => @total)        
       @account_document.save
       redirect_to @account_document
     else
@@ -170,7 +175,7 @@ class AccountDocumentsController < ApplicationController
     def account_document_params
       params.require(:account_document).permit(:payment_date_fa,:paid_by,:paid_to, :value, :payment_group_id,
        :physical_factor_number, :description, :factor_type, :status, :takhfif_title, :takhfif_precent,
-        :takhfif_amount, :factor_number,
+        :takhfif_amount, :factor_number, :scan_file,
         :installation_cost_title, :installation_cost_precent, :installation_cost, :tavajoh,
         factor_details_attributes: [:id, :_destroy, :_update, :object_name, :number_of, :objecct_price, 
         :object_amount, :account_document_id ],
