@@ -273,16 +273,16 @@ padding: 5%;}
 .print-box a{position:absolute; width:100%; height:100%; top:0; left:0; right:0}
 .print-box a, .print-box p{ color:#fff; text-align:center; }
 
-.team-skill {padding:15%; }
+.team-skill {padding:1%; text-align: center;}
 .team-skill .skills-icon {margin:1%; }
 .team-info {padding:2%;}
 .team-info .team-text p, .team-info .team-text div, .team-info .team-text b{margin-bottom:2%}
 .team-info .team-text.fa ul li{direction:rtl; font-family: BYekan; text-align:right}
 #team-info.fa .team-info-box {float:right}
 #team-info.en .team-info-box {float:left}
-.team-info-box {background:#29666F; opacity:.8; color:#fff; 
+.team-info-box {background:#0f3c42; padding-top: 4%;opacity:.8; color:#fff; 
   border:#393F5A 2px solid;
-  font-size:1.5em;
+  font-size:1.2em;
   min-height:70px !important;  padding:2%;
   margin:1%;}
 .team-info-box.fa{ text-align:right;   }

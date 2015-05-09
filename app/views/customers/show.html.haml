@@ -11,10 +11,11 @@
       = @customer.service.title_fa
     %p
       %b تاریخ ثبت قرارداد
-      = @customer.contract_start_date
+      = JalaliDate.new(@customer.contract_start_date).strftime("%Y/%m/%d")
     %p
       %b تاریخ اتمام قرارداد
-      = @customer.contract_end_date
+      = JalaliDate.new(@customer.contract_end_date).strftime("%Y/%m/%d")
+      
     %p
       %b توضیحات
       = raw @customer.description

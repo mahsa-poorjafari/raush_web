@@ -9,18 +9,13 @@
   .clear-float  
   - @teams.each do |team| 
     .col-xs-12.show-team-detail{:class => "team_img_"+team.id.to_s}
-      .col-xs-3.pull-right{:style => "text-align:center"} 
+      .col-xs-4.pull-right{:style => "text-align:center"} 
         = image_tag team.image(:large), :class => "team-img", :id => 'team_img_'+team.id.to_s, :height => "500"
         - if is_admin?
           = link_to (image_tag 'edit.png', :alt => "edit"), edit_team_path(team)      
           = link_to (image_tag 'del.png', :alt => "delete"), team, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-      .col-xs-2{:style => 'padding:1%'}
-        .team-skill
-          - if team.skills.present?
-            - team.skills.each do |skill|
-              .skills-icon{ "data-toggle" => "tooltip", "data-placement" => "left", :title => skill.icon_file_name  }
-                = image_tag skill.icon(:icon)
+      
       .col-xs-6.pull-right.team-info
         #team-info.set-center{:class => I18n.locale}
           .team-info-box.post.col-xs-11{:class => I18n.locale}= team.name + " " +  team.last_name  + ' / '+  team.post
@@ -40,6 +35,12 @@
           .team-info-box.col-xs-5{:class => I18n.locale}= t('contact_info')
           .team-info-box.info-text.col-xs-6{:class => I18n.locale}= raw team.contact_info
           .clear-float
+        .col-xs-12{:style => 'padding:1%'}
+          .team-skill
+            - if team.skills.present?
+              - team.skills.each do |skill|
+                %span{ "data-toggle" => "tooltip", "data-placement" => "bottom", :title => skill.icon_file_name  }
+                  = image_tag skill.icon(:icon)
 .col-xs-4
   .link{:style => "width:100%"}
     #team-bk.button.set-center.btnw10.back

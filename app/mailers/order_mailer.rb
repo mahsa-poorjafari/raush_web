@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class OrderMailer < ActionMailer::Base
   def send_user_order
     @order = OrderOnline.last
@@ -10,5 +11,9 @@ class OrderMailer < ActionMailer::Base
     :to => "Raush <raush.co@gmail.com>",
     :subject => "Hello Raush",
     :text => "Congratulations Raush, you just sent an email with Mailgun!  You are truly awesome!  You can see a record of this email in your logs: https://mailgun.com/cp/log .  You can send up to 300 emails/day from this sandbox server.  Next, you should add your own domain so you can send 10,000 emails/month for free."
+  end
+  def send_deadline_alarm(customer)    
+    @customer = customer
+    mail(:to =>  'raush.co@gmail.com', :subject => "Raush- سررسید تاریخ تمدید دامنه", :from => "web-development@raush.com")
   end
 end

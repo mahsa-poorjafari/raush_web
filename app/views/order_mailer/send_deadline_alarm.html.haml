@@ -1,0 +1,14 @@
+%h1 اعلام سررسید مهلت پرداخت جهت تمدید دامنه
+%h2= @customer.title
+%p
+  %b بخش مربوطه:
+  = @customer.service.title_fa
+%p  
+  %b تاریخ ثبت قرارداد:  
+  = JalaliDate.new(@customer.contract_start_date).strftime("%Y/%m/%d")
+
+%b
+  تاریخ ارسال این پیام:   
+  = JalaliDate.new(Date.today).strftime("%Y/%m/%d")
+  
+  
