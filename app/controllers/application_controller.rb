@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception 
   before_filter :set_locale
-  before_filter :send_daily_email
+  
   #before_filter :authenticate
   include SimpleCaptcha::ControllerHelpers
   protected
@@ -19,20 +19,7 @@ class ApplicationController < ActionController::Base
         username == "raush" && password == "co"
       end
     end
-    def send_daily_email
-      @today_1_month = Date.today + 1.month
-      @today_1_month = JalaliDate.new(@today_1_month).strftime("%Y-%m-%d")
-      
-      @customers = Customer.all
-      @customers.each do |customer|
-       
-        @customer_start_date = JalaliDate.new(customer.contract_start_date).strftime("%Y-%m-%d")
-        if @customer_start_date == @today_1_month 
-          OrderMailer.send_deadline_alarm(customer).deliver
-         
-        end
-      end
-    end
+    
   private
     def set_locale
       params[:locale] == "en" ?  I18n.locale = "en" : I18n.locale = "fa"
