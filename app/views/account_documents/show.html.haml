@@ -83,7 +83,11 @@
                 %th{:class => I18n.locale, :colspan=>2}درصد تخفیف
                 %td{:class => I18n.locale, :colspan=>1}= @account_document.takhfif_precent.to_s + '% مبلغ فوق'
                 
-                %td{:class => I18n.locale, :colspan=>2}= @account_document.takhfif_amount 
+                %td{:class => I18n.locale, :colspan=>2}
+                  - if @account_document.takhfif_amount.present?
+                    = @account_document.takhfif_amount 
+                  - else
+                    %span ---
               
                 
                 
@@ -106,7 +110,7 @@
             %p مدیرعامل اخوان راد
         .clear-float    
       - if @account_document.factor_type = 'cost' 
-        .show-scan-file
+        .show-scan-file.avoid-this
           %b تصویر فاکتور
           - if @account_document.scan_file.present?
             =link_to @account_document.scan_file.url, :target => "_blank" do          
