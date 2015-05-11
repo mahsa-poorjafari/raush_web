@@ -95,7 +95,7 @@
         .modal-body 
           .form-group 
             = f.label 'درصد تخفیف:', :class => "control-label"
-            = f.number_field :takhfif_precent, :class => "form-control", :value => "0"
+            = f.number_field :takhfif_precent, :class => "form-control"
           .clear-float  
         .modal-footer
           %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} ثبت  
@@ -180,6 +180,17 @@
       });
     });
   });
+  $(function() { 
+    $('.modal-footer :submit#set-installation-cost').click(function(e) {
+      $(':text#account_document_installation_cost_precent, #account_document_installation_cost_title').each(function() {
+        if ($(this).val().length == 0) {
+          $(this).css('border', '2px solid red');
+          e.preventDefault();
+        }
+      });
+    });
+  });
+  
   $('#show-set-value-field').click(function(){
     $('#set-value-custome').show(100);
     $('#factor_details').fadeOut(100);    

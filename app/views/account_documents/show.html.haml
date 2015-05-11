@@ -84,18 +84,24 @@
                 %td{:class => I18n.locale, :colspan=>1}= @account_document.takhfif_precent.to_s + '% مبلغ فوق'
                 
                 %td{:class => I18n.locale, :colspan=>2}
-                  - if @account_document.takhfif_amount.present?
+                  - if @account_document.takhfif_amount.present? && @account_document.takhfif_amount != 0
                     = @account_document.takhfif_amount 
                   - else
                     %span ---
               
                 
                 
-            - if @account_document.installation_cost_precent.present?
+            - if @account_document.installation_cost_precent.present? &&  @account_document.installation_cost_precent != 0
               %tr
                 %td.fa{:class => I18n.locale, :colspan=>2}= @account_document.installation_cost_title
                 %td.fa{:class => I18n.locale, :colspan=>1}= @account_document.installation_cost_precent.to_s + '% مبلغ فوق'
-                %td.fa{:class => I18n.locale, :colspan=>2, :style => "text-align:center"}= @account_document.installation_cost
+                  
+                %td.fa{:class => I18n.locale, :colspan=>2, :style => "text-align:center"}
+                  - if @account_document.installation_cost.present? && @account_document.installation_cost != 0
+                    = @account_document.installation_cost
+                  - else
+                    %span ---
+                  
             %tr.sum.bolder
               %th{:class => I18n.locale, :colspan=>3} جمع کل به ریال
               %th{:class => I18n.locale, :colspan=>2}= @account_document.value

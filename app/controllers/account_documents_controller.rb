@@ -86,6 +86,7 @@ class AccountDocumentsController < ApplicationController
     @current_year = JalaliDate.new(Date.today).strftime("%y")
     @counter_number = params[:counter_number]
     @primary_value = @account_document.value
+    
     if @account_document.factor_details.present? 
       @account_document.factor_details.each {|fd| fd.object_amount = fd.objecct_price * fd.number_of }      
       p '-------sum------------'
@@ -108,7 +109,10 @@ class AccountDocumentsController < ApplicationController
         @total = @account_document.value - @takhfif_total
         @account_document.update_attributes(:value => @total)          
         @total = 0
+      else
+        @account_document.update_attributes(:takhfif_precent => 0)
       end
+      
       if @account_document.installation_cost_precent.present? && @account_document.installation_cost_precent != 0
         b = @account_document.value * @account_document.installation_cost_precent        
         @inst_total = b / 100
@@ -144,10 +148,12 @@ class AccountDocumentsController < ApplicationController
       if @account_document.takhfif_precent.present? && @account_document.takhfif_precent != 0
         a = @account_document.value * @account_document.takhfif_precent
         @takhfif_total = a / 100
-        @account_document.update_attributes(:takhfif_amount => @takhfif_total)        
+        @account_document.update_attributes(:takhfif_amount => @takhfif_total)
         @total = @account_document.value - @takhfif_total
         @account_document.update_attributes(:value => @total)        
         @total = 0
+      else        
+        @account_document.update_attributes(:takhfif_amount => 0)          
       end
       if @account_document.installation_cost_precent.present? && @account_document.installation_cost_precent != 0
         b = @account_document.value * @account_document.installation_cost_precent
@@ -156,6 +162,8 @@ class AccountDocumentsController < ApplicationController
         @total = @account_document.value  + @inst_total      
         @account_document.update_attributes(:value => @total)          
         @total = 0
+      else
+        @account_document.update_attributes(:installation_cost => 0)
       end          
       
       
