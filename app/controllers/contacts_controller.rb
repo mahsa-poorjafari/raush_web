@@ -4,7 +4,7 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = Contact.all
+    @contacts = Contact.order("company_name desc")
   end
 
   # GET /contacts/1
@@ -13,8 +13,10 @@ class ContactsController < ApplicationController
   end
   def search
     q = params[:search]
-    if q      
-      @contact = Contact.search q                  
+    if q 
+      p '--------'
+      p q
+      @contact = Contact.search q 
     end 
   end
   # GET /contacts/new

@@ -31,9 +31,13 @@ class CustomersController < ApplicationController
   # POST /customers.json
   def create
     @customer = Customer.new(customer_params)
-
+    @customer_phone = params[:phone]
+    @customer_fax = params[:fax]
+    @customer_add = params[:address]
     respond_to do |format|
       if @customer.save
+        @contact = Contact.new(preson_name: @customer.title, company_name: @customer.company_title, phone: @customer_phone, fax: @customer_fax, address:@customer_add)
+        @contact.save!
         format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
         format.json { render action: 'show', status: :created, location: @customer }
       else
@@ -75,6 +79,7 @@ class CustomersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
-      params.require(:customer).permit(:title, :contract_start_date, :contract_end_date, :description, :service_id)
+      params.require(:customer).permit(:title, :contract_start_date, :contract_end_date, :description,
+       :service_id, :company_title)
     end
 end

@@ -8,6 +8,9 @@
   .margin5.fa
     .col-sm-5.pull-right
       .form-group
+        = f.label 'نام شرکت/سازمان', :class => "control-label"
+        = f.text_field :company_title, :class => "form-control"
+      .form-group
         = f.label 'نام و نام خانوادگی', :class => "control-label"
         = f.text_field :title, :class => "form-control"
       .form-group
@@ -20,7 +23,16 @@
       .form-group
         = f.label 'سرویس مربوطه را انتخاب کنید.', :class => "control-label"
         = f.select(:service_id, Service.all.collect {|u| [u.title, u.id]}, :prompt => ' سرویس مربوطه ...') 
-        
+    .col-sm-5    
+      .form-group
+        %b=  'تلفن تماس'
+        = text_field_tag :phone ,params[:phone], :class => "form-control"
+      .form-group
+        %b=  'نمابر / فکس'
+        = text_field_tag :fax, params[:fax], :class => "form-control"
+      .form-group
+        %b=  'آدرس'
+        = text_area_tag :address, params[:address], :class => "fa_date form-control"
     .form-group.clear-float      
       = f.label 'توضیحات', :class => "control-label"
       .editor

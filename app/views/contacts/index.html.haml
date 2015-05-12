@@ -1,16 +1,65 @@
 .width80.fa.set-center   
   %h1 دفترچه تلفن
-  
-  .col-xs-5.margin5 
-    #search_result.search_result
-  .col-xs-5.margin5 
-    .contact-search-form
-      = form_tag search_contact_path(1), :method => "get", id: "search-form", :remote => true do 
-        = text_field_tag :search, params[:search], :id => 'search_field' 
-        = submit_tag "جستجو", :name => nil, :id => "search-submit" 
-        #clear.col-md-4= link_to  "تصحیح", '#phone'            
-    = link_to 'افزودن به دفترچه', new_contact_path, :class => "btn btn-default"
-    
+  -#
+    .col-xs-5.margin5 
+      #loading{:style => "display:none"}= image_tag 'AjaxLoading.gif'
+      #search_result.search_result
+    .col-xs-5.margin5 
+      .contact-search-form
+        = form_tag search_contact_path(1), :method => "get", id: "search-form", :remote => true do 
+          = text_field_tag :search, params[:search], :id => 'search_field' 
+          = submit_tag "جستجو", :name => nil, :id => "search-submit" 
+          #clear.col-md-4= link_to  "تصحیح", '#phone'            
+      = link_to 'افزودن به دفترچه', new_contact_path, :class => "btn btn-default"
+  .contact_table
+    %table.table.table-striped{id:"contact_table"}
+      %thead
+        %tr      
+          %th ردیف
+          %th نام شرکت - نام شخص
+          %th تلفن تماس
+          %th فکس
+          %th آدرس
+          
+          
+          %th عملیات
+       
+      %tbody  
+        - @contacts.each_with_index do |contact, i|
+          %tr
+            %td= (i+1)
+            %td= contact.preson_name + "-" + contact.company_name
+            %td= contact.phone
+            %td= contact.fax
+            %td= contact.address
+            %td 
+              - if is_admin?      
+                = link_to 'ویرایش', edit_contact_path(contact)
+                \|
+                = link_to 'حذف', contact, :method => :delete, :data => { :confirm => 'Are you sure?' }
+              
+:coffeescript
+  window.reloadDataTable = ->
+    if !!window.oTable
+      window.oTable.fnDestroy(); 
+    window.oTable = $("#contact_table").dataTable aoColumnDefs: [
+      bSearchable: false
+      aTargets: [0,5]
+    ,  
+      bSortable: false
+      aTargets: [0,5]
+    ],  oLanguage:
+      sSearch: "جستجو:"
+      sLengthMenu: "نمایش _MENU_ ردیف"
+      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+      sZeroRecords: "هیچ داده ای وجود ندارد"
+      sInfoEmpty: "هیچ موردی یافت نشد"
+      sInfoFiltered: " - از بین _MAX_ داده موجود"
+      oPaginate:
+        sPrevious: "صفحه قبلی"
+        sNext: "صفحه بعدی"
+
+  window.reloadDataTable()
   
 :javascript
   $('#clear').click(function()
@@ -28,4 +77,10 @@
         e.preventDefault();
       }
     });
+  });
+  
+  $('#loading').bind('ajaxStart', function(){
+    $(this).show();
+    }).bind('ajaxStop', function(){
+      $(this).hide();
   });
