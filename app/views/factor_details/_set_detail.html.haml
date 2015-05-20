@@ -4,14 +4,14 @@
     = detail.label 'تعداد', :class => "control-label col-sm-1 pull-right"     
     = detail.label 'قیمت پایه', :class => "control-label col-sm-2 pull-right"        
     
-  .form-group.col-sm-6.pull-right   
+  .form-group.col-sm-12.pull-right   
     = detail.text_field :object_name, :rows => 2, :style => "resize:none"  , :class => "form-control"
-  .form-group.col-sm-2.pull-right
+  .form-group.col-sm-5.pull-right
     = detail.number_field :number_of, :rows => 2, :style => "resize:none" , :class => "form-control"   
   
-  .form-group.col-sm-2.pull-right
+  .form-group.col-sm-5.pull-right
     = detail.number_field :objecct_price, :rows => 2, :style => "resize:none" , :class => "form-control" 
-  .form-group.col-sm-3.pull-left  
+  .form-group.col-sm-2.pull-left  
     = detail.link_to_remove (image_tag ("Delete_Icon.png"), :class => "recyclebin-icon"), :class => "remove-task"
   
     

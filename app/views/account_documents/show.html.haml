@@ -67,16 +67,21 @@
                 %td.fa= (i+1)
                 %td.fa= fd.object_name
                 %td.fa= fd.number_of
-                %td.fa= fd.objecct_price
-                %td.fa.object_amount= fd.object_amount
+                %td.fa= number_to_currency(fd.objecct_price , :unit => " ", format: "%n %u", :precision => 0)                
+                 
+                %td.fa.object_amount= number_to_currency(fd.object_amount , :unit => " ", format: "%n %u", :precision => 0)                
+                
                 %td.avoid-this.remove= link_to 'حذف', fd, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
             %tr.sum{:style => "background:#BFBFBF"}
               %th{:class => I18n.locale, :colspan=>3} جمع هزینه ها به ریال
               
               - if @account_document.primary_value.present? && !@account_document.factor_details.present?
-                %th{:class => I18n.locale, :colspan=>2}= @account_document.primary_value
+                %th{:class => I18n.locale, :colspan=>2}= number_to_currency(@account_document.primary_value , :unit => " ", format: "%n %u", :precision => 0)                
+                
               - else
-                %th#first_sum{:class => I18n.locale, :colspan=>2}
+                %th{:class => I18n.locale, :colspan=>2}
+                  = number_to_currency(@account_document.factor_details.sum(:object_amount) , :unit => " ", format: "%n %u", :precision => 0)                
+                  
                 
             - if @account_document.takhfif_precent.present?
               %tr.takhfif{:class => I18n.locale}      
@@ -85,7 +90,8 @@
                 
                 %td{:class => I18n.locale, :colspan=>2}
                   - if @account_document.takhfif_amount.present? && @account_document.takhfif_amount != 0
-                    = @account_document.takhfif_amount 
+                    = number_to_currency(@account_document.takhfif_amount , :unit => "ریال ", format: "%n %u", :precision => 0)
+                    
                   - else
                     %span ---
               
@@ -98,13 +104,14 @@
                   
                 %td.fa{:class => I18n.locale, :colspan=>2, :style => "text-align:center"}
                   - if @account_document.installation_cost.present? && @account_document.installation_cost != 0
-                    = @account_document.installation_cost
+                    = number_to_currency(@account_document.installation_cost, :unit => "ریال ", format: "%n %u", :precision => 0)
+                    
                   - else
                     %span ---
                   
             %tr.sum.bolder
-              %th{:class => I18n.locale, :colspan=>3} جمع کل به ریال
-              %th{:class => I18n.locale, :colspan=>2}= @account_document.value
+              %th{:class => I18n.locale, :colspan=>3} جمع کل به ریال              
+              %th{:class => I18n.locale, :colspan=>2}= number_to_currency(@account_document.value, :unit => "ریال ", format: "%n %u", :precision => 0)
         - if @account_document.tavajoh.present?
           .tavajoh
             %b.fa توجه:
@@ -117,8 +124,9 @@
         .clear-float    
       - if @account_document.factor_type = 'cost' 
         .show-scan-file.avoid-this
-          %b تصویر فاکتور
+          
           - if @account_document.scan_file.present?
+            %b تصویر فاکتور
             =link_to @account_document.scan_file.url, :target => "_blank" do          
               .link.burchure-link
                 .button.bacher.vanr.object.btnw30{waittime: "300"}                  
@@ -133,8 +141,4 @@
     $('body').css('position', 'absolute');
     window.print();
   });
-  var calculate = 0;
-  $('td.object_amount').each(function() {     
-    calculate += parseInt($(this).text());                     
-  });
-  $('#first_sum').html(calculate);
+ 
