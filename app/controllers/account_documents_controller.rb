@@ -101,32 +101,37 @@ class AccountDocumentsController < ApplicationController
       @account_document.factor_number = @factor_number
       
     end
-    if @account_document.save 
-      if @account_document.takhfif_precent.present?   && @account_document.takhfif_precent != 0      
-        a = @account_document.value * @account_document.takhfif_precent
-        @takhfif_total = a / 100
-        @account_document.update_attributes(:takhfif_amount => @takhfif_total)               
-        @total = @account_document.value - @takhfif_total
-        @account_document.update_attributes(:value => @total)          
-        @total = 0
-      else
-        @account_document.update_attributes(:takhfif_precent => 0)
-      end
-      
-      if @account_document.installation_cost_precent.present? && @account_document.installation_cost_precent != 0
-        b = @account_document.value * @account_document.installation_cost_precent        
-        @inst_total = b / 100
-        @account_document.update_attributes(:installation_cost => @inst_total)        
-        @total = @account_document.value + @inst_total
-        @account_document.update_attributes(:value => @total)          
-        @total = 0
-      end 
-      
+    if @account_document.factor_details.present? 
+      if @account_document.save 
+        if @account_document.takhfif_precent.present?   && @account_document.takhfif_precent != 0      
+          a = @account_document.value * @account_document.takhfif_precent
+          @takhfif_total = a / 100
+          @account_document.update_attributes(:takhfif_amount => @takhfif_total)               
+          @total = @account_document.value - @takhfif_total
+          @account_document.update_attributes(:value => @total)          
+          @total = 0
+        else
+          @account_document.update_attributes(:takhfif_precent => 0)
+        end
+        
+        if @account_document.installation_cost_precent.present? && @account_document.installation_cost_precent != 0
+          b = @account_document.value * @account_document.installation_cost_precent        
+          @inst_total = b / 100
+          @account_document.update_attributes(:installation_cost => @inst_total)        
+          @total = @account_document.value + @inst_total
+          @account_document.update_attributes(:value => @total)          
+          @total = 0
+        end 
+        
 
-      render action: 'show'
+        render action: 'show'
+      else
+        render action: 'new'      
+      end  
     else
-      render action: 'new'      
-    end  
+      flash[:errorfactor] = 'لطفا جزییات فاکتور را وارد کنید.'
+      redirect_to :back
+    end
   end
 
   # PATCH/PUT /account_documents/1

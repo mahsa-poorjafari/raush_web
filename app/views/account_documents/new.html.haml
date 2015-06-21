@@ -1,4 +1,7 @@
 .fa.set-center   
+  - if flash[:errorfactor].present?
+    .alert.alert-warning
+      = flash[:errorfactor]
   %h1
     ثبت فاکتور
     - if @factor_type == 'customer'

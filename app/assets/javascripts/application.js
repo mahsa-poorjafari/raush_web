@@ -18,11 +18,3 @@
 //= require jquery_nested_form
 
 //= require_tree .
-
-
-$(document).ready(function(){
-  var offline_text="پیغام بگذارید";
-  var online_text="پشتیبانی آنلاین می باشد";
-  var first_text="کاربر گرامی ، بخش پشتیبانی سایت آماده پاسخگویی به شما می باشد. جهت شروع گفتگو نام خود را وارد کنید :";
-  var rangbg="BE2C31"; var rangtxt="FFFFFF";
-});

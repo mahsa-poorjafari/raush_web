@@ -297,9 +297,10 @@ padding: 5%;}
 tr.sum td b{color:#000}
 #set-value-custome {display:none}
 .modal-dialog p, .modal-dialog h4, .modal-dialog label{color:#01666e}
-.chatonline { background:url('mod3.png') no-repeat;
+.chatonline { 
   position: absolute;
 width: 200px;
 bottom: 10px;
 z-index: 300;
+height:80px
 }
