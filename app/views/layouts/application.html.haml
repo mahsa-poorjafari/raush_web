@@ -10,7 +10,8 @@
     = stylesheet_link_tag    "print", media: "print"      
     = stylesheet_link_tag    "animate", media: "all"      
     = javascript_include_tag "application", "data-turbolinks-track" => true    
-    = javascript_include_tag "http://online.1abzar.com/1abzar-mini.php?admin=38411&mail=1&poz=right"
+    
+    
     %meta{:name => "description", :content => "گروه مهندسین راش فعالیتهای کلی مجموعه شامل هوشمند سازی ساختمان، نصب و راه اندازی دوربین و در زمینه کامپیوتر شاخه های راه اندازی و پشتیبانی شبکه های کامپیوتری، طراحی و تولید وب سایت، طراحی و تولید نرم افزار و پیشتیبانی سیستم های کامپیوتری می باشد که می توانید توضیحات جزئی مربوط به هر شاخه از فعالیت را در قسمت خدمات سایت مشاهده کنید. "}
     %meta{:name => "keywords", :content =>  Service.all.collect(&:title_fa).join(" ") + " " + Subservice.all.collect(&:title_fa).join(" ") }
     %meta{content: "no", "http-equiv" => "imagetoolbar"}
@@ -39,9 +40,12 @@
       .footer.row
         = render "shared/footer"
     
-    %div
-      %h3
-        = link_to 'پشتیبانی', "http://www.1abzar.com", :target => "_blank"
+      .chat-online
+        
+        = link_to  'http://online.1abzar.com/index.php?admin=38411&mail=1&poz=right', :target=> "_blank" do
+          = image_tag 'mod3.png'
+      
+  
         
   :javascript
     
@@ -64,7 +68,13 @@
       $('#subservice-image').addClass('subservice-text-show');
     });
     
+  / Online Support by www.1abzar.com -
+  :javascript
     var offline_text="پیغام بگذارید";
     var online_text="پشتیبانی آنلاین می باشد";
     var first_text="کاربر گرامی ، بخش پشتیبانی سایت آماده پاسخگویی به شما می باشد. جهت شروع گفتگو نام خود را وارد کنید :";
     var rangbg="13A7BE"; var rangtxt="FFFFFF";
+  
+  
+  
+  / Online Support by www.1abzar.com -
