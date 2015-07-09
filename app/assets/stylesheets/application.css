@@ -32,7 +32,7 @@ p, b, div {color:#FFF;}
 .fa, .fa p, .fa .control-label {direction:rtl; font-family: BYekan; text-align:right}
 .en, .en p {direction:ltr; font-family: 'eras_light_itc'; text-align:left; font-weight:bold}
 
-#fa {font-family: BYekan;}
+#fa {font-family: BYekan; }
 #en {font-family: 'eras_light_itc';}
 .mainmenu {position: absolute;
 z-index: 100;
@@ -67,6 +67,7 @@ left:0;
 .icons .servic-menu:hover .icon-for-nav {background-position:50% 100%;}
 .icons p {color:#fff; font-size:1.2em; text-align:center; margin-top:5%;}
  .logo p {color:#fff; font-size:1.2em; text-align:center}
+ .logo p#fa {direction:rtl}
 .logo .logo-small-size {display:none}
 .logo  .bghome{ background:#01666e}
 .icons .bgbms{background:#097b84}
@@ -109,7 +110,7 @@ height:auto; background:#12828B; overflow:hidden;
 }
 .main-div {  
   position: relative;
-  min-height: 476px;
+  min-height: 500px;
   width: 100%;
   top: 100px; 
   background:#01666e;  
