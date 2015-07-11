@@ -139,7 +139,7 @@ class AccountDocumentsController < ApplicationController
   def update
     
     if @account_document.update(account_document_params)      
-      
+      @account_document.update_attribute(:created_at, @account_document.updated_at)
       @primary_value = @account_document.value
       if @account_document.factor_details.present?
         @account_document.factor_details.each {|fd| fd.object_amount = fd.objecct_price * fd.number_of }        
