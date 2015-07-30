@@ -22,8 +22,11 @@
     }
   .header-date {top:0; bottom:5cm; z-index:100; position:absolute;clear:both}
   .body-factor {margin-top:100pt; bottom:5cm; height:650pt}
+  #letter-body {width:450pt; margin-right:10pt; margin-left:10pt}
+  #letter-body p{text-align:justify}
   .show-date {width:4cm;right:2cm; top:2px; position:absolute; font-size:.7em }
   .show-number {width:4cm;right:2cm; top:25px; position:absolute; font-size:.7em}
+  .show-peyvast {width:4cm;right:2cm; top:40px; position:absolute; font-size:.7em}
   #date {width:4cm;right:2px; top:2px; position:absolute; font-size:.7em}
   #number {width:4cm;right:2px; top:25px; position:absolute; font-size:.7em}
   
@@ -44,7 +47,10 @@
   .tavajoh {margin-top:20pt; clear:both}
   .tavajoh ul {list-style:circle}
   .sign {width:150pt; float:left; }
-  .sign.withsarbarg { margin-left:2cm}
+  .sign.withsarbarg, .sign#letter-sign { margin-left:2cm}
+  .runevesht p {font-size:.7em}
+  .runevesht{margin-top:20pt}
+  
   .sign p{text-align:center}
   
   #sarbargh {position:fixed; top:20pt;  right:0; left:0; width:100%; clear:float}

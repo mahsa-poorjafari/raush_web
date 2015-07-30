@@ -31,17 +31,17 @@
           %b.header-date-title#date.col-sm-6.pull-right تاریخ:
           .show-date.col-sm-6= JalaliDate.new(@letter.created_at)
         %p.fa.clear-float
-          %b.header-date-title#date.col-sm-6.pull-right پیوست:
+          %b.header-date-title#peyvast.col-sm-6.pull-right پیوست:
           .show-peyvast.col-sm-6= @letter.peyvast
     .body-factor
       %p.fa
         %b= @letter.reciever_name
       %p.fa
         %b= @letter.reciever_post
-      .col-sm-11
+      #letter-body 
         = raw @letter.text
 
-      .sign
+      .sign#letter-sign
         .col-sm-2
         .col-sm-3{:style => "text-align:center"}
           %p= @letter.sign_thanks
@@ -49,7 +49,7 @@
           %p شرکت راش بنیان مدرن پاژ(سهامی خاص)
       .clear-float    
   
-      .col-sm-11
+      #letter-body.runevesht
         %p
           %b رونوشت
           =raw @letter.runevesht
@@ -62,13 +62,13 @@
       .footer-img= image_tag 'footer-small.jpg'
 :javascript
   $('a#print').click(function(){    
-    $('#sarbargh, #sarbargf, #date, #number').addClass('avoid-this');
+    $('#sarbargh, #sarbargf, #date, #number, #peyvast').addClass('avoid-this');
     
     $('body').css('position', 'absolute');
     window.print();
   });
   $('a#printa4s').click(function(){
-    $('#sarbargh, #sarbargf, #date, #number').removeClass('avoid-this');
+    $('#sarbargh, #sarbargf, #date, #number, #peyvast').removeClass('avoid-this');
     $('.sign').addClass('withsarbarg');
     
     $('body').css('position', 'absolute');
