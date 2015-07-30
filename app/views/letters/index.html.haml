@@ -1,0 +1,40 @@
+.fa.set-center 
+  .title{:style => "height:100px"}
+    %h1.pull-right لیست نامه ها
+    .pull-right{:style => "margin-top:2%; margin-right:5%"}
+      - if is_admin?
+        = link_to 'ایجاد نامه جدید', new_letter_path, :class => "btn btn-default"
+
+  .factor_table
+    %table.table.table-striped{id:"letter_table"}
+
+      %thead
+        %tr
+          %th ردیف
+          %th شماره نامه          
+          %th تاریخ ارسال
+          %th مخاطب          
+          %th موضوع نامه          
+          %th توضیحات          
+          %th وضعیت
+          %th عملیات
+
+      %tbody
+        - @letters.each_with_index do |letter, i|
+          %tr
+            %td= (i+1)
+            %td= letter.letter_number
+            %td= JalaliDate.new(letter.created_at)
+            %td= letter.reciever_name + ' , ' + letter.reciever_post            
+            %td= letter.letter_subject            
+            %td= letter.description
+            %td
+              - if letter.copy
+                %b= 'نامه کپی شده است'
+            %td
+              = link_to 'مشاهده', letter, :class => "btn btn-warning"
+              = link_to 'ویرایش', edit_letter_path(letter), :class => "btn btn-info"
+              = link_to 'حذف', letter, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger"
+
+
+

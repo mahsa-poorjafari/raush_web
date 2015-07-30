@@ -1,4 +1,6 @@
 RaushWeb::Application.routes.draw do
+  resources :letters
+
   resources :payments
 
   resources :customers do

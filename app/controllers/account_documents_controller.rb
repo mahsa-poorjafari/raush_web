@@ -29,18 +29,17 @@ class AccountDocumentsController < ApplicationController
     @current_date = JalaliDate.new(Date.today)    
     @current_year = JalaliDate.new(Date.today).strftime("%y")
     if AccountDocument.last.present? && AccountDocument.last.factor_number.present?
-      @last_letter = AccountDocument.maximum(:factor_number)      
-       @last_letter_split = @last_letter.split('/').last       
-       
-       @last_letter_split = @last_letter_split.to_i
-       @last_letter_split = @last_letter_split + 1
-       @last_letter_split = @last_letter_split.to_s
+      p @last_factor = AccountDocument.maximum(:factor_number) 
+      p @last_letter = Letter.maximum(:letter_number)     
+      @Max_number = [@last_letter.to_s, @last_factor.to_s].max
+      p @last_letter_split = @Max_number.split('/').last
+      p @last_letter_split = @last_letter_split.to_i
+      @last_letter_split = @last_letter_split + 1
+      p @last_letter_split = @last_letter_split.to_s
       
     else
       @last_letter_split = 200
-    end
-    
-    
+    end   
     
   end
   def copy_factor    

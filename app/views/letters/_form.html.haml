@@ -1,0 +1,64 @@
+= form_for @letter do |f|
+  - if @letter.errors.any?
+    #error_explanation
+      
+      %ul
+        - @letter.errors.each do |attr, msg|
+          %li= msg
+
+  .pull-right.margin5.col-sm-3 
+    .form-group
+      = f.label 'شماره نامه', :class => "control-label"
+      - if @last_letter_split.present?
+        %b= 'R-'+ @current_year.to_s + '/' +@last_letter_split.to_s
+        - @f= 'R-'+ @current_year.to_s + '/' +@last_letter_split.to_s
+      
+      = f.hidden_field :letter_number, :value => @f
+    - if @letter.present? && @letter.created_at.present?      
+      .form-group  
+        %p
+          %b= 'تاریخ ثبت نامه'
+          %b= JalaliDate.new(@letter.created_at)
+    .form-group
+      %p
+        %b= 'تاریخ امروز: '  
+        = JalaliDate.new(Date.today)
+    .form-group
+      = f.label 'پیوست', :class => "control-label"
+      = f.text_field :peyvast, :class => "form-control"
+  .clear-float
+  .pull-right.margin5.col-sm-4
+    .form-group
+      = f.label 'نام گیرنده', :class => "control-label"
+      = f.text_field :reciever_name, :class => "form-control"
+    .form-group
+      = f.label 'سمت گیرنده', :class => "control-label"
+      = f.text_field :reciever_post, :class => "form-control"
+    .form-group
+      = f.label 'موضوع نامه', :class => "control-label"
+      = f.text_field :letter_subject, :class => "form-control"
+  .pull-right.margin5.col-sm-11
+    .form-group
+      = f.label 'متن نامه', :class => "control-label"
+      .editor
+        = f.text_area :text, :class => "form-control ckeditor"
+  .pull-left.margin5.col-sm-4
+    .form-group
+      = f.label 'عنوان تشکر نامه', :class => "control-label"
+      = f.text_field :sign_thanks, :class => "form-control"
+    .form-group
+      = f.label 'سمت شخص ارسال کننده', :class => "control-label"
+      = f.text_field :sign_post, :class => "form-control"
+    %p= 'شرکت راش بنیان مدرن پاژ (سهامی خاص)'
+  .clear-float
+  .pull-right.margin5.col-sm-11
+    .form-group
+      = f.label 'متن رونوشت', :class => "control-label"
+      .editor
+        = f.text_area :runevesht, :class => "form-control ckeditor"
+    .form-group
+      = f.label 'توضیحات وضعیت نامه', :class => "control-label"
+      = f.text_area :description, :class => "form-control"
+  .clear-float
+  .form-group
+    = f.submit 'ثبت', :class => "btn btn-default"

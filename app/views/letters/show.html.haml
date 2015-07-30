@@ -1,0 +1,77 @@
+.fa.set-center
+  .col-sm-12.avoid-this.pull-right.margin5    
+    .print-box.col-sm-2
+      = link_to  '#', :id => "print" do
+        = image_tag 'print.png'
+        %p  چاپ فاکتور با سایز A4
+    .print-box.col-sm-2
+      = link_to  '#', :id => "printa5" do
+        = image_tag 'print.png'
+        %p  چاپ فاکتور با سایز A5
+    .print-box.col-sm-2
+      = link_to  '#', :id => "printa4s" do
+        = image_tag 'print.png'
+        %p  چاپ فاکتور با سایز A4 و سربرگ
+    .print-box.col-sm-2
+      = link_to  '#', :id => "printa5s" do
+        = image_tag 'print.png'
+        %p  چاپ فاکتور با سایز A5 و سربرگ
+    - if is_admin?
+      = link_to 'ویرایش', edit_letter_path(@letter), :class => "btn btn-info"
+      \|
+      = link_to 'بازگشت', letters_path
+  .show-factor.fa.col-sm-12
+    .header      
+      .header-img#sarbargh= image_tag 'header-small.jpg'
+      .header-date        
+        %p.fa.clear-float
+          %b.header-date-title#number.col-sm-6.pull-right شماره سند:
+          .show-number.col-sm-6= @letter.letter_number
+        %p.fa.clear-float
+          %b.header-date-title#date.col-sm-6.pull-right تاریخ:
+          .show-date.col-sm-6= JalaliDate.new(@letter.created_at)
+        %p.fa.clear-float
+          %b.header-date-title#date.col-sm-6.pull-right پیوست:
+          .show-peyvast.col-sm-6= @letter.peyvast
+    .body-factor
+      %p.fa
+        %b= @letter.reciever_name
+      %p.fa
+        %b= @letter.reciever_post
+      .col-sm-11
+        = raw @letter.text
+
+      .sign
+        .col-sm-2
+        .col-sm-3{:style => "text-align:center"}
+          %p= @letter.sign_thanks
+          %p= @letter.sign_post
+          %p شرکت راش بنیان مدرن پاژ(سهامی خاص)
+      .clear-float    
+  
+      .col-sm-11
+        %p
+          %b رونوشت
+          =raw @letter.runevesht
+      .col-sm-11.alert.alert-warning.avoid-this
+        %p
+          %b توضیحات وضعیت نامه
+          = @letter.description
+
+    .factor_footer#sarbargf     
+      .footer-img= image_tag 'footer-small.jpg'
+:javascript
+  $('a#print').click(function(){    
+    $('#sarbargh, #sarbargf, #date, #number').addClass('avoid-this');
+    
+    $('body').css('position', 'absolute');
+    window.print();
+  });
+  $('a#printa4s').click(function(){
+    $('#sarbargh, #sarbargf, #date, #number').removeClass('avoid-this');
+    $('.sign').addClass('withsarbarg');
+    
+    $('body').css('position', 'absolute');
+    window.print();
+  });
+ 
