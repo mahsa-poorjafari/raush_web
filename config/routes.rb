@@ -36,6 +36,7 @@ scope "(:locale)", :locale => /en|fa/ do
     end
     member do
       get :confirm
+      get :copy_factor
     end
   end
 

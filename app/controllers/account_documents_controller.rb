@@ -1,6 +1,6 @@
 # encoding: UTF-8
 class AccountDocumentsController < ApplicationController
-  before_action :set_account_document, only: [:show, :edit, :update, :destroy, :confirm]
+  before_action :set_account_document, only: [:show, :edit, :update, :destroy, :confirm, :copy_factor]
   autocomplete :contact, :company_name, :display_value => :funky_method
   before_filter :check_autentication
   # GET /account_documents
@@ -43,7 +43,21 @@ class AccountDocumentsController < ApplicationController
     
     
   end
-  
+  def copy_factor    
+    @account_document_new = AccountDocument.new
+    @account_document_new = @account_document.dup   
+    p @account_document_new.update_attribute(:id, AccountDocument.last.id + 1)
+    if @account_document.factor_details.present?
+      @account_document.factor_details.each do |detail|         
+        @detail_new = FactorDetail.new
+        @detail_new = detail.dup                
+        @detail_new.update_attributes(:id => FactorDetail.last.id + 1, :account_document_id => @account_document_new.id )                
+        @detail_new.save!
+      end
+    end
+    @account_document_new.save!
+    
+  end
   def profit_month    
     @month = params[:date][:month]   
     if @month.present?
@@ -139,6 +153,7 @@ class AccountDocumentsController < ApplicationController
   def update
     
     if @account_document.update(account_document_params)      
+    
       @account_document.update_attribute(:created_at, @account_document.updated_at)
       @primary_value = @account_document.value
       if @account_document.factor_details.present?

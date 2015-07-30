@@ -23,13 +23,13 @@
       = link_to 'بازگشت', account_documents_path
   .show-factor.fa.col-sm-12
     .header      
-      .header-img.avoid-this= image_tag 'header-small.jpg'
+      .header-img#sarbargh= image_tag 'header-small.jpg'
       .header-date        
-        %p.fa
-          %b.header-date-title.avoid-this.col-sm-6.pull-right تاریخ :
+        %p.fa.clear-float
+          %b.header-date-title#date.col-sm-6.pull-right تاریخ:
           .show-date.col-sm-6= JalaliDate.new(@account_document.created_at)
-        %p.fa
-          %b.header-date-title.avoid-this.col-sm-6.pull-right شماره فاکتور
+        %p.fa.clear-float
+          %b.header-date-title#number.col-sm-6.pull-right شماره فاکتور:
           .show-number.col-sm-6=@account_document.factor_number
         .not-nesesery.clear-float.avoid-this
           %p.fa
@@ -121,6 +121,7 @@
           .col-sm-3{:style => "text-align:center"}
             %p با تشکر
             %p مدیرعامل اخوان راد
+            %p شرکت راش بنیان مدرن پاژ(سهامی خاص)
         .clear-float    
       - if @account_document.factor_type = 'cost' 
         .show-scan-file.avoid-this
@@ -133,11 +134,20 @@
                   .icon
                     = image_tag "ICON/pdf-icon.png", height: "40", width: "40", :alt => "دانلود بروشور راش", :title => "بروشور راش"
           
-    .factor_footer.avoid-this      
+    .factor_footer#sarbargf     
       .footer-img= image_tag 'footer-small.jpg'
   
 :javascript
-  $('a#print').click(function(){
+  $('a#print').click(function(){    
+    $('#sarbargh, #sarbargf, #date, #number').addClass('avoid-this');
+    
+    $('body').css('position', 'absolute');
+    window.print();
+  });
+  $('a#printa4s').click(function(){
+    $('#sarbargh, #sarbargf, #date, #number').removeClass('avoid-this');
+    $('.sign').addClass('withsarbarg');
+    
     $('body').css('position', 'absolute');
     window.print();
   });

@@ -14,11 +14,14 @@
       = f.hidden_field :factor_type, :value => @factor_type
     = hidden_field_tag :counter_number, params[:counter_number], :id => 'counter_number_field', :value => @last_letter_split
     .form-group
-      - if @account_document.present?
+      - if @account_document.present? && @account_document.created_at.present?      
+        %b= 'تاریخ ثبت فاکتور'         
+        = JalaliDate.new(@account_document.created_at)
       
-        %b= 'تاریخ ثبت فاکتور'  + JalaliDate.new(@account_document.created_at).to_s
+        
       %p
-        %b= 'تاریخ امروز: '  + JalaliDate.new(Date.today).to_s
+        %b= 'تاریخ امروز: '  
+        = JalaliDate.new(Date.today)
     - unless @factor_type == 'received'
       .form-group
         = f.label 'تاریخ پرداخت:', :class => "control-label"

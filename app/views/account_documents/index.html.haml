@@ -64,6 +64,8 @@
               - unless account_document.status
                 = link_to 'ویرایش', edit_account_document_path(account_document), :class => "btn btn-info"
               = link_to 'حذف', account_document, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }, :class => "btn btn-danger"
+              = link_to 'ایجاد کپی از فاکتور', copy_factor_account_document_path(account_document), :class => "btn btn-primary", :remote => true
+              
 
   
   
