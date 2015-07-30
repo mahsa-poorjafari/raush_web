@@ -21,7 +21,7 @@
     page-break-after: always;
     }
   .header-date {top:0; bottom:5cm; z-index:100; position:absolute;clear:both}
-  .body-factor {margin-top:150pt; bottom:5cm; }
+  .body-factor {margin-top:100pt; bottom:5cm; height:650pt}
   .show-date {width:4cm;right:2cm; top:2px; position:absolute; font-size:.7em }
   .show-number {width:4cm;right:2cm; top:25px; position:absolute; font-size:.7em}
   #date {width:4cm;right:2px; top:2px; position:absolute; font-size:.7em}
@@ -48,7 +48,7 @@
   .sign p{text-align:center}
   
   #sarbargh {position:fixed; top:20pt;  right:0; left:0; width:100%; clear:float}
-  #sarbargf {position:fiexd; margin-top:200pt;  width:100%; }
+  #sarbargf {position:absolute; bottom:0;  width:550pt; }
   #sarbargf .footer-img{ right:0; left:0; width:100%}
   
 }
