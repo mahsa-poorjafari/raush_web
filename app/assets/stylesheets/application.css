@@ -110,7 +110,7 @@ height:auto; background:#12828B; overflow:hidden;
 }
 .main-div {  
   position: relative;
-  min-height: 500px;
+  height:73.3vh;
   width: 100%;
   top: 100px; 
   background:#01666e;  
