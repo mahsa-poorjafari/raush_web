@@ -1,5 +1,12 @@
 /* Large desktop */
 @media (min-width: 1200px) {  }
+
+@media (min-width: 1600px) and (max-width: 1790px) {  
+  .main-div {height:78vh;}
+}
+@media (min-width: 1900px) and (max-width: 1920px) {
+  .main-div {height:79vh; margin-bottom:5%;}
+}
  
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) { 
