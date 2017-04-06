@@ -16,7 +16,9 @@
         = f.label t('order.text_msg'), :class => "control-label"
         = f.text_area :text_msg, :class => "form-control ", :style => "resize:none"
       .form-group 
-        = f.simple_captcha :label => t('captcha')
+		
+        =# f.simple_captcha :label => t('captcha')
+        .g-recaptcha{"data-sitekey" => "6LcQ2BsUAAAAAAiHQ2j8B3mWcxjTwHe2cxbnDrP4"}
         = f.submit  t('send'), :class => "btn btn-default", :id => "submit_btn"
         
     .col-xs-5.pull-right.margin5
